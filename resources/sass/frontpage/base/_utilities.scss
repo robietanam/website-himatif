@@ -1,0 +1,146 @@
+    // BACKGROUND UTILS
+    @each $color-name, $color-value in $colors {
+        .bg-#{$color-name} { background-color: $color-value !important; }
+    }
+
+    // SIZING
+    // loop to max size in base.scss
+    @for $i from 0 to ($sizing-max+1) {
+
+        // ex: sizing increment = 5
+        // 3 % 5 == 2 so false, 5 % 5 == 0 true
+        @if ($i % $sizing-increment == 0 or $i < 5)  {
+            // if 0 dont append rem, in last name, ex : w-0 not w-0rem 
+            @if ($i == 0) {
+                .w-#{$i} { width: $i !important; }
+                .h-#{$i} { height: $i !important; }
+            } @else {
+                // ex: w-5rem
+                .w-#{$i}rem { width: $i * 1rem !important; }
+                .h-#{$i}rem { height: $i * 1rem !important; }
+            }
+            
+            // LOOP EVERY BREAKPOINTS
+            @each $breakpoint-name, $breakpoint-value in $breakpoints {
+                @media screen and (min-width: $breakpoint-value) {
+                    @if ($i == 0) {
+                        .w-#{$breakpoint-name}-#{$i} { width: $i!important; }
+                        .h-#{$breakpoint-name}-#{$i} { height: $i!important; }
+                    } @else {
+                        // ex: w-sm-5rem
+                        .w-#{$breakpoint-name}-#{$i}rem { width: $i * 1rem !important; }
+                        .h-#{$breakpoint-name}-#{$i}rem { height: $i * 1rem !important; }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    // INSETS
+    @for $i from 0 to ($inset-max+1) {
+        @include getInsets(false, false, $i);
+    }
+    @for $i from 0 to ($inset-max+1) {
+        @each $breakpoint-name, $breakpoint-value in $breakpoints {
+            @include getInsets($breakpoint-name, $breakpoint-value, $i);
+        }
+    }
+
+
+    // TEXT UTILS
+    /* color */
+    @each $color-name, $color-value in $colors {
+        .text-#{$color-name} { color: $color-value !important; }
+    }
+
+    /* weight */
+    .font-weight-light {font-weight: 300;}
+    .font-weight-normal {font-weight: 400;}
+    .font-weight-semibold {font-weight: 600;}
+    .font-weight-bold {font-weight: 700;}
+    .font-weight-extrabold {font-weight: 800;}
+    .font-weight-boldest {font-weight: 900;}
+    /* line-height */
+    .text-height-0 {line-height: 0;}
+    .text-dec-none {text-decoration: none;}
+
+    // BORDER UTILS
+    .rounded-sm {border-radius: 5px !important;}
+    .rounded-md {border-radius: 10px !important;}
+    .rounded-lg {border-radius: 15px !important;}
+
+
+    // HOVER 
+    .hover-scale {
+        &:hover {
+            transition: all .3s ease-in-out;
+            transform: scale(1.1);
+        }
+    }
+    // bg color
+    @each $color-name, $color-value in $colors {
+        .hover-bgcolor-#{$color-name} {
+            &:hover {
+                background-color: $color-value !important;
+            }
+        }
+    }
+
+    // SHADOW
+    @each $color-name, $color-value in $colors {
+        .shadow-#{$color-name}-sm {
+            box-shadow: 0 10px 30px rgba($color-value, .1);
+        }
+    }
+
+    // OPACITY
+    @for $i from 0 to 10 {
+        .op-#{$i} { opacity: $i * .1; }
+    }
+
+    // DIVIDER
+    .divider {
+        background-color: $divider-color;
+        width: 100%;
+        height: .5px;
+        &-horizontal {
+            height: 100%;
+            width: .5px;
+        }
+    }
+
+    // IMAGE
+    .img-fit {
+        overflow: hidden;
+        &.img-fit-cover {
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        &.img-fit-contain {
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+
+    // GUTTER
+    .row {
+        &.gutters-xs{
+            margin-left: -.5rem;
+            margin-right: -.5rem;
+            & > [class^=col]{
+                padding: 0 .5rem;
+            }
+        }
+    }
+
+
+    // MISC
+    .csr-pointer { cursor: pointer; }

@@ -1,0 +1,114 @@
+/* ======================>  README  <===================== */
+/* 
+    Please consider to set all attribute in this file only,
+    IF HAS OVERRIDE NEW ATTRIBUTE SET WITH // OVERRIDE
+*/
+/* ======================> END OF README <===================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700&display=swap');
+
+// COLORS
+$colors : (
+    'primary'       : #2E37A4,
+    'secondary'     : #57F0D1,
+    'warning'       : #FFA33D,
+    'danger'        : #FC8484,
+    'midnight'      : #42465F,
+    'gray'          : #787d91,
+    'light'         : #F4F4FA,
+    'success'       : #78E590,
+    'info'          : #36B4FF,
+    'link'          : #E2E2E2,
+    'white'         : #FFFFFF,
+);  
+
+$gradient-colors : (
+    'primary'       : linear-gradient(90deg, #515CE2 0%, #7882F4 100%),
+    'info'          : linear-gradient(90deg, #36B4FF -4.02%, #9EDBFF 100%),
+    'secondary'     : linear-gradient(90deg, #57F0D1 0%, #A8F9E8 100%)
+);
+
+$href-color: map-get($colors, 'info');
+$divider-color: #F4F4FA;
+
+// FONT FAMILY
+// 1. Primary/Default : Titilium Web
+// 2. Secondary (rare used / for title only) : Playfair Display
+$font-type-primary: 'Nunito', sans-serif;
+// $font-type-secondary: 'Playfair Display', serif;
+
+// FONTSIZE
+$root-font-size: 10px;
+$body: 1.4rem;
+$h1: 4.8rem;
+$h2: 4.2rem;
+$h3: 3.6rem;
+$h4: 2.8rem;
+$h5: 2.4rem;
+$h6: 1.8rem;
+$p: 1.6rem;
+$text-md: 1.6rem;
+$text-sm: 1.2rem;
+$text-xs: 1rem;
+
+// BADGE PROPERTY
+$badge-padding: .4rem 1.2rem;
+$badge-lg-padding: .7rem 1.6rem;
+$badge-font-size: 1.2rem;
+$badge-lg-font-size: 1.4rem;
+$badge-border-radius: .4rem;
+$badge-pill-border-radius: 1.8rem;
+
+// BUTTON PROPERTY 
+$btn-padding: 1.2rem 2rem;
+$btn-sm-padding: 1rem 1.6rem;
+$btn-lg-padding: 1.6rem 3rem;
+$btn-border-radius: .5rem;
+$btn-font-size: 1.4rem;
+$btn-sm-font-size: 1.2rem;
+$btn-lg-font-size: 2rem;
+$btn-font-weight: 500;
+
+$btn-pill-border-radius: 0;
+
+$btn-box-shadow-size: 0 20px 30px;
+$btn-box-shadow-opacity: .2;
+$btn-action-color: map-get($colors, 'gray');
+
+// FORMS PROPERTY
+// group
+$group-margin: 0;
+// label
+$label-font-size: 1.4rem;
+$label-font-weight: 300;
+$label-color: map-get($colors, 'gray');
+$label-margin: 0 0 .5rem 0;
+// input
+$input-bg-color: rgba(map-get($colors, 'gray'), .1);
+$input-border: 1px solid rgba(map-get($colors, 'gray'), .5);
+$input-font-size: 1.6rem;
+$input-padding: 1.1rem 1.2rem;
+$input-focus-border: 1px solid rgba(map-get($colors, 'gray'), .8);
+$input-focus-box-shadow: unset;
+
+// CARD PROPERTY
+$card-border: 0;
+$card-padding: 3rem;
+
+
+// BREAKPOINTS
+$breakpoints: (
+    'sm'        : 576px,
+    'md'        : 768px,
+    'lg'        : 992px,
+    'xl'        : 1200px,
+);
+
+
+// SIZING
+$sizing-max : 100;
+$sizing-increment: 5;
+
+// INSETS
+$inset-max: 11;
+$inset-multiply-size: 2.5;

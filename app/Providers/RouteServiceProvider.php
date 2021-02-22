@@ -46,6 +46,9 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        if (env('APP_ENV') == 'local') {
+            $this->mapUIRoutes();
+        }
         //
     }
 
@@ -76,5 +79,13 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+    }
+
+
+    protected function mapUIRoutes()
+    {
+        Route::prefix('ui')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/ui.php'));
     }
 }
