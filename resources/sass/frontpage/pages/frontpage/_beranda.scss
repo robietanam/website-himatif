@@ -1,0 +1,139 @@
+body.homepage {
+    
+    background-color: color('light');
+    .card.card-marquee {
+        border-radius: 2.5rem;
+        .card-body {
+            padding: .8rem 1.5rem;
+            marquee {
+                font-size: 1.6rem;
+                color: color('gray');
+                margin-top: .5rem;
+            }
+        }
+    }
+
+    .img-wrapper-about {
+        font-size: 10px;
+        width: 40em;
+        height: 32em;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            left: -6rem;
+            bottom: -5rem;
+            width: 26rem;
+            height: 26rem;
+            background-image: url('../img/decoration/bg/2.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .img-about {
+            position: absolute;
+            width: 30em;
+            height: 18em;
+            border-radius: 1rem;
+            overflow: hidden;
+            &:nth-child(1) {
+                left: 0; top: 0;
+            }
+            &:nth-child(2) {
+                left: 6em; top: 6em;
+            }
+            &:nth-child(3) {
+                right: 0; bottom: 0;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        
+    }
+
+    header {
+        padding: 15rem 0;
+        position: relative;
+        border-bottom-left-radius: 18rem;
+        z-index: 1;
+        background-color: color('light');
+        // background-color: red;
+        background-image: 
+            url('../img/decoration/bg/1.svg'), url('../img/decoration/bg/2.svg'),
+            url('../img/decoration/memphis/2.svg'), url('../img/decoration/memphis/3.svg'), 
+            url('../img/decoration/memphis/4.svg');
+        background-position: 
+            -20vw -20vw, 90% 7rem,
+            60% 10rem, 80% 15rem, 
+            45% 38rem;
+        background-repeat: no-repeat;
+    }
+
+    section#section-1 {
+        background-color: color('white');
+        padding: 38rem 0 12rem;
+        position: relative;
+        top: -18rem;
+        margin-bottom: -18rem;
+        background-image: url('../img/decoration/bg/2.svg');
+        background-position: 95% 22rem;
+        background-size: 30rem;
+        background-repeat: no-repeat;
+    }
+
+    section#section-2 {
+        background-color: color('white');
+        padding: 12rem 0;
+        background-image: url('../img/decoration/memphis/8.svg');
+        background-repeat: no-repeat;
+        background-position: 80% 0;
+        .card.card-vision {
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid color('light');
+            .card-body {
+                padding: 0;
+                .img-fit {
+                    height: 100%;
+                    position: relative;
+                    &::before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 0; right: 0; bottom: 0; left: 0;
+                        background-color: rgba(color('primary'), .5);
+                    }
+                }
+            }
+        }
+    }
+
+    section#section-3 {
+        background-color: color('midnight');
+        padding: 12rem 0;
+        background-image: 
+            url('../img/decoration/bg/3.svg'), url('../img/decoration/bg/3.svg');
+        background-position: 
+            -15rem -15rem, 115% 135%;
+        background-repeat: no-repeat;
+    }
+
+    section#section-4 {
+        padding: 12rem 0;
+        background-color: color('white');
+        background-image: url('../img/decoration/bg/2.svg'), url('../img/decoration/memphis/8.svg');
+        background-repeat: no-repeat;
+        background-position: -10rem 130%, 95% 20%;
+        border-bottom-left-radius: 18rem;
+    }
+
+    section#section-5 {
+        padding: 12rem 0;
+        background-image: url('../img/decoration/bg/2.svg'), url('../img/decoration/memphis/10.svg');
+        background-repeat: no-repeat;
+        background-position: 115% 115%, 8% 16%;
+    }
+}

@@ -1,0 +1,68 @@
+// RESET
+
+// FONT FAMILY TYPE
+// .font-type-secondary { font-family: $font-type-secondary; }
+
+// SIZE
+:root {
+    font-size: $root-font-size;
+}
+body {
+    font-family: $font-type-primary !important;
+    font-size: $body;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+h1 {
+    font-size: $h1;
+    @media screen and (max-width: breakpoint('lg')) {
+        font-size: $h1 - 2rem;
+    }
+}
+
+h2 {
+    font-size: $h2;
+}
+
+h3 {
+    font-size: $h3;
+    @media screen and (max-width: breakpoint('lg')) {
+        font-size: $h3 - 2rem;
+    }
+}
+
+h4 {
+    font-size: $h4;
+}
+h5 {
+    font-size: $h5;
+    @media screen and (max-width: breakpoint('lg')) {
+        font-size: $h5 - .6rem;
+    }
+}
+h6 {
+    font-size: $h6;
+    @media screen and (max-width: breakpoint('lg')) {
+        font-size: $h6 - .2rem;
+    }
+}
+
+p {
+    font-size: $p;
+    margin-bottom: 0;
+    @media screen and (max-width: breakpoint('lg')) {
+        font-size: $p - .2rem;
+    }
+}
+
+a {
+    color: $href-color;
+}
+
+
+.text-md {font-size: $text-md;}
+.text-sm {font-size: $text-sm;}
+.text-xs {font-size: $text-xs;}
+
