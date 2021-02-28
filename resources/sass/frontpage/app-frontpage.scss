@@ -29,9 +29,11 @@
 @import 'pages/frontpage/beranda';
 @import 'pages/frontpage/tentang';
 @import 'pages/frontpage/divisi';
+@import 'pages/frontpage/proker';
 
 // vendors
-@import 'vendors/bootstrap_select'
+@import 'vendors/bootstrap_select';
+@import 'vendors/lightbox';
 
 // compile
 // npm run watch --poll (dev)

@@ -1,0 +1,19 @@
+.lb-nav {
+    .lb-next, .lb-prev {
+        background-repeat: no-repeat;
+        opacity: .7 !important;
+        background-size: 12px !important;
+        @media screen and (min-width: breakpoint('md')) {
+            background-size: 18px !important;
+        }
+    }
+    .lb-next {
+        background-image: url('../img/icons/chevron-right-white.svg') !important;
+        background-position: calc(100% - 1.5rem) center !important;
+    }
+    .lb-prev {
+        background-image: url('../img/icons/chevron-left-white.svg') !important;
+        background-position: calc(0% + 1.5rem) center !important;
+       
+    }
+}

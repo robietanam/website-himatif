@@ -5,7 +5,7 @@
             <div class="navbar-brand-title">HIMATIF</div>
         </a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar-top">
-            <i class="bi-card-list"></i>
+            <h5 class="mb-0"><i class="fas fa-bars"></i></h5>
         </button>
         <div class="collapse navbar-collapse" id="navbar-top">
             <ul class="navbar-nav ml-auto">
@@ -25,7 +25,7 @@
                     <a class="nav-link" href="#">BLOG</a>
                 </li>
                 <div class="nav-item">
-                    <a href="" class="btn btn-outline-info">HIMATIF HELPER</a>
+                    <a href="" class="btn btn-block btn-outline-info">HIMATIF HELPER</a>
                 </div>
             </ul>
         </div>

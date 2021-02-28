@@ -10,5 +10,7 @@
 | please use it for local
 |
 */
+// For Documentation
+Route::view('docs', '_ui.frontpage._docs.index');
 
 Route::view('homepage', '_ui.frontpage.modules.homepage');

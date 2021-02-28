@@ -35,6 +35,16 @@
             }
         }
     }
+    @for $i from 25 to 101 {
+        .w-#{$i} { width: $i * 1%; }
+        .h-#{$i} { height: $i * 1%; }
+        @each $breakpoint-name, $breakpoint-value in $breakpoints {
+            @media screen and (min-width: $breakpoint-value) {
+                .w-#{$breakpoint-name}-#{$i} { width: $i * 1% !important; }
+                .h-#{$breakpoint-name}-#{$i} { height: $i * 1% !important; }
+            }
+        }
+    }
 
 
 
