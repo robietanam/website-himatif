@@ -647,6 +647,7 @@ a {
   font-size: 1rem;
 }
 
+/* solid */
 .bg-primary {
   background-color: #2E37A4 !important;
 }
@@ -689,6 +690,19 @@ a {
 
 .bg-white {
   background-color: #FFFFFF !important;
+}
+
+/* gradient */
+.bg-gradient-primary {
+  background: linear-gradient(90deg, #515CE2 0%, #7882F4 100%) !important;
+}
+
+.bg-gradient-info {
+  background: linear-gradient(90deg, #36B4FF -4.02%, #9EDBFF 100%) !important;
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(90deg, #57F0D1 0%, #A8F9E8 100%) !important;
 }
 
 .w-0 {
@@ -8829,27 +8843,27 @@ a {
 }
 
 /* weight */
-.font-weight-light {
+.font-light {
   font-weight: 300;
 }
 
-.font-weight-normal {
+.font-normal {
   font-weight: 400;
 }
 
-.font-weight-semibold {
+.font-semibold {
   font-weight: 600;
 }
 
-.font-weight-bold {
+.font-bold {
   font-weight: 700;
 }
 
-.font-weight-extrabold {
+.font-extrabold {
   font-weight: 800;
 }
 
-.font-weight-boldest {
+.font-boldest {
   font-weight: 900;
 }
 
@@ -8872,6 +8886,68 @@ a {
 
 .rounded-lg {
   border-radius: 15px !important;
+}
+
+/* size */
+.border-xs {
+  border: 0.5px solid #6f6f6f;
+}
+
+.border {
+  border: 1px solid #6f6f6f;
+}
+
+.border-md {
+  border: 1.5px solid #6f6f6f;
+}
+
+.border-lg {
+  border: 2px solid #6f6f6f;
+}
+
+/* colors */
+.border-primary {
+  border-color: #2E37A4 !important;
+}
+
+.border-secondary {
+  border-color: #57F0D1 !important;
+}
+
+.border-warning {
+  border-color: #FFA33D !important;
+}
+
+.border-danger {
+  border-color: #FC8484 !important;
+}
+
+.border-midnight {
+  border-color: #42465F !important;
+}
+
+.border-gray {
+  border-color: #787d91 !important;
+}
+
+.border-light {
+  border-color: #F4F4FA !important;
+}
+
+.border-success {
+  border-color: #78E590 !important;
+}
+
+.border-info {
+  border-color: #36B4FF !important;
+}
+
+.border-link {
+  border-color: #E2E2E2 !important;
+}
+
+.border-white {
+  border-color: #FFFFFF !important;
 }
 
 .hover-scale:hover {
@@ -9012,7 +9088,7 @@ a {
   width: 100%;
   height: 0.5px;
 }
-.divider-horizontal {
+.divider-vertical {
   height: 100%;
   width: 0.5px;
 }

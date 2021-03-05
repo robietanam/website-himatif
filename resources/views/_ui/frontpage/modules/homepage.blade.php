@@ -10,10 +10,10 @@
         <div class="container">
             <div class="row mb-5 mb-lg-10 justify-content-center text-center text-lg-left">
                 <div class="col-lg-6 order-2 order-lg-1">
-                    <h3 class="text-dec text-dec-secondary-1 text-dec-tl text-midnight font-weight-extrabold mb-2 d-none d-lg-block">
+                    <h3 class="text-dec text-dec-secondary-1 text-dec-tl text-midnight font-extrabold mb-2 d-none d-lg-block">
                         HIMPUNAN MAHASISWA TEKNOLOGI INFORMASI
                     </h3>
-                    <p class="text-gray font-weight-semibold mb-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem blanditiis ipsa consequuntur debitis beatae ea hic inventore numquam perspiciatis dicta voluptatum sapiente earum id libero velit, quod vel ad laborum aut molestias odio? Sed nesciunt, quas illum ratione molestias possimus iste. Doloribus accusantium aspernatur voluptate pariatur asperiores odit vel reprehenderit.</p>
+                    <p class="text-gray font-semibold mb-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem blanditiis ipsa consequuntur debitis beatae ea hic inventore numquam perspiciatis dicta voluptatum sapiente earum id libero velit, quod vel ad laborum aut molestias odio? Sed nesciunt, quas illum ratione molestias possimus iste. Doloribus accusantium aspernatur voluptate pariatur asperiores odit vel reprehenderit.</p>
 
                     <div class="row">
                         <div class="col-xl-10">
@@ -34,7 +34,7 @@
                     
                 </div>
                 <div class="col-md-8 col-lg-6 order-1 order-lg-2 mb-3 mb-lg-0 pt-3">
-                    <h3 class="text-dec text-dec-secondary-1 text-dec-tl text-midnight font-weight-extrabold mb-2 d-lg-none">
+                    <h3 class="text-dec text-dec-secondary-1 text-dec-tl text-midnight font-extrabold mb-2 d-lg-none">
                         HIMPUNAN MAHASISWA TEKNOLOGI INFORMASI
                     </h3>
                     <div class="header-img">
@@ -45,10 +45,10 @@
             
             <div class="row pt-5">
                 <div class="col-12 text-center mb-5">
-                    <h3 class="text-dec text-dec-secondary-2 text-dec-tl text-midnight font-weight-extrabold mb-2">
+                    <h3 class="text-dec text-dec-secondary-2 text-dec-tl text-midnight font-extrabold mb-2">
                         APA YANG KAMI LAKUKAN
                     </h3>
-                    <h6 class="text-gray font-weight-semibold">Berfokus pada pengembangan SDM pada ranah Teknologi Informasi</h6>
+                    <h6 class="text-gray font-semibold">Berfokus pada pengembangan SDM pada ranah Teknologi Informasi</h6>
                 </div>
 
                 <div class="col-lg-4 mb-3 mb-lg-0">
@@ -59,7 +59,7 @@
                                     <img src="{{ asset('img/icons/pencil-warning.svg') }}" alt="" class="w-3rem w-lg-5rem">
                                 </div>
                                 <div class="col">
-                                    <h6 class="text-midnight font-weight-bold">Menyusun Proker</h6>
+                                    <h6 class="text-midnight font-bold">Menyusun Proker</h6>
                                     <div class="text-gray">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo repellat eveniet sint nam corrupti.</div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                     <img src="{{ asset('img/icons/list-info.svg') }}" alt="" class="w-3rem w-lg-5rem">
                                 </div>
                                 <div class="col">
-                                    <h6 class="text-midnight font-weight-bold">Melaksanakan Proker</h6>
+                                    <h6 class="text-midnight font-bold">Melaksanakan Proker</h6>
                                     <div class="text-gray">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo repellat eveniet sint nam corrupti.</div>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@
                                     <img src="{{ asset('img/icons/graduate-secondary.svg') }}" alt="" class="w-3rem w-lg-5rem">
                                 </div>
                                 <div class="col">
-                                    <h6 class="text-midnight font-weight-bold">Meningkatkan SDM</h6>
+                                    <h6 class="text-midnight font-bold">Meningkatkan SDM</h6>
                                     <div class="text-gray">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo repellat eveniet sint nam corrupti.</div>
                                 </div>
                             </div>
@@ -106,7 +106,7 @@
         <div class="container">
             <div class="row justify-content-center justify-content-lg-around text-center text-lg-left">
                 <div class="col-auto col-lg-5 mb-3 mb-lg-0">
-                    <h3 class="text-dec text-dec-info-2 text-dec-tl text-midnight font-weight-extrabold mb-2 d-lg-none">
+                    <h3 class="text-dec text-dec-info-2 text-dec-tl text-midnight font-extrabold mb-2 d-lg-none">
                         TENTANG HIMATIF
                     </h3>
                     <div class="img-wrapper-about">
@@ -122,7 +122,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 text-lg-right">
-                    <h3 class="text-dec text-dec-info-2 text-dec-tl text-midnight font-weight-extrabold mb-2 d-none d-lg-inline-block">
+                    <h3 class="text-dec text-dec-info-2 text-dec-tl text-midnight font-extrabold mb-2 d-none d-lg-inline-block">
                         TENTANG HIMATIF
                     </h3>
                     <p class="text-gray mb-2">
@@ -140,7 +140,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center mb-5">
-                    <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-weight-extrabold mb-2">
+                    <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
                         VISI DAN MISI
                     </h3>
                     <p class="text-gray">
@@ -157,7 +157,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg p-2 p-lg-3">
-                                    <h5 class="text-midnight text-shadowed font-weight-extrabold">
+                                    <h5 class="text-midnight text-shadowed font-extrabold">
                                         VISI <span class="text-shadowed-content">VISI</span>
                                     </h5>
                                     <div class="divider my-2"></div>
@@ -183,7 +183,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg p-2 p-lg-3">
-                                    <h5 class="text-midnight text-shadowed font-weight-extrabold">
+                                    <h5 class="text-midnight text-shadowed font-extrabold">
                                         MISI <span class="text-shadowed-content">MISI</span>
                                     </h5>
                                     <div class="divider my-2"></div>
@@ -209,7 +209,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 text-center mb-5">
-                    <h3 class="text-dec text-dec-warning-1 text-dec-tl text-white font-weight-extrabold mb-2">
+                    <h3 class="text-dec text-dec-warning-1 text-dec-tl text-white font-extrabold mb-2">
                         DIVISI
                     </h3>
                     <h6 class="text-light">5 Divisi Himatif saat ini</h6>
@@ -252,7 +252,7 @@
                             <img src="{{ asset('img/icons/'.$division['shortname'].'-secondary.svg') }}" alt="" class="img-fluid">
                         </div>
                         <div class="col-lg pl-lg-1">
-                            <h5 class="text-white font-weight-bold mb-1">{{ $division['name'] }}</h5>
+                            <h5 class="text-white font-bold mb-1">{{ $division['name'] }}</h5>
                             <p class="text-light">
                                 {{ strlen($division['content']) > 85 ? substr($division['content'], 0, 85) . '...' : $division['content'] }}
                             </p>
@@ -269,7 +269,7 @@
     {{-- Section 4 : Proker --}}
     <section id="section-4">
         <div class="container">
-            <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-weight-extrabold mb-2">
+            <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
                 PROGRAM KERJA
             </h3>
             <h6 class="text-gray mb-2">Program Kerja Himatif tahun 2020/2021</h6>
@@ -289,13 +289,13 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-auto col-xl-4">
-                                    <h4 class="text-midnight font-weight-bold mb-1 d-xl-none">Technology Innovative Challenge</h4>
+                                    <h4 class="text-midnight font-bold mb-1 d-xl-none">Technology Innovative Challenge</h4>
                                     <div class="img-fit img-fit-contain h-20rem">
                                         <img src="{{ asset('img/features/proker/tic.png') }}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
-                                    <h6 class="text-midnight font-weight-bold mb-1 d-none d-xl-block">Technology Innovative Challenge</h6>
+                                    <h6 class="text-midnight font-bold mb-1 d-none d-xl-block">Technology Innovative Challenge</h6>
                                     <p class="text-gray mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati magnam quo similique, soluta iusto quia vero molestiae non dolor saepe.</p>
                                     <a href="" class="text-gray">
                                         Detail <i class="fas fa-arrow-right ml-1"></i>
@@ -310,13 +310,13 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-auto col-xl-4">
-                                    <h4 class="text-midnight font-weight-bold mb-1 d-xl-none">ITeC</h4>
+                                    <h4 class="text-midnight font-bold mb-1 d-xl-none">ITeC</h4>
                                     <div class="img-fit img-fit-contain h-20rem">
                                         <img src="{{ asset('img/features/proker/itec.png') }}" alt="" class="img-fluid">
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
-                                    <h6 class="text-midnight font-weight-bold mb-1 d-none d-xl-block">ITeC</h6>
+                                    <h6 class="text-midnight font-bold mb-1 d-none d-xl-block">ITeC</h6>
                                     <p class="text-gray mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati magnam quo similique, soluta iusto quia vero molestiae non dolor saepe.</p>
                                     <a href="" class="text-gray">
                                         Detail <i class="fas fa-arrow-right ml-1"></i>
@@ -331,13 +331,13 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-auto col-xl-4">
-                                    <h4 class="text-midnight font-weight-bold mb-1 d-xl-none">Technology Innovative Challenge</h4>
+                                    <h4 class="text-midnight font-bold mb-1 d-xl-none">Technology Innovative Challenge</h4>
                                     <div class="img-fit img-fit-contain h-20rem">
                                         <img src="{{ asset('img/features/proker/tic.png') }}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
-                                    <h6 class="text-midnight font-weight-bold mb-1 d-none d-xl-block">Technology Innovative Challenge</h6>
+                                    <h6 class="text-midnight font-bold mb-1 d-none d-xl-block">Technology Innovative Challenge</h6>
                                     <p class="text-gray mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati magnam quo similique, soluta iusto quia vero molestiae non dolor saepe.</p>
                                     <a href="" class="text-gray">
                                         Detail <i class="fas fa-arrow-right ml-1"></i>
@@ -357,7 +357,7 @@
         <div class="container">
             <div class="row gutters-xs">
                 <div class="col-12 text-right mb-3 mb-md-5">
-                    <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-weight-extrabold mb-2">
+                    <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
                         GALERI KEGIATAN
                     </h3>
                     <h6 class="text-gray mb-2">Kegiatan Himatif Terbaru</h6>
