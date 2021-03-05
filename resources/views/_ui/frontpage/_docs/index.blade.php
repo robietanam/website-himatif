@@ -14,6 +14,23 @@
     {{-- Section 1 : Colors --}}
     <section>
         <div class="container">
+
+            <div class="row mb-5">
+                <div class="col-xl-3">
+                    <div class="card border">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <div class="img-fit img-fit-cover w-10rem h-10rem rounded-circle bg-dark">
+                                <img src="{{ asset('img/galery/1.jpg') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="font-boldest op-1">Divisi dan Pengurus</h3>
+            <div class="divider my-5"></div>
+
+
             <h4 class="text-dec text-dec-warning-2 text-dec-tr text-midnight font-extrabold mb-2">
                 Color Theme
             </h4>
@@ -39,6 +56,8 @@
                 @endforeach
             </div>
 
+            <h1 class="font-extrabold">contoh</h1>
+
             <h5 class="text-gray font-bold op-6 my-2">Gradient Color</h5>
             @php
                 $colors = [ 
@@ -54,6 +73,8 @@
                     </div>
                 @endforeach
             </div>
+
+
 
             <div class="divider my-6"></div>
         </div>
