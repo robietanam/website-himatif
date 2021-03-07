@@ -15,4 +15,5 @@ Route::view('docs', '_ui.frontpage._docs.index');
 
 Route::view('homepage', '_ui.frontpage.modules.homepage');
 Route::view('blog', '_ui.frontpage.modules.blog');
+Route::view('blogs', '_ui.frontpage.modules.blogs');
 Route::view('about', '_ui.frontpage.modules.about');

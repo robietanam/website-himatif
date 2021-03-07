@@ -5,7 +5,6 @@
 @section('pageClass', 'blog')
 
 @section('content')
-<header>
     <section id="section-1">
         <div class="container">
             <div class="row">
@@ -18,14 +17,14 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section id="section-2">
+
         <div class="container">
             <div class="row mt-5">
+                {{-- blog list --}}
                 <div class="col-8">
                     <div class="row">
                         {{-- data --}}
-                        <div class="col-12 mb-1">
+                        <div class="col-xs-12 col-sm-12 mb-1">
                             <div class="card card-vision shadow-midnight-sm rounded">
                                 <div class="card-body">
                                     <div class="row no-gutters">
@@ -51,7 +50,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 mb-1">
+                        <div class="col-xs-12 col-sm-12 mb-1">
                             <div class="card card-vision shadow-midnight-sm rounded">
                                 <div class="card-body">
                                     <div class="row no-gutters">
@@ -78,8 +77,6 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
                 {{-- blog lainnya --}}
                 <div class="col-4">
@@ -88,12 +85,12 @@
                         <h5 class="text-midnight text-shadowed font-extrabold mb-2">
                             Blog lainnya
                         </h5>
-                        <div class="row">
+                        <div class="row no-gutters">
                             {{-- data --}}
                             <div class="col-12">
                                 <div class="row no-gutters">
                                     <div class="col-4">
-                                        <div class="img-fit img-fit-cover h-5rem w-lg-50 rounded">
+                                        <div class="img-fit img-fit-cover h-5rem w-5rem w-lg-80 h-lg-40">
                                             <img src="http://127.0.0.1:8000/img/misc/visi.png" alt="">
                                         </div>
                                     </div>
@@ -109,12 +106,12 @@
                             </div>
                             <div class="col-12">
                                 <div class="row no-gutters">
-                                    <div class="col-lg-4">
-                                        <div class="img-fit img-fit-cover h-5rem w-lg-50 rounded">
+                                    <div class="col-4">
+                                        <div class="img-fit img-fit-cover h-5rem w-5rem w-lg-80 h-lg-40">
                                             <img src="http://127.0.0.1:8000/img/misc/visi.png" alt="">
                                         </div>
                                     </div>
-                                    <div class="col-lg-8">
+                                    <div class="col-8">
                                         <h7 class="text-midnight text-shadowed font-extrabold mb-2">
                                             Event Baru Telah Hadir
                                         </h7>
@@ -127,11 +124,10 @@
                         </div>
                         </div>
                     </div>
-                    {{-- enddi --}}
                 </div>
             </div>
         </div>
 
     </section>
-</header>
+
 @endsection
