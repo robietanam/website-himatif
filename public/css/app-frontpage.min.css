@@ -9553,6 +9553,22 @@ body.homepage section#section-5 .img-gallery img {
   color: red;
 }
 
+body.blog {
+  background-color: #F4F4FA;
+}
+body.blog header {
+  background-color: #F4F4FA;
+  padding: 8rem 0;
+  background-image: url("../img/decoration/bg/1.svg"), url("../img/decoration/bg/1.svg");
+  background-position: -20rem -20rem, 15rem 125%;
+  background-repeat: no-repeat;
+}
+@media screen and (min-width: 768px) {
+  body.blog header {
+    padding: 12rem 0;
+    background-position: -15rem -15rem, 115% 135%;
+  }
+}
 .dropdown.bootstrap-select .dropdown-toggle {
   display: block !important;
   border: 1px solid rgba(120, 125, 145, 0.5) !important;

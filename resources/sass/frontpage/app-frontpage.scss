@@ -1,38 +1,39 @@
 // abstract
-@import 'abstract/variables';
-@import 'abstract/functions';
-@import 'abstract/mixins';
+@import "abstract/variables";
+@import "abstract/functions";
+@import "abstract/mixins";
 
 // components
-@import 'components/badge';
-@import 'components/button';
-@import 'components/card';
-@import 'components/form';
+@import "components/badge";
+@import "components/button";
+@import "components/card";
+@import "components/form";
 
 // base
-@import 'base/base';
-@import 'base/utilities';
+@import "base/base";
+@import "base/utilities";
 
-// layout 
-@import 'layout/navbar';
-@import 'layout/footer';
+// layout
+@import "layout/navbar";
+@import "layout/footer";
 
 // custom
 // * custom component for this porject
-@import 'customs/text';
+@import "customs/text";
 
 // pages
 // 1 homepage
 // 2 tentang
 // 3 divisi
-@import 'pages/beranda';
-@import 'pages/tentang';
-@import 'pages/divisi';
-@import 'pages/proker';
+@import "pages/beranda";
+@import "pages/tentang";
+@import "pages/divisi";
+@import "pages/proker";
+@import "pages/blog";
 
 // vendors
-@import 'vendors/bootstrap_select';
-@import 'vendors/lightbox';
+@import "vendors/bootstrap_select";
+@import "vendors/lightbox";
 
 // compile
 // npm run watch --poll (dev)

@@ -1,0 +1,19 @@
+body.blog {
+    // Section 3 : Divisi
+    background-color: color("light");
+    header {
+        background-color: color("light");
+        padding: 8rem 0;
+        background-image: url("../img/decoration/bg/1.svg"),
+            url("../img/decoration/bg/1.svg");
+        background-position: -20rem -20rem, 15rem 125%;
+        background-repeat: no-repeat;
+        @media screen and (min-width: breakpoint("md")) {
+            padding: 12rem 0;
+            background-position: -15rem -15rem, 115% 135%;
+        }
+    }
+    .divider {
+        background-color: color("grey");
+    }
+}
