@@ -1,5 +1,5 @@
 body.homepage {
-    
+
     background-color: color('light');
     .card.card-marquee {
         border-radius: 2.5rem;
@@ -60,7 +60,7 @@ body.homepage {
                 object-fit: cover;
             }
         }
-        
+
     }
 
     header {
@@ -70,12 +70,12 @@ body.homepage {
         z-index: 1;
         background-color: color('light');
         // background-color: red;
-        background-image: 
+        background-image:
             url('../img/decoration/bg/1.svg'),
-            url('../img/decoration/memphis/2.svg'), url('../img/decoration/memphis/3.svg'), 
+            url('../img/decoration/memphis/2.svg'), url('../img/decoration/memphis/3.svg'),
             url('../img/decoration/memphis/4.svg');
-        background-position: 
-            -40rem -40rem, 80% 3rem, 
+        background-position:
+            -40rem -40rem, 80% 3rem,
             80% 15rem, 95% 34rem;
         background-size: auto, 30px, 30px, 20px;
         background-repeat: no-repeat;
@@ -84,8 +84,8 @@ body.homepage {
             padding: 15rem 0;
             border-bottom-left-radius: 18rem;
             background-size: unset;
-            background-position: 
-                -30rem -30rem, 60% 10rem, 
+            background-position:
+                -30rem -30rem, 60% 10rem,
                 80% 15rem, 45% 38rem;
         }
 
@@ -168,14 +168,14 @@ body.homepage {
     section#section-3 {
         background-color: color('midnight');
         padding: 8rem 0;
-        background-image: 
+        background-image:
             url('../img/decoration/bg/3.svg'), url('../img/decoration/bg/3.svg');
-        background-position: 
+        background-position:
             -20rem -20rem, 15rem 125%;
         background-repeat: no-repeat;
         @media screen and (min-width: breakpoint('md')) {
             padding: 12rem 0;
-            background-position: 
+            background-position:
                 -15rem -15rem, 115% 135%;
         }
     }

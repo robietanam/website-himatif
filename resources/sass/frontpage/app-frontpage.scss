@@ -13,7 +13,7 @@
 @import 'base/base';
 @import 'base/utilities';
 
-// layout 
+// layout
 @import 'layout/navbar';
 @import 'layout/footer';
 
@@ -29,6 +29,8 @@
 @import 'pages/tentang';
 @import 'pages/divisi';
 @import 'pages/proker';
+@import 'pages/notfound';
+@import 'pages/about';
 
 // vendors
 @import 'vendors/bootstrap_select';
