@@ -9552,6 +9552,7 @@ body.homepage section#section-5 .img-gallery img {
   color: red;
 }
 
+<<<<<<< HEAD
 body.notfound {
   background-color: #F4F4FA;
 }
@@ -9559,20 +9560,206 @@ body.notfound header {
   background-color: #42465F;
   padding: 8rem 0;
   background-image: url("../img/decoration/bg/3.svg"), url("../img/decoration/bg/3.svg");
+=======
+body.blog {
+  background-color: #F4F4FA;
+}
+body.blog section#section-1 {
+  background-color: #F4F4FA;
+  padding: 8rem 0;
+  background-image: url("../img/decoration/bg/1.svg"), url("../img/decoration/bg/1.svg");
+>>>>>>> 3225209ea033bddf59ced81520136fb10bd3a44a
   background-position: -20rem -20rem, 15rem 125%;
   background-repeat: no-repeat;
 }
 @media screen and (min-width: 768px) {
+<<<<<<< HEAD
   body.notfound header {
+=======
+  body.blog section#section-1 {
+>>>>>>> 3225209ea033bddf59ced81520136fb10bd3a44a
     padding: 12rem 0;
     background-position: -15rem -15rem, 115% 135%;
   }
 }
+<<<<<<< HEAD
 
 body.notfound {
   background-color: #F4F4FA;
 }
 body.notfound header {
+=======
+body.homepage {
+  background-color: #F4F4FA;
+}
+body.homepage .card.card-marquee {
+  border-radius: 2.5rem;
+}
+body.homepage .card.card-marquee .card-body {
+  padding: 0.8rem 1rem;
+}
+@media screen and (min-width: 576px) {
+  body.homepage .card.card-marquee .card-body {
+    padding: 0.8rem 1.5rem;
+  }
+}
+body.homepage .card.card-marquee .card-body marquee {
+  font-size: 1.3rem;
+  color: #787d91;
+  margin-top: 0.5rem;
+}
+@media screen and (min-width: 576px) {
+  body.homepage .card.card-marquee .card-body marquee {
+    font-size: 1.6rem;
+  }
+}
+body.homepage .img-wrapper-about {
+  font-size: 7px;
+  width: 40em;
+  height: 32em;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  body.homepage .img-wrapper-about {
+    font-size: 10px;
+  }
+}
+body.homepage .img-wrapper-about::before {
+  content: "";
+  position: absolute;
+  display: block;
+  left: -6rem;
+  bottom: -5rem;
+  width: 26em;
+  height: 26em;
+  background-image: url("../img/decoration/bg/2.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body.homepage .img-wrapper-about .img-about {
+  position: absolute;
+  width: 30em;
+  height: 18em;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+body.homepage .img-wrapper-about .img-about:nth-child(1) {
+  left: 0;
+  top: 0;
+}
+body.homepage .img-wrapper-about .img-about:nth-child(2) {
+  left: 6em;
+  top: 6em;
+}
+body.homepage .img-wrapper-about .img-about:nth-child(3) {
+  right: 0;
+  bottom: 0;
+}
+body.homepage .img-wrapper-about .img-about img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body.homepage header {
+  padding: 5rem 0;
+  position: relative;
+  border-bottom-left-radius: 8rem;
+  z-index: 1;
+  background-color: #F4F4FA;
+  background-image: url("../img/decoration/bg/1.svg"), url("../img/decoration/memphis/2.svg"), url("../img/decoration/memphis/3.svg"), url("../img/decoration/memphis/4.svg");
+  background-position: -40rem -40rem, 80% 3rem, 80% 15rem, 95% 34rem;
+  background-size: auto, 30px, 30px, 20px;
+  background-repeat: no-repeat;
+}
+@media screen and (min-width: 992px) {
+  body.homepage header {
+    padding: 15rem 0;
+    border-bottom-left-radius: 18rem;
+    background-size: unset;
+    background-position: -30rem -30rem, 60% 10rem, 80% 15rem, 45% 38rem;
+  }
+}
+body.homepage header .header-img {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: visible;
+}
+body.homepage header .header-img::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background-image: url("../img/decoration/bg/2.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  top: -30%;
+  right: -10%;
+}
+@media screen and (min-width: 768px) {
+  body.homepage header .header-img::before {
+    width: 120%;
+    height: 120%;
+  }
+}
+body.homepage section#section-1 {
+  background-color: #FFFFFF;
+  padding: 28rem 0 8rem;
+  position: relative;
+  top: -18rem;
+  margin-bottom: -18rem;
+}
+@media screen and (min-width: 768px) {
+  body.homepage section#section-1 {
+    padding: 38rem 0 12rem;
+    background-image: url("../img/decoration/bg/2.svg");
+    background-size: 30rem;
+    background-repeat: no-repeat;
+    background-position: 95% 22rem;
+  }
+}
+body.homepage section#section-2 {
+  background-color: #FFFFFF;
+  padding: 10rem 0;
+  background-image: url("../img/decoration/memphis/8.svg");
+  background-repeat: no-repeat;
+  background-position: 80% 0;
+  background-size: 8rem;
+}
+@media screen and (min-width: 992px) {
+  body.homepage section#section-2 {
+    background-position: 80% 0;
+    padding: 12rem 0;
+    background-size: unset;
+  }
+}
+body.homepage section#section-2 .card.card-vision {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid #F4F4FA;
+}
+body.homepage section#section-2 .card.card-vision .card-body {
+  padding: 0;
+}
+body.homepage section#section-2 .card.card-vision .card-body .img-fit {
+  height: 100%;
+  position: relative;
+}
+body.homepage section#section-2 .card.card-vision .card-body .img-fit::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(46, 55, 164, 0.5);
+}
+body.homepage section#section-3 {
+>>>>>>> 3225209ea033bddf59ced81520136fb10bd3a44a
   background-color: #42465F;
   padding: 8rem 0;
   background-image: url("../img/decoration/bg/3.svg"), url("../img/decoration/bg/3.svg");
@@ -9580,11 +9767,86 @@ body.notfound header {
   background-repeat: no-repeat;
 }
 @media screen and (min-width: 768px) {
+<<<<<<< HEAD
   body.notfound header {
+=======
+  body.homepage section#section-3 {
+>>>>>>> 3225209ea033bddf59ced81520136fb10bd3a44a
     padding: 12rem 0;
     background-position: -15rem -15rem, 115% 135%;
   }
 }
+<<<<<<< HEAD
+=======
+body.homepage section#section-4 {
+  padding: 10rem 0 4rem;
+  background-color: #FFFFFF;
+  background-image: url("../img/decoration/bg/2.svg"), url("../img/decoration/memphis/8.svg");
+  background-repeat: no-repeat;
+  background-position: -10rem 130%, 10% 4rem;
+  border-bottom-left-radius: 8rem;
+  background-size: auto, 80px;
+}
+@media screen and (min-width: 768px) {
+  body.homepage section#section-4 {
+    padding: 12rem 0;
+    background-position: -10rem 130%, 95% 20%;
+    border-bottom-left-radius: 18rem;
+  }
+}
+body.homepage section#section-5 {
+  padding: 10rem 0 5rem;
+  background-image: url("../img/decoration/bg/2.svg"), url("../img/decoration/memphis/10.svg");
+  background-repeat: no-repeat;
+  background-position: -15rem calc(100% + 15rem), 8% 4rem;
+  background-size: 30rem, 60px;
+}
+@media screen and (min-width: 768px) {
+  body.homepage section#section-5 {
+    padding: 12rem 0;
+    background-position: 115% 115%, 8% 16%;
+    background-size: unset;
+  }
+}
+body.homepage section#section-5 .img-gallery {
+  width: 100%;
+  height: 8rem;
+  overflow: hidden;
+}
+@media screen and (min-width: 400px) {
+  body.homepage section#section-5 .img-gallery {
+    height: 16rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  body.homepage section#section-5 .img-gallery {
+    height: 21rem;
+  }
+}
+body.homepage section#section-5 .img-gallery.img-gallery-main {
+  height: 18rem;
+}
+@media screen and (min-width: 400px) {
+  body.homepage section#section-5 .img-gallery.img-gallery-main {
+    height: 32rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  body.homepage section#section-5 .img-gallery.img-gallery-main {
+    height: 43.2rem;
+  }
+}
+body.homepage section#section-5 .img-gallery img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.proker {
+  color: red;
+}
+>>>>>>> 3225209ea033bddf59ced81520136fb10bd3a44a
 
 .dropdown.bootstrap-select .dropdown-toggle {
   display: block !important;

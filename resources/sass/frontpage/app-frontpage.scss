@@ -1,40 +1,59 @@
 // abstract
-@import 'abstract/variables';
-@import 'abstract/functions';
-@import 'abstract/mixins';
+@import "abstract/variables";
+@import "abstract/functions";
+@import "abstract/mixins";
 
 // components
-@import 'components/badge';
-@import 'components/button';
-@import 'components/card';
-@import 'components/form';
+@import "components/badge";
+@import "components/button";
+@import "components/card";
+@import "components/form";
 
 // base
-@import 'base/base';
-@import 'base/utilities';
+@import "base/base";
+@import "base/utilities";
 
 // layout
+<<<<<<< HEAD
 @import 'layout/navbar';
 @import 'layout/footer';
+=======
+@import "layout/navbar";
+@import "layout/footer";
+>>>>>>> 3225209ea033bddf59ced81520136fb10bd3a44a
 
 // custom
 // * custom component for this porject
-@import 'customs/text';
+@import "customs/text";
 
 // pages
 // 1 homepage
 // 2 tentang
 // 3 divisi
+<<<<<<< HEAD
 @import 'pages/beranda';
 @import 'pages/tentang';
 @import 'pages/divisi';
 @import 'pages/proker';
 @import 'pages/notfound';
 @import 'pages/about';
+=======
+@import "pages/beranda";
+@import "pages/tentang";
+@import "pages/divisi";
+@import "pages/proker";
+@import "pages/blog";
+@import "pages/blogs";
+@import "pages/beranda";
+@import "pages/about";
+@import "pages/tentang";
+@import "pages/divisi";
+@import "pages/proker";
+>>>>>>> 3225209ea033bddf59ced81520136fb10bd3a44a
 
 // vendors
-@import 'vendors/bootstrap_select';
-@import 'vendors/lightbox';
+@import "vendors/bootstrap_select";
+@import "vendors/lightbox";
 
 // compile
 // npm run watch --poll (dev)

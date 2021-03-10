@@ -1,10 +1,15 @@
 @extends('_ui.frontpage.layouts.app-frontpage')
 
+<<<<<<< HEAD
 @section('title', 'ABOUT US')
+=======
+@section('title', 'About')
+>>>>>>> 3225209ea033bddf59ced81520136fb10bd3a44a
 
 @section('pageClass', 'about')
 @section('content')
 
+<<<<<<< HEAD
     {{-- Header --}}
     <header>
         <div class="container">
@@ -27,3 +32,20 @@
     {{-- End of Header --}}
 
 @endsection
+=======
+    
+
+@endsection
+
+@section('style')
+    <style>
+
+    </style>
+@endsection
+
+@section('script')
+    <script>
+
+    </script>
+@endsection
+>>>>>>> 3225209ea033bddf59ced81520136fb10bd3a44a
