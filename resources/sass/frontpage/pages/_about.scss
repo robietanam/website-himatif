@@ -1,25 +1,72 @@
-<<<<<<< HEAD
-body.notfound {
-
-    background-color: color('light');
+body.about {
+    
+    background-color: color('white') !important;
 
     header {
-        background-color: color('midnight');
-        padding: 8rem 0;
+        padding: 5rem 0;
+        background-color: color('light');
         background-image:
-            url('../img/decoration/bg/3.svg'), url('../img/decoration/bg/3.svg');
-        background-position:
-            -20rem -20rem, 15rem 125%;
+            url('../img/decoration/bg/1.svg'),
+            url('../img/decoration/bg/2.svg');
+        background-size: 50rem, 50rem;
         background-repeat: no-repeat;
-        @media screen and (min-width: breakpoint('md')) {
-            padding: 12rem 0;
-            background-position:
-                -15rem -15rem, 115% 135%;
+        background-position: -30rem -30rem, 140% -150%;
+    }
+
+    section#section-1 {
+        padding: 10rem 0;
+        ul.list-about {
+            position: relative;
+            list-style: none;
+            padding-left: 8rem;
+            li.list-about-item {
+                width: 100%;
+                position: relative;
+                margin-bottom: 10rem;
+                &:not(:last-child) {
+                    &::before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        left: -6.8rem; top: 3rem;
+                        width: .4rem; height: calc(100% + 12rem);
+                        background-color: color('light');
+                    }
+                }
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    left: -8rem; top: 1rem;
+                    width: 3rem; height: 3rem;
+                    border: double .6rem transparent;
+                    border-radius: 50%;
+                    background-image: linear-gradient(white, white), gradient-color('primary');
+                    background-origin: border-box;
+                    background-clip: content-box, border-box;
+                }
+            }
+        }
+    }
+
+    section#section-2 {
+        padding: 10rem 0;
+        .card {
+            background-repeat: no-repeat;
+            background-position: 95% bottom;
+            box-shadow: 0 10px 30px rgba(color('midnight'), .1);
+        }
+        #card-about-1 {
+            background-color: color('midnight');
+            background-image: url('../img/decoration/bg/work-bg-primary.svg');
+        }
+        #card-about-2 {
+            background-color: color('white');
+            background-image: url('../img/decoration/bg/sitemap-bg-white.svg');
+        }
+        #card-about-3 {
+            background-color: color('white');
+            background-image: url('../img/decoration/bg/man-bg-white.svg');
         }
     }
 }
-=======
-body.about {
-    
-}
->>>>>>> 3225209ea033bddf59ced81520136fb10bd3a44a

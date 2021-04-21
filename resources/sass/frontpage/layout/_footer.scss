@@ -8,4 +8,15 @@ footer.footer {
         padding: 8rem 0 4rem;
         background-position: 120% 120%, -20% -80%;
     }
+
+    .nav {
+        .nav-item {
+            .nav-link {
+                font-size: 1.4rem;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
 }

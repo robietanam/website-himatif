@@ -1,19 +1,13 @@
 body.notfound {
-
     background-color: color('light');
-
-    header {
-        background-color: color('midnight');
-        padding: 8rem 0;
+    main {
         background-image:
-            url('../img/decoration/bg/3.svg'), url('../img/decoration/bg/3.svg');
-        background-position:
-            -20rem -20rem, 15rem 125%;
+            url('../img/decoration/bg/1.svg'),
+            url('../img/decoration/bg/1.svg');
+        background-position: 
+            calc(0% - 35rem) calc(0% - 35rem),
+            calc(100% + 35rem) calc(100% + 35rem);
+        background-size: 60rem;
         background-repeat: no-repeat;
-        @media screen and (min-width: breakpoint('md')) {
-            padding: 12rem 0;
-            background-position:
-                -15rem -15rem, 115% 135%;
-        }
     }
 }

@@ -150,8 +150,9 @@ body.homepage {
             .card-body {
                 padding: 0;
                 .img-fit {
-                    height: 100%;
+                    // height: 100%;
                     position: relative;
+                    border-bottom-right-radius: 50%;
                     &::before {
                         content: '';
                         display: block;

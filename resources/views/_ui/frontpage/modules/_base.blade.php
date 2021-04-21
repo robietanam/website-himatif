@@ -1,8 +1,8 @@
 @extends('_ui.frontpage.layouts.app-frontpage')
 
-@section('title', 'Pengurus')
+@section('title', '')
 
-@section('pageClass', 'pengurus')
+@section('pageClass', '')
 @section('content')
 
 

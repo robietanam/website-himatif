@@ -7,12 +7,16 @@
 :root {
     font-size: $root-font-size;
 }
+
+html,body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+}
 body {
     font-family: $font-type-primary !important;
     font-size: $body;
     position: relative;
-    overflow-x: hidden;
-    overflow-y: auto;
 }
 
 h1 {
