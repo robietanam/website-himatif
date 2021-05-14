@@ -11,14 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('dashboard/admin/keanggotaan', 'dashboard.admin.keanggotaan.index');
+
+
+Route::group(['prefix' => 'dashboard/admin', 'namespace' => 'Dashboard\Admin', 'as' => 'dashboard.admin.'], function() {
+    // Route::get('/', 'DashboardController@index')->name('index');
+    // Route::get('/profile', 'DashboardController@profile')->name('profile');
+    
+    // keanggotaan
+    Route::resource('keanggotaan', 'KeanggotaanController')->except([ 'destroy' ]);
+    Route::delete('keanggotaan/delete', 'KeanggotaanController@delete')->name('keanggotaan.delete');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => 'dashboard/ajax', 'namespace' => 'Ajax', 'as' => 'ajax.'], function() {
+    // Users
+    Route::get('keanggotaan', 'UserController@getKeanggotaan')->name('getKeanggotaan');
+});

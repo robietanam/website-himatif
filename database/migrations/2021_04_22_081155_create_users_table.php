@@ -16,19 +16,20 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('nim')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('phone');
-            $table->string('photo');
-            $table->enum('status', ['0', '1']);
-            $table->year('year_entry'); // angkatan
+            $table->string('phone')->nullable();
+            $table->string('photo')->nullable();
+            $table->enum('status', ['0', '1'])->comment = "0 Tidak Aktif, 1 Aktif";
+            $table->year('year_entry')->nullable(); // angkatan
             $table->timestamps();
             $table->rememberToken();
-            $table->unsignedBigInteger('role_id')->nullable();
             $table->unsignedBigInteger('division_id')->nullable();
+            $table->unsignedBigInteger('role_id')->nullable();
 
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->foreign('division_id')->references('id')->on('divisions')->onDelete('cascade');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
         });
     }
 
