@@ -9,11 +9,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar-top">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">BERANDA</a>
+                <li class="nav-item {{ Request::is('homepage') ? 'active' : ''}}">
+                    <a class="nav-link" href="{{ url('/homepage') }}">BERANDA</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">TENTANG</a>
+                <li class="nav-item {{ Request::is('about') ? 'active' : ''}}">
+                    <a class="nav-link" href="{{ url('/about') }}">TENTANG</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">DIVISI & PENGURUS</a>
