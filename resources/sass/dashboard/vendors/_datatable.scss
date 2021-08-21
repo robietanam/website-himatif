@@ -9,6 +9,15 @@
 .dataTables_wrapper tr.selected {
     background-color: rgba(63, 63, 63, 0.09);
 }
+.dataTables_wrapper thead th.defined-default-width {
+    width: 200px !important;
+    display: inline-block;
+}
+.dataTables_wrapper tbody td.defined-default-width {
+    white-space: normal;
+    width: 200px;
+    display: inline-block;
+}
 .dataTables_wrapper .dataTables_length .custom-select, .dataTables_wrapper .dataTables_filter .form-control {
     margin-left: 20px;
 }

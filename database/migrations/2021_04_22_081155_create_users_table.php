@@ -28,8 +28,8 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('division_id')->nullable();
             $table->unsignedBigInteger('role_id')->nullable();
 
-            $table->foreign('division_id')->references('id')->on('divisions')->onDelete('cascade');
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreign('division_id')->references('id')->on('divisions')->onDelete('set null');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('set null');
         });
     }
 

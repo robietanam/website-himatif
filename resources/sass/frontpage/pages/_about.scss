@@ -3,7 +3,7 @@ body.about {
     background-color: color('white') !important;
 
     header {
-        padding: 5rem 0;
+        padding: 10rem 0;
         background-color: color('light');
         background-image:
             url('../img/decoration/bg/1.svg'),
@@ -15,6 +15,62 @@ body.about {
 
     section#section-1 {
         padding: 10rem 0;
+        ul.list-about {
+            position: relative;
+            list-style: none;
+            padding-left: 8rem;
+            li.list-about-item {
+                width: 100%;
+                position: relative;
+                margin-bottom: 4rem;
+                &:not(:last-child) {
+                    &::before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        left: -6.8rem; top: 3rem;
+                        width: .4rem; height: calc(100% + 4rem);
+                        background-color: color('light');
+                    }
+                }
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    left: -7.5rem; top: 1rem;
+                    width: 2rem; height: 2rem;
+                    border: double .6rem transparent;
+                    border-radius: 50%;
+                    background-color: color('white');
+                    border: 4px solid color('info');
+                    // background-image: linear-gradient(white, white), gradient-color('primary');
+                    // background-origin: border-box;
+                    // background-clip: content-box, border-box;
+                }
+            }
+        }
+    }
+
+    section#section-3 {
+        padding: 10rem 0;
+        .card {
+            background-repeat: no-repeat;
+            background-position: 95% bottom;
+            box-shadow: 0 10px 30px rgba(color('midnight'), .1);
+        }
+        #card-about-1 {
+            background-color: color('midnight');
+            background-image: url('../img/decoration/bg/work-bg-primary.svg');
+        }
+        #card-about-2 {
+            background-color: color('white');
+            background-image: url('../img/decoration/bg/sitemap-bg-white.svg');
+        }
+        #card-about-3 {
+            background-color: color('white');
+            background-image: url('../img/decoration/bg/man-bg-white.svg');
+        }
+
         ul.list-about {
             position: relative;
             list-style: none;
@@ -46,27 +102,6 @@ body.about {
                     background-clip: content-box, border-box;
                 }
             }
-        }
-    }
-
-    section#section-2 {
-        padding: 10rem 0;
-        .card {
-            background-repeat: no-repeat;
-            background-position: 95% bottom;
-            box-shadow: 0 10px 30px rgba(color('midnight'), .1);
-        }
-        #card-about-1 {
-            background-color: color('midnight');
-            background-image: url('../img/decoration/bg/work-bg-primary.svg');
-        }
-        #card-about-2 {
-            background-color: color('white');
-            background-image: url('../img/decoration/bg/sitemap-bg-white.svg');
-        }
-        #card-about-3 {
-            background-color: color('white');
-            background-image: url('../img/decoration/bg/man-bg-white.svg');
         }
     }
 }

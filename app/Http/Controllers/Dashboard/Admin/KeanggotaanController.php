@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard\Admin;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
-use Illuminate\Http\Request;
+use App\Exports\Dashboard\Admin\KeanggotaanExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KeanggotaanController extends Controller
 {
@@ -16,6 +18,11 @@ class KeanggotaanController extends Controller
     public function index()
     {
         return view('dashboard.admin.keanggotaan.index');
+    }
+
+    public function export()
+    {
+        return Excel::download(new KeanggotaanExport, 'anggota.xlsx');
     }
 
     /**

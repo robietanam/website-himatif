@@ -27,7 +27,7 @@
     {{-- Apps --}}
     <link href="{{ asset('css/app-dashboard.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app-dashboard-components.min.css') }}" rel="stylesheet">
-    @yield('style')
+    @stack('style')
 </head>
 <body>
     
@@ -75,6 +75,6 @@
     {{-- Bootstrap Datepicker --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="{{ asset('js/app.js')}}"></script>
-    @yield('script')
+    @stack('script')
 </body>
 </html>

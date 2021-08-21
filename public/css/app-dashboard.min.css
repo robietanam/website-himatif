@@ -86,7 +86,7 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .fab {
 }
 
 .bg-secondary {
-  background-color: #cdd3d8 !important;
+  background-color: #acacac !important;
 }
 
 .bg-success {
@@ -118,7 +118,7 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .fab {
 }
 
 .text-secondary, .text-secondary-all *, .text-secondary-all *:before, .text-secondary-all *:after {
-  color: #cdd3d8 !important;
+  color: #acacac !important;
 }
 
 .text-success, .text-success-all *, .text-success-all *:before, .text-success-all *:after {
@@ -633,7 +633,7 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .list-group-item-secondary {
-  background-color: #cdd3d8;
+  background-color: #acacac;
   color: #fff;
 }
 
@@ -706,7 +706,7 @@ select.form-control:not([size]):not([multiple]) {
   background-color: #6777ef;
 }
 .alert.alert-secondary {
-  background-color: #cdd3d8;
+  background-color: #acacac;
 }
 .alert.alert-success {
   background-color: #47c363;
@@ -888,7 +888,7 @@ select.form-control:not([size]):not([multiple]) {
   border-top: 2px solid #6777ef;
 }
 .card.card-secondary {
-  border-top: 2px solid #cdd3d8;
+  border-top: 2px solid #acacac;
 }
 .card.card-success {
   border-top: 2px solid #47c363;
@@ -1361,19 +1361,19 @@ table tr:hover .table-links {
   box-shadow: 0 10px 20px rgba(103, 119, 239, 0.3);
 }
 .badge.badge-secondary {
-  background-color: #cdd3d8;
+  background-color: #acacac;
   transition: 0.3s ease-in all;
 }
 .badge.badge-secondary:hover {
-  background-color: #cdd3d8;
-  box-shadow: 0 10px 20px rgba(205, 211, 216, 0.3);
+  background-color: #acacac;
+  box-shadow: 0 10px 20px rgba(172, 172, 172, 0.3);
 }
 .badge.badge-outline-secondary {
-  border: 1px solid #cdd3d8 !important;
+  border: 1px solid #acacac !important;
   transition: 0.3s ease-in all;
 }
 .badge.badge-outline-secondary:hover {
-  box-shadow: 0 10px 20px rgba(205, 211, 216, 0.3);
+  box-shadow: 0 10px 20px rgba(172, 172, 172, 0.3);
 }
 .badge.badge-success {
   background-color: #47c363;
@@ -1795,29 +1795,37 @@ h6 .badge {
 }
 
 .btn-secondary, .btn-secondary.disabled {
-  box-shadow: 0 2px 6px #e1e5e8;
-  background-color: #cdd3d8;
-  border-color: #cdd3d8;
+  box-shadow: 0 2px 6px #bebebe;
+  background-color: #acacac;
+  border-color: #acacac !important;
   color: #fff;
 }
 .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.disabled:hover, .btn-secondary.disabled:focus, .btn-secondary.disabled:active {
-  background-color: #bfc6cd !important;
+  background-color: #9f9f9f !important;
+  color: #fff !important;
+}
+.btn-secondary:disabled, .btn-secondary.disabled:disabled {
+  background-color: #acacac !important;
   color: #fff !important;
 }
 
 .btn-outline-secondary:hover, .btn-outline-secondary:focus, .btn-outline-secondary:active, .btn-outline-secondary.disabled:hover, .btn-outline-secondary.disabled:focus, .btn-outline-secondary.disabled:active {
-  background-color: #cdd3d8 !important;
+  background-color: #acacac !important;
   color: #fff !important;
 }
 
 .btn-success, .btn-success.disabled {
   box-shadow: 0 2px 6px #81d694;
   background-color: #47c363;
-  border-color: #47c363;
+  border-color: #47c363 !important;
   color: #fff;
 }
 .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled:active {
   background-color: #3bb557 !important;
+  color: #fff !important;
+}
+.btn-success:disabled, .btn-success.disabled:disabled {
+  background-color: #47c363 !important;
   color: #fff !important;
 }
 
@@ -2931,7 +2939,7 @@ pre {
 }
 
 .shadow-secondary {
-  box-shadow: 0 2px 6px #e1e5e8;
+  box-shadow: 0 2px 6px #bebebe;
 }
 
 .shadow-success {
@@ -3972,6 +3980,17 @@ body.layout-3 .main-wrapper {
 
 .dataTables_wrapper tr.selected {
   background-color: rgba(63, 63, 63, 0.09);
+}
+
+.dataTables_wrapper thead th.defined-default-width {
+  width: 200px !important;
+  display: inline-block;
+}
+
+.dataTables_wrapper tbody td.defined-default-width {
+  white-space: normal;
+  width: 200px;
+  display: inline-block;
 }
 
 .dataTables_wrapper .dataTables_length .custom-select, .dataTables_wrapper .dataTables_filter .form-control {

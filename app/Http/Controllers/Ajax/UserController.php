@@ -12,11 +12,11 @@ class UserController extends Controller
         $users = \App\User::all();
         return DataTables::of($users)
             ->addColumn('photo', function($user) {
-                if ($user->photo) {
-                    return '<div class="img-wrapper img-wrapper-table"><img src='. asset('storage/'.$user->photo) .' alt=""></div>';
-                } else {
-                    return '<div class="img-wrapper img-wrapper-table"><i class="fas fa-user text-white"></i></div>';
-                }
+                    if ($user->photo) {
+                        return '<div class="img-wrapper img-wrapper-table"><img src='. asset('storage/'.$user->photo) .' alt=""></div>';
+                    } else {
+                        return '<div class="img-wrapper img-wrapper-table"><i class="fas fa-user text-white"></i></div>';
+                    }
             })
             ->addColumn('name', function($user) {
                 return $user->name;

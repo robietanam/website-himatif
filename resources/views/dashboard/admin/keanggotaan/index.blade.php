@@ -41,7 +41,7 @@
                 <div class="col-md-auto">
                     <form id="form-delete" action="{{ route('dashboard.admin.keanggotaan.delete') }}" method="POST">
                         @csrf @method('DELETE')
-                        <button id="btn-delete" class="btn btn-lg btn-danger" disabled>
+                        <button id="btn-delete" class="btn btn-sm btn-danger" disabled>
                             <i class="fas fa-trash"></i>
                         </button>
                     </form>
@@ -49,13 +49,13 @@
                 <div class="col-md-auto">
                     <form id="form-edit" action="">
                         @csrf
-                        <button id="btn-edit" class="btn btn-lg btn-warning" disabled>
+                        <button id="btn-edit" class="btn btn-sm btn-warning" disabled>
                             <i class="fas fa-pen"></i>
                         </button>
                     </form>
                 </div>
                 <div class="col-md-auto">
-                    <a href="{{ route('dashboard.admin.keanggotaan.create') }}" class="btn btn-block btn-lg btn-primary">
+                    <a href="{{ route('dashboard.admin.keanggotaan.create') }}" class="btn btn-block btn-sm btn-primary">
                         <i class="fas fa-plus mr-2"></i> Tambah Data
                     </a>
                 </div>
@@ -67,7 +67,9 @@
         <div class="card-body">
             <div class="row align-items-center border-bottom pb-3 mb-3">
                 <div class="col-md">Export Data</div>
-                <div class="col-md-auto" id="col-export-table"></div>
+                <div class="col-md-auto">
+                    <a href="{{ route('dashboard.admin.keanggotaan.export') }}" class="btn btn-outline-success">Export Excell</a>
+                </div>
             </div>
             <div class="table-datatable-wrapper">
                 <table id="datatable" class="table table-datatable" width="100%">
@@ -105,28 +107,18 @@
     </div>
 @endsection {{-- end of content --}}
 
-@section('style') {{-- style --}}
-    <link rel="stylesheet" href="{{ asset('vendors/datatable/datatable.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.22/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/datatables.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.22/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/datatables.min.css"/>
-    <link type="text/css" href="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('vendors/bs-datetimepicker/bootstrap-datetimepicker.min.css') }}">
-@endsection {{-- end of style --}}
+@push('style') {{-- style --}}
+    @include('dashboard._styles.datatable')
+@endpush {{-- end of style --}}
 
-@section('script') {{-- script --}}
-   <script src="{{ asset('vendors/datatable/datatable.min.js') }}"></script>
-    <script src="{{ asset('vendors/datatable/datatable-colvis.min.js') }}"></script>
-    <script src="{{ asset('vendors/datatable/datatable-bs-button.min.js') }}"></script>
-    <script src="{{ asset('vendors/datatable/datatable-select.min.js') }}"></script>
-    <script src="{{ asset('vendors/datatable-checkbox/dataTables.checkboxes.min.js') }}"></script>
-    <script src="{{ asset('vendors/datatable/datatable-bs.min.js') }}"></script>
-    <script src="{{ asset('vendors/bs-datetimepicker/bootstrap-datetimepicker.min.js') }}"></script>
+@push('script') {{-- script --}}
+    @include('dashboard._scripts.datatable')
     <script>
         $(document).ready(function() {
 
             const ajax_url = '{{ route('ajax.getKeanggotaan') }}';
-            var table = $('#datatable').DataTable({
-                'dom': `<'row no-gutters'<'col-md'l><'col-md-auto'f><'col-md-auto'B>>
+            const table = $('#datatable').DataTable({
+                dom: `<'row no-gutters'<'col-md'l><'col-md-auto'f>>
                         <'row'<'col-12 table-datatable-container' t>>
                         <'row no-gutters justify-content-center'<'col-md'i><'col-md-auto'p>>`,
                 buttons: [
@@ -153,8 +145,8 @@
                     }, 
                 ],
                 responsive: true,
-                "pagingType": "numbers",
-                "language": {
+                pagingType: "numbers",
+                language: {
                     "lengthMenu": "Tampilkan _MENU_",
                     "zeroRecords": "Tidak Ada Data Anggota",
                     "info": "Menampilkan _PAGE_ dari _PAGES_ page",
@@ -163,7 +155,7 @@
                     "search": "Cari Data Anggota:"
                 },
                 ajax: ajax_url,
-                'columnDefs': [
+                columnDefs: [
                     {
                         'targets': 0,
                         'checkboxes': {
@@ -188,10 +180,10 @@
                         "orderable": false
                     }
                 ],
-                'select': {
+                select: {
                     'style': 'multi',
                 },
-                'order': [],
+                order: [],
                 columns: [
                     {data: 'id', name: 'id', "searchable": false},
                     {data: 'photo', name: 'photo', "searchable": false},
@@ -205,7 +197,6 @@
                     {data: 'role', name: 'role', "searchable": false},
                 ]
             });
-            table.buttons().container().appendTo('#col-export-table');
 
             $('#form-edit').on('submit', function(e) {
                 let form = this;
@@ -229,7 +220,6 @@
                     cancelButtonText: 'Batal'
                     }).then((result) => {
                     if (result.isConfirmed) {
-                        $(form).find('#deleted-id-wrapper').html('');
                         // Iterate over all selected checkboxes
                         $(form).find('input[name="id[]"]').remove();
                         $.each(rows_selected, function(index, rowId){
@@ -241,10 +231,10 @@
                                     .val(rowId)
                             );
                         });
-                        form.submit();         
+                        // form.submit();         
                     }
                 })
             });
         })
     </script>
-@endsection {{-- end of script --}}
+@endpush {{-- end of script --}}

@@ -15,9 +15,14 @@
         </li>
 
         <li class="menu-header">Opearasi Organisasi</li>
-        <li>
-            <a href="#" class="nav-link">
+        <li class="nav-item {{ Request::is('dashboard/admin/keanggotaan*') ? 'active' : '' }}">
+            <a href="{{ route('dashboard.admin.keanggotaan.index') }}" class="nav-link">
                 <i class="fas fa-users"></i> <span>Keanggotaan</span>
+            </a>
+        </li>
+        <li class="nav-item {{ Request::is('dashboard/admin/posts*') ? 'active' : '' }}">
+            <a href="{{ route('dashboard.admin.posts.index') }}" class="nav-link">
+                <i class="fas fa-image"></i> <span>Post</span>
             </a>
         </li>
         

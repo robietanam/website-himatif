@@ -143,26 +143,6 @@ body.homepage {
             padding: 12rem 0;
             background-size: unset;
         }
-        .card.card-vision {
-            border-radius: 1rem;
-            overflow: hidden;
-            border: 1px solid color('light');
-            .card-body {
-                padding: 0;
-                .img-fit {
-                    // height: 100%;
-                    position: relative;
-                    border-bottom-right-radius: 50%;
-                    &::before {
-                        content: '';
-                        display: block;
-                        position: absolute;
-                        top: 0; right: 0; bottom: 0; left: 0;
-                        background-color: rgba(color('primary'), .5);
-                    }
-                }
-            }
-        }
     }
 
     // Section 3 : Divisi

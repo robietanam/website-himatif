@@ -34,10 +34,10 @@
     </div>
 @endsection {{-- end of content --}}
 
-@section('style') {{-- style --}}
+@push('style') {{-- style --}}
     
-@endsection {{-- end of style --}}
+@endpush {{-- end of style --}}
 
-@section('script') {{-- script --}}
+@push('script') {{-- script --}}
     
-@endsection {{-- end of script --}}
+@endpush {{-- end of script --}}

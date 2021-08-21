@@ -29,7 +29,7 @@
             @if(isset($inputIsRequired) && $inputIsRequired === true) required @endif
             @if(isset($inputIsDisabled) && $inputIsDisabled === true) disabled @endif
             class="custom-control-input @error($inputName) is-invalid @enderror">
-        <label class="custom-control-label font-weight-bold" for="input-radio-{{ $inputName }}-{{ $datavalue }}">{{ $datakey }}</label>
+        <label class="custom-control-label font-weight-bold" for="input-radio-{{ $inputName }}-{{ $datavalue }}">{!! $datakey !!}</label>
     </div>
     @endforeach
 

@@ -20,7 +20,7 @@
     @include('_ui.frontpage.layouts.footer')
 
 
-    <script src="{{ asset('vendors/bootstrap/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ asset('vendors/bootstrap/jquery-3.1.1.min.js') }}"></script>
     <script src="{{ asset('vendors/bootstrap/bootstrap.bundle.min.js') }}"></script>
     @yield('script')
 </body>

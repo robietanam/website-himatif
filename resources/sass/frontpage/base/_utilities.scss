@@ -54,12 +54,42 @@
 
 
     // INSETS
+    $insets: (
+        margin: m, 
+        margin-left: ml, 
+        margin-right: mr, 
+        margin-top: mt, 
+        margin-bottom: mb, 
+        (margin-left, margin-right): mx,
+        (margin-top, margin-bottom): my,
+        padding: p, 
+        padding-left: pl, 
+        padding-right: pr, 
+        padding-top: pt, 
+        padding-bottom: pb, 
+        (padding-left, padding-right): px,
+        (padding-top, padding-bottom): py,
+    );
     @for $i from 0 to ($inset-max+1) {
-        @include getInsets(false, false, $i);
+        @each $prop-name, $prop-abb in $insets {
+            .#{$prop-abb}-#{$i} {
+                @each $pn in $prop-name {
+                    #{$pn}: ($i * $inset-multiply-size) * .5rem !important;
+                }
+            }
+        }
     }
     @for $i from 0 to ($inset-max+1) {
-        @each $breakpoint-name, $breakpoint-value in $breakpoints {
-            @include getInsets($breakpoint-name, $breakpoint-value, $i);
+        @each $prop-name, $prop-abb in $insets {
+            @each $breakpoint-name, $breakpoint-value in $breakpoints {
+                .#{$prop-abb}-#{$breakpoint-name}-#{$i} {
+                    @media screen and (min-width: $breakpoint-value) {
+                        @each $pn in $prop-name {
+                            #{$pn}: ($i * $inset-multiply-size) * .5rem !important;
+                        }
+                    }
+                }
+            }
         }
     }
 

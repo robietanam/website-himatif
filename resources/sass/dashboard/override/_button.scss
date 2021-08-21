@@ -124,10 +124,15 @@
 .btn-secondary, .btn-secondary.disabled {
   @include button-shadow(secondary, 7%);
   background-color: color(secondary);
-  border-color: color(secondary);
+  border-color: color(secondary) !important;
   color: #fff;
   &:hover, &:focus, &:active {
     background-color: color_darken(secondary, 5%) !important;
+    color: #fff !important;
+  }
+
+  &:disabled {
+    background-color: color(secondary) !important;
     color: #fff !important;
   }
 }
@@ -142,10 +147,15 @@
 .btn-success, .btn-success.disabled {
   @include button-shadow(success);
   background-color: color(success);
-  border-color: color(success);
+  border-color: color(success) !important;
   color: #fff;
   &:hover, &:focus, &:active {
     background-color: color_darken(success, 5%) !important;
+    color: #fff !important;
+  }
+
+  &:disabled {
+    background-color: color(success) !important;
     color: #fff !important;
   }
 }
