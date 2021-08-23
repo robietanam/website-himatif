@@ -1,9 +1,14 @@
-    // BACKGROUND UTILS
+// BACKGROUND UTILS
+    /* solid */
     @each $color-name, $color-value in $colors {
         .bg-#{$color-name} { background-color: $color-value !important; }
     }
+    /* gradient */
+    @each $color-name, $color-value in $gradient-colors {
+        .bg-gradient-#{$color-name} { background: $color-value !important; }
+    }
 
-    // SIZING
+// SIZING
     // loop to max size in base.scss
     @for $i from 0 to ($sizing-max+1) {
 
@@ -35,16 +40,56 @@
             }
         }
     }
+    @for $i from 25 to 101 {
+        .w-#{$i} { width: $i * 1%; }
+        .h-#{$i} { height: $i * 1%; }
+        @each $breakpoint-name, $breakpoint-value in $breakpoints {
+            @media screen and (min-width: $breakpoint-value) {
+                .w-#{$breakpoint-name}-#{$i} { width: $i * 1% !important; }
+                .h-#{$breakpoint-name}-#{$i} { height: $i * 1% !important; }
+            }
+        }
+    }
 
 
 
     // INSETS
+    $insets: (
+        margin: m, 
+        margin-left: ml, 
+        margin-right: mr, 
+        margin-top: mt, 
+        margin-bottom: mb, 
+        (margin-left, margin-right): mx,
+        (margin-top, margin-bottom): my,
+        padding: p, 
+        padding-left: pl, 
+        padding-right: pr, 
+        padding-top: pt, 
+        padding-bottom: pb, 
+        (padding-left, padding-right): px,
+        (padding-top, padding-bottom): py,
+    );
     @for $i from 0 to ($inset-max+1) {
-        @include getInsets(false, false, $i);
+        @each $prop-name, $prop-abb in $insets {
+            .#{$prop-abb}-#{$i} {
+                @each $pn in $prop-name {
+                    #{$pn}: ($i * $inset-multiply-size) * .5rem !important;
+                }
+            }
+        }
     }
     @for $i from 0 to ($inset-max+1) {
-        @each $breakpoint-name, $breakpoint-value in $breakpoints {
-            @include getInsets($breakpoint-name, $breakpoint-value, $i);
+        @each $prop-name, $prop-abb in $insets {
+            @each $breakpoint-name, $breakpoint-value in $breakpoints {
+                .#{$prop-abb}-#{$breakpoint-name}-#{$i} {
+                    @media screen and (min-width: $breakpoint-value) {
+                        @each $pn in $prop-name {
+                            #{$pn}: ($i * $inset-multiply-size) * .5rem !important;
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -56,23 +101,32 @@
     }
 
     /* weight */
-    .font-weight-light {font-weight: 300;}
-    .font-weight-normal {font-weight: 400;}
-    .font-weight-semibold {font-weight: 600;}
-    .font-weight-bold {font-weight: 700;}
-    .font-weight-extrabold {font-weight: 800;}
-    .font-weight-boldest {font-weight: 900;}
+    .font-light {font-weight: 300;}
+    .font-normal {font-weight: 400;}
+    .font-semibold {font-weight: 600;}
+    .font-bold {font-weight: 700;}
+    .font-extrabold {font-weight: 800;}
+    .font-boldest {font-weight: 900;}
     /* line-height */
     .text-height-0 {line-height: 0;}
     .text-dec-none {text-decoration: none;}
 
-    // BORDER UTILS
+// BORDER UTILS
     .rounded-sm {border-radius: 5px !important;}
     .rounded-md {border-radius: 10px !important;}
     .rounded-lg {border-radius: 15px !important;}
+    /* size */
+    .border-xs { border: .5px solid #6f6f6f; }
+    .border { border: 1px solid #6f6f6f; }
+    .border-md { border: 1.5px solid #6f6f6f; }
+    .border-lg { border: 2px solid #6f6f6f; }
+    /* colors */
+    @each $color-name, $color-value in $colors {
+        .border-#{$color-name} { border-color: $color-value !important; }
+    }
 
 
-    // HOVER 
+// HOVER 
     .hover-scale {
         &:hover {
             transition: all .3s ease-in-out;
@@ -88,30 +142,30 @@
         }
     }
 
-    // SHADOW
+// SHADOW
     @each $color-name, $color-value in $colors {
         .shadow-#{$color-name}-sm {
             box-shadow: 0 10px 30px rgba($color-value, .1);
         }
     }
 
-    // OPACITY
+// OPACITY
     @for $i from 0 to 10 {
         .op-#{$i} { opacity: $i * .1; }
     }
 
-    // DIVIDER
+// DIVIDER
     .divider {
         background-color: $divider-color;
         width: 100%;
         height: .5px;
-        &-horizontal {
+        &-vertical {
             height: 100%;
             width: .5px;
         }
     }
 
-    // IMAGE
+// IMAGE
     .img-fit {
         overflow: hidden;
         &.img-fit-cover {
@@ -130,7 +184,7 @@
         }
     }
 
-    // GUTTER
+// GUTTER
     .row {
         &.gutters-xs{
             margin-left: -.5rem;
@@ -142,5 +196,5 @@
     }
 
 
-    // MISC
+// MISC
     .csr-pointer { cursor: pointer; }

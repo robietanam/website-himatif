@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HIMATIF | @yield('title')</title>
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('vendors/bootstrap/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app-frontpage.min.css') }}">
     @yield('style')
@@ -20,9 +20,8 @@
     @include('_ui.frontpage.layouts.footer')
 
 
-    <script src="{{ asset('vendors/bootstrap/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ asset('vendors/bootstrap/jquery-3.1.1.min.js') }}"></script>
     <script src="{{ asset('vendors/bootstrap/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/app-frontpage.min.js') }}"></script>
     @yield('script')
 </body>
 </html>

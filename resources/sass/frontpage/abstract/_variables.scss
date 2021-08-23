@@ -20,6 +20,7 @@ $colors : (
     'info'          : #36B4FF,
     'link'          : #E2E2E2,
     'white'         : #FFFFFF,
+    'black'         : #0c0c0c,
 );  
 
 $gradient-colors : (
@@ -106,9 +107,9 @@ $breakpoints: (
 
 
 // SIZING
-$sizing-max : 100;
-$sizing-increment: 5;
+$sizing-max : 50;
+$sizing-increment: 1;
 
 // INSETS
 $inset-max: 11;
-$inset-multiply-size: 2.5;
+$inset-multiply-size: 2;

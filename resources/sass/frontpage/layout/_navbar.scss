@@ -6,7 +6,10 @@
         display: flex !important;
         align-items: center;
         &-image {
-            width: 5rem;
+            width: 3rem;
+            @media screen and (min-width: breakpoint('md')) {
+                width: 5rem !important;
+            }
         }
         &-title {
             font-size: 1.8rem;
@@ -17,9 +20,24 @@
     .navbar-nav {
         display: flex;
         align-items: center;
+        &::before {
+            content: '';
+            display: block;
+            width: 90%;
+            height: 1px;
+            margin: 2rem auto;
+            background-color: rgba(color('gray'), .1);
+        }
+        @media screen and (min-width: breakpoint('lg')) {
+            align-items: center;
+            &::before { display: none;}
+        }
         .nav-item {
+            padding: 1rem 0;
             &:not(:last-child) {
-                margin-right: 1.6rem;
+                @media screen and (min-width: breakpoint('lg')) {
+                    margin-right: 1.6rem;
+                }
             }
             &.active {
                 .nav-link::after {

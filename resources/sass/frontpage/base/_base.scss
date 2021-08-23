@@ -7,12 +7,16 @@
 :root {
     font-size: $root-font-size;
 }
+
+html,body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+}
 body {
     font-family: $font-type-primary !important;
     font-size: $body;
     position: relative;
-    overflow-x: hidden;
-    overflow-y: auto;
 }
 
 h1 {
@@ -29,12 +33,21 @@ h2 {
 h3 {
     font-size: $h3;
     @media screen and (max-width: breakpoint('lg')) {
-        font-size: $h3 - 2rem;
+        font-size: $h3 - .8rem;
+    }
+    @media screen and (max-width: breakpoint('sm')) {
+        font-size: $h3 - 1rem;
+    }
+    @media screen and (max-width: breakpoint('sm') - 176px) {
+        font-size: $h3 - 1.4rem;
     }
 }
 
 h4 {
     font-size: $h4;
+    @media screen and (max-width: breakpoint('sm') - 176px) {
+        font-size: $h4 - .8rem;
+    }
 }
 h5 {
     font-size: $h5;

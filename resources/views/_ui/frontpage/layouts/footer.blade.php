@@ -24,7 +24,10 @@
                     <div class="col"><h6 class="text-white font-weight-semibold">himatifilkom</h6></div>
                 </div>
             </div>
-            <div class="col-lg-3 offset-lg-1 pt-2">
+            {{-- divider --}}
+            <div class="col-12 d-lg-none"><div class="divider bg-white op-1 my-1"></div></div>
+
+            <div class="col-md-6 col-lg-3 offset-lg-1 pt-2">
                 <h5 class="text-white font-weight-extrabold mb-2">NAVIGASI</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -44,7 +47,10 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-lg-4 pt-2">
+            {{-- divider --}}
+            <div class="col-12 d-md-none"><div class="divider bg-white op-1 my-1"></div></div>
+
+            <div class="col-md-6 col-lg-4 pt-2">
                 <h5 class="text-white font-weight-extrabold mb-2">INFO TERBARU</h5>
 
                 {{-- list new info --}}
@@ -67,20 +73,6 @@
                         <div class="card">
                             <div class="card-body" style="padding: .5rem">
                                 <div class="img-fit img-fit-cover w-4rem h-4rem">
-                                    <img src="{{ asset('img/galery/1.jpg') }}" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <h6 class="text-link font-weight-semibold">Sarasehan Himatif x HMIT...</h6>
-                    </div>
-                </div>
-                <div class="row align-items-center mb-1">
-                    <div class="col-auto">
-                        <div class="card">
-                            <div class="card-body" style="padding: .5rem">
-                                <div class="img-fit img-fit-cover w-4rem h-4rem">
                                     <img src="{{ asset('img/galery/5.jpg') }}" alt="">
                                 </div>
                             </div>
@@ -91,14 +83,17 @@
                     </div>
                 </div>
                 {{-- end of list new info --}}
-
-                <a href="" class="text-white font-weight-semibold d-flex align-items-center mt-2">
-                    Lihat Semua Blog <i class="bi-arrow-right text-height-0 ml-1"></i>
-                </a>
+                <div class="d-flex align-items-center text-white font-weight-semibold mt-2">
+                    <a href="" class="text-white">
+                        Lihat Semua Blog 
+                    </a>
+                    <i class="fas fa-arrow-right text-height-0 ml-1"></i>
+                </div>
+                
             </div>
         </div>
 
         <div class="divider bg-white op-3 my-3"></div>
-        <div class="text-link text-center font-weight-bold">Copyright 2020. Himatif, All rights reserved </div>
+        <div class="text-link text-center font-weight-bold">Copyright &copy; {{ date('Y') }}. Himatif, All rights reserved </div>
     </div>
 </footer>
