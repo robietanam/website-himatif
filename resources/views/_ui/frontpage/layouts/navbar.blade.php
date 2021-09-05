@@ -5,14 +5,14 @@
             <div class="navbar-brand-title">HIMATIF</div>
         </a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar-top">
-            <h5 class="mb-0"><i class="fas fa-bars"></i></h5>
+            <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbar-top">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item {{ Request::is('homepage') ? 'active' : ''}}">
+                <li class="nav-item {{ Request::is('homepage') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('/homepage') }}">BERANDA</a>
                 </li>
-                <li class="nav-item {{ Request::is('about') ? 'active' : ''}}">
+                <li class="nav-item {{ Request::is('about') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('/about') }}">TENTANG</a>
                 </li>
                 <li class="nav-item">
