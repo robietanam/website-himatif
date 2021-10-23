@@ -1,4 +1,4 @@
-@extends('_ui.frontpage.layouts.app-frontpage')
+@extends('frontpage.layouts.app-frontpage')
 
 @section('title', '')
 
@@ -17,6 +17,6 @@
 
 @section('script')
     <script>
-        
+
     </script>
 @endsection

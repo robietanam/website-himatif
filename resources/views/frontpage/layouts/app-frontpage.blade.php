@@ -18,11 +18,11 @@
 
 <body class="@yield('pageClass')">
 
-    @include('_ui.frontpage.layouts.navbar')
+    @include('frontpage.layouts.navbar')
 
     @yield('content')
 
-    @include('_ui.frontpage.layouts.footer')
+    @include('frontpage.layouts.footer')
 
 
     {{-- <script type="text/javascript" src="{{ asset('vendors/bootstrap/jquery-3.1.1.min.js') }}"></script>
