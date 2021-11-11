@@ -14,29 +14,30 @@
 // Route::view('dashboard/admin/keanggotaan', 'dashboard.admin.keanggotaan.index');
 
 
-Route::group(['prefix' => 'dashboard/admin', 'namespace' => 'Dashboard\Admin', 'as' => 'dashboard.admin.'], function() {
-    // Route::get('/', 'DashboardController@index')->name('index');
-    // Route::get('/profile', 'DashboardController@profile')->name('profile');
+// Route::group(['prefix' => 'dashboard/admin', 'namespace' => 'Dashboard\Admin', 'as' => 'dashboard.admin.'], function() {
+//     // Route::get('/', 'DashboardController@index')->name('index');
+//     // Route::get('/profile', 'DashboardController@profile')->name('profile');
 
-    // keanggotaan
-    Route::get('keanggotaan/export', 'KeanggotaanController@export')->name('keanggotaan.export');
-    Route::resource('keanggotaan', 'KeanggotaanController')->except([ 'destroy' ]);
-    Route::delete('keanggotaan/delete', 'KeanggotaanController@delete')->name('keanggotaan.delete');
+//     // keanggotaan
+//     Route::get('keanggotaan/export', 'KeanggotaanController@export')->name('keanggotaan.export');
+//     Route::resource('keanggotaan', 'KeanggotaanController')->except([ 'destroy' ]);
+//     Route::delete('keanggotaan/delete', 'KeanggotaanController@delete')->name('keanggotaan.delete');
 
-    // posts
-    Route::put('posts/publish', 'PostController@publish')->name('posts.publish');
-    Route::put('posts/draft', 'PostController@draft')->name('posts.draft');
-    Route::resource('posts', 'PostController')->except([ 'destroy' ]);
-});
+//     // posts
+//     Route::put('posts/publish', 'PostController@publish')->name('posts.publish');
+//     Route::put('posts/draft', 'PostController@draft')->name('posts.draft');
+//     Route::resource('posts', 'PostController')->except([ 'destroy' ]);
+// });
 
-Route::group(['prefix' => 'dashboard/ajax', 'namespace' => 'Ajax', 'as' => 'ajax.'], function() {
-    // Users
-    Route::get('keanggotaan', 'UserController@getKeanggotaan')->name('getKeanggotaan');
-    // Posts
-    Route::get('posts', 'PostController@getPosts')->name('getPosts');
-});
+// Route::group(['prefix' => 'dashboard/ajax', 'namespace' => 'Ajax', 'as' => 'ajax.'], function() {
+//     // Users
+//     Route::get('keanggotaan', 'UserController@getKeanggotaan')->name('getKeanggotaan');
+//     // Posts
+//     Route::get('posts', 'PostController@getPosts')->name('getPosts');
+// });
 
-Route::view('homepage', 'frontpage.modules.homepage');
-Route::view('about', 'frontpage.modules.about');
-Route::view('blogs/', 'frontpage.modules.blogs-index');
-Route::view('blogs/{slug}', 'frontpage.modules.blogs-show');
+Route::view('/', 'frontpage.modules.beranda')->name('frontpage.home');
+Route::view('tentang', 'frontpage.modules.tentang')->name('frontpage.about');
+// Route::view('pengurus', 'frontpage.modules.pengurus')->name('frontpage.members');
+// Route::view('postingan/', 'frontpage.modules.blogs-index');
+// Route::view('postingan/{slug}', 'frontpage.modules.blogs-show');

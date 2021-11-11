@@ -15,7 +15,7 @@
         // ex: sizing increment = 5
         // 3 % 5 == 2 so false, 5 % 5 == 0 true
         @if ($i % $sizing-increment == 0 or $i < 5)  {
-            // if 0 dont append rem, in last name, ex : w-0 not w-0rem 
+            // if 0 dont append rem, in last name, ex : w-0 not w-0rem
             @if ($i == 0) {
                 .w-#{$i} { width: $i !important; }
                 .h-#{$i} { height: $i !important; }
@@ -24,7 +24,7 @@
                 .w-#{$i}rem { width: $i * 1rem !important; }
                 .h-#{$i}rem { height: $i * 1rem !important; }
             }
-            
+
             // LOOP EVERY BREAKPOINTS
             @each $breakpoint-name, $breakpoint-value in $breakpoints {
                 @media screen and (min-width: $breakpoint-value) {
@@ -55,18 +55,18 @@
 
     // INSETS
     $insets: (
-        margin: m, 
-        margin-left: ml, 
-        margin-right: mr, 
-        margin-top: mt, 
-        margin-bottom: mb, 
+        margin: m,
+        margin-left: ml,
+        margin-right: mr,
+        margin-top: mt,
+        margin-bottom: mb,
         (margin-left, margin-right): mx,
         (margin-top, margin-bottom): my,
-        padding: p, 
-        padding-left: pl, 
-        padding-right: pr, 
-        padding-top: pt, 
-        padding-bottom: pb, 
+        padding: p,
+        padding-left: pl,
+        padding-right: pr,
+        padding-top: pt,
+        padding-bottom: pb,
         (padding-left, padding-right): px,
         (padding-top, padding-bottom): py,
     );
@@ -126,7 +126,7 @@
     }
 
 
-// HOVER 
+// HOVER
     .hover-scale {
         &:hover {
             transition: all .3s ease-in-out;
@@ -186,11 +186,53 @@
 
 // GUTTER
     .row {
-        &.gutters-xs{
+        &.gutters-xxs {
+            margin-left: -.25rem;
+            margin-right: -.25rem;
+            & > [class^=col]{ padding: 0 .25rem; }
+        }
+        &.gutters-xs {
             margin-left: -.5rem;
             margin-right: -.5rem;
-            & > [class^=col]{
-                padding: 0 .5rem;
+            & > [class^=col]{ padding: 0 .5rem; }
+        }
+        &.gutters-sm {
+            margin-left: -1rem;
+            margin-right: -1rem;
+            & > [class^=col]{ padding: 0 1rem; }
+        }
+        &.gutters-md {
+            margin-left: -1.5rem;
+            margin-right: -1.5rem;
+            & > [class^=col]{ padding: 0 1.5rem; }
+        }
+        @each $breakpoint-name, $breakpoint-value in $breakpoints {
+            @media screen and (min-width: $breakpoint-value) {
+                &.gutters-#{$breakpoint-name}-xs {
+                    margin-left: -.5rem;
+                    margin-right: -.5rem;
+                    & > [class^=col]{ padding: 0 .5rem; }
+                }
+                &.gutters-#{$breakpoint-name}-sm {
+                    margin-left: -1rem;
+                    margin-right: -1rem;
+                    & > [class^=col]{ padding: 0 1rem; }
+                }
+                &.gutters-#{$breakpoint-name}-md {
+                    margin-left: -1.5rem;
+                    margin-right: -1.5rem;
+                    & > [class^=col]{ padding: 0 1.5rem; }
+                }
+                &.gutters-#{$breakpoint-name}-lg {
+                    margin-left: -2rem;
+                    margin-right: -2rem;
+                    & > [class^=col]{ padding: 0 2rem; }
+                }
+                &.gutters-#{$breakpoint-name}-xl {
+                    margin-left: -3rem;
+                    margin-right: -3rem;
+                    & > [class^=col]{ padding: 0 3rem; }
+                }
             }
         }
     }
