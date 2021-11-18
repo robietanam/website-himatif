@@ -1,4 +1,4 @@
-@extends('frontpage.layouts.app-frontpage')
+@extends('_ui.frontpage.layouts.app-frontpage')
 
 @section('title', 'Detail Blog')
 
@@ -12,18 +12,18 @@
 
                     <div class="card bg-white mb-3">
                         <div class="card-body">
-                            <h4 class="text-midnight font-bold mb-2">{{ $blog->title }}</h4>
+                            <h4 class="text-midnight font-bold mb-2">Event Baru Telah Hadir</h4>
                             <div class="img-fit img-fit-cover w-100 h-20rem h-md-30rem h-lg-40rem rounded-sm mb-3">
-                                {{-- isue --}}
-                                <img src="{{ asset($blog->photo ? "storage/$blog->photo" : 'img/misc/default-post.jpg') }}"
-                                    alt="">
+                                <img src="{{ asset('img/galery/1.jpg') }}" alt="">
                             </div>
                             <div class="d-flex flex-column justify-content-between">
                                 <div>
-                                    <h5 class="text-midnight font-bold mb-2">{{ $blog->category->name }}</h5>
-                                    <p class="text-gray">{{ $blog->body }}</p>
+                                    <h5 class="text-midnight font-bold mb-2">Event Baru Telah Hadir</h5>
+                                    <p class="text-gray">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                        Minus corrupti ut magnam suscipit minima dolores vitae adipisci nobis a tenetur,
+                                        ullam tempora expedita neque aperiam dolore deleniti repellendus ea optio.</p>
                                 </div>
-                                <span class="text-sm text-gray mt-3">{{ $blog->created_at ?? '' }}</span>
+                                <span class="text-sm text-gray mt-3">20 April 2018</span>
                             </div>
 
                             <hr class="my-3">
