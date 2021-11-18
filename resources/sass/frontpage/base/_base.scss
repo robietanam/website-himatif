@@ -38,14 +38,14 @@ h3 {
     @media screen and (max-width: breakpoint('sm')) {
         font-size: $h3 - 1rem;
     }
-    @media screen and (max-width: breakpoint('sm') - 176px) {
+    @media screen and (max-width: (breakpoint('sm') - 176px)) {
         font-size: $h3 - 1.4rem;
     }
 }
 
 h4 {
     font-size: $h4;
-    @media screen and (max-width: breakpoint('sm') - 176px) {
+    @media screen and (max-width: (breakpoint('sm') - 176px)) {
         font-size: $h4 - .8rem;
     }
 }

@@ -1,4 +1,4 @@
-@extends('_ui.frontpage.layouts.app-frontpage')
+@extends('frontpage.layouts.app-frontpage')
 
 @section('title', 'BERANDA')
 
@@ -25,7 +25,8 @@
                                         </div>
                                         <div class="col">
                                             <marquee direction="left">
-                                                Upgrade your skill with IT Dev. Klik <a href="" target="_blank">disini</a> untuk Daftar
+                                                Open Recruitment Pengurus Baru HIMATIF Periode 2021/2022.
+                                                <a href="https://bit.ly/OprecHMTF" target="_blank"><b>Join now!</b></a>
                                             </marquee>
                                         </div>
                                     </div>
@@ -33,7 +34,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="col-md-8 col-lg-6 order-1 order-lg-2 mb-3 mb-lg-0 pt-3">
                     <h3 class="text-dec text-dec-secondary-1 text-dec-tl text-midnight font-extrabold mb-2 d-lg-none">
@@ -44,7 +45,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row pt-5">
                 <div class="col-12 text-center mb-5">
                     <h3 class="text-dec text-dec-secondary-2 text-dec-tl text-midnight font-extrabold mb-2">
@@ -139,7 +140,7 @@
                     <p class="text-gray mb-2">
                         HIMATIF (Himpunan Mahasiswa Teknologi Informasi) adalah Salah satu Organisasi Mahasiswa di Fakultas Ilmu Komputer Universitas Jember. Terbentuknya HIMATIF dirintis oleh 7 Orang Mahasiswa Teknologi Informasi pada tanggal 6 Agustus 2017.
                     </p>
-                    <a href="" class="btn btn-gradient-primary">Lihat Lebih Lengkap</a>
+                    <a href="{{ route('frontpage.about') }}" class="btn btn-gradient-primary">Lihat Lebih Lengkap</a>
                 </div>
             </div>
         </div>
@@ -302,7 +303,7 @@
                     <div class="card shadow-midnight-sm">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-auto col-xl-4">
+                                <div class="col-lg-auto col-xl-4">
                                     <h4 class="text-midnight font-bold mb-1 d-xl-none">Technology Innovative Challenge</h4>
                                     <div class="img-fit img-fit-contain h-20rem">
                                         <img src="{{ asset('img/features/proker/tic.png') }}" alt="">
@@ -327,7 +328,7 @@
                     <div class="card shadow-midnight-sm">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-auto col-xl-4">
+                                <div class="col-lg-auto col-xl-4">
                                     <h4 class="text-midnight font-bold mb-1 d-xl-none">ITeC</h4>
                                     <div class="img-fit img-fit-contain h-20rem">
                                         <img src="{{ asset('img/features/proker/itec.png') }}" alt="" class="img-fluid">
@@ -350,7 +351,7 @@
                     <div class="card shadow-midnight-sm">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-auto col-xl-4">
+                                <div class="col-lg-auto col-xl-4">
                                     <h4 class="text-midnight font-bold mb-1 d-xl-none">Technology Innovative Challenge</h4>
                                     <div class="img-fit img-fit-contain h-20rem">
                                         <img src="{{ asset('img/features/proker/tic.png') }}" alt="">
@@ -386,7 +387,7 @@
                     </h3>
                     <h6 class="text-gray mb-2">Dokumentasi kegiatan HIMATIF terbaru</h6>
                 </div>
-                
+
                 <div class="col-lg-6 mb-1 mb-lg-0">
                     <a href="{{ asset("img/galery/1.jpg") }}" data-lightbox="kegiatan">
                         <div class="img-gallery img-gallery-main">

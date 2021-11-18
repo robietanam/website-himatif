@@ -1,4 +1,4 @@
-@extends('_ui.frontpage.layouts.app-frontpage')
+@extends('frontpage.layouts.app-frontpage')
 
 @section('title', 'TENTANG')
 
@@ -11,7 +11,9 @@
                 TENTANG HIMATIF
             </h3>
             <h6 class="text-gray font-light">
-                HIMATIF (Himpunan Mahasiswa Teknologi Informasi) adalah Salah satu Organisasi Mahasiswa di Fakultas Ilmu Komputer Universitas Jember. Terbentuknya HIMATIF dirintis oleh 7 Orang Mahasiswa Teknologi Informasi pada tanggal 6 Agustus 2017.
+                HIMATIF (Himpunan Mahasiswa Teknologi Informasi) adalah Salah satu Organisasi Mahasiswa di Fakultas Ilmu
+                Komputer Universitas Jember. Terbentuknya HIMATIF dirintis oleh 7 Orang Mahasiswa Teknologi Informasi pada
+                tanggal 6 Agustus 2017.
             </h6>
         </div>
     </header>
@@ -57,7 +59,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <p>
-                                        Garis berwarna kuning melambangkan <b>sikap optimis dan selalu berfikiran positif</b>
+                                        Garis berwarna kuning melambangkan <b>sikap optimis dan selalu berfikiran
+                                            positif</b>
                                     </p>
                                 </div>
                             </div>
@@ -66,15 +69,17 @@
                             <div class="row justify-content-around">
                                 <div class="col-md-6">
                                     <p>
-                                        Orang mengelilingi lambang UNEJ melambangkan <b>HIMATIF berada 
-                                        dalam naungan Universitas Jember 
-                                        dan merupakan bagian dari 
-                                        keluarga Universitas Jember</b>
+                                        Orang mengelilingi lambang UNEJ melambangkan <b>HIMATIF berada
+                                            dalam naungan Universitas Jember
+                                            dan merupakan bagian dari
+                                            keluarga Universitas Jember</b>
                                     </p>
                                 </div>
                                 <div class="col-md-6">
                                     <p>
-                                        Lambang Orang yang saling merangkul mengartikan <b>rasa kekeluargaan, solidaritas yang tinggi, dan kebersamaan</b>, berjumlah enam melambangkan <b>tanggal terbentuknya HIMATIF yaitu tanggal 06</b>
+                                        Lambang Orang yang saling merangkul mengartikan <b>rasa kekeluargaan, solidaritas
+                                            yang tinggi, dan kebersamaan</b>, berjumlah enam melambangkan <b>tanggal
+                                            terbentuknya HIMATIF yaitu tanggal 06</b>
                                     </p>
                                 </div>
                             </div>
@@ -83,12 +88,14 @@
                             <div class="row justify-content-around">
                                 <div class="col-md-6">
                                     <p>
-                                        Warna Abu-abu dan Putih melambangkan <b>Fakultas Ilmu Komputer yang menaungi HIMATIF</b>
+                                        Warna Abu-abu dan Putih melambangkan <b>Fakultas Ilmu Komputer yang menaungi
+                                            HIMATIF</b>
                                     </p>
                                 </div>
                                 <div class="col-md-6">
                                     <p>
-                                        Lambang Universitas Jember menandakan kebanggaan <b>HIMATIF sebagai bagian dari Program Studi Teknologi Informasi UNIVERSITAS JEMBER</b>
+                                        Lambang Universitas Jember menandakan kebanggaan <b>HIMATIF sebagai bagian dari
+                                            Program Studi Teknologi Informasi UNIVERSITAS JEMBER</b>
                                     </p>
                                 </div>
                             </div>
@@ -125,7 +132,8 @@
                                     </h5>
                                     <div class="divider my-2"></div>
                                     <div class="text-gray">
-                                        Unggul dalam pengembangan ilmu pengetahuan dan teknologi bidang teknologi informasi untuk menunjang pertanian industrial pada tahun 2035
+                                        Unggul dalam pengembangan ilmu pengetahuan dan teknologi bidang teknologi informasi
+                                        untuk menunjang pertanian industrial pada tahun 2035
                                     </div>
                                 </div>
                             </div>
@@ -147,15 +155,19 @@
                                     </h5>
                                     <div class="divider my-2"></div>
                                     <div class="text-gray">
-                                        1. Menyelenggarakan pendidikan program sarjana bidang teknologi informasi secara profesional
+                                        1. Menyelenggarakan pendidikan program sarjana bidang teknologi informasi secara
+                                        profesional
                                         <br>
-                                        2. Menyiapkan sumber daya manusia yang berkualitas dalam penguasaan kompetensi materi teknologi informasi terutama pada pengembangan pertanian industrial
+                                        2. Menyiapkan sumber daya manusia yang berkualitas dalam penguasaan kompetensi
+                                        materi teknologi informasi terutama pada pengembangan pertanian industrial
                                         <br>
-                                        3. Mengembangkan ilmu pengetahuan dan teknologi informasi bagi kepentingan kemanusiaan
+                                        3. Mengembangkan ilmu pengetahuan dan teknologi informasi bagi kepentingan
+                                        kemanusiaan
                                         <br>
                                         4. Memberdayakan masyarakat melalui penerapan teknologi informasi dan komunikasi
                                         <br>
-                                        5. Mengembangkan jaringan kerjasama dengan pemangku kepentingan (Stakeholders) dalam bidang teknologi informasi
+                                        5. Mengembangkan jaringan kerjasama dengan pemangku kepentingan (Stakeholders) dalam
+                                        bidang teknologi informasi
                                     </div>
                                 </div>
                             </div>
@@ -185,7 +197,9 @@
                     <div class="card rounded-sm" id="card-about-1">
                         <div class="card-body text-white">
                             <h5 class="font-extrabold">17 Proker</h5>
-                            <div class="font-light my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum labore consectetur facere aut sed cum mollitia quo! Nam libero unde deserunt ipsa. Nam, corporis.</div>
+                            <div class="font-light my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
+                                labore consectetur facere aut sed cum mollitia quo! Nam libero unde deserunt ipsa. Nam,
+                                corporis.</div>
                             <a href="" class="text-white">Lihat Detail <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
@@ -194,7 +208,9 @@
                     <div class="card rounded-sm" id="card-about-2">
                         <div class="card-body text-midnight">
                             <h5 class="font-extrabold">5 Divisi</h5>
-                            <div class="text-gray font-light my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum labore consectetur facere aut sed cum mollitia quo! Nam libero unde deserunt ipsa. Nam, corporis.</div>
+                            <div class="text-gray font-light my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Rerum labore consectetur facere aut sed cum mollitia quo! Nam libero unde deserunt ipsa.
+                                Nam, corporis.</div>
                             <a href="" class="text-gray">Lihat Detail <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
@@ -203,7 +219,9 @@
                     <div class="card rounded-sm" id="card-about-3">
                         <div class="card-body text-midnight">
                             <h5 class="font-extrabold">36 Pengurus</h5>
-                            <div class="text-gray font-light my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum labore consectetur facere aut sed cum mollitia quo! Nam libero unde deserunt ipsa. Nam, corporis.</div>
+                            <div class="text-gray font-light my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Rerum labore consectetur facere aut sed cum mollitia quo! Nam libero unde deserunt ipsa.
+                                Nam, corporis.</div>
                             <a href="" class="text-gray">Lihat Detail <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
@@ -217,7 +235,7 @@
                 <h6 class="text-gray font-light">
                     Slogan Himpunan Mahasiswa Teknologi Informasi
                 </h6>
-    
+
                 <h2 class="text-midnight my-3 font-extrabold">
                     “ MUDA, TIDAK MENYERAH! ”
                 </h2>
@@ -235,6 +253,6 @@
 
 @section('script')
     <script>
-        
+
     </script>
 @endsection

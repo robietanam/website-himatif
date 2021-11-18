@@ -36,7 +36,8 @@
 //     Route::get('posts', 'PostController@getPosts')->name('getPosts');
 // });
 
-Route::view('homepage', '_ui.frontpage.modules.homepage');
-Route::view('about', '_ui.frontpage.modules.about');
-// Route::view('blogs/', '_ui.frontpage.modules.blogs-index');
-// Route::view('blogs/{slug}', '_ui.frontpage.modules.blogs-show');
+Route::view('/', 'frontpage.modules.beranda')->name('frontpage.home');
+Route::view('tentang', 'frontpage.modules.tentang')->name('frontpage.about');
+// Route::view('pengurus', 'frontpage.modules.pengurus')->name('frontpage.members');
+// Route::view('postingan/', 'frontpage.modules.blogs-index');
+// Route::view('postingan/{slug}', 'frontpage.modules.blogs-show');
