@@ -15,8 +15,8 @@
             <h4>Tambah Data</h4>
         </div>
         <div class="col col-md-auto">
-            <a 
-                href="{{ route('dashboard.admin.posts.index') }}" 
+            <a
+                href="{{ route('dashboard.admin.posts.index') }}"
                 class="btn btn-outline-secondary">
                     <i class="fas fa-arrow-left mr-1"></i> Semua Data
             </a>
@@ -26,7 +26,7 @@
     {{-- row : form --}}
     <form action="{{ route('dashboard.admin.posts.store') }}" enctype="multipart/form-data" method="POST">
         @csrf
-        <div class="row">
+        <div class="row gutters-xs">
 
             {{-- col : image upload --}}
             <div class="col-lg-5">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </div>
-            
+
             {{-- col : input --}}
             <div class="col-lg">
                 <div class="card">
@@ -55,25 +55,21 @@
                             @slot('inputLabel', 'Judul')
                             @slot('inputName', 'title')
                             @slot('inputId', 'input-title')
-                            @slot('inputIsRequired', true)
-                        @endcomponent
-
-                        {{-- input : slug --}}
-                        @component('dashboard._components._form-group.input')
-                            @slot('inputLabel', 'Url Slug')
-                            @slot('inputName', 'slug')
-                            @slot('inputId', 'input-slug')
-                            @slot('inputIsRequired', true)
                         @endcomponent
 
                         {{-- richtext : body --}}
                         <div class="form-group">
                             <label for="">Konten Post</label>
-                            <textarea 
-                                name="body" 
-                                id="summernote-editor" 
-                                cols="30" 
-                                rows="8"></textarea>
+                            <textarea
+                                name="body"
+                                id="summernote-editor"
+                                cols="30"
+                                rows="8">{{ old('body') }}</textarea>
+                            @error('body')
+                                <div class="text-invalid">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
                         {{-- input : status --}}
@@ -81,9 +77,10 @@
                             @slot('inputLabel', 'Status')
                             @slot('inputName', 'status')
                             @slot('inputId', 'input-status')
+                            @slot('inputValue', 1)
                             @slot('inputDatas', [
-                                '<i class="fas fa-archive mr-1"></i> Taruh Draft' => 0,
                                 '<i class="fas fa-share-square mr-1"></i> Publish' => 1,
+                                '<i class="fas fa-archive mr-1"></i> Taruh Draft' => 0,
                             ])
                         @endcomponent
 
@@ -92,9 +89,10 @@
                             @slot('inputLabel', 'Jadikan Featured Post')
                             @slot('inputName', 'is_featured')
                             @slot('inputId', 'input-is_featured')
+                            @slot('inputValue', 0)
                             @slot('inputDatas', [
-                                '<i class="fas fa-check mr-1"></i> Iya' => 0,
-                                '<i class="fas fa-minus-square mr-1"></i> Tidak' => 1,
+                                '<i class="fas fa-check mr-1"></i> Iya' => 1,
+                                '<i class="fas fa-minus-square mr-1"></i> Tidak' => 0,
                             ])
                         @endcomponent
 
@@ -109,7 +107,6 @@
                             @slot('inputLabel', 'Kategori')
                             @slot('inputName', 'category_id')
                             @slot('inputId', 'input-category_id')
-                            @slot('inputIsRequired', true)
                             @slot('inputIsSearchable', true)
                             @slot('inputDatas', $inputDatasCategory)
                         @endcomponent
@@ -117,7 +114,7 @@
                         {{-- submit --}}
                         <div class="row justify-content-end">
                             <div class="col-auto">
-                                <button class="btn btn-primary">Simpan</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
                         </div>
                     </div>
@@ -140,9 +137,9 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script>
         "use strict";
-        
+
         $('#summernote-editor').summernote({
-            placeholder: 'Hello stand alone ui',
+            placeholder: 'Masukan Konten',
             tabsize: 2,
             height: 120,
             toolbar: [
@@ -153,12 +150,12 @@
                 ['table', ['table']],
                 // ['insert', ['link', 'picture', 'video']],
                 ['insert', ['link']],
-            ]
+            ],
         });
 
-        $('form').on('submit', function(e) {
-            console.log( $('[name="body"]').val() )
-            e.preventDefault();
-        });
+        // $('form').on('submit', function(e) {
+        //     console.log( $('[name="body"]').val() )
+        //     e.preventDefault();
+        // });
     </script>
 @endpush {{-- end of script --}}

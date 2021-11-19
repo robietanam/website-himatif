@@ -1,5 +1,5 @@
 <?php
-    
+
 namespace App\Services;
 
 use Exception;
@@ -18,24 +18,51 @@ class PostService
         $this->postRepository = $postRepository;
     }
 
-    public function changeStatusOf(Request $request, $status) 
+    /**
+     * Get datatable posts.
+     *
+     * @return mixed
+     */
+    public function getDatatable()
     {
-        $validator = \Validator::make($request->all(), [
-            'id'        => ['required', 'array', 'min:1']
-        ]);
+        return $this->postRepository->getDatatable();
+    }
 
-        if ($validator->fails()) {
-            if ($status === '1') {
-                \Session::flash('alert-type', 'danger'); 
-                \Session::flash('alert-message', 'Publish Post tidak berhasil, Terjadi kesalahan !'); 
-            } else {
-                \Session::flash('alert-type', 'danger'); 
-                \Session::flash('alert-message', 'Pindah ke Draft Post tidak berhasil, Terjadi kesalahan !'); 
+    /**
+     * Get Post for frontpage 'load more'
+     *
+     * @return Collection
+     */
+    public function get(int $limit)
+    {
+        return $this->postRepository->get($limit);
+    }
+
+    /**
+     * Validate post data.
+     * Store to DB if there are no errors.
+     *
+     * @param array $data
+     * @return String
+     */
+    public function save($data)
+    {
+        try {
+            $validator = Validator::make($data, [
+                'title' => 'required',
+                'slug' => 'required',
+                'photo' => 'image|mimes:jpeg,jpg,png|max:2048',
+            ]);
+
+
+            if ($validator->fails()) {
+                throw new \InvalidArgumentException((array) json_decode($validator->errors()));
             }
 
-            return redirect()->back();
+            return $this->postRepository->save($data);
+        } catch (\Throwable $t) {
+            throw $t;
+            return false;
         }
-
-        return $this->postRepository->setStatus($request->id, $status);
     }
 }

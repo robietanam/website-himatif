@@ -212,14 +212,14 @@
 
             <div class="py-10">
                 <h3 class="text-midnight text-dec text-dec-secondary-3 text-dec-tr font-extrabold mb-2">
-                    Slogan HIMATIF
+                    {{ $slogan['1-text']->content }}
                 </h3>
                 <h6 class="text-gray font-light">
-                    Slogan Himpunan Mahasiswa Teknologi Informasi
+                    {{ $slogan['2-text2']->content }}
                 </h6>
 
                 <h2 class="text-midnight my-3 font-extrabold">
-                    “ MUDA, TIDAK MENYERAH! ”
+                    {{ $slogan['3-slogan']->content }}
                 </h2>
             </div>
         </div>

@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('phone')->nullable();
             $table->string('photo')->nullable();
-            $table->enum('status', ['0', '1'])->comment = "0 Tidak Aktif, 1 Aktif";
+            $table->enum('status', [0, 1])->comment = "0 Tidak Aktif, 1 Aktif";
             $table->year('year_entry')->nullable(); // angkatan
             $table->timestamps();
             $table->rememberToken();

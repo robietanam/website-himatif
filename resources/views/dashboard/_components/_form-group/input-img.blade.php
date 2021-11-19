@@ -5,8 +5,8 @@
     </label>
 
     <div class="custom-file">
-        <input 
-            type="file" 
+        <input
+            type="file"
             name="{{ $inputName }}"
             id="{{ $inputId }}" onchange="openFile(event, '#{{ $inputPreviewIdentity }}')"
             @if(isset($inputIsRequired) && $inputIsRequired === true) required @endif
@@ -15,7 +15,7 @@
         <label class="custom-file-label" for="{{ $inputName }}">Choose file</label>
 
         @error($inputName)
-        <div class="invalid-feedback pt-2">
+        <div class="text-invalid pt-2">
             {{ $message }}
         </div>
         @enderror

@@ -11610,6 +11610,8 @@ a {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .row.gutters-xxs {
