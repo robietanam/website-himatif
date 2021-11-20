@@ -1,10 +1,10 @@
 @extends('dashboard._layouts.app')
 
-@section('title', 'Tambah Data Keanggotaan') {{-- title --}}
-@section('header', 'Keanggotaan') {{-- header --}}
+@section('title', 'Tambah Data Pengurus') {{-- title --}}
+@section('header', 'Pengurus') {{-- header --}}
 
 @section('breadcrumb') {{-- breadcrumb --}}
-    <div class="breadcrumb-item active"><a href="#">Keanggotaan</a></div>
+    <div class="breadcrumb-item active"><a href="#">Pengurus</a></div>
     <div class="breadcrumb-item">Tambah Data</div>
 @endsection {{-- end of breadcrumb --}}
 
@@ -12,11 +12,11 @@
 
     <div class="row gutters-xs align-items-center justify-content-end my-4">
         <div class="col-lg">
-            <h4>Tambah Data</h4>
+            <h4>Tambah Data Pengurus</h4>
         </div>
         <div class="col col-md-auto">
-            <a 
-                href="{{ route('dashboard.admin.keanggotaan.index') }}" 
+            <a
+                href="{{ route('dashboard.admin.users.index') }}"
                 class="btn btn-outline-secondary">
                     <i class="fas fa-arrow-left mr-1"></i> Semua Data
             </a>
@@ -24,7 +24,7 @@
     </div>
 
     {{-- row : form --}}
-    <form action="{{ route('dashboard.admin.keanggotaan.store') }}" enctype="multipart/form-data" method="POST">
+    <form action="{{ route('dashboard.admin.users.store') }}" enctype="multipart/form-data" method="POST">
         @csrf
         <div class="row">
 
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg">
                 <div class="card">
                     <div class="card-body">
@@ -95,7 +95,7 @@
                             @slot('inputLabel', 'Status')
                             @slot('inputName', 'status')
                             @slot('inputId', 'input-status')
-                            @slot('inputIsRequired', true)
+                            @slot('inputValue', 1)
                             @slot('inputDatas', [
                                 'aktif' => 1,
                                 'nonaktif' => 0,
@@ -113,7 +113,7 @@
                         @php
                             $inputDatasDivision = [];
                             foreach ($divisions as $division) {
-                                $inputDatasDivision["$division->name_position | $division->name_slug"] = $division->id;
+                                $inputDatasDivision[$division->name] = $division->id;
                             }
                         @endphp
                         @component('dashboard._components._form-group.input-select')
@@ -125,8 +125,24 @@
                             @slot('inputDatas', $inputDatasDivision)
                         @endcomponent
 
-                        {{-- input : role_id --}}
+                        {{-- input : position --}}
                         @php
+                            $inputDatasPosition = [];
+                            foreach ($positions as $position) {
+                                $inputDatasPosition[$position] = $position;
+                            }
+                        @endphp
+                        @component('dashboard._components._form-group.input-select')
+                            @slot('inputLabel', 'Jabatan')
+                            @slot('inputName', 'position')
+                            @slot('inputId', 'input-position')
+                            @slot('inputIsRequired', true)
+                            @slot('inputIsSearchable', true)
+                            @slot('inputDatas', $inputDatasPosition)
+                        @endcomponent
+
+                        {{-- input : role_id --}}
+                        {{-- @php
                             $inputDatasRole = [];
                             foreach ($roles as $role) {
                                 $inputDatasRole["$role->name"] = $role->id;
@@ -136,10 +152,10 @@
                             @slot('inputLabel', 'Akses Sistem')
                             @slot('inputName', 'role_id')
                             @slot('inputId', 'input-role_id')
-                            @slot('inputHelp', 'Jika tidak diisi default akan <b>Anggota</b>')
+                            @slot('inputHelp', 'Jika tidak diisi default akan <b>Pengurus</b>')
                             @slot('inputIsRequired', true)
                             @slot('inputDatas', $inputDatasRole)
-                        @endcomponent
+                        @endcomponent --}}
 
                         {{-- submit --}}
                         <div class="row justify-content-end">
@@ -159,7 +175,7 @@
 @endsection {{-- end of content --}}
 
 @push('style') {{-- style --}}
-    
+
 @endpush {{-- end of style --}}
 
 @push('script') {{-- script --}}

@@ -9,9 +9,9 @@ class PostController extends Controller
 {
     private $postRepository;
 
-    public function __construct(PostRepository $postRepository)
+    public function __construct()
     {
-        $this->postRepository = $postRepository;
+        $this->postRepository = new PostRepository;
     }
 
     public function getPosts()

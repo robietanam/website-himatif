@@ -64,9 +64,9 @@ class PostRepository
     }
 
     /**
-     * Get Post by slug
+     * Get Post by id
      *
-     * @param int id
+     * @param int $id
      * @return Post
      */
     public function findById($id)
@@ -86,7 +86,7 @@ class PostRepository
     }
 
     /**
-     * @param Post
+     * @param Post $data
      * @return Post
      */
     public function save($data)
@@ -116,7 +116,8 @@ class PostRepository
     }
 
     /**
-     * @param Post
+     * @param int $id
+     * @param Post $data
      * @return Post
      */
     public function update($id, $data)

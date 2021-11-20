@@ -1,10 +1,10 @@
 @extends('dashboard._layouts.app')
 
-@section('title', 'Ubah Data Keanggotaan') {{-- title --}}
-@section('header', 'Keanggotaan') {{-- header --}}
+@section('title', 'Ubah Data Pengurus') {{-- title --}}
+@section('header', 'Pengurus') {{-- header --}}
 
 @section('breadcrumb') {{-- breadcrumb --}}
-    <div class="breadcrumb-item active"><a href="#">Keanggotaan</a></div>
+    <div class="breadcrumb-item active"><a href="#">Pengurus</a></div>
     <div class="breadcrumb-item">Ubah Data</div>
 @endsection {{-- end of breadcrumb --}}
 
@@ -12,11 +12,11 @@
 
     <div class="row gutters-xs align-items-center justify-content-end my-4">
         <div class="col-lg">
-            <h4>Ubah Data</h4>
+            <h4>Ubah Data Pengurus</h4>
         </div>
         <div class="col col-md-auto">
-            <a 
-                href="{{ route('dashboard.admin.keanggotaan.index') }}" 
+            <a
+                href="{{ route('dashboard.admin.users.index') }}"
                 class="btn btn-outline-secondary">
                     <i class="fas fa-arrow-left mr-1"></i> Semua Data
             </a>
@@ -24,15 +24,16 @@
     </div>
 
     {{-- row : form --}}
-    <form action="{{ route('dashboard.admin.keanggotaan.update', $user->id) }}" enctype="multipart/form-data" method="POST">
-        @csrf @method('PUT')
+    <form action="{{ route('dashboard.admin.users.update', $user->id) }}" enctype="multipart/form-data" method="POST">
+        @csrf
+        @method('PUT')
         <div class="row">
 
             <div class="col-lg-5">
                 <div class="card">
                     <div class="card-body d-flex flex-column align-items-center">
                         <div class="img-wrapper img-wrapper-upload rounded-circle bg-secondary w-10rem h-10rem my-3">
-                            <img id="img-anggota-1" src="{{ asset('storage/'.$user->photo) }}" alt="">
+                            <img id="img-anggota-1" src="" alt="">
                         </div>
                         @component('dashboard._components._form-group.input-img')
                             @slot('inputLabel', 'Foto Anggota')
@@ -44,7 +45,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg">
                 <div class="card">
                     <div class="card-body">
@@ -53,8 +54,8 @@
                             @slot('inputLabel', 'Nama')
                             @slot('inputName', 'name')
                             @slot('inputId', 'input-name')
-                            @slot('inputValue', $user->name)
                             @slot('inputIsRequired', true)
+                            @slot('inputValue', $user->name)
                         @endcomponent
 
                         {{-- input : nim --}}
@@ -62,9 +63,8 @@
                             @slot('inputLabel', 'Nim')
                             @slot('inputName', 'nim')
                             @slot('inputId', 'input-nim')
-                            @slot('inputValue', $user->nim)
                             @slot('inputIsRequired', true)
-                            @slot('inputIsDisabled', true)
+                            @slot('inputValue', $user->nim)
                         @endcomponent
 
                         {{-- input : email --}}
@@ -73,9 +73,8 @@
                             @slot('inputLabel', 'Email')
                             @slot('inputName', 'email')
                             @slot('inputId', 'input-email')
-                            @slot('inputValue', $user->email)
                             @slot('inputIsRequired', true)
-                            @slot('inputIsDisabled', true)
+                            @slot('inputValue', $user->email)
                         @endcomponent
 
                         {{-- input : phone --}}
@@ -92,12 +91,11 @@
                             @slot('inputLabel', 'Status')
                             @slot('inputName', 'status')
                             @slot('inputId', 'input-status')
-                            @slot('inputIsRequired', true)
+                            @slot('inputValue', $user->status)
                             @slot('inputDatas', [
                                 'aktif' => 1,
                                 'nonaktif' => 0,
                             ])
-                            @slot('inputValue', $user->status)
                         @endcomponent
 
                         {{-- input : year_entry --}}
@@ -112,7 +110,7 @@
                         @php
                             $inputDatasDivision = [];
                             foreach ($divisions as $division) {
-                                $inputDatasDivision["$division->name_position | $division->name_slug"] = $division->id;
+                                $inputDatasDivision[$division->name] = $division->id;
                             }
                         @endphp
                         @component('dashboard._components._form-group.input-select')
@@ -121,12 +119,29 @@
                             @slot('inputId', 'input-division_id')
                             @slot('inputIsRequired', true)
                             @slot('inputIsSearchable', true)
-                            @slot('inputDatas', $inputDatasDivision)
                             @slot('inputValue', $user->division_id)
+                            @slot('inputDatas', $inputDatasDivision)
+                        @endcomponent
+
+                        {{-- input : position --}}
+                        @php
+                            $inputDatasPosition = [];
+                            foreach ($positions as $position) {
+                                $inputDatasPosition[$position] = $position;
+                            }
+                        @endphp
+                        @component('dashboard._components._form-group.input-select')
+                            @slot('inputLabel', 'Jabatan')
+                            @slot('inputName', 'position')
+                            @slot('inputId', 'input-position')
+                            @slot('inputIsRequired', true)
+                            @slot('inputIsSearchable', true)
+                            @slot('inputValue', $user->position)
+                            @slot('inputDatas', $inputDatasPosition)
                         @endcomponent
 
                         {{-- input : role_id --}}
-                        @php
+                        {{-- @php
                             $inputDatasRole = [];
                             foreach ($roles as $role) {
                                 $inputDatasRole["$role->name"] = $role->id;
@@ -136,18 +151,41 @@
                             @slot('inputLabel', 'Akses Sistem')
                             @slot('inputName', 'role_id')
                             @slot('inputId', 'input-role_id')
-                            @slot('inputHelp', 'Jika tidak diisi default akan <b>Anggota</b>')
+                            @slot('inputHelp', 'Jika tidak diisi default akan <b>Pengurus</b>')
                             @slot('inputIsRequired', true)
                             @slot('inputDatas', $inputDatasRole)
-                            @slot('inputValue', $user->role_id)
-                        @endcomponent
+                        @endcomponent --}}
 
                         {{-- submit --}}
                         <div class="row justify-content-end">
                             <div class="col-auto">
-                                <button class="btn btn-warning">Ubah Data</button>
+                                <button class="btn btn-primary">Simpan</button>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <form action="{{ route('dashboard.admin.users.update-password', $user->id) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <h6 class="mb-3">Ubah Password</h6>
+                            {{-- input : password --}}
+                            @component('dashboard._components._form-group.input')
+                                @slot('inputType', 'password')
+                                @slot('inputLabel', 'Password')
+                                @slot('inputName', 'password')
+                                @slot('inputId', 'input-password')
+                            @endcomponent
+
+                            {{-- submit --}}
+                            <div class="row justify-content-end">
+                                <div class="col-auto">
+                                    <button class="btn btn-primary">Simpan</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -160,7 +198,7 @@
 @endsection {{-- end of content --}}
 
 @push('style') {{-- style --}}
-    
+
 @endpush {{-- end of style --}}
 
 @push('script') {{-- script --}}

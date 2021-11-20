@@ -12394,6 +12394,26 @@ body.blog {
   background-color: #F4F4FA;
 }
 
+body.pengurus {
+  background-color: #FFFFFF !important;
+}
+body.pengurus header {
+  padding: 10rem 0;
+  background-color: #F4F4FA;
+  background-image: url("../img/decoration/bg/1.svg"), url("../img/decoration/bg/2.svg");
+  background-size: 50rem, 50rem;
+  background-repeat: no-repeat;
+  background-position: -30rem -30rem, 140% -150%;
+}
+body.pengurus section#section-1 {
+  padding: 4rem 0;
+}
+@media screen and (min-width: 992px) {
+  body.pengurus section#section-1 {
+    padding: 6rem 0;
+  }
+}
+
 body.notfound {
   background-color: #F4F4FA;
 }

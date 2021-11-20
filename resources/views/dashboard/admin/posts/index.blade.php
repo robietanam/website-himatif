@@ -4,8 +4,8 @@
 @section('header', 'Keanggotaan') {{-- header --}}
 
 @section('breadcrumb') {{-- breadcrumb --}}
-    <div class="breadcrumb-item active"><a href="#">Root</a></div>
-    <div class="breadcrumb-item">Child</div>
+    <div class="breadcrumb-item active"><a href="#">Home</a></div>
+    <div class="breadcrumb-item">Post</div>
 @endsection {{-- end of breadcrumb --}}
 
 @section('content') {{-- content --}}
@@ -156,7 +156,6 @@
                     },
                 ],
                 responsive: true,
-                pagingType: "numbers",
                 language: {
                     lengthMenu: "Tampilkan _MENU_",
                     zeroRecords: "Tidak Ada Data Post",

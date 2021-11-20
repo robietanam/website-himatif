@@ -1,5 +1,6 @@
 <?php
 
+use App\Constant\GlobalConstant;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('phone')->nullable();
             $table->string('photo')->nullable();
+            $table->enum('position', GlobalConstant::DIVISION_POSITION_NAME)->nullable();
             $table->enum('status', [0, 1])->comment = "0 Tidak Aktif, 1 Aktif";
             $table->year('year_entry')->nullable(); // angkatan
             $table->timestamps();

@@ -13,21 +13,21 @@
             @component('dashboard._components.widget', ['color' => 'primary'])
                 @slot('icon', 'fas fa-users')
                 @slot('title', 'Pengurus')
-                @slot('content', '25') 
+                @slot('content', '25')
             @endcomponent
         </div>
         <div class="col-md-4">
             @component('dashboard._components.widget', ['color' => 'info'])
                 @slot('icon', 'fas fa-users')
                 @slot('title', 'Anggota')
-                @slot('content', '500') 
+                @slot('content', '500')
             @endcomponent
         </div>
         <div class="col-md-4">
             @component('dashboard._components.widget', ['color' => 'secondary'])
                 @slot('icon', 'fas fa-users')
                 @slot('title', 'Demisioner')
-                @slot('content', '50') 
+                @slot('content', '50')
             @endcomponent
         </div>
     </div>
@@ -38,24 +38,24 @@
                 <div class="col-lg">
                     <h5 class="mb-0">Operasi Data</h5>
                 </div>
-                <div class="col-md-auto">
+                {{-- <div class="col-md-auto">
                     <form id="form-delete" action="{{ route('dashboard.admin.keanggotaan.delete') }}" method="POST">
                         @csrf @method('DELETE')
                         <button id="btn-delete" class="btn btn-sm btn-danger" disabled>
                             <i class="fas fa-trash"></i>
                         </button>
                     </form>
-                </div>
-                <div class="col-md-auto">
+                </div> --}}
+                {{-- <div class="col-md-auto">
                     <form id="form-edit" action="">
                         @csrf
                         <button id="btn-edit" class="btn btn-sm btn-warning" disabled>
                             <i class="fas fa-pen"></i>
                         </button>
                     </form>
-                </div>
+                </div> --}}
                 <div class="col-md-auto">
-                    <a href="{{ route('dashboard.admin.keanggotaan.create') }}" class="btn btn-block btn-sm btn-primary">
+                    <a href="{{ route('dashboard.admin.users.create') }}" class="btn btn-block btn-sm btn-primary">
                         <i class="fas fa-plus mr-2"></i> Tambah Data
                     </a>
                 </div>
@@ -67,24 +67,26 @@
         <div class="card-body">
             <div class="row align-items-center border-bottom pb-3 mb-3">
                 <div class="col-md">Export Data</div>
-                <div class="col-md-auto">
+                {{-- <div class="col-md-auto">
                     <a href="{{ route('dashboard.admin.keanggotaan.export') }}" class="btn btn-outline-success">Export Excell</a>
-                </div>
+                </div> --}}
             </div>
             <div class="table-datatable-wrapper">
                 <table id="datatable" class="table table-datatable" width="100%">
                     <thead>
                         <tr>
                             <th class="no-export"></th>
+                            <th class="no-sort no-export">Aksi</th>
                             <th class="no-sort no-export">Foto</th>
                             <th>Nama</th>
                             <th>Nim</th>
                             <th>Divisi</th>
-                            <th>Email</th>
+                            <th>Jabatan</th>
+                            <th>Status</th>
                             <th>Nomor Hp</th>
+                            <th>Email</th>
                             <th>Angkatan</th>
-                            <th>Status</th> 
-                            <th>Akses</th> 
+                            <th>Akses</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -97,7 +99,7 @@
                             <th>Keterangan</th>
                             <th>Dibuat Pada</th>
                             <th>Ditulis DTM</th>
-                            <th>Aksi</th> 
+                            <th>Aksi</th>
                         </tr>
                         @endfor --}}
                     </tbody>
@@ -116,7 +118,7 @@
     <script>
         $(document).ready(function() {
 
-            const ajax_url = '{{ route('ajax.getKeanggotaan') }}';
+            const ajax_url = '{{ route('ajax.getUsers') }}';
             const table = $('#datatable').DataTable({
                 dom: `<'row no-gutters'<'col-md'l><'col-md-auto'f>>
                         <'row'<'col-12 table-datatable-container' t>>
@@ -126,7 +128,7 @@
                         extend: 'colvis',
                         text: '<i class="fas fa-table mr-2"></i>Pilih Kolom',
                         className: 'btn-primary',
-                        prefixButtons: [ 
+                        prefixButtons: [
                             {
                                 extend: 'colvisRestore',
                                 text: 'Tampilkan Semua Kolom'
@@ -142,10 +144,9 @@
                             orthogonal: "dtm",
                             columns: "thead th:not(.no-export)"
                         }
-                    }, 
+                    },
                 ],
                 responsive: true,
-                pagingType: "numbers",
                 language: {
                     "lengthMenu": "Tampilkan _MENU_",
                     "zeroRecords": "Tidak Ada Data Anggota",
@@ -182,18 +183,23 @@
                 ],
                 select: {
                     'style': 'multi',
+                    'selector': 'td:not(.is-clickable)'
                 },
                 order: [],
                 columns: [
                     {data: 'id', name: 'id', "searchable": false},
+                    {data: 'action', name: 'action', "searchable": false, createdCell: (cell) => {
+                        cell.classList.add('is-clickable');
+                    }},
                     {data: 'photo', name: 'photo', "searchable": false},
                     {data: 'name', name: 'name'},
                     {data: 'nim', name: 'nim'},
                     {data: 'division', name: 'division', "searchable": false},
-                    {data: 'email', name: 'email', "searchable": false},
-                    {data: 'phone', name: 'phone', "searchable": false},
-                    {data: 'year_entry', name: 'year_entry', "searchable": false},
+                    {data: 'position', name: 'division', "searchable": false},
                     {data: 'status', name: 'status', "searchable": false},
+                    {data: 'phone', name: 'phone', "searchable": false},
+                    {data: 'email', name: 'email', "searchable": false},
+                    {data: 'year_entry', name: 'year_entry', "searchable": false},
                     {data: 'role', name: 'role', "searchable": false},
                 ]
             });
@@ -231,7 +237,7 @@
                                     .val(rowId)
                             );
                         });
-                        // form.submit();         
+                        // form.submit();
                     }
                 })
             });

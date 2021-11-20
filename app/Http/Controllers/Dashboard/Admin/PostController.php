@@ -35,7 +35,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = $this->categoryRepository->getAll();
+        $categories = $this->categoryRepository->get();
         return view('dashboard.admin.posts.create', compact('categories'));
     }
 
@@ -93,7 +93,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = $this->postRepository->findById($id);
-        $categories = $this->categoryRepository->getAll();
+        $categories = $this->categoryRepository->get();
 
         return view('dashboard.admin.posts.edit', compact(['post', 'categories']));
     }
