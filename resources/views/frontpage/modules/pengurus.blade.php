@@ -1,8 +1,8 @@
 @extends('frontpage.layouts.app-frontpage')
 
-@section('title', 'BERANDA')
+@section('title', 'PENGURUS')
 
-@section('pageClass', 'about')
+@section('pageClass', 'pengurus')
 @section('content')
 
     {{-- Header --}}
@@ -23,25 +23,36 @@
     <section id="section-1">
         <div class="container">
             <div class="row gutters-xs gutters-lg-md justify-content-around justify-content-lg-center">
-                <div class="col-12 mb-5">
-                    <h4 class="text-midnight text-center font-extrabold mb-2">
-                        BADAN PENGURUS HARIAN
-                    </h4>
-                </div>
 
-                @for ($i = 0; $i < 3; $i++)
-                    <div class="col-auto col-md-4 col-lg-3 mb-2">
-                        <div class="card card-member shadow-midnight-sm">
-                            <div class="card-body text-center">
-                                <div class="img-wrapper">
-                                    <img src="{{ asset('img/misc/member-placeholder.png') }}" alt="">
+                @foreach ($divisions as $division)
+                    <div class="col-12 mt-3 mb-1">
+                        <h4 class="text-midnight text-center font-extrabold mb-2">
+                            {{ $division->name }}
+                        </h4>
+                    </div>
+
+                    @foreach ($division->users as $user)
+                        <div class="col-auto col-md-4 col-lg-3 mb-2">
+                            <div class="card card-member shadow-midnight-sm">
+                                <div class="card-body text-center">
+                                    @if ($user->photo)
+                                        <div class="img-wrapper">
+                                            <img src="{{ asset('storage/'.$user->photo) }}" alt="">
+                                        </div>
+                                    @else
+                                        <div class="img-wrapper">
+                                            <img src="{{ asset('img/placeholder/product-image-default.svg') }}" alt="">
+                                        </div>
+                                    @endif
+                                    <div class="text-title">{{ $user->name }}</div>
+                                    <div class="text-subtitle">{{ $user->position }}</div>
                                 </div>
-                                <div class="text-title">Aditya Ari F</div>
-                                <div class="text-subtitle">Sekretaris</div>
                             </div>
                         </div>
-                    </div>
-                @endfor
+                    @endforeach
+                @endforeach
+
+
             </div>
         </div>
     </section>

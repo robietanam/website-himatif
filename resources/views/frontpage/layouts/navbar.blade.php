@@ -18,8 +18,8 @@
                 {{-- <li class="nav-item {{ Request::is('pengurus') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('/pengurus') }}">DIVISI & PENGURUS</a>
                 </li> --}}
-                <li class="nav-item">
-                    <a class="nav-link" href="#">DIVISI & PENGURUS</a>
+                <li class="nav-item {{ Request::is('pengurus') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ url('/pengurus') }}">DIVISI & PENGURUS</a>
                 </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link" href="#">PROKER</a>

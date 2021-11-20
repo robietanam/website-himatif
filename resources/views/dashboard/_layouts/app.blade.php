@@ -30,7 +30,7 @@
     @stack('style')
 </head>
 <body>
-    
+
     <div id="app">
         <div class="main-wrapper">
             <div class="navbar-bg"></div>
@@ -47,14 +47,14 @@
                     </div>
 
                     {{-- if flash alert exist --}}
-                    @if(Session::has('alert-message'))
-                        <div class="alert alert-{{ Session::get('alert-type') }}">
-                        {{ Session::get('alert-message') }}
+                    @if(Session::has('message'))
+                        <div class="alert alert-{{ Session::get('type') }}">
+                        {{ Session::get('message') }}
                         </div>
                     @endif
                     @yield('content')
                 </section>
-                
+
             </div>
             @include('dashboard._layouts.footer')
         </div>

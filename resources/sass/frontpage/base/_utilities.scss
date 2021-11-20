@@ -1,242 +1,321 @@
 // BACKGROUND UTILS
-    /* solid */
-    @each $color-name, $color-value in $colors {
-        .bg-#{$color-name} { background-color: $color-value !important; }
+/* solid */
+@each $color-name, $color-value in $colors {
+    .bg-#{$color-name} {
+        background-color: $color-value !important;
     }
-    /* gradient */
-    @each $color-name, $color-value in $gradient-colors {
-        .bg-gradient-#{$color-name} { background: $color-value !important; }
+}
+/* gradient */
+@each $color-name, $color-value in $gradient-colors {
+    .bg-gradient-#{$color-name} {
+        background: $color-value !important;
     }
+}
 
 // SIZING
-    // loop to max size in base.scss
-    @for $i from 0 to ($sizing-max+1) {
-
-        // ex: sizing increment = 5
-        // 3 % 5 == 2 so false, 5 % 5 == 0 true
-        @if ($i % $sizing-increment == 0 or $i < 5)  {
-            // if 0 dont append rem, in last name, ex : w-0 not w-0rem
-            @if ($i == 0) {
-                .w-#{$i} { width: $i !important; }
-                .h-#{$i} { height: $i !important; }
-            } @else {
-                // ex: w-5rem
-                .w-#{$i}rem { width: $i * 1rem !important; }
-                .h-#{$i}rem { height: $i * 1rem !important; }
+// loop to max size in base.scss
+@for $i from 0 to ($sizing-max + 1) {
+    // ex: sizing increment = 5
+    // 3 % 5 == 2 so false, 5 % 5 == 0 true
+    @if ($i % $sizing-increment == 0 or $i < 5) {
+        // if 0 dont append rem, in last name, ex : w-0 not w-0rem
+        @if ($i == 0) {
+            .w-#{$i} {
+                width: $i !important;
             }
-
-            // LOOP EVERY BREAKPOINTS
-            @each $breakpoint-name, $breakpoint-value in $breakpoints {
-                @media screen and (min-width: $breakpoint-value) {
-                    @if ($i == 0) {
-                        .w-#{$breakpoint-name}-#{$i} { width: $i!important; }
-                        .h-#{$breakpoint-name}-#{$i} { height: $i!important; }
-                    } @else {
-                        // ex: w-sm-5rem
-                        .w-#{$breakpoint-name}-#{$i}rem { width: $i * 1rem !important; }
-                        .h-#{$breakpoint-name}-#{$i}rem { height: $i * 1rem !important; }
-                    }
-                }
+            .h-#{$i} {
+                height: $i !important;
+            }
+        } @else {
+            // ex: w-5rem
+            .w-#{$i}rem {
+                width: $i * 1rem !important;
+            }
+            .h-#{$i}rem {
+                height: $i * 1rem !important;
             }
         }
-    }
-    @for $i from 25 to 101 {
-        .w-#{$i} { width: $i * 1%; }
-        .h-#{$i} { height: $i * 1%; }
+
+        // LOOP EVERY BREAKPOINTS
         @each $breakpoint-name, $breakpoint-value in $breakpoints {
             @media screen and (min-width: $breakpoint-value) {
-                .w-#{$breakpoint-name}-#{$i} { width: $i * 1% !important; }
-                .h-#{$breakpoint-name}-#{$i} { height: $i * 1% !important; }
-            }
-        }
-    }
-
-
-
-    // INSETS
-    $insets: (
-        margin: m,
-        margin-left: ml,
-        margin-right: mr,
-        margin-top: mt,
-        margin-bottom: mb,
-        (margin-left, margin-right): mx,
-        (margin-top, margin-bottom): my,
-        padding: p,
-        padding-left: pl,
-        padding-right: pr,
-        padding-top: pt,
-        padding-bottom: pb,
-        (padding-left, padding-right): px,
-        (padding-top, padding-bottom): py,
-    );
-    @for $i from 0 to ($inset-max+1) {
-        @each $prop-name, $prop-abb in $insets {
-            .#{$prop-abb}-#{$i} {
-                @each $pn in $prop-name {
-                    #{$pn}: ($i * $inset-multiply-size) * .5rem !important;
-                }
-            }
-        }
-    }
-    @for $i from 0 to ($inset-max+1) {
-        @each $prop-name, $prop-abb in $insets {
-            @each $breakpoint-name, $breakpoint-value in $breakpoints {
-                .#{$prop-abb}-#{$breakpoint-name}-#{$i} {
-                    @media screen and (min-width: $breakpoint-value) {
-                        @each $pn in $prop-name {
-                            #{$pn}: ($i * $inset-multiply-size) * .5rem !important;
-                        }
+                @if ($i == 0) {
+                    .w-#{$breakpoint-name}-#{$i} {
+                        width: $i !important;
+                    }
+                    .h-#{$breakpoint-name}-#{$i} {
+                        height: $i !important;
+                    }
+                } @else {
+                    // ex: w-sm-5rem
+                    .w-#{$breakpoint-name}-#{$i}rem {
+                        width: $i * 1rem !important;
+                    }
+                    .h-#{$breakpoint-name}-#{$i}rem {
+                        height: $i * 1rem !important;
                     }
                 }
             }
         }
     }
-
-
-    // TEXT UTILS
-    /* color */
-    @each $color-name, $color-value in $colors {
-        .text-#{$color-name} { color: $color-value !important; }
+}
+@for $i from 25 to 101 {
+    .w-#{$i} {
+        width: $i * 1%;
     }
+    .h-#{$i} {
+        height: $i * 1%;
+    }
+    @each $breakpoint-name, $breakpoint-value in $breakpoints {
+        @media screen and (min-width: $breakpoint-value) {
+            .w-#{$breakpoint-name}-#{$i} {
+                width: $i * 1% !important;
+            }
+            .h-#{$breakpoint-name}-#{$i} {
+                height: $i * 1% !important;
+            }
+        }
+    }
+}
 
-    /* weight */
-    .font-light {font-weight: 300;}
-    .font-normal {font-weight: 400;}
-    .font-semibold {font-weight: 600;}
-    .font-bold {font-weight: 700;}
-    .font-extrabold {font-weight: 800;}
-    .font-boldest {font-weight: 900;}
-    /* line-height */
-    .text-height-0 {line-height: 0;}
-    .text-dec-none {text-decoration: none;}
+// INSETS
+$insets: (
+    margin: m,
+    margin-left: ml,
+    margin-right: mr,
+    margin-top: mt,
+    margin-bottom: mb,
+    (margin-left, margin-right): mx,
+    (margin-top, margin-bottom): my,
+    padding: p,
+    padding-left: pl,
+    padding-right: pr,
+    padding-top: pt,
+    padding-bottom: pb,
+    (padding-left, padding-right): px,
+    (padding-top, padding-bottom): py,
+);
+@for $i from 0 to ($inset-max + 1) {
+    @each $prop-name, $prop-abb in $insets {
+        .#{$prop-abb}-#{$i} {
+            @each $pn in $prop-name {
+                #{$pn}: ($i * $inset-multiply-size) * 0.5rem !important;
+            }
+        }
+    }
+}
+@for $i from 0 to ($inset-max + 1) {
+    @each $prop-name, $prop-abb in $insets {
+        @each $breakpoint-name, $breakpoint-value in $breakpoints {
+            .#{$prop-abb}-#{$breakpoint-name}-#{$i} {
+                @media screen and (min-width: $breakpoint-value) {
+                    @each $pn in $prop-name {
+                        #{$pn}: ($i * $inset-multiply-size) * 0.5rem !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// TEXT UTILS
+/* color */
+@each $color-name, $color-value in $colors {
+    .text-#{$color-name} {
+        color: $color-value !important;
+    }
+}
+
+/* weight */
+.font-light {
+    font-weight: 300;
+}
+.font-normal {
+    font-weight: 400;
+}
+.font-semibold {
+    font-weight: 600;
+}
+.font-bold {
+    font-weight: 700;
+}
+.font-extrabold {
+    font-weight: 800;
+}
+.font-boldest {
+    font-weight: 900;
+}
+/* line-height */
+.text-height-0 {
+    line-height: 0;
+}
+.text-dec-none {
+    text-decoration: none;
+}
 
 // BORDER UTILS
-    .rounded-sm {border-radius: 5px !important;}
-    .rounded-md {border-radius: 10px !important;}
-    .rounded-lg {border-radius: 15px !important;}
-    /* size */
-    .border-xs { border: .5px solid #6f6f6f; }
-    .border { border: 1px solid #6f6f6f; }
-    .border-md { border: 1.5px solid #6f6f6f; }
-    .border-lg { border: 2px solid #6f6f6f; }
-    /* colors */
-    @each $color-name, $color-value in $colors {
-        .border-#{$color-name} { border-color: $color-value !important; }
+.rounded-sm {
+    border-radius: 5px !important;
+}
+.rounded-md {
+    border-radius: 10px !important;
+}
+.rounded-lg {
+    border-radius: 15px !important;
+}
+/* size */
+.border-xs {
+    border: 0.5px solid #6f6f6f;
+}
+.border {
+    border: 1px solid #6f6f6f;
+}
+.border-md {
+    border: 1.5px solid #6f6f6f;
+}
+.border-lg {
+    border: 2px solid #6f6f6f;
+}
+/* colors */
+@each $color-name, $color-value in $colors {
+    .border-#{$color-name} {
+        border-color: $color-value !important;
     }
-
+}
 
 // HOVER
-    .hover-scale {
+.hover-scale {
+    &:hover {
+        transition: all 0.3s ease-in-out;
+        transform: scale(1.1);
+    }
+}
+// bg color
+@each $color-name, $color-value in $colors {
+    .hover-bgcolor-#{$color-name} {
         &:hover {
-            transition: all .3s ease-in-out;
-            transform: scale(1.1);
+            background-color: $color-value !important;
         }
     }
-    // bg color
-    @each $color-name, $color-value in $colors {
-        .hover-bgcolor-#{$color-name} {
-            &:hover {
-                background-color: $color-value !important;
-            }
-        }
-    }
+}
 
 // SHADOW
-    @each $color-name, $color-value in $colors {
-        .shadow-#{$color-name}-sm {
-            box-shadow: 0 10px 30px rgba($color-value, .1);
-        }
+@each $color-name, $color-value in $colors {
+    .shadow-#{$color-name}-sm {
+        box-shadow: 0 10px 30px rgba($color-value, 0.1);
     }
+}
 
 // OPACITY
-    @for $i from 0 to 10 {
-        .op-#{$i} { opacity: $i * .1; }
+@for $i from 0 to 10 {
+    .op-#{$i} {
+        opacity: $i * 0.1;
     }
+}
 
 // DIVIDER
-    .divider {
-        background-color: $divider-color;
-        width: 100%;
-        height: .5px;
-        &-vertical {
-            height: 100%;
-            width: .5px;
-        }
+.divider {
+    background-color: $divider-color;
+    width: 100%;
+    height: 0.5px;
+    &-vertical {
+        height: 100%;
+        width: 0.5px;
     }
+}
 
 // IMAGE
-    .img-fit {
-        overflow: hidden;
-        &.img-fit-cover {
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-        &.img-fit-contain {
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-            }
+.img-fit {
+    overflow: hidden;
+    &.img-fit-cover {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
+    &.img-fit-contain {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+}
 
 // GUTTER
-    .row {
-        &.gutters-xxs {
-            margin-left: -.25rem;
-            margin-right: -.25rem;
-            & > [class^=col]{ padding: 0 .25rem; }
+.row {
+    &.gutters-xxs {
+        margin-left: -0.25rem;
+        margin-right: -0.25rem;
+        & > [class^="col"] {
+            padding: 0 0.25rem;
         }
-        &.gutters-xs {
-            margin-left: -.5rem;
-            margin-right: -.5rem;
-            & > [class^=col]{ padding: 0 .5rem; }
+    }
+    &.gutters-xs {
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+        & > [class^="col"] {
+            padding: 0 0.5rem;
         }
-        &.gutters-sm {
-            margin-left: -1rem;
-            margin-right: -1rem;
-            & > [class^=col]{ padding: 0 1rem; }
+    }
+    &.gutters-sm {
+        margin-left: -1rem;
+        margin-right: -1rem;
+        & > [class^="col"] {
+            padding: 0 1rem;
         }
-        &.gutters-md {
-            margin-left: -1.5rem;
-            margin-right: -1.5rem;
-            & > [class^=col]{ padding: 0 1.5rem; }
+    }
+    &.gutters-md {
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        & > [class^="col"] {
+            padding: 0 1.5rem;
         }
-        @each $breakpoint-name, $breakpoint-value in $breakpoints {
-            @media screen and (min-width: $breakpoint-value) {
-                &.gutters-#{$breakpoint-name}-xs {
-                    margin-left: -.5rem;
-                    margin-right: -.5rem;
-                    & > [class^=col]{ padding: 0 .5rem; }
+    }
+    @each $breakpoint-name, $breakpoint-value in $breakpoints {
+        @media screen and (min-width: $breakpoint-value) {
+            &.gutters-#{$breakpoint-name}-xs {
+                margin-left: -0.5rem;
+                margin-right: -0.5rem;
+                & > [class^="col"] {
+                    padding: 0 0.5rem;
                 }
-                &.gutters-#{$breakpoint-name}-sm {
-                    margin-left: -1rem;
-                    margin-right: -1rem;
-                    & > [class^=col]{ padding: 0 1rem; }
+            }
+            &.gutters-#{$breakpoint-name}-sm {
+                margin-left: -1rem;
+                margin-right: -1rem;
+                & > [class^="col"] {
+                    padding: 0 1rem;
                 }
-                &.gutters-#{$breakpoint-name}-md {
-                    margin-left: -1.5rem;
-                    margin-right: -1.5rem;
-                    & > [class^=col]{ padding: 0 1.5rem; }
+            }
+            &.gutters-#{$breakpoint-name}-md {
+                margin-left: -1.5rem;
+                margin-right: -1.5rem;
+                & > [class^="col"] {
+                    padding: 0 1.5rem;
                 }
-                &.gutters-#{$breakpoint-name}-lg {
-                    margin-left: -2rem;
-                    margin-right: -2rem;
-                    & > [class^=col]{ padding: 0 2rem; }
+            }
+            &.gutters-#{$breakpoint-name}-lg {
+                margin-left: -2rem;
+                margin-right: -2rem;
+                & > [class^="col"] {
+                    padding: 0 2rem;
                 }
-                &.gutters-#{$breakpoint-name}-xl {
-                    margin-left: -3rem;
-                    margin-right: -3rem;
-                    & > [class^=col]{ padding: 0 3rem; }
+            }
+            &.gutters-#{$breakpoint-name}-xl {
+                margin-left: -3rem;
+                margin-right: -3rem;
+                & > [class^="col"] {
+                    padding: 0 3rem;
                 }
             }
         }
     }
-
+}
 
 // MISC
-    .csr-pointer { cursor: pointer; }
+.csr-pointer {
+    cursor: pointer;
+}

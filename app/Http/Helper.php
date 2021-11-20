@@ -10,6 +10,3 @@ if (!function_exists('api_response')) {
         ], $code);
     }
 }
-
-
-?>

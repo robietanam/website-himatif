@@ -11,9 +11,11 @@
             <div class="row mb-5 mb-lg-10 justify-content-center text-center text-lg-left">
                 <div class="col-lg-6 order-2 order-lg-1">
                     <h3 class="text-dec text-dec-secondary-1 text-dec-tl text-midnight font-extrabold mb-2 d-none d-lg-block">
-                        HIMPUNAN MAHASISWA TEKNOLOGI INFORMASI
+                        {{ $header['1-text']->content }}
                     </h3>
-                    <p class="text-gray font-semibold mb-3">HIMATIF (Himpunan Mahasiswa Teknologi Informasi) adalah salah satu organisasi mahasiswa di Fakultas Ilmu Komputer, Universitas Jember yang memiliki tujuan pokok meningkatkan kualitas Sumber Daya Mahasiswa Teknologi Informasi.</p>
+                    <p class="text-gray font-semibold mb-3">
+                        {{ $header['2-text2']->content }}
+                    </p>
 
                     <div class="row">
                         <div class="col-xl-10">
@@ -21,12 +23,13 @@
                                 <div class="card-body">
                                     <div class="row gutters-xs align-items-center">
                                         <div class="col-auto">
-                                            <div class="badge badge-pill badge-lg badge-info"><span class="d-none d-md-inline">Info</span> Terbaru</div>
+                                            <div class="badge badge-pill badge-lg badge-info">
+                                                {{ $header['4-marquee_tag']->content }}
+                                            </div>
                                         </div>
                                         <div class="col">
                                             <marquee direction="left">
-                                                Open Recruitment Pengurus Baru HIMATIF Periode 2021/2022.
-                                                <a href="https://bit.ly/OprecHMTF" target="_blank"><b>Join now!</b></a>
+                                                {!! $header['5-marquee_info']->content !!}
                                             </marquee>
                                         </div>
                                     </div>
@@ -40,18 +43,26 @@
                     <h3 class="text-dec text-dec-secondary-1 text-dec-tl text-midnight font-extrabold mb-2 d-lg-none">
                         HIMPUNAN MAHASISWA TEKNOLOGI INFORMASI
                     </h3>
-                    <div class="header-img">
-                        <img src="{{ asset('img/misc/header-homepage.png') }}" alt="" class="img-fluid">
-                    </div>
+                    @if (file_exists(storage_path('app/public/'.$header['3-photo']->content)))
+                        <div class="header-img">
+                            <img src="{{ asset('storage/'.$header['3-photo']->content) }}" alt="" class="img-fluid">
+                        </div>
+                    @else
+                        <div class="header-img">
+                            <img src="{{ asset('img/'.$header['3-photo']->content) }}" alt="" class="img-fluid">
+                        </div>
+                    @endif
                 </div>
             </div>
 
             <div class="row pt-5">
                 <div class="col-12 text-center mb-5">
                     <h3 class="text-dec text-dec-secondary-2 text-dec-tl text-midnight font-extrabold mb-2">
-                        APA YANG KAMI LAKUKAN
+                        {{ $section2->text->content }}
                     </h3>
-                    <h6 class="text-gray font-semibold">Kami Berfokus pada pengembangan kualitas Sumber Daya Mahasiswa Teknologi Informasi</h6>
+                    <h6 class="text-gray font-semibold">
+                        {{ $section2->text2->content }}
+                    </h6>
                 </div>
 
                 <div class="col-lg-4 mb-3 mb-lg-0">
@@ -62,9 +73,11 @@
                                     <img src="{{ asset('img/icons/pencil-warning.svg') }}" alt="" class="w-3rem w-lg-5rem">
                                 </div>
                                 <div class="col">
-                                    <h6 class="text-midnight font-bold">Menyusun Proker</h6>
+                                    <h6 class="text-midnight font-bold">
+                                        {{ $section2->card1_text->content }}
+                                    </h6>
                                     <div class="text-gray">
-                                        Program kerja dibuat dan dikelola oleh masing-masing divisi di HIMATIF sesuai ruang lingkup masing masing
+                                        {{ $section2->card1_text2->content }}
                                     </div>
                                 </div>
                             </div>
@@ -79,9 +92,11 @@
                                     <img src="{{ asset('img/icons/list-info.svg') }}" alt="" class="w-3rem w-lg-5rem">
                                 </div>
                                 <div class="col">
-                                    <h6 class="text-midnight font-bold">Melaksanakan Proker</h6>
+                                    <h6 class="text-midnight font-bold">
+                                        {{ $section2->card2_text->content }}
+                                    </h6>
                                     <div class="text-gray">
-                                        Program kerja yang telah dirancang, dilaksanakan dan diikuti oleh seluruh elemen di HIMATIF
+                                        {{ $section2->card2_text2->content }}
                                     </div>
                                 </div>
                             </div>
@@ -97,11 +112,10 @@
                                 </div>
                                 <div class="col">
                                     <h6 class="text-midnight font-bold">
-                                        Meningkatkan Kualitas
-                                        Sumber Daya Mahasiswa
+                                        {{ $section2->card3_text->content }}
                                     </h6>
                                     <div class="text-gray">
-                                        Output yang diharapkan pada setiap proker yaitu meningkatnya kualitas Sumber Daya Mahasiswa HIMATIF
+                                        {{ $section2->card3_text2->content }}
                                     </div>
                                 </div>
                             </div>
@@ -122,15 +136,17 @@
                         TENTANG HIMATIF
                     </h3>
                     <div class="img-wrapper-about">
-                        <div class="img-about">
-                            <img src="{{ asset('img/misc/about-3.png') }}" alt="">
-                        </div>
-                        <div class="img-about">
-                            <img src="{{ asset('img/misc/about-2.png') }}" alt="">
-                        </div>
-                        <div class="img-about">
-                            <img src="{{ asset('img/misc/about-1.png') }}" alt="">
-                        </div>
+                        @for ($i = 1; $i <= 3; $i++)
+                            @if (file_exists(storage_path('app/public/'.$section3["image$i"]->content)))
+                                <div class="img-about">
+                                    <img src="{{ asset('storage/'.$section3["image$i"]->content) }}" alt="">
+                                </div>
+                            @else
+                                <div class="img-about">
+                                    <img src="{{ asset('img/'.$section3["image$i"]->content) }}" alt="">
+                                </div>
+                            @endif
+                        @endfor
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -153,64 +169,46 @@
             <div class="row">
                 <div class="col-12 text-center mb-5">
                     <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
-                        VISI DAN MISI
+                        {{ $visionMission['1-text']->content }}
                     </h3>
                     <p class="text-gray">
-                        Visi dan Misi Himpunan Mahasiswa Teknologi Informasi
+                        {{ $visionMission['2-text2']->content }}
                     </p>
                 </div>
-                <div class="col-lg-6 mb-3 mb-lg-0">
-                    <div class="card card-vision shadow-midnight-sm">
-                        <div class="card-body">
-                            <div class="row no-gutters">
-                                <div class="col-lg-4">
-                                    <div class="img-fit img-fit-cover h-20rem">
-                                        <img src="{{ asset('img/misc/visi.png') }}" alt="">
+                @php
+                    $dataKeysVisionMission = ['3-vision', '4-mission'];
+                @endphp
+                @foreach ($dataKeysVisionMission as $key)
+                    <div class="col-lg-6 mb-3 mb-lg-0">
+                        <div class="card card-vision shadow-midnight-sm">
+                            <div class="card-body">
+                                <div class="row no-gutters">
+                                    <div class="col-lg-4">
+                                        @if (file_exists(storage_path('app/public/'.$visionMission[$key.'_photo']->content)))
+                                            <div class="img-fit img-fit-cover h-20rem">
+                                                <img src="{{ asset('storage/'.$visionMission[$key.'_photo']->content) }}" alt="">
+                                            </div>
+                                        @else
+                                            <div class="img-fit img-fit-cover h-20rem">
+                                                <img src="{{ asset('img/'.$visionMission[$key.'_photo']->content) }}" alt="">
+                                            </div>
+                                        @endif
                                     </div>
-                                </div>
-                                <div class="col-lg p-2 p-lg-3">
-                                    <h5 class="text-midnight text-shadowed font-extrabold">
-                                        VISI <span class="text-shadowed-content">VISI</span>
-                                    </h5>
-                                    <div class="divider my-2"></div>
-                                    <div class="text-gray">
-                                        Unggul dalam pengembangan ilmu pengetahuan dan teknologi bidang teknologi informasi untuk menunjang pertanian industrial pada tahun 2035
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card card-vision shadow-midnight-sm">
-                        <div class="card-body">
-                            <div class="row no-gutters">
-                                <div class="col-lg-4">
-                                    <div class="img-fit img-fit-cover h-20rem">
-                                        <img src="{{ asset('img/misc/misi.png') }}" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-lg p-2 p-lg-3">
-                                    <h5 class="text-midnight text-shadowed font-extrabold">
-                                        MISI <span class="text-shadowed-content">MISI</span>
-                                    </h5>
-                                    <div class="divider my-2"></div>
-                                    <div class="text-gray">
-                                        1. Menyelenggarakan pendidikan program sarjana bidang teknologi informasi secara profesional
-                                        <br>
-                                        2. Menyiapkan sumber daya manusia yang berkualitas dalam penguasaan kompetensi materi teknologi informasi terutama pada pengembangan pertanian industrial
-                                        <br>
-                                        3. Mengembangkan ilmu pengetahuan dan teknologi informasi bagi kepentingan kemanusiaan
-                                        <br>
-                                        4. Memberdayakan masyarakat melalui penerapan teknologi informasi dan komunikasi
-                                        <br>
-                                        5. Mengembangkan jaringan kerjasama dengan pemangku kepentingan (Stakeholders) dalam bidang teknologi informasi
+                                    <div class="col-lg p-2 p-lg-3">
+                                        <h5 class="text-midnight text-shadowed font-extrabold">
+                                            {{ $visionMission[$key.'_text']->content }}
+                                            <span class="text-shadowed-content">{{ $visionMission[$key.'_text']->content }}</span>
+                                        </h5>
+                                        <div class="divider my-2"></div>
+                                        <div class="text-gray">
+                                            {!! $visionMission[$key.'_text2']->content !!}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -380,7 +378,7 @@
     {{-- Section 5 : Galerry --}}
     <section id="section-5">
         <div class="container">
-            <div class="row gutters-xs">
+            <div id="row-gallery" class="row gutters-xs">
                 <div class="col-12 text-right mb-3 mb-md-5">
                     <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
                         GALERI KEGIATAN
@@ -389,21 +387,29 @@
                 </div>
 
                 <div class="col-lg-6 mb-1 mb-lg-0">
-                    <a href="{{ asset("img/galery/1.jpg") }}" data-lightbox="kegiatan">
-                        <div class="img-gallery img-gallery-main">
-                            <img src="{{ asset('img/galery/1.jpg') }}" alt="" class="img-fluid">
+                    @if (file_exists(storage_path('app/public/'.$gallery['1-image1']->content)))
+                        <div data-src="{{ asset('storage/'.$gallery['1-image1']->content) }}" class="img-gallery img-gallery-main">
+                            <img src="{{ asset('storage/'.$gallery['1-image1']->content) }}" class="img-fluid" alt="">
                         </div>
-                    </a>
+                    @else
+                        <div data-src="{{ asset('img/'.$gallery['1-image1']->content) }}" class="img-gallery img-gallery-main">
+                            <img src="{{ asset('img/'.$gallery['1-image1']->content) }}" class="img-fluid" alt="">
+                        </div>
+                    @endif
                 </div>
                 <div class="col-lg-6">
                     <div class="row gutters-xs">
                         @for ($i = 2; $i <= 5; $i++)
                         <div class="col-6 mb-1">
-                            <a href="{{ asset("img/galery/$i.jpg") }}" data-lightbox="kegiatan">
-                                <div class="img-gallery">
-                                    <img src="{{ asset("img/galery/$i.jpg") }}" alt="" class="img-fluid">
+                            @if (file_exists(storage_path('app/public/'.$gallery["$i-image$i"]->content)))
+                                <div data-src="{{ asset('storage/'.$gallery["$i-image$i"]->content) }}" class="img-gallery">
+                                    <img src="{{ asset('storage/'.$gallery["$i-image$i"]->content) }}" alt="" class="img-fluid">
                                 </div>
-                            </a>
+                            @else
+                                <div data-src="{{ asset('img/'.$gallery["$i-image$i"]->content) }}" class="img-gallery">
+                                    <img src="{{ asset('img/'.$gallery["$i-image$i"]->content) }}" alt="" class="img-fluid">
+                                </div>
+                            @endif
                         </div>
                         @endfor
                     </div>
@@ -418,7 +424,8 @@
 @section('style')
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <link rel="stylesheet" href="{{ asset('vendors/lightbox/lightbox.min.css') }}">
+    <!-- Lightgallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css" integrity="sha512-kwJUhJJaTDzGp6VTPBbMQWBFUof6+pv0SM3s8fo+E6XnPmVmtfwENK0vHYup3tsYnqHgRDoBDTJWoq7rnQw2+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         #slick-proker-prev, #slick-proker-next {
             transition: all .3s ease;
@@ -432,34 +439,43 @@
 @endsection
 
 @section('script')
+    {{-- Slick --}}
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="{{ asset('vendors/lightbox/lightbox.min.js') }}"></script>
+    {{-- Light Gallery --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js" integrity="sha512-b4rL1m5b76KrUhDkj2Vf14Y0l1NtbiNXwV+SzOzLGv6Tz1roJHa70yr8RmTUswrauu2Wgb/xBJPR8v80pQYKtQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        lightbox.option({
-            'resizeDuration': 200,
-            'wrapAround': true,
-            'fadeDuration': 300,
-            'alwaysShowNavOnTouchDevices': true
-        })
-        $('#slick-proker-row').slick({
-            infinite: true,
-            autoplay: true,
-            pauseOnDotsHover: true,
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            autoplay: true,
-            dots: false,
-            prevArrow: $('#slick-proker-prev'),
-            nextArrow: $('#slick-proker-next'),
-            responsive: [
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
+        $(function() {
+            lightGallery(document.getElementById('row-gallery'), {
+                mode: 'lg-fade',
+                cssEasing: 'ease-in',
+                speed: 1000,
+                startClass: 'lg-fade',
+                backdropDuration: 500,
+                hideBarsDelay: 500,
+                selector: '[data-src]',
+                download: false,
+            });
+            $('#slick-proker-row').slick({
+                infinite: true,
+                autoplay: true,
+                pauseOnDotsHover: true,
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                autoplay: true,
+                dots: false,
+                prevArrow: $('#slick-proker-prev'),
+                nextArrow: $('#slick-proker-next'),
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
                     }
-                }
-            ]
-        });
+                ]
+            });
+        })
+
     </script>
 @endsection

@@ -16,11 +16,11 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('photo')->nullable();
             $table->mediumText('body');
-            $table->enum('status', ['0', '1'])->default('0')->comment = "0 Draft, 1 Publish";
-            $table->timestamp('is_featured')->nullable();
+            $table->enum('status', [0, 1])->default(1)->comment = "0 Draft, 1 Publish";
+            $table->enum('is_featured', [0, 1])->default(0)->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Constant\GlobalConstant;
 
 class CreateDivisionsTable extends Migration
 {
@@ -17,9 +18,10 @@ class CreateDivisionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('name_slug');
-            $table->string('name_position');
             $table->text('description');
+            $table->enum('status', [0, 1])->default(1)->comment = "0 Tidak Aktif, 1 Aktif";
             $table->timestamps();
+            $table->unsignedTinyInteger('parent_id')->nullable();
         });
     }
 
