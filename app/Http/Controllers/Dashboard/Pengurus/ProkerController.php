@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dahsboard\Pengurus;
+namespace App\Http\Controllers\Dashboard\Pengurus;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

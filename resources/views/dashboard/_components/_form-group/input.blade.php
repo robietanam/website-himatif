@@ -11,7 +11,12 @@
         placeholder="Input {{ $inputLabel }}"
         class="form-control {{ isset($inputSize) ? $inputSize : '' }}  @error($inputName) is-invalid @enderror"
         @if(isset($inputIsDisabled) && $inputIsDisabled === true) disabled @endif
+        @if(isset($inputIsReadOnly) && $inputIsReadOnly === true) readonly @endif
         @if(isset($inputIsRequired) && $inputIsRequired === true) required @endif>
+
+    @isset($inputHelp)
+        <small class="form-text text-muted">{!! $inputHelp !!}</small>
+    @endisset
 
     @error($inputName)
         <div class="invalid-feedback">

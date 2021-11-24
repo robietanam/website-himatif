@@ -12,22 +12,22 @@
         <div class="col-md-4">
             @component('dashboard._components.widget', ['color' => 'primary'])
                 @slot('icon', 'fas fa-users')
-                @slot('title', 'Pengurus')
-                @slot('content', '25')
+                @slot('title', 'Semua Pengurus')
+                @slot('content', $countAllUser)
             @endcomponent
         </div>
         <div class="col-md-4">
             @component('dashboard._components.widget', ['color' => 'info'])
                 @slot('icon', 'fas fa-users')
-                @slot('title', 'Anggota')
-                @slot('content', '500')
+                @slot('title', 'Pengurus Aktif')
+                @slot('content', $countActiveUser)
             @endcomponent
         </div>
         <div class="col-md-4">
             @component('dashboard._components.widget', ['color' => 'secondary'])
                 @slot('icon', 'fas fa-users')
-                @slot('title', 'Demisioner')
-                @slot('content', '50')
+                @slot('title', 'Pengurus Non-Aktif')
+                @slot('content', $countInactiveUser)
             @endcomponent
         </div>
     </div>
@@ -38,22 +38,34 @@
                 <div class="col-lg">
                     <h5 class="mb-0">Operasi Data</h5>
                 </div>
-                {{-- <div class="col-md-auto">
-                    <form id="form-delete" action="{{ route('dashboard.admin.keanggotaan.delete') }}" method="POST">
-                        @csrf @method('DELETE')
-                        <button id="btn-delete" class="btn btn-sm btn-danger" disabled>
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </form>
-                </div> --}}
-                {{-- <div class="col-md-auto">
-                    <form id="form-edit" action="">
+                <div class="col-md-auto">
+                    <form id="form-active" action="{{ route('dashboard.admin.users.update-status') }}" method="POST">
                         @csrf
-                        <button id="btn-edit" class="btn btn-sm btn-warning" disabled>
-                            <i class="fas fa-pen"></i>
+                        <input type="hidden" name="status" value="1">
+                        <button
+                            id="btn-active"
+                            class="btn btn-sm btn-success"
+                            data-toggle="tooltip" data-placement="top" title="Sek Aktif Proker"
+                            disabled
+                        >
+                            <i class="fas fa-check-square"></i>
                         </button>
                     </form>
-                </div> --}}
+                </div>
+                <div class="col-md-auto">
+                    <form id="form-inactive" action="{{ route('dashboard.admin.users.update-status') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="status" value="0">
+                        <button
+                            id="btn-inactive"
+                            class="btn btn-sm btn-secondary"
+                            data-toggle="tooltip" data-placement="top" title="Sek Tidak Aktif Proker"
+                            disabled
+                        >
+                            <i class="fas fa-minus-square"></i>
+                        </button>
+                    </form>
+                </div>
                 <div class="col-md-auto">
                     <a href="{{ route('dashboard.admin.users.create') }}" class="btn btn-block btn-sm btn-primary">
                         <i class="fas fa-plus mr-2"></i> Tambah Data
@@ -120,6 +132,8 @@
 
             const ajax_url = '{{ route('ajax.getUsers') }}';
             const table = $('#datatable').DataTable({
+                processing: true,
+                serverSide: true,
                 dom: `<'row no-gutters'<'col-md'l><'col-md-auto'f>>
                         <'row'<'col-12 table-datatable-container' t>>
                         <'row no-gutters justify-content-center'<'col-md'i><'col-md-auto'p>>`,
@@ -158,20 +172,17 @@
                 ajax: ajax_url,
                 columnDefs: [
                     {
-                        'targets': 0,
-                        'checkboxes': {
-                            'selectRow': true,
-                            'selectCallback': function(nodes, selected) {
-                                if (table.column(0).checkboxes.selected().length > 0) {
-                                    $('#btn-delete').removeAttr('disabled');
+                        targets: 0,
+                        checkboxes: {
+                            selectRow: true,
+                            selectCallback: function(nodes, selected) {
+                                if (table.column(0).checkboxes.selected().length > 0)
+                                {
+                                    $('#btn-active').removeAttr('disabled');
+                                    $('#btn-inactive').removeAttr('disabled');
                                 } else {
-                                    $('#btn-delete').attr('disabled', true);
-                                }
-
-                                if (table.column(0).checkboxes.selected().length > 0 && table.column(0).checkboxes.selected().length < 2) {
-                                    $('#btn-edit').removeAttr('disabled');
-                                } else {
-                                    $('#btn-edit').attr('disabled', true);
+                                    $('#btn-active').attr('disabled', true);
+                                    $('#btn-inactive').attr('disabled', true);
                                 }
                             }
                         }
@@ -204,25 +215,21 @@
                 ]
             });
 
-            $('#form-edit').on('submit', function(e) {
-                let form = this;
-                let rows_selected = table.column(0).checkboxes.selected();
-                $.each(rows_selected, function(index, rowId){
-                    $(form).attr('action', `{{ url('dashboard/admin/keanggotaan/${rowId}/edit') }}`)
-                });
-            });
-            $('#form-delete').on('submit', function(e){
+            /*
+                Update Status Multiple Proker
+            */
+            $('#form-active').on('submit', function(e){
                 e.preventDefault();
                 var form = this;
                 var rows_selected = table.column(0).checkboxes.selected();
                 Swal.fire({
-                    title: `Hapus ${rows_selected.length} Data ?`,
-                    text: "Dengan Menghapus data ini, anda tidak dapat mengembalikannya",
+                    title: `Set Aktif ${rows_selected.length} Data Proker ?`,
+                    text: "Dengan Mengaktifkan Proker, maka proker akan ditampilkan pada website utama",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Iya, Hapus!',
+                    confirmButtonText: 'Iya, Aktifkan!',
                     cancelButtonText: 'Batal'
                     }).then((result) => {
                     if (result.isConfirmed) {
@@ -237,7 +244,40 @@
                                     .val(rowId)
                             );
                         });
-                        // form.submit();
+                        form.submit();
+                    }
+                })
+            });
+            /*
+                Update Status Multiple Proker
+            */
+            $('#form-inactive').on('submit', function(e){
+                e.preventDefault();
+                var form = this;
+                var rows_selected = table.column(0).checkboxes.selected();
+                Swal.fire({
+                    title: `Set Non Aktif ${rows_selected.length} Data Proker ?`,
+                    text: "Dengan Nonaktifkan Proker, maka proker tidak akan ditampilkan pada website utama",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Iya, Nonaktifkan!',
+                    cancelButtonText: 'Batal'
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Iterate over all selected checkboxes
+                        $(form).find('input[name="id[]"]').remove();
+                        $.each(rows_selected, function(index, rowId){
+                            // Create a hidden element
+                            $(form).append(
+                                $('<input>')
+                                    .attr('type', 'hidden')
+                                    .attr('name', 'id[]')
+                                    .val(rowId)
+                            );
+                        });
+                        form.submit();
                     }
                 })
             });

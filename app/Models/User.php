@@ -33,7 +33,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'status' => 'initeger',
+        'status' => 'string',
         'email_verified_at' => 'datetime',
     ];
 

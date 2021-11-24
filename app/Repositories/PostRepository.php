@@ -14,7 +14,7 @@ class PostRepository
      */
     public function getDatatable()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at', 'desc')->get();
         return DataTables::of($posts)
             ->addColumn('photo', function ($post) {
                 if ($post->photo) {
@@ -58,9 +58,23 @@ class PostRepository
     /**
      * @return Collection
      */
-    public function get(int $limit = 8)
+    public function get(int $limit = 8, array $condition = [], array $orCondition = [])
     {
-        return Post::limit($limit)->get();
+        return Post::orderBy('created_at', 'desc')
+            ->when(count($condition) > 0, function ($q) use ($condition) {
+                $q->where($condition);
+            })
+            ->when(count($orCondition) > 0, function ($q) use ($orCondition) {
+                $q->orWhere($orCondition);
+            })
+            ->limit($limit)->get();
+    }
+
+    public function count(array $condition = [])
+    {
+        return Post::when(count($condition) > 0, function ($q) use ($condition) {
+            $q->where($condition);
+        })->count();
     }
 
     /**

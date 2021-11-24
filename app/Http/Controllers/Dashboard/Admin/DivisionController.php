@@ -23,7 +23,16 @@ class DivisionController extends Controller
     public function index()
     {
         $divisions = $this->divisionRepository->get();
-        return view('dashboard.admin.divisions.index', compact('divisions'));
+        $countAllDivision = $this->divisionRepository->count();
+        $countMainDivision = $this->divisionRepository->count([['parent_id', null]]);
+        $countSubDivision = $this->divisionRepository->count([['parent_id', '!=', null]]);
+
+        return view('dashboard.admin.divisions.index', compact([
+            'divisions',
+            'countAllDivision',
+            'countMainDivision',
+            'countSubDivision',
+        ]));
     }
 
     /**

@@ -12,23 +12,23 @@
     <div class="row">
         <div class="col-md-4">
             @component('dashboard._components.widget', ['color' => 'primary'])
-                @slot('icon', 'fas fa-users')
-                @slot('title', 'Pengurus')
-                @slot('content', '25')
+                @slot('icon', 'fas fa-image')
+                @slot('title', 'Total Berita')
+                @slot('content', $countAllPost)
             @endcomponent
         </div>
         <div class="col-md-4">
             @component('dashboard._components.widget', ['color' => 'info'])
-                @slot('icon', 'fas fa-users')
-                @slot('title', 'Anggota')
-                @slot('content', '500')
+                @slot('icon', 'fas fa-image')
+                @slot('title', 'Berita Aktif')
+                @slot('content', $countActivePost)
             @endcomponent
         </div>
         <div class="col-md-4">
             @component('dashboard._components.widget', ['color' => 'secondary'])
-                @slot('icon', 'fas fa-users')
-                @slot('title', 'Demisioner')
-                @slot('content', '50')
+                @slot('icon', 'fas fa-image')
+                @slot('title', 'Berita Non-Aktif')
+                @slot('content', $countInactivePost)
             @endcomponent
         </div>
     </div>
@@ -91,7 +91,7 @@
                     <a href="" class="btn btn-outline-secondary">Trash</a>
                 </div>
             </div>
-            <div class="table-datatable-wrapper">
+            <div class="table-datatable-container">
                 <table id="datatable" class="table table-datatable" width="100%">
                     <thead>
                         <tr>

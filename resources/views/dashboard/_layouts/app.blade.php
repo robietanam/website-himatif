@@ -60,6 +60,8 @@
         </div>
     </div>
 
+    @yield('modal')
+
     <!-- Scripts -->
     <script src="{{ asset('vendors/bootstrap/jquery-3.1.1.min.js') }}"></script>
     <script src="{{ asset('vendors/bootstrap/popper.min.js') }}"></script>

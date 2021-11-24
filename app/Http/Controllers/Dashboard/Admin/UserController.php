@@ -29,7 +29,14 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('dashboard.admin.users.index');
+        $countAllUser = $this->userRepository->count();
+        $countActiveUser = $this->userRepository->count([['status', '1']]);
+        $countInactiveUser = $this->userRepository->count([['status', '0']]);
+        return view('dashboard.admin.users.index', compact([
+            'countAllUser',
+            'countActiveUser',
+            'countInactiveUser',
+        ]));
     }
 
     /**
@@ -141,6 +148,23 @@ class UserController extends Controller
             return redirect()->back('dashboard.admin.users.create')->with([
                 'type' => 'danger',
                 'message' => 'Ubah Data User Gagal, Terjadi kesalahan pada sistem.'
+            ]);
+        }
+    }
+
+    public function updateStatus(Request $request)
+    {
+        try {
+            $result = $this->userRepository->setStatus($request->id, $request->status);
+            return redirect()->route('dashboard.admin.users.index')->with([
+                'type' => 'success',
+                'message' => "Ubah Status Data Pengurus Berhasil, $result data Sudah diubah"
+            ]);
+        } catch (\Exception $e) {
+            dd($e);
+            return redirect()->route('dashboard.admin.users.index')->with([
+                'type' => 'danger',
+                'message' => 'Ubah Status Data Pengurus gagal, Terjadi kesalahan pada sistem.'
             ]);
         }
     }

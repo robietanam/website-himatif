@@ -8,10 +8,10 @@
     <header>
         <div class="container text-center">
             <h3 class="text-midnight text-dec text-dec-secondary-3 text-dec-tr font-extrabold mb-2">
-                TENTANG HIMATIF
+                {{ $header['1-text']->content }}
             </h3>
             <h6 class="text-gray font-light">
-                HIMATIF (Himpunan Mahasiswa Teknologi Informasi) adalah Salah satu Organisasi Mahasiswa di Fakultas Ilmu Komputer Universitas Jember. Terbentuknya HIMATIF dirintis oleh 7 Orang Mahasiswa Teknologi Informasi pada tanggal 6 Agustus 2017.
+                {{ $header['2-text2']->content }}
             </h6>
         </div>
     </header>
@@ -104,64 +104,46 @@
             <div class="row">
                 <div class="col-12 text-center mb-5">
                     <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
-                        VISI DAN MISI
+                        {{ $visionMission['1-text']->content }}
                     </h3>
                     <p class="text-gray">
-                        Visi dan Misi Himpunan Mahasiswa Teknologi Informasi
+                        {{ $visionMission['2-text2']->content }}
                     </p>
                 </div>
-                <div class="col-lg-6 mb-3 mb-lg-0">
-                    <div class="card card-vision shadow-midnight-sm">
-                        <div class="card-body">
-                            <div class="row no-gutters">
-                                <div class="col-lg-4">
-                                    <div class="img-fit img-fit-cover h-20rem">
-                                        <img src="{{ asset('img/misc/visi.png') }}" alt="">
+                @php
+                    $dataKeysVisionMission = ['3-vision', '4-mission'];
+                @endphp
+                @foreach ($dataKeysVisionMission as $key)
+                    <div class="col-lg-6 mb-3 mb-lg-0">
+                        <div class="card card-vision shadow-midnight-sm">
+                            <div class="card-body">
+                                <div class="row no-gutters">
+                                    <div class="col-lg-4">
+                                        @if (file_exists(storage_path('app/public/'.$visionMission[$key.'_photo']->content)))
+                                            <div class="img-fit img-fit-cover h-20rem">
+                                                <img src="{{ asset('storage/'.$visionMission[$key.'_photo']->content) }}" alt="">
+                                            </div>
+                                        @else
+                                            <div class="img-fit img-fit-cover h-20rem">
+                                                <img src="{{ asset('img/'.$visionMission[$key.'_photo']->content) }}" alt="">
+                                            </div>
+                                        @endif
                                     </div>
-                                </div>
-                                <div class="col-lg p-2 p-lg-3">
-                                    <h5 class="text-midnight text-shadowed font-extrabold">
-                                        VISI <span class="text-shadowed-content">VISI</span>
-                                    </h5>
-                                    <div class="divider my-2"></div>
-                                    <div class="text-gray">
-                                        Unggul dalam pengembangan ilmu pengetahuan dan teknologi bidang teknologi informasi untuk menunjang pertanian industrial pada tahun 2035
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card card-vision shadow-midnight-sm">
-                        <div class="card-body">
-                            <div class="row no-gutters">
-                                <div class="col-lg-4">
-                                    <div class="img-fit img-fit-cover h-20rem">
-                                        <img src="{{ asset('img/misc/misi.png') }}" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-lg p-2 p-lg-3">
-                                    <h5 class="text-midnight text-shadowed font-extrabold">
-                                        MISI <span class="text-shadowed-content">MISI</span>
-                                    </h5>
-                                    <div class="divider my-2"></div>
-                                    <div class="text-gray">
-                                        1. Menyelenggarakan pendidikan program sarjana bidang teknologi informasi secara profesional
-                                        <br>
-                                        2. Menyiapkan sumber daya manusia yang berkualitas dalam penguasaan kompetensi materi teknologi informasi terutama pada pengembangan pertanian industrial
-                                        <br>
-                                        3. Mengembangkan ilmu pengetahuan dan teknologi informasi bagi kepentingan kemanusiaan
-                                        <br>
-                                        4. Memberdayakan masyarakat melalui penerapan teknologi informasi dan komunikasi
-                                        <br>
-                                        5. Mengembangkan jaringan kerjasama dengan pemangku kepentingan (Stakeholders) dalam bidang teknologi informasi
+                                    <div class="col-lg p-2 p-lg-3">
+                                        <h5 class="text-midnight text-shadowed font-extrabold">
+                                            {{ $visionMission[$key.'_text']->content }}
+                                            <span class="text-shadowed-content">{{ $visionMission[$key.'_text']->content }}</span>
+                                        </h5>
+                                        <div class="divider my-2"></div>
+                                        <div class="text-gray">
+                                            {!! $visionMission[$key.'_text2']->content !!}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

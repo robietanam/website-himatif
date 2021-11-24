@@ -28,6 +28,11 @@
                     <i class="fas fa-users-cog"></i> <span>Divisi</span>
                 </a>
             </li>
+            <li class="nav-item {{ Request::is('dashboard/admin/prokers*') ? 'active' : '' }}">
+                <a href="{{ route('dashboard.admin.prokers.index') }}" class="nav-link">
+                    <i class="fas fa-briefcase"></i> <span>Proker</span>
+                </a>
+            </li>
             <li class="nav-item {{ Request::is('dashboard/admin/posts*') ? 'active' : '' }}">
                 <a href="{{ route('dashboard.admin.posts.index') }}" class="nav-link">
                     <i class="fas fa-image"></i> <span>Post</span>

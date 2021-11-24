@@ -71,7 +71,7 @@ class DivisionSeeder extends Seeder
             'parent_id' => 7,
         ];
         DB::table('divisions')->insert($divisions);
-        $this->command->info("Data Dummy Roles berhasil diinsert");
+        $this->command->info("Data Dummy Divisions berhasil diinsert");
     }
 }
 

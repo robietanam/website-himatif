@@ -33,6 +33,9 @@
         <label class="custom-control-label font-weight-bold" for="input-radio-{{ $inputName }}-{{ $datavalue }}">{!! $datakey !!}</label>
     </div>
     @endforeach
+    @isset($inputHelp)
+        <div class="text-12 text-muted">{{ $inputHelp }}</div>
+    @endisset
 
     @error($inputName)
         <div class="invalid-feedback">

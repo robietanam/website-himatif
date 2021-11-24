@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call("CategorySeeder");
         $this->call("PostSeeder");
         $this->call("PageContentSeeder");
+        $this->call("ProkerSeeder");
+        $this->call("ProkerDivisionSeeder");
+        $this->call("ProkerUserSeeder");
     }
 }

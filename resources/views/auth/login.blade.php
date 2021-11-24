@@ -1,6 +1,6 @@
 @extends('auth._layouts.app')
 
-@section('title', 'Masuk Sebagai Mitra')
+@section('title', 'MASUK SEBAGAI ADMIN')
 @section('content')
     <div class="card card-primary">
         <div class="card-header tx-18 font-weight-bold">Selamat Datang Kembali</div>

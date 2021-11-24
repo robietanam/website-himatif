@@ -22,7 +22,7 @@
         </div>
     </div>
 
-     {{-- row : form --}}
+    {{-- row : form --}}
     <form action="{{ route('dashboard.admin.posts.update', $post->id) }}" enctype="multipart/form-data" method="POST">
         @csrf
         @method('PUT')

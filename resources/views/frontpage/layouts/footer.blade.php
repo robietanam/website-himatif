@@ -9,11 +9,11 @@
                     </h3>
                 </div>
                 <h6 class="text-link font-weight-semibold mb-2">
-                    Jalan. Kalimantan No. 37, Kampus 
-                    Tegalboto, Jember, Jawa Timur, 
+                    Jalan. Kalimantan No. 37, Kampus
+                    Tegalboto, Jember, Jawa Timur,
                     68121, Indonesia
                 </h6>
-                
+
                 <h5 class="text-white font-weight-bold mb-1">SOCIAL</h5>
                 <div class="row gutters-xs mb-1">
                     <div class="col-auto"><img src="{{ asset('img/icons/instagram.svg') }}" alt=""></div>
@@ -31,19 +31,19 @@
                 <h5 class="text-white font-weight-extrabold mb-2">NAVIGASI</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link text-md text-white font-weight-semibold pl-0 active" href="#">BERANDA</a>
+                        <a class="nav-link text-md text-white font-weight-semibold pl-0 active" href="{{ route('frontpage.homepage') }}">BERANDA</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-md text-white font-weight-semibold pl-0 active" href="#">TENTANG</a>
+                        <a class="nav-link text-md text-white font-weight-semibold pl-0 active" href="{{ route('frontpage.about') }}">TENTANG</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-md text-white font-weight-semibold pl-0" href="#">PROKER</a>
+                        <a class="nav-link text-md text-white font-weight-semibold pl-0 active" href="{{ route('frontpage.pengurus') }}">DIVISI & PENGURUS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-md text-white font-weight-semibold pl-0" href="#">BLOG</a>
+                        <a class="nav-link text-md text-white font-weight-semibold pl-0" href="{{ route('frontpage.proker') }}">PROKER</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-md text-white font-weight-semibold pl-0" href="#">HIMATIF HELPER</a>
+                        <a class="nav-link text-md text-white font-weight-semibold pl-0" href="{{ route('frontpage.berita') }}">BERITA</a>
                     </li>
                 </ul>
             </div>
@@ -51,45 +51,43 @@
             <div class="col-12 d-md-none"><div class="divider bg-white op-1 my-1"></div></div>
 
             <div class="col-md-6 col-lg-4 pt-2">
-                <h5 class="text-white font-weight-extrabold mb-2">INFO TERBARU</h5>
+                <h5 class="text-white font-weight-extrabold mb-2">BERITA TERBARU</h5>
 
                 {{-- list new info --}}
-                <div class="row align-items-center mb-1">
-                    <div class="col-auto">
-                        <div class="card">
-                            <div class="card-body" style="padding: .5rem">
-                                <div class="img-fit img-fit-cover w-4rem h-4rem">
-                                    <img src="{{ asset('img/galery/3.jpg') }}" alt="">
+                @foreach (\App\Models\Post::take(3)->get() as $post)
+                    <div class="row gutters-sm align-items-center mb-1">
+                        <div class="col-auto">
+                            <div class="card">
+                                <div class="card-body" style="padding: .5rem">
+                                    <div class="img-fit img-fit-cover w-3rem h-3rem">
+                                        @if ($post->photo)
+                                            <img src="{{ asset('storage/'.$post->photo) }}" alt="">
+                                        @else
+                                            <img src="{{ asset('img/placeholder/product-image-default.svg') }}" alt="">
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <h6 class="text-link font-weight-semibold">Workshop TIC bersama...</h6>
-                    </div>
-                </div>
-                <div class="row align-items-center mb-1">
-                    <div class="col-auto">
-                        <div class="card">
-                            <div class="card-body" style="padding: .5rem">
-                                <div class="img-fit img-fit-cover w-4rem h-4rem">
-                                    <img src="{{ asset('img/galery/5.jpg') }}" alt="">
-                                </div>
+                        <div class="col">
+                            <a href="{{ route('frontpage.berita.show', $post->slug) }}" class="text-14 text-link font-semibold">
+                                {{ substr(strip_tags($post->title), 0, 20) . ((strlen(strip_tags($post->title)) > 20) ? '...' : '') }}
+                            </a>
+                            <div class="text-sm font-light text-link op-7">
+                                {{ substr(strip_tags($post->title), 0, 30) . ((strlen(strip_tags($post->title)) > 30) ? '...' : '') }}
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <h6 class="text-link font-weight-semibold">Mediatek foto</h6>
-                    </div>
-                </div>
+                @endforeach
+
                 {{-- end of list new info --}}
                 <div class="d-flex align-items-center text-white font-weight-semibold mt-2">
-                    <a href="" class="text-white">
-                        Lihat Semua Blog 
+                    <a href="{{ route('frontpage.berita') }}" class="text-white">
+                        Lihat Semua Blog
                     </a>
                     <i class="fas fa-arrow-right text-height-0 ml-1"></i>
                 </div>
-                
+
             </div>
         </div>
 
