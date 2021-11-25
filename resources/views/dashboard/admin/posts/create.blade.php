@@ -4,7 +4,7 @@
 @section('header', 'Posts') {{-- header --}}
 
 @section('breadcrumb') {{-- breadcrumb --}}
-    <div class="breadcrumb-item active"><a href="#">Posts</a></div>
+    <div class="breadcrumb-item active"><a href="{{ route('dashboard.admin.posts.index') }}">Posts</a></div>
     <div class="breadcrumb-item">Tambah Data</div>
 @endsection {{-- end of breadcrumb --}}
 
@@ -12,7 +12,7 @@
 
     <div class="row gutters-xs align-items-center justify-content-end my-4">
         <div class="col-lg">
-            <h4>Tambah Data</h4>
+            <h4>Tambah Data Post</h4>
         </div>
         <div class="col col-md-auto">
             <a

@@ -59,6 +59,8 @@ Route::group(['middleware' => ['auth', 'role:pengurus'], 'prefix' => 'dashboard/
     Route::get('/', 'DashboardController@index')->name('index');
 
     Route::resource('prokers', 'ProkerController');
+    Route::put('prokers/users/{id?}', 'ProkerController@updateUser')->name('prokers.update.user');
+    Route::post('prokers/users', 'ProkerController@storeUser')->name('prokers.store.user');
 });
 
 // Ajax Routes

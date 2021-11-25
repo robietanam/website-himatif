@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use Yajra\DataTables\DataTables;
 use App\Models\Proker;
+use App\Models\ProkerUser;
 
 
 class ProkerRepository
@@ -87,6 +88,13 @@ class ProkerRepository
             ->make(true);
     }
 
+    public function getByAuthId()
+    {
+        return Proker::whereHas('prokerUsers', function ($q) {
+            return $q->where('user_id', \Auth::user()->id)->where('proker_division_id', '1');
+        })->get();
+    }
+
     public function count(array $condition = [])
     {
         return Proker::when(count($condition) > 0, function ($q) use ($condition) {
@@ -125,8 +133,8 @@ class ProkerRepository
     {
         try {
             $proker = Proker::find($id);
-            $proker->name = $data['name'];
-            $proker->description = $data['description'];
+            $proker->name = $data['name'] ?? $proker->name;
+            $proker->description = $data['description'] ?? $proker->description;
             $proker->is_registration_open = $data['is_registration_open'] ?? '0';
             $proker->status = $data['status'] ?? '0';
             $proker->link_registration = $data['link_registration'] ?? '';

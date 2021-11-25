@@ -4,7 +4,6 @@
 @section('header', 'Proker') {{-- header --}}
 
 @section('breadcrumb') {{-- breadcrumb --}}
-    <div class="breadcrumb-item active"><a href="#">Home</a></div>
     <div class="breadcrumb-item">Proker</div>
 @endsection {{-- end of breadcrumb --}}
 

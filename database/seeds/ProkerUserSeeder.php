@@ -17,6 +17,7 @@ class ProkerUserSeeder extends Seeder
             'nim' => '182410102002',
             'phone' => '081231512512',
             'created_at' => now(),
+            'user_id' => '1',
             'proker_id' => '1',
             'proker_division_id' => '1',
         ];
@@ -25,6 +26,7 @@ class ProkerUserSeeder extends Seeder
             'nim' => '182410102099',
             'phone' => '081231512512',
             'created_at' => now(),
+            'user_id' => null,
             'proker_id' => '1',
             'proker_division_id' => '4',
         ];

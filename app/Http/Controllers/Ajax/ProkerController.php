@@ -30,7 +30,11 @@ class ProkerController extends Controller
     public function getProkerUsers($proker_id)
     {
         try {
-            return $this->prokerUserRepository->getDatatable($proker_id);
+            if (\Auth::user()->role->slug === 'admin') {
+                return $this->prokerUserRepository->getDatatable($proker_id);
+            } else {
+                return $this->prokerUserRepository->getDatatablePengurus($proker_id);
+            }
         } catch (\Exception $e) {
             return response()->error($e->getMessage(), $e->getCode());
         }

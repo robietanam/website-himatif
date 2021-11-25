@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Dashboard\Admin;
 
-use App\Constant\GlobalConstant;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\ProkerRepository;
@@ -93,7 +92,6 @@ class ProkerController extends Controller
             'proker_id' => 'required',
             'name' => 'required',
             'nim' => 'required',
-            'phone' => 'required',
             'proker_division_id' => 'required',
         ]);
 

@@ -45,7 +45,7 @@
                         <button
                             id="btn-active"
                             class="btn btn-sm btn-success"
-                            data-toggle="tooltip" data-placement="top" title="Sek Aktif Proker"
+                            data-toggle="tooltip" data-placement="top" title="Sek Aktif Pengurus"
                             disabled
                         >
                             <i class="fas fa-check-square"></i>
@@ -59,7 +59,7 @@
                         <button
                             id="btn-inactive"
                             class="btn btn-sm btn-secondary"
-                            data-toggle="tooltip" data-placement="top" title="Sek Tidak Aktif Proker"
+                            data-toggle="tooltip" data-placement="top" title="Sek Tidak Aktif Pengurus"
                             disabled
                         >
                             <i class="fas fa-minus-square"></i>
@@ -163,11 +163,11 @@
                 responsive: true,
                 language: {
                     "lengthMenu": "Tampilkan _MENU_",
-                    "zeroRecords": "Tidak Ada Data Anggota",
+                    "zeroRecords": "Tidak Ada Data Pengurus",
                     "info": "Menampilkan _PAGE_ dari _PAGES_ page",
                     "infoEmpty": "Tidak Ada Data",
                     "infoFiltered": "(filtered from _MAX_ total records)",
-                    "search": "Cari Data Anggota:"
+                    "search": "Cari Data Pengurus:"
                 },
                 ajax: ajax_url,
                 columnDefs: [
@@ -216,15 +216,15 @@
             });
 
             /*
-                Update Status Multiple Proker
+                Update Status Multiple Pengurus
             */
             $('#form-active').on('submit', function(e){
                 e.preventDefault();
                 var form = this;
                 var rows_selected = table.column(0).checkboxes.selected();
                 Swal.fire({
-                    title: `Set Aktif ${rows_selected.length} Data Proker ?`,
-                    text: "Dengan Mengaktifkan Proker, maka proker akan ditampilkan pada website utama",
+                    title: `Set Aktif ${rows_selected.length} Data Pengurus ?`,
+                    text: "Dengan Mengaktifkan Pengurus, maka proker akan ditampilkan pada website utama",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -249,15 +249,15 @@
                 })
             });
             /*
-                Update Status Multiple Proker
+                Update Status Multiple Pengurus
             */
             $('#form-inactive').on('submit', function(e){
                 e.preventDefault();
                 var form = this;
                 var rows_selected = table.column(0).checkboxes.selected();
                 Swal.fire({
-                    title: `Set Non Aktif ${rows_selected.length} Data Proker ?`,
-                    text: "Dengan Nonaktifkan Proker, maka proker tidak akan ditampilkan pada website utama",
+                    title: `Set Non Aktif ${rows_selected.length} Data Pengurus ?`,
+                    text: "Dengan Nonaktifkan Pengurus, maka proker tidak akan ditampilkan pada website utama",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',

@@ -51,6 +51,13 @@
                     <i class="fas fa-fire"></i> <span>Dashboard</span>
                 </a>
             </li>
+
+            <li class="menu-header">Opearasi Organisasi</li>
+            <li class="nav-item {{ Request::is('dashboard/pengurus/prokers*') ? 'active' : '' }}">
+                <a href="{{ route('dashboard.pengurus.prokers.index') }}" class="nav-link">
+                    <i class="fas fa-briefcase"></i> <span>Proker Saya</span>
+                </a>
+            </li>
         @endif
     </aside>
 </div>

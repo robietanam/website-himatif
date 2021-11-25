@@ -4,8 +4,7 @@
 @section('header', 'Posts') {{-- header --}}
 
 @section('breadcrumb') {{-- breadcrumb --}}
-    <div class="breadcrumb-item active"><a href="#">Home</a></div>
-    <div class="breadcrumb-item">Divisi</div>
+    <div class="breadcrumb-item"><a href="{{ route('dashboard.admin.divisions.index') }}">Divisi</a></div>
     <div class="breadcrumb-item">Tambah Data</div>
 @endsection {{-- end of breadcrumb --}}
 

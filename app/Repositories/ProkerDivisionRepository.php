@@ -7,8 +7,10 @@ use App\Models\ProkerDivision;
 
 class ProkerDivisionRepository
 {
-    public function get()
+    public function get(array $condition = [])
     {
-        return ProkerDivision::all();
+        return ProkerDivision::when(count($condition) > 0, function ($q) use ($condition) {
+            $q->where($condition);
+        })->get();
     }
 }

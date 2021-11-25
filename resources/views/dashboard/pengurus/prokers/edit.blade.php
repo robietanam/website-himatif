@@ -4,18 +4,18 @@
 @section('header', 'Proker') {{-- header --}}
 
 @section('breadcrumb') {{-- breadcrumb --}}
-    <div class="breadcrumb-item active"><a href="{{ route('dashboard.admin.prokers.index') }}">Proker</a></div>
-    <div class="breadcrumb-item">Atur Data</div>
+    <div class="breadcrumb-item active"><a href="{{ route('dashboard.pengurus.prokers.index') }}">Proker</a></div>
+    <div class="breadcrumb-item">Atur Proker</div>
 @endsection {{-- end of breadcrumb --}}
 
 @section('content') {{-- content --}}
     <div class="row gutters-xs align-items-center justify-content-end my-4">
         <div class="col-lg">
-            <h4>Atur Data Proker</h4>
+            <h4>Ubah Data</h4>
         </div>
         <div class="col col-md-auto">
             <a
-                href="{{ route('dashboard.admin.prokers.index') }}"
+                href="{{ route('dashboard.pengurus.prokers.index') }}"
                 class="btn btn-outline-secondary">
                     <i class="fas fa-arrow-left mr-1"></i> Semua Data
             </a>
@@ -28,7 +28,7 @@
                 <li class="nav-item">
                     <a
                         class="nav-link {{ !Request::get('tabs') ? 'active' : '' }}"
-                        href="{{ route('dashboard.admin.prokers.edit', $proker->id) }}"
+                        href="{{ route('dashboard.pengurus.prokers.edit', $proker->id) }}"
                     >
                         Data Proker
                     </a>
@@ -36,7 +36,7 @@
                 <li class="nav-item">
                     <a
                         class="nav-link {{ Request::get('tabs') === 'users' ? 'active' : '' }}"
-                        href="{{ route('dashboard.admin.prokers.edit', $proker->id).'?tabs=users' }}"
+                        href="{{ route('dashboard.pengurus.prokers.edit', $proker->id).'?tabs=users' }}"
                     >
                         Anggota Proker
                     </a>
@@ -52,7 +52,7 @@
             id="nav-update-proker"
             role="tabpanel"
         >
-            <form action="{{ route('dashboard.admin.prokers.update', $proker->id) }}" enctype="multipart/form-data" method="POST">
+            <form action="{{ route('dashboard.pengurus.prokers.update', $proker->id) }}" enctype="multipart/form-data" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="row gutters-xs">
@@ -63,13 +63,6 @@
                                 <div class="img-wrapper img-wrapper-upload bg-secondary w-100 h-10rem my-3">
                                     <img id="img-logo" src="{{ asset('storage/' . $proker->logo) }}" alt="">
                                 </div>
-                                @component('dashboard._components._form-group.input-img')
-                                    @slot('inputLabel', 'Logo Proker')
-                                    @slot('inputPreviewIdentity', 'img-logo')
-                                    @slot('inputName', 'logo')
-                                    @slot('inputId', 'input-logo')
-                                    {{-- @slot('inputIsRequired', true) --}}
-                                @endcomponent
                             </div>
                         </div>
                     </div>
@@ -84,6 +77,7 @@
                                     @slot('inputName', 'name')
                                     @slot('inputId', 'input-name')
                                     @slot('inputValue', $proker->name)
+                                    @slot('inputIsDisabled', true)
                                 @endcomponent
 
                                 {{-- input : Ketua Proker --}}
@@ -100,30 +94,10 @@
                                 {{-- richtext : description --}}
                                 <div class="form-group">
                                     <label for="">Deskripsi Proker</label>
-                                    <textarea
-                                        name="description"
-                                        id="summernote-editor"
-                                        cols="30"
-                                        rows="8">{{ old('description') ? old('description') : $proker->description }}</textarea>
-                                    @error('description')
-                                        <div class="text-invalid">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <div class="bg-whitesmoke rounded-sm p-3">
+                                        {!! $proker->description !!}
+                                    </div>
                                 </div>
-
-                                {{-- input : status --}}
-                                @component('dashboard._components._form-group.input-radio')
-                                    @slot('inputLabel', 'Status Proker')
-                                    @slot('inputName', 'status')
-                                    @slot('inputHelp', 'Jika status Aktif, Proker akan ditampilkan pada website')
-                                    @slot('inputId', 'input-status')
-                                    @slot('inputValue', old('status') ?? $proker->status)
-                                    @slot('inputDatas', [
-                                        '<i class="fas fa-check-square text-success mr-1"></i> Aktif' => 1,
-                                        '<i class="fas fa-minus-square mr-1"></i> Tidak Aktif' => 0,
-                                    ])
-                                @endcomponent
 
                                 {{-- input : is_registration_open --}}
                                 @component('dashboard._components._form-group.input-radio')
@@ -348,7 +322,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('dashboard.admin.prokers.store.user') }}" method="POST">
+                <form action="{{ route('dashboard.pengurus.prokers.store.user') }}" method="POST">
                     <div class="modal-body">
                         @csrf
                         {{-- input : proker_id (hidden but required) --}}
@@ -468,7 +442,7 @@
             @if($errors->first('updateUser_user_id'))
                 $('#m-edit-proker-user')
                     .find('form')
-                    .attr('action', `{{ route('dashboard.admin.prokers.update.user', $errors->first('updateUser_user_id')) }}`);
+                    .attr('action', `{{ route('dashboard.pengurus.prokers.update.user', $errors->first('updateUser_user_id')) }}`);
                 $('#m-edit-proker-user').modal('show');
             @endif
             @if($errors->first('storeUser'))
@@ -508,7 +482,10 @@
                 order: [],
                 columns: [
                     {data: 'action', name: 'action', searchable: false, createdCell: (cell) => {
-                        cell.classList.add('is-clickable');
+                        $(cell).addClass('is-clickabled');
+                        if ($(cell).find('button').prop('disabled')) {
+                            $(cell).parent().addClass('bg-softlight');
+                        }
                     }},
                     {data: 'name', name: 'name'},
                     {data: 'nim', name: 'nim'},
@@ -625,7 +602,7 @@
             $('#m-edit-proker-user-input-select_pengurus').selectpicker('val', data_user_id);
             $('#m-edit-proker-user-input-note').val(data_note);
 
-            currentModal.find('form').attr('action', `{{ route('dashboard.admin.prokers.update.user') }}/${data_id}`);
+            currentModal.find('form').attr('action', `{{ route('dashboard.pengurus.prokers.update.user') }}/${data_id}`);
             currentModal.modal('show');
         }
 

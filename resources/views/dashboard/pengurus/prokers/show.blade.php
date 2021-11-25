@@ -4,7 +4,7 @@
 @section('header', 'Proker') {{-- header --}}
 
 @section('breadcrumb') {{-- breadcrumb --}}
-    <div class="breadcrumb-item active"><a href="{{ route('dashboard.admin.prokers.index') }}">Proker</a></div>
+    <div class="breadcrumb-item active"><a href="{{ route('dashboard.pengurus.prokers.index') }}">Proker</a></div>
     <div class="breadcrumb-item">Detail Proker</div>
 @endsection {{-- end of breadcrumb --}}
 
@@ -16,13 +16,13 @@
         <div class="col col-md-auto">
             @if (Request::get('tabs') === 'users')
                 <a
-                    href="{{ route('dashboard.admin.prokers.edit', $proker->id).'?tabs=users' }}"
+                    href="{{ route('dashboard.pengurus.prokers.edit', $proker->id).'?tabs=users' }}"
                     class="btn btn-warning">
                         <i class="fas fa-pen mr-1"></i> Edit Data
                 </a>
             @else
                 <a
-                    href="{{ route('dashboard.admin.prokers.edit', $proker->id) }}"
+                    href="{{ route('dashboard.pengurus.prokers.edit', $proker->id) }}"
                     class="btn btn-warning">
                         <i class="fas fa-pen mr-1"></i> Edit Data
                 </a>
@@ -30,7 +30,7 @@
         </div>
         <div class="col col-md-auto">
             <a
-                href="{{ route('dashboard.admin.prokers.index') }}"
+                href="{{ route('dashboard.pengurus.prokers.index') }}"
                 class="btn btn-outline-secondary">
                     <i class="fas fa-arrow-left mr-1"></i> Semua Data
             </a>
@@ -43,7 +43,7 @@
                 <li class="nav-item">
                     <a
                         class="nav-link {{ !Request::get('tabs') ? 'active' : '' }}"
-                        href="{{ route('dashboard.admin.prokers.show', $proker->id) }}"
+                        href="{{ route('dashboard.pengurus.prokers.show', $proker->id) }}"
                     >
                         Data Proker
                     </a>
@@ -51,7 +51,7 @@
                 <li class="nav-item">
                     <a
                         class="nav-link {{ Request::get('tabs') === 'users' ? 'active' : '' }}"
-                        href="{{ route('dashboard.admin.prokers.show', $proker->id).'?tabs=users' }}"
+                        href="{{ route('dashboard.pengurus.prokers.show', $proker->id).'?tabs=users' }}"
                     >
                         Anggota Proker
                     </a>

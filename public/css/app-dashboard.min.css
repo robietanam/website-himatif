@@ -16081,3 +16081,7 @@ select.selectpicker {
   -o-object-fit: contain;
      object-fit: contain;
 }
+
+.bg-softlight {
+  background-color: #dcdcdc !important;
+}
