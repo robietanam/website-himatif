@@ -6,6 +6,9 @@
     &:focus {
         @include form-control-focus;
     }
+    &::placeholder {
+        opacity: 0.4;
+    }
 }
 
 .input-group-text,

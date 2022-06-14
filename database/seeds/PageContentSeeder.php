@@ -22,13 +22,13 @@ class PageContentSeeder extends Seeder
                 // string is input
                 '1-text' => [
                     'type' => 'string',
-                    'name' => 'Judul',
+                    'name' => 'Judul Header',
                     'content' => 'HIMPUNAN MAHASISWA TEKNOLOGI INFORMASI'
                 ],
                 // text is textarea
                 '2-text2' => [
                     'type' => 'text',
-                    'name' => 'Sub Judul',
+                    'name' => 'Deskripsi Header',
                     'content' => 'HIMATIF (Himpunan Mahasiswa Teknologi Informasi) adalah salah satu organisasi mahasiswa di Fakultas Ilmu Komputer, Universitas Jember yang memiliki tujuan pokok meningkatkan kualitas Sumber Daya Mahasiswa Teknologi Informasi.'
                 ],
                 // image is file
@@ -47,6 +47,63 @@ class PageContentSeeder extends Seeder
                     'type' => 'mediumtext',
                     'name' => 'Marquee Konten',
                     'content' => '<p>Open Recruitment Pengurus Baru HIMATIF Periode 2021/2022. <a href="https://bit.ly/OprecHMTF" target="_blank"><b>Join now!</b></a></p>'
+                ],
+            ]),
+        ];
+
+        // header about
+        $page_contents[] = [
+            'name' => 'Konten Header Tentang',
+            'slug' => 'header-about',
+            'photo_example' => 'photo/page-contents/content_header_about.jpg',
+            'data' => json_encode([
+                '1-text' => [
+                    'type' => 'string',
+                    'name' => 'Judul Header',
+                    'content' => 'TENTANG HIMATIF'
+                ],
+                '2-text2' => [
+                    'type' => 'text',
+                    'name' => 'Deskripsi Header',
+                    'content' => 'HIMATIF (Himpunan Mahasiswa Teknologi Informasi) adalah Salah satu Organisasi Mahasiswa di Fakultas Ilmu Komputer Universitas Jember. Terbentuknya HIMATIF dirintis oleh 7 Orang Mahasiswa Teknologi Informasi pada tanggal 6 Agustus 2017.'
+                ],
+            ]),
+        ];
+
+        // header pengurus
+        $page_contents[] = [
+            'name' => 'Konten Header Divisi & Pengurus',
+            'slug' => 'header-pengurus',
+            'photo_example' => 'photo/page-contents/content_header_pengurus.jpg',
+            'data' => json_encode([
+                '1-text' => [
+                    'type' => 'string',
+                    'name' => 'Judul Header',
+                    'content' => 'DIVISI DAN PENGURUS'
+                ],
+                '2-text2' => [
+                    'type' => 'text',
+                    'name' => 'Deskripsi Header',
+                    'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat elementum consequat magna eu volutpat orci. Lacus bibendum vivamus nulla aliquet sed imperdiet id viverra. Lobortis aliquet est integer nibh ut elementumusto, in.'
+                ],
+            ]),
+        ];
+
+        // header proker
+        $page_contents[] = [
+            'name' => 'Konten Header Proker',
+            'slug' => 'header-proker',
+            'photo_example' => 'photo/page-contents/content_header_proker.jpg',
+            'data' => json_encode([
+                '1-text' => [
+                    'type' => 'string',
+                    'name' => 'Judul Header',
+                    'content' => 'PROKER HIMATIF'
+                ],
+                '2-text2' => [
+                    'type' => 'text',
+                    'name' => 'Deskripsi Header',
+                    'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta quia non libero accusantium odio aspernatur. Consequuntur ipsa voluptatibus rerum hic ab aliquam inventore, pariatur doloribus. Saepe odit cumque quia facilis.'
                 ],
             ]),
         ];
@@ -230,7 +287,6 @@ class PageContentSeeder extends Seeder
                 ],
             ]),
         ];
-
 
         DB::table('page_contents')->insert($page_contents);
         $this->command->info("Data Dummy Pages berhasil diinsert");

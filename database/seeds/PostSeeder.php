@@ -23,6 +23,7 @@ class PostSeeder extends Seeder
                 'photo'         => null,
                 'user_id'       => 1,
                 'category_id'   => mt_rand(1, 3),
+                'created_at'    => now(),
             ];
         }
 

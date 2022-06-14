@@ -58,10 +58,10 @@
             <div class="row pt-5">
                 <div class="col-12 text-center mb-5">
                     <h3 class="text-dec text-dec-secondary-2 text-dec-tl text-midnight font-extrabold mb-2">
-                        {{ $section2->text->content }}
+                        {{ $section2['text']->content }}
                     </h3>
                     <h6 class="text-gray font-semibold">
-                        {{ $section2->text2->content }}
+                        {{ $section2['text2']->content }}
                     </h6>
                 </div>
 
@@ -74,10 +74,10 @@
                                 </div>
                                 <div class="col">
                                     <h6 class="text-midnight font-bold">
-                                        {{ $section2->card1_text->content }}
+                                        {{ $section2['card1_text']->content }}
                                     </h6>
                                     <div class="text-gray">
-                                        {{ $section2->card1_text2->content }}
+                                        {{ $section2['card1_text2']->content }}
                                     </div>
                                 </div>
                             </div>
@@ -93,10 +93,10 @@
                                 </div>
                                 <div class="col">
                                     <h6 class="text-midnight font-bold">
-                                        {{ $section2->card2_text->content }}
+                                        {{ $section2['card2_text']->content }}
                                     </h6>
                                     <div class="text-gray">
-                                        {{ $section2->card2_text2->content }}
+                                        {{ $section2['card2_text2']->content }}
                                     </div>
                                 </div>
                             </div>
@@ -112,10 +112,10 @@
                                 </div>
                                 <div class="col">
                                     <h6 class="text-midnight font-bold">
-                                        {{ $section2->card3_text->content }}
+                                        {{ $section2['card3_text']->content }}
                                     </h6>
                                     <div class="text-gray">
-                                        {{ $section2->card3_text2->content }}
+                                        {{ $section2['card3_text2']->content }}
                                     </div>
                                 </div>
                             </div>
@@ -297,79 +297,42 @@
             </div>
 
             <div class="row" id="slick-proker-row">
-                <div class="col-lg-6 my-3 my-md-4">
-                    <div class="card shadow-midnight-sm">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-auto col-xl-4">
-                                    <h4 class="text-midnight font-bold mb-1 d-xl-none">Technology Innovative Challenge</h4>
-                                    <div class="img-fit img-fit-contain h-20rem">
-                                        <img src="{{ asset('img/features/proker/tic.png') }}" alt="">
+                @foreach ($prokers as $proker)
+                    <div class="col-lg my-3 my-md-4">
+                        <div class="card card-proker border border-light shadow-gray-sm h-100">
+                            <div class="card-body w-100 h-100">
+                                <div class="row justify-content-center h-100">
+                                    <div class="col-auto mb-2 mb-lg-0">
+                                        <div class="card-img">
+                                            @if ($proker->logo)
+                                                <img src="{{ asset('storage/'.$proker->logo) }}" alt="">
+                                            @else
+                                                <img src="{{ asset('img/placeholder/product-image-default.svg') }}" alt="">
+                                            @endif
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-xl pt-lg-2">
-                                    <h6 class="text-midnight font-bold mb-1 d-none d-xl-block">Technology Innovative Challenge</h6>
-                                    <p class="text-gray mb-2">
-                                        Dilaksanakan
-                                        untuk membimbing mahasiswa Teknologi Informasi Fakultas Ilmu Komputer
-                                        Universitas Jember agar dapat menulis dengan baik dan benar.
-                                    </p>
-                                    <a href="" class="text-gray">
-                                        Detail <i class="fas fa-arrow-right ml-1"></i>
-                                    </a>
+                                    <div class="col-md d-flex flex-column justify-content-between">
+                                        <div class="flex-grow-1">
+                                            <a href="{{ route('frontpage.proker.show', $proker->id) }}" class="text-midnight">
+                                                <h5 class="font-semibold mb-1">{{ $proker->name }}</h5>
+                                            </a>
+
+                                            @if ($proker->is_registration_open === '1')
+                                                <div class="badge badge-lg badge-success mb-2">Pendaftaran Dibuka</div>
+                                            @endif
+
+                                            <p class="text-12 text-md-14 text-gray mb-3">
+                                                {{ substr(strip_tags($proker->description), 0, 80) . ((strlen(strip_tags($proker->description)) > 80) ? '...' : '') }}
+                                            </p>
+                                        </div>
+
+                                        <a href="{{ route('frontpage.proker.show', $proker->id) }}" class="text-gray">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6 my-3 my-md-4">
-                    <div class="card shadow-midnight-sm">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-auto col-xl-4">
-                                    <h4 class="text-midnight font-bold mb-1 d-xl-none">ITeC</h4>
-                                    <div class="img-fit img-fit-contain h-20rem">
-                                        <img src="{{ asset('img/features/proker/itec.png') }}" alt="" class="img-fluid">
-                                    </div>
-                                </div>
-                                <div class="col-xl pt-lg-2">
-                                    <h6 class="text-midnight font-bold mb-1 d-none d-xl-block">ITeC</h6>
-                                    <p class="text-gray mb-2">
-                                        Penyaluran dan pengembangan minat dan bakat mahasiswa dalam kompetisi IoT dan Desain UI/UX Aplikasi - “Information Technology Competition”
-                                    </p>
-                                    <a href="" class="text-gray">
-                                        Detail <i class="fas fa-arrow-right ml-1"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 my-3 my-md-4">
-                    <div class="card shadow-midnight-sm">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-auto col-xl-4">
-                                    <h4 class="text-midnight font-bold mb-1 d-xl-none">Technology Innovative Challenge</h4>
-                                    <div class="img-fit img-fit-contain h-20rem">
-                                        <img src="{{ asset('img/features/proker/tic.png') }}" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-xl pt-lg-2">
-                                    <h6 class="text-midnight font-bold mb-1 d-none d-xl-block">Technology Innovative Challenge</h6>
-                                    <p class="text-gray mb-2">
-                                        Dilaksanakan
-                                        untuk membimbing mahasiswa Teknologi Informasi Fakultas Ilmu Komputer
-                                        Universitas Jember agar dapat menulis dengan baik dan benar.
-                                    </p>
-                                    <a href="" class="text-gray">
-                                        Detail <i class="fas fa-arrow-right ml-1"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -434,6 +397,10 @@
         }
         #slick-proker-prev:hover, #slick-proker-next:hover {
             font-size: 2.6rem;
+        }
+        .slick-track {
+            margin-left: unset;
+            margin-right: unset;
         }
     </style>
 @endsection

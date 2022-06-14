@@ -4,14 +4,14 @@
 @section('header', 'Posts') {{-- header --}}
 
 @section('breadcrumb') {{-- breadcrumb --}}
-    <div class="breadcrumb-item active"><a href="#">Posts</a></div>
-    <div class="breadcrumb-item">Tambah Data</div>
+    <div class="breadcrumb-item active"><a href="{{ route('dashboard.admin.posts.index') }}">Posts</a></div>
+    <div class="breadcrumb-item">Ubah Data</div>
 @endsection {{-- end of breadcrumb --}}
 
 @section('content') {{-- content --}}
     <div class="row gutters-xs align-items-center justify-content-end my-4">
         <div class="col-lg">
-            <h4>Ubah Data</h4>
+            <h4>Ubah Data Post</h4>
         </div>
         <div class="col col-md-auto">
             <a
@@ -22,7 +22,7 @@
         </div>
     </div>
 
-     {{-- row : form --}}
+    {{-- row : form --}}
     <form action="{{ route('dashboard.admin.posts.update', $post->id) }}" enctype="multipart/form-data" method="POST">
         @csrf
         @method('PUT')

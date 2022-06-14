@@ -8,7 +8,7 @@
     <!-- CSRF TOKEN -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Himatif') }} | @yield('title')</title>
+    <title>{{ config('app.name', 'HIMATIF') }} | @yield('title')</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

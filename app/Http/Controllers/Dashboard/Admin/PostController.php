@@ -25,7 +25,14 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('dashboard.admin.posts.index');
+        $countAllPost = $this->postRepository->count();
+        $countActivePost = $this->postRepository->count([['status', '1']]);
+        $countInactivePost = $this->postRepository->count([['status', '0']]);
+        return view('dashboard.admin.posts.index', compact([
+            'countAllPost',
+            'countActivePost',
+            'countInactivePost',
+        ]));
     }
 
     /**
@@ -122,7 +129,6 @@ class PostController extends Controller
                 'message' => 'Ubah Data Post Berhasil'
             ]);
         } catch (\Exception $e) {
-            dd($e);
             return redirect()->route('dashboard.admin.posts.edit', $id)->with([
                 'type' => 'danger',
                 'message' => 'Ubah Data Post Gagal, Terjadi kesalahan pada sistem.'

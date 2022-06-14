@@ -4,15 +4,14 @@
 @section('header', 'Posts') {{-- header --}}
 
 @section('breadcrumb') {{-- breadcrumb --}}
-    <div class="breadcrumb-item active"><a href="#">Home</a></div>
-    <div class="breadcrumb-item">Divisi</div>
-    <div class="breadcrumb-item">Edit Data</div>
+    <div class="breadcrumb-item"><a href="{{ route('dashboard.admin.divisions.index') }}">Divisi</a></div>
+    <div class="breadcrumb-item">Ubah Data</div>
 @endsection {{-- end of breadcrumb --}}
 
 @section('content') {{-- content --}}
     <div class="row gutters-xs align-items-center justify-content-end my-4">
         <div class="col-lg">
-            <h4>Edit Data</h4>
+            <h4>Ubah Data Divisi</h4>
         </div>
         <div class="col col-md-auto">
             <a

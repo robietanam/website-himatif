@@ -4,7 +4,7 @@
 @section('header', 'Pengurus') {{-- header --}}
 
 @section('breadcrumb') {{-- breadcrumb --}}
-    <div class="breadcrumb-item active"><a href="#">Home</a></div>
+    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
 @endsection {{-- end of breadcrumb --}}
 
 @section('content') {{-- content --}}

@@ -194,6 +194,18 @@ p, ul:not(.list-unstyled), ol {
   background-color: #fefeff;
   border-color: #95a0f4;
 }
+.form-control::-moz-placeholder, .input-group-text::-moz-placeholder, .custom-select::-moz-placeholder, .custom-file-label::-moz-placeholder {
+  opacity: 0.4;
+}
+.form-control:-ms-input-placeholder, .input-group-text:-ms-input-placeholder, .custom-select:-ms-input-placeholder, .custom-file-label:-ms-input-placeholder {
+  opacity: 0.4;
+}
+.form-control::placeholder,
+.input-group-text::placeholder,
+.custom-select::placeholder,
+.custom-file-label::placeholder {
+  opacity: 0.4;
+}
 
 .input-group-text,
 select.form-control:not([size]):not([multiple]),
@@ -4128,6 +4140,9 @@ select.selectpicker {
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
+}
+.table-datatable-container .dataTables_wrapper {
+  overflow-x: hidden;
 }
 
 .w-0 {
@@ -16065,4 +16080,8 @@ select.selectpicker {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.bg-softlight {
+  background-color: #dcdcdc !important;
 }

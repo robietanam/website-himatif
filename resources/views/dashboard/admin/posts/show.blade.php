@@ -4,8 +4,8 @@
 @section('header', 'Posts') {{-- header --}}
 
 @section('breadcrumb') {{-- breadcrumb --}}
-    <div class="breadcrumb-item active"><a href="#">Posts</a></div>
-    <div class="breadcrumb-item">Tambah Data</div>
+    <div class="breadcrumb-item active"><a href="{{ route('dashboard.admin.posts.index') }}">Posts</a></div>
+    <div class="breadcrumb-item">Detail Post</div>
 @endsection {{-- end of breadcrumb --}}
 
 @section('content') {{-- content --}}
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="col-lg">
-            <a href="" class="btn btn-block btn-primary mb-3">Tampilkan Preview</a>
+            <a href="{{ route('frontpage.berita.show', $post->slug) }}" target="_blank" class="btn btn-block btn-primary mb-3">Tampilkan Preview</a>
             <div class="card mb-2">
                 <div class="card-body">
                     {{-- user_id --}}

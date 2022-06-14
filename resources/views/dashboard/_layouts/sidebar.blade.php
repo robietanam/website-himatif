@@ -28,6 +28,11 @@
                     <i class="fas fa-users-cog"></i> <span>Divisi</span>
                 </a>
             </li>
+            <li class="nav-item {{ Request::is('dashboard/admin/prokers*') ? 'active' : '' }}">
+                <a href="{{ route('dashboard.admin.prokers.index') }}" class="nav-link">
+                    <i class="fas fa-briefcase"></i> <span>Proker</span>
+                </a>
+            </li>
             <li class="nav-item {{ Request::is('dashboard/admin/posts*') ? 'active' : '' }}">
                 <a href="{{ route('dashboard.admin.posts.index') }}" class="nav-link">
                     <i class="fas fa-image"></i> <span>Post</span>
@@ -44,6 +49,13 @@
             <li class="nav-item {{ Request::is('dashboard/pengurus') ? 'active' : '' }}">
                 <a href="{{ route('dashboard.pengurus.index') }}" class="nav-link">
                     <i class="fas fa-fire"></i> <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="menu-header">Opearasi Organisasi</li>
+            <li class="nav-item {{ Request::is('dashboard/pengurus/prokers*') ? 'active' : '' }}">
+                <a href="{{ route('dashboard.pengurus.prokers.index') }}" class="nav-link">
+                    <i class="fas fa-briefcase"></i> <span>Proker Saya</span>
                 </a>
             </li>
         @endif

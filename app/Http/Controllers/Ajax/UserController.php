@@ -23,4 +23,14 @@ class UserController extends Controller
             return response()->error($e->getMessage(), $e->getCode());
         }
     }
+
+    public function findUserById($id)
+    {
+        $user = $this->userRepository->findById($id);
+        if ($user) {
+            return response()->success($user);
+        } else {
+            return response()->error('User Not Found');
+        }
+    }
 }

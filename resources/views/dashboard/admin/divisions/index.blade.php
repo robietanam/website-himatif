@@ -4,7 +4,6 @@
 @section('header', 'Divisi') {{-- header --}}
 
 @section('breadcrumb') {{-- breadcrumb --}}
-    <div class="breadcrumb-item active"><a href="#">Home</a></div>
     <div class="breadcrumb-item">Divisi</div>
 @endsection {{-- end of breadcrumb --}}
 
@@ -12,23 +11,23 @@
     <div class="row">
         <div class="col-md-4">
             @component('dashboard._components.widget', ['color' => 'primary'])
-                @slot('icon', 'fas fa-users')
-                @slot('title', 'Pengurus')
-                @slot('content', '25')
+                @slot('icon', 'fas fa-user-cog')
+                @slot('title', 'Total Divisi')
+                @slot('content', $countAllDivision)
             @endcomponent
         </div>
         <div class="col-md-4">
             @component('dashboard._components.widget', ['color' => 'info'])
-                @slot('icon', 'fas fa-users')
-                @slot('title', 'Anggota')
-                @slot('content', '500')
+                @slot('icon', 'fas fa-user-cog')
+                @slot('title', 'Divisi utama')
+                @slot('content', $countMainDivision)
             @endcomponent
         </div>
         <div class="col-md-4">
-            @component('dashboard._components.widget', ['color' => 'secondary'])
-                @slot('icon', 'fas fa-users')
-                @slot('title', 'Demisioner')
-                @slot('content', '50')
+            @component('dashboard._components.widget', ['color' => 'warning'])
+                @slot('icon', 'fas fa-user-cog')
+                @slot('title', 'Sub Divisi')
+                @slot('content', $countSubDivision)
             @endcomponent
         </div>
     </div>

@@ -1,20 +1,21 @@
 body.about {
-    
-    background-color: color('white') !important;
+    background-color: color("white") !important;
 
     header {
         padding: 10rem 0;
-        background-color: color('light');
-        background-image:
-            url('../img/decoration/bg/1.svg'),
-            url('../img/decoration/bg/2.svg');
+        background-color: color("light");
+        background-image: url("../img/decoration/bg/1.svg"),
+            url("../img/decoration/bg/2.svg");
         background-size: 50rem, 50rem;
         background-repeat: no-repeat;
         background-position: -30rem -30rem, 140% -150%;
     }
 
     section#section-1 {
-        padding: 10rem 0;
+        padding: 6rem 0;
+        @media screen and (min-width: breakpoint("lg")) {
+            padding: 10rem 0;
+        }
         ul.list-about {
             position: relative;
             list-style: none;
@@ -25,24 +26,28 @@ body.about {
                 margin-bottom: 4rem;
                 &:not(:last-child) {
                     &::before {
-                        content: '';
+                        content: "";
                         display: block;
                         position: absolute;
-                        left: -6.8rem; top: 3rem;
-                        width: .4rem; height: calc(100% + 4rem);
-                        background-color: color('light');
+                        left: -6.8rem;
+                        top: 3rem;
+                        width: 0.4rem;
+                        height: calc(100% + 4rem);
+                        background-color: color("light");
                     }
                 }
                 &::after {
-                    content: '';
+                    content: "";
                     display: block;
                     position: absolute;
-                    left: -7.5rem; top: 1rem;
-                    width: 2rem; height: 2rem;
-                    border: double .6rem transparent;
+                    left: -7.5rem;
+                    top: 1rem;
+                    width: 2rem;
+                    height: 2rem;
+                    border: double 0.6rem transparent;
                     border-radius: 50%;
-                    background-color: color('white');
-                    border: 4px solid color('info');
+                    background-color: color("white");
+                    border: 4px solid color("info");
                     // background-image: linear-gradient(white, white), gradient-color('primary');
                     // background-origin: border-box;
                     // background-clip: content-box, border-box;
@@ -56,19 +61,19 @@ body.about {
         .card {
             background-repeat: no-repeat;
             background-position: 95% bottom;
-            box-shadow: 0 10px 30px rgba(color('midnight'), .1);
+            box-shadow: 0 10px 30px rgba(color("midnight"), 0.1);
         }
         #card-about-1 {
-            background-color: color('midnight');
-            background-image: url('../img/decoration/bg/work-bg-primary.svg');
+            background-color: color("midnight");
+            background-image: url("../img/decoration/bg/work-bg-primary.svg");
         }
         #card-about-2 {
-            background-color: color('white');
-            background-image: url('../img/decoration/bg/sitemap-bg-white.svg');
+            background-color: color("white");
+            background-image: url("../img/decoration/bg/sitemap-bg-white.svg");
         }
         #card-about-3 {
-            background-color: color('white');
-            background-image: url('../img/decoration/bg/man-bg-white.svg');
+            background-color: color("white");
+            background-image: url("../img/decoration/bg/man-bg-white.svg");
         }
 
         ul.list-about {
@@ -81,23 +86,28 @@ body.about {
                 margin-bottom: 10rem;
                 &:not(:last-child) {
                     &::before {
-                        content: '';
+                        content: "";
                         display: block;
                         position: absolute;
-                        left: -6.8rem; top: 3rem;
-                        width: .4rem; height: calc(100% + 12rem);
-                        background-color: color('light');
+                        left: -6.8rem;
+                        top: 3rem;
+                        width: 0.4rem;
+                        height: calc(100% + 12rem);
+                        background-color: color("light");
                     }
                 }
                 &::after {
-                    content: '';
+                    content: "";
                     display: block;
                     position: absolute;
-                    left: -8rem; top: 1rem;
-                    width: 3rem; height: 3rem;
-                    border: double .6rem transparent;
+                    left: -8rem;
+                    top: 1rem;
+                    width: 3rem;
+                    height: 3rem;
+                    border: double 0.6rem transparent;
                     border-radius: 50%;
-                    background-image: linear-gradient(white, white), gradient-color('primary');
+                    background-image: linear-gradient(white, white),
+                        gradient-color("primary");
                     background-origin: border-box;
                     background-clip: content-box, border-box;
                 }

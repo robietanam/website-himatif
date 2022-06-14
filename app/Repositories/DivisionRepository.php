@@ -16,6 +16,13 @@ class DivisionRepository
         return Division::whereNull('parent_id')->get();
     }
 
+    public function count(array $condition = [])
+    {
+        return Division::when(count($condition) > 0, function ($q) use ($condition) {
+            $q->where($condition);
+        })->count();
+    }
+
     /**
      * Get Division by id
      *

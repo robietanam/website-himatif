@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['ketua'],
             'year_entry' => 2018,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '1',
         ];
         $users[] = [
@@ -31,6 +32,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['sekretaris'],
             'year_entry' => 2018,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '1',
         ];
         $users[] = [
@@ -41,6 +43,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['bendahara'],
             'year_entry' => 2018,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '1',
         ];
         $users[] = [
@@ -51,6 +54,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['ketua-divisi'],
             'year_entry' => 2018,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '2',
         ];
         $users[] = [
@@ -61,6 +65,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2018,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '2',
         ];
         $users[] = [
@@ -71,6 +76,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2019,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '2',
         ];
         $users[] = [
@@ -81,6 +87,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2019,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '2',
         ];
         $users[] = [
@@ -91,6 +98,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2020,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '2',
         ];
         $users[] = [
@@ -101,6 +109,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2020,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '2',
         ];
         $users[] = [
@@ -111,6 +120,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2020,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '2',
         ];
         $users[] = [
@@ -121,6 +131,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2020,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '2',
         ];
         $users[] = [
@@ -131,6 +142,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['ketua-divisi'],
             'year_entry' => 2018,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '3',
         ];
         $users[] = [
@@ -141,6 +153,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2018,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '3',
         ];
         $users[] = [
@@ -151,6 +164,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2019,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '3',
         ];
         $users[] = [
@@ -161,6 +175,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2019,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '3',
         ];
         $users[] = [
@@ -171,6 +186,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2019,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '3',
         ];
         $users[] = [
@@ -181,6 +197,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2020,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '3',
         ];
         $users[] = [
@@ -191,6 +208,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2020,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '3',
         ];
         $users[] = [
@@ -201,6 +219,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2020,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '3',
         ];
         $users[] = [
@@ -211,6 +230,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['ketua-divisi'],
             'year_entry' => 2018,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '4',
         ];
         $users[] = [
@@ -221,6 +241,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['ketua-subdivisi'],
             'year_entry' => 2018,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '5',
         ];
         $users[] = [
@@ -231,6 +252,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2019,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '5',
         ];
         $users[] = [
@@ -241,6 +263,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2019,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '5',
         ];
         $users[] = [
@@ -251,6 +274,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2020,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '5',
         ];
         $users[] = [
@@ -261,6 +285,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['ketua-subdivisi'],
             'year_entry' => 2019,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '6',
         ];
         $users[] = [
@@ -271,6 +296,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2019,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '6',
         ];
         $users[] = [
@@ -281,6 +307,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2020,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '6',
         ];
         $users[] = [
@@ -291,6 +318,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['ketua-divisi'],
             'year_entry' => 2018,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '7',
         ];
         $users[] = [
@@ -301,6 +329,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['ketua-subdivisi'],
             'year_entry' => 2018,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '8',
         ];
         $users[] = [
@@ -311,6 +340,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2018,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '8',
         ];
         $users[] = [
@@ -321,6 +351,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2019,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '8',
         ];
         $users[] = [
@@ -331,6 +362,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2020,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '8',
         ];
         $users[] = [
@@ -341,6 +373,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2020,
             'role_id' => '2',
+            'status' => '1',
             'division_id' => '8',
         ];
         $users[] = [
@@ -351,6 +384,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['ketua-subdivisi'],
             'year_entry' => 2018,
             'role_id' => '1',
+            'status' => '1',
             'division_id' => '9',
         ];
         $users[] = [
@@ -361,6 +395,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2018,
             'role_id' => '1',
+            'status' => '1',
             'division_id' => '9',
         ];
         $users[] = [
@@ -371,6 +406,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2018,
             'role_id' => '1',
+            'status' => '1',
             'division_id' => '9',
         ];
         $users[] = [
@@ -381,6 +417,7 @@ class UserSeeder extends Seeder
             'position' => GlobalConstant::DIVISION_POSITION_NAME['anggota'],
             'year_entry' => 2020,
             'role_id' => '1',
+            'status' => '1',
             'division_id' => '9',
         ];
         // $users[] = [

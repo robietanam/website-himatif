@@ -63,6 +63,18 @@ class UserRepository
             ->make(true);
     }
 
+    public function get()
+    {
+        return User::all();
+    }
+
+    public function count(array $condition = [])
+    {
+        return User::when(count($condition) > 0, function ($q) use ($condition) {
+            $q->where($condition);
+        })->count();
+    }
+
     /**
      * Get User by id
      *
@@ -145,5 +157,25 @@ class UserRepository
             report($t);
             throw $t;
         }
+    }
+
+    /**
+     * @param int $proker_id
+     * @param array $ids
+     * @param string $status = '0'|'1'
+     */
+    public function setStatus($ids, $status)
+    {
+        $query = "id = $ids[0]";
+        if (count($ids) > 1) {
+            foreach ($ids as $i => $id) {
+                // skip index 0, already appened on '$query'
+                if ($i !== 0) $query .= " or id = $id";
+            }
+        }
+
+        $result = \DB::table('users')->whereRaw($query)->update(['status' => $status]);
+
+        return $result;
     }
 }

@@ -9,12 +9,10 @@
     <header>
         <div class="container text-center">
             <h3 class="text-midnight text-dec text-dec-secondary-3 text-dec-tr font-extrabold mb-2">
-                DIVISI DAN PENGURUS
+                {{ $header['1-text']->content }}
             </h3>
             <h6 class="text-gray font-light">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat elementum
-                consequat magna eu volutpat orci. Lacus bibendum vivamus nulla aliquet sed imperdiet
-                id viverra. Lobortis aliquet est integer nibh ut elementumusto, in.
+                {{ $header['2-text2']->content }}
             </h6>
         </div>
     </header>
@@ -32,23 +30,52 @@
                     </div>
 
                     @foreach ($division->users as $user)
-                        <div class="col-auto col-md-4 col-lg-3 mb-2">
-                            <div class="card card-member shadow-midnight-sm">
-                                <div class="card-body text-center">
-                                    @if ($user->photo)
-                                        <div class="img-wrapper">
-                                            <img src="{{ asset('storage/'.$user->photo) }}" alt="">
-                                        </div>
-                                    @else
-                                        <div class="img-wrapper">
-                                            <img src="{{ asset('img/placeholder/product-image-default.svg') }}" alt="">
-                                        </div>
-                                    @endif
-                                    <div class="text-title">{{ $user->name }}</div>
-                                    <div class="text-subtitle">{{ $user->position }}</div>
+                        @if ($user->status === '1')
+                            <div class="col-auto col-md-4 col-lg-3 mb-2">
+                                <div class="card card-member shadow-midnight-sm">
+                                    <div class="card-body text-center">
+                                        @if ($user->photo)
+                                            <div class="img-wrapper">
+                                                <img src="{{ asset('storage/'.$user->photo) }}" alt="">
+                                            </div>
+                                        @else
+                                            <div class="img-wrapper">
+                                                <img src="{{ asset('img/placeholder/product-image-default.svg') }}" alt="">
+                                            </div>
+                                        @endif
+                                        <div class="text-title">{{ $user->name }}</div>
+                                        <div class="text-subtitle">{{ $user->position }}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @else
+                            <div></div>
+                        @endif
+                    @endforeach
+                    @foreach ($division->subDivisions as $subdivsion)
+                        @foreach ($subdivsion->users as $user)
+                            @if ($user->status === '1')
+                                <div class="col-auto col-md-4 col-lg-3 mb-2">
+                                    <div class="card card-member shadow-midnight-sm">
+                                        <div class="card-body text-center">
+                                            @if ($user->photo)
+                                                <div class="img-wrapper">
+                                                    <img src="{{ asset('storage/'.$user->photo) }}" alt="">
+                                                </div>
+                                            @else
+                                                <div class="img-wrapper">
+                                                    <img src="{{ asset('img/placeholder/product-image-default.svg') }}" alt="">
+                                                </div>
+                                            @endif
+                                            <div class="text-title">{{ $user->name }}</div>
+                                            <div class="text-subtitle">{{ $user->position }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @else
+                                <div></div>
+                            @endif
+                        @endforeach
                     @endforeach
                 @endforeach
 

@@ -51,7 +51,7 @@ class Post extends Model
         if ($this[$property]) {
             return Carbon::parse($this[$property])->diffForHumans();
         } else {
-            throw new \Error('Invalid Property');
+            return '-';
         }
     }
 }
