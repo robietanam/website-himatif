@@ -1,0 +1,11 @@
+@function color($value) {
+	@return map-get($colors, $value);
+}
+
+@function gradient-color($value) {
+	@return map-get($gradient-colors, $value);
+}
+
+@function breakpoint($value) {
+	@return map-get($breakpoints, $value);
+}

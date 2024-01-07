@@ -1,0 +1,7 @@
+.card {
+    padding: 0;
+    border: $card-border;
+    .card-body {
+        padding: $card-padding;
+    }
+}

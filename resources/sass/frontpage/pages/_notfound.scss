@@ -1,0 +1,13 @@
+body.notfound {
+    background-color: color('light');
+    main {
+        background-image:
+            url('../img/decoration/bg/1.svg'),
+            url('../img/decoration/bg/1.svg');
+        background-position: 
+            calc(0% - 35rem) calc(0% - 35rem),
+            calc(100% + 35rem) calc(100% + 35rem);
+        background-size: 60rem;
+        background-repeat: no-repeat;
+    }
+}

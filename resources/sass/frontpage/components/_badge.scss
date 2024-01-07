@@ -1,0 +1,20 @@
+.badge {
+    padding: $badge-padding;
+    font-size: $badge-font-size;
+    border-radius: $badge-border-radius;
+    &-pill { border-radius: $badge-pill-border-radius; }
+    &-lg { 
+        padding: $badge-lg-padding;
+        font-size: $badge-lg-font-size;
+    }
+    @each $color-name, $color-value in $colors {
+        &-#{$color-name} {
+            background-color: $color-value !important;
+            @if ($color-name == 'white') {
+                color: color('dark');
+            } @else {
+                color: color('white') !important; 
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+footer.footer {
+    padding: 4rem 0;
+    background-color: color('midnight');
+    background-image: url('../img/decoration/bg/3.svg'), url('../img/decoration/bg/3.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% + 15rem) calc(100% + 15rem), -20% -80%;
+    @media screen and (min-width: breakpoint('md')) {
+        padding: 8rem 0 4rem;
+        background-position: 120% 120%, -20% -80%;
+    }
+
+    .nav {
+        .nav-item {
+            .nav-link {
+                font-size: 1.4rem;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

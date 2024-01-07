@@ -1,0 +1,218 @@
+body.homepage {
+
+    background-color: color('light');
+    .card.card-marquee {
+        border-radius: 2.5rem;
+        .card-body {
+            padding: .8rem 1rem;
+            @media screen and (min-width: breakpoint('sm')) {
+                padding: .8rem 1.5rem;
+            }
+            marquee {
+                font-size: 1.3rem;
+                color: color('gray');
+                margin-top: .5rem;
+                @media screen and (min-width: breakpoint('sm')) {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+
+    .img-wrapper-about {
+        font-size: 7px;
+        width: 40em;
+        height: 32em;
+        position: relative;
+        @media screen and (min-width: breakpoint('md')) {
+            font-size: 10px;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            left: -6rem;
+            bottom: -5rem;
+            width: 26em;
+            height: 26em;
+            background-image: url('../img/decoration/bg/2.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .img-about {
+            position: absolute;
+            width: 30em;
+            height: 18em;
+            border-radius: 1rem;
+            overflow: hidden;
+            &:nth-child(1) {
+                left: 0; top: 0;
+            }
+            &:nth-child(2) {
+                left: 6em; top: 6em;
+            }
+            &:nth-child(3) {
+                right: 0; bottom: 0;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+    }
+
+    header {
+        padding: 5rem 0;
+        position: relative;
+        border-bottom-left-radius: 8rem;
+        z-index: 1;
+        background-color: color('light');
+        // background-color: red;
+        background-image:
+            url('../img/decoration/bg/1.svg'),
+            url('../img/decoration/memphis/2.svg'), url('../img/decoration/memphis/3.svg'),
+            url('../img/decoration/memphis/4.svg');
+        background-position:
+            -40rem -40rem, 80% 3rem,
+            80% 15rem, 95% 34rem;
+        background-size: auto, 30px, 30px, 20px;
+        background-repeat: no-repeat;
+
+        @media screen and (min-width: breakpoint('lg')) {
+            padding: 15rem 0;
+            border-bottom-left-radius: 18rem;
+            background-size: unset;
+            background-position:
+                -30rem -30rem, 60% 10rem,
+                80% 15rem, 45% 38rem;
+        }
+
+        .header-img {
+            width: 100%;
+            height: auto;
+            position: relative;
+            overflow: visible;
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 90%;
+                height: 90%;
+                background-image: url('../img/decoration/bg/2.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                top: -30%;
+                right: -10%;
+                @media screen and (min-width: breakpoint('md')) {
+                    width: 120%;
+                    height: 120%;
+                }
+            }
+        }
+    }
+
+    // Section 1 : tentang
+    section#section-1 {
+        background-color: color('white');
+        padding: 28rem 0 8rem;
+        position: relative;
+        top: -18rem;
+        margin-bottom: -18rem;
+        @media screen and (min-width: breakpoint('md')) {
+            padding: 38rem 0 12rem;
+            background-image: url('../img/decoration/bg/2.svg');
+            background-size: 30rem;
+            background-repeat: no-repeat;
+            background-position: 95% 22rem;
+        }
+    }
+
+    // Section 2 : visi & misi
+    section#section-2 {
+        background-color: color('white');
+        padding: 10rem 0;
+        background-image: url('../img/decoration/memphis/8.svg');
+        background-repeat: no-repeat;
+        background-position: 80% 0;
+        background-size: 8rem;
+        @media screen and (min-width: breakpoint('lg')) {
+            background-position: 80% 0;
+            padding: 12rem 0;
+            background-size: unset;
+        }
+    }
+
+    // Section 3 : Divisi
+    section#section-3 {
+        background-color: color('midnight');
+        padding: 8rem 0;
+        background-image:
+            url('../img/decoration/bg/3.svg'), url('../img/decoration/bg/3.svg');
+        background-position:
+            -20rem -20rem, 15rem 125%;
+        background-repeat: no-repeat;
+        @media screen and (min-width: breakpoint('md')) {
+            padding: 12rem 0;
+            background-position:
+                -15rem -15rem, 115% 135%;
+        }
+    }
+
+    // Section 4 : Proker
+    section#section-4 {
+        padding: 10rem 0 4rem;
+        background-color: color('white');
+        background-image: url('../img/decoration/bg/2.svg'), url('../img/decoration/memphis/8.svg');
+        background-repeat: no-repeat;
+        background-position: -10rem 130%, 10% 4rem;
+        border-bottom-left-radius: 8rem;
+        background-size: auto, 80px;
+        @media screen and (min-width: breakpoint('md')) {
+            padding: 12rem 0;
+            background-position: -10rem 130%, 95% 20%;
+            border-bottom-left-radius: 18rem;
+        }
+    }
+
+    // Section 5 : Gallery
+    section#section-5 {
+        padding: 10rem 0 5rem;
+        background-image: url('../img/decoration/bg/2.svg'), url('../img/decoration/memphis/10.svg');
+        background-repeat: no-repeat;
+        background-position: -15rem calc(100% + 15rem), 8% 4rem;
+        background-size: 30rem, 60px;
+        @media screen and (min-width: breakpoint('md')) {
+            padding: 12rem 0;
+            background-position: 115% 115%, 8% 16%;
+            background-size: unset;
+        }
+        .img-gallery {
+            width: 100%;
+            height: 8rem;
+            overflow: hidden;
+            @media screen and (min-width: breakpoint('sm') - 176px) {
+                height: 16rem;
+            }
+            @media screen and (min-width: breakpoint('md')) {
+                height: 21rem;
+            }
+            &.img-gallery-main {
+                height: 18rem;
+                @media screen and (min-width: breakpoint('sm') - 176px) {
+                    height: 32rem;
+                }
+                @media screen and (min-width: breakpoint('md')) {
+                    height: 43.2rem;
+                }
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}

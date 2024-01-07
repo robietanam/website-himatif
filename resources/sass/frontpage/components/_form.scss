@@ -1,0 +1,35 @@
+.form-group {
+    margin: $group-margin;
+    & > label {
+        color: $label-color;
+        font-weight: $label-font-weight;
+        font-size: $label-font-size;
+        margin: $label-margin;
+        display: block;
+    }
+}
+
+.form-control {
+    border: $input-border;
+    font-size: $input-font-size;
+    padding: $input-padding;
+    height: unset;
+    background-color: $input-bg-color;
+    transition: all .3s ease-in-out;
+    &:focus {
+        border: $input-focus-border;
+        box-shadow: $input-focus-box-shadow;
+    }
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    .form-check-label {
+        cursor: pointer;
+        color: $label-color;
+        padding-left: 1rem;
+        padding-top: .3rem;
+        font-size: 1.6rem;
+    }
+}
