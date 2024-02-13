@@ -8,7 +8,7 @@
 
     <table class="table table-bordered" id="dynamicAddRemove">
         <tr>
-            <th colspan="2">Subject</th>
+            <th colspan="3">Subject</th>
             <th>Action</th>
         </tr>
         @if (isset($inputValue))
@@ -36,6 +36,23 @@
                             value="{{ isset($value) ? $value[1] : old($value[1]) }}"
                             placeholder="Input {{ $inputLabel }}"
                             class="form-control {{ isset($inputSize) ? $inputSize : '' }}  @error($value[1]) is-invalid @enderror"
+                            required>
+
+                        @isset($inputHelp)
+                            <small class="form-text text-muted">{!! $inputHelp !!}</small>
+                        @endisset
+
+                        @error($inputName)
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </td>
+                    <td>
+                        <input type="datetime-local" name="timeline_time_end[]"
+                            value="{{ isset($value) ? $value[2] ?? '' : old($value[2]) }}"
+                            placeholder="Input {{ $inputLabel }}"
+                            class="form-control {{ isset($inputSize) ? $inputSize : '' }}  @error($value[2] ?? '') is-invalid @enderror"
                             required>
 
                         @isset($inputHelp)

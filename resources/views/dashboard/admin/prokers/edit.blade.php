@@ -487,6 +487,9 @@
                                 <input type="datetime-local" name="timeline_time[]" placeholder="Enter subject" class="form-control" required/>
                             </td>
                             <td>
+                                <input type="datetime-local" name="timeline_time_end[]" placeholder="Enter subject" class="form-control" required/>
+                            </td>
+                            <td>
                                 <button type="button" class="btn btn-outline-danger remove-input-field">Delete</button>
                             </td>
                         </tr>`

@@ -120,7 +120,11 @@
                                                         <div class="tl-content ">
                                                             <div class="">{{ $timeline[0] }}</div>
                                                             <div class="tl-date text-muted mt-1">
-                                                                {{ date('d F Y', strtotime($timeline[1])) }}</div>
+
+                                                                {{ date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd F ' : 'd F Y', strtotime($timeline[1])) }}
+                                                                -
+                                                                {{ date('d F Y', strtotime($timeline[2])) }}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 @else
@@ -129,7 +133,11 @@
                                                         <div class="tl-content">
                                                             <div class="">{{ $timeline[0] }}</div>
                                                             <div class="tl-date text-muted mt-1">
-                                                                {{ date('d F Y', strtotime($timeline[1])) }}</div>
+
+                                                                {{ date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd F ' : 'd F Y', strtotime($timeline[1])) }}
+                                                                -
+                                                                {{ date('d F Y', strtotime($timeline[2])) }}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 @endif
@@ -139,7 +147,11 @@
                                                     <div class="tl-content">
                                                         <div class="">{{ $timeline[0] }}</div>
                                                         <div class="tl-date text-muted mt-1">
-                                                            {{ date('d F Y', strtotime($timeline[1])) }}</div>
+
+                                                            {{ date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd F ' : 'd F Y', strtotime($timeline[1])) }}
+                                                            -
+                                                            {{ date('d F Y', strtotime($timeline[2])) }}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             @endif
@@ -390,7 +402,7 @@
             font-size: .85em;
             margin-top: 2px;
             min-width: 100px;
-            max-width: 150px
+            max-width: 200px
         }
 
         .avatar {
