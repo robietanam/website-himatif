@@ -11,7 +11,7 @@ class ProkerRepository
 {
     public function get(int $limit = null, array $condition = [], array $orCondition = [])
     {
-        return Proker::orderBy('created_at', 'desc')
+        return Proker::orderBy('created_at', 'asc')
             ->when(count($condition) > 0, function ($q) use ($condition) {
                 $q->where($condition);
             })
@@ -138,7 +138,7 @@ class ProkerRepository
             
             error_log(json_encode($data));
             foreach ($data['timeline_name'] as $key => $value) {
-                $timeline[$key] = [$value, $data['timeline_time'][$key]];
+                $timeline[$key] = [$value, $data['timeline_time'][$key], $data['timeline_time_end'][$key]];
             }
 
 
