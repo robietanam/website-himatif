@@ -120,41 +120,66 @@
                                                 @if ($key == $timeline_active)
                                                     <div class="tl-item active">
                                                         <div class="tl-dot b-primary"></div>
-                                                        <div class="tl-content ">
-                                                            <div class="">{{ $timeline[0] }}</div>
-                                                            <div class="tl-date text-muted mt-1">
+                                                        <div class="tl-content">
 
-                                                                {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd-m ' : 'd-m-Y', strtotime($timeline[1]))) }}
-                                                                -
-                                                                {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
-                                                            </div>
+                                                            <div class="">{{ $timeline[0] }}</div>
+                                                            @if (date('d-m-Y', strtotime($timeline[2])) === date('d-m-Y', strtotime($timeline[1])))
+                                                                <div class="tl-date text-muted mt-1">
+                                                                    {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
+                                                                </div>
+                                                            @else
+                                                                <div class="tl-date text-muted mt-1">
+
+                                                                    {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd-m ' : 'd-m-Y', strtotime($timeline[1]))) }}
+                                                                    -
+                                                                    {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
+                                                                </div>
+                                                            @endif
+
                                                         </div>
                                                     </div>
                                                 @else
                                                     <div class="tl-item">
                                                         <div class="tl-dot b-warning"></div>
                                                         <div class="tl-content">
-                                                            <div class="">{{ $timeline[0] }}</div>
-                                                            <div class="tl-date text-muted mt-1">
 
-                                                                {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd-m ' : 'd-m-Y', strtotime($timeline[1]))) }}
-                                                                -
-                                                                {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
-                                                            </div>
+                                                            <div class="">{{ $timeline[0] }}</div>
+                                                            @if (date('d-m-Y', strtotime($timeline[2])) === date('d-m-Y', strtotime($timeline[1])))
+                                                                <div class="tl-date text-muted mt-1">
+                                                                    {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
+                                                                </div>
+                                                            @else
+                                                                <div class="tl-date text-muted mt-1">
+
+                                                                    {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd-m ' : 'd-m-Y', strtotime($timeline[1]))) }}
+                                                                    -
+                                                                    {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
+                                                                </div>
+                                                            @endif
+
                                                         </div>
                                                     </div>
                                                 @endif
                                             @else
                                                 <div class="tl-item">
                                                     <div class="tl-dot b-danger"></div>
-                                                    <div class="tl-content">
-                                                        <div class="">{{ $timeline[0] }}</div>
-                                                        <div class="tl-date text-muted mt-1">
 
-                                                            {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd-m ' : 'd-m-Y', strtotime($timeline[1]))) }}
-                                                            -
-                                                            {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
-                                                        </div>
+                                                    <div class="tl-content">
+
+                                                        <div class="">{{ $timeline[0] }}</div>
+                                                        @if (date('d-m-Y', strtotime($timeline[2])) === date('d-m-Y', strtotime($timeline[1])))
+                                                            <div class="tl-date text-muted mt-1">
+                                                                {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
+                                                            </div>
+                                                        @else
+                                                            <div class="tl-date text-muted mt-1">
+
+                                                                {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd-m ' : 'd-m-Y', strtotime($timeline[1]))) }}
+                                                                -
+                                                                {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
+                                                            </div>
+                                                        @endif
+
                                                     </div>
                                                 </div>
                                             @endif
@@ -179,7 +204,8 @@
                                     <div id="carouselExampleIndicators" class="carousel carousel-dark slide"
                                         data-ride="carousel">
                                         <ol class="carousel-indicators">
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="0"
+                                                class="active">
                                             </li>
                                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                                             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
