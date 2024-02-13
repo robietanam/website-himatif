@@ -1,14 +1,17 @@
 @extends('frontpage.layouts.app-frontpage')
 
+@php
+    $timeline_active = -1;
+
+@endphp
+
 @section('title', 'PROKER DETAIL')
 
 @section('pageClass', 'proker')
 
-@php
-    $timeline_active = -1;
-@endphp
 
 @section('content')
+
     <main class="py-5 py-md-6 bg-light">
         <div class="container">
             <div class="row justify-content-center">
@@ -121,9 +124,9 @@
                                                             <div class="">{{ $timeline[0] }}</div>
                                                             <div class="tl-date text-muted mt-1">
 
-                                                                {{ date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd F ' : 'd F Y', strtotime($timeline[1])) }}
+                                                                {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd F ' : 'd F Y', strtotime($timeline[1]))) }}
                                                                 -
-                                                                {{ date('d F Y', strtotime($timeline[2])) }}
+                                                                {{ tgl_indo(date('d F Y', strtotime($timeline[2]))) }}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -134,9 +137,9 @@
                                                             <div class="">{{ $timeline[0] }}</div>
                                                             <div class="tl-date text-muted mt-1">
 
-                                                                {{ date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd F ' : 'd F Y', strtotime($timeline[1])) }}
+                                                                {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd F ' : 'd F Y', strtotime($timeline[1]))) }}
                                                                 -
-                                                                {{ date('d F Y', strtotime($timeline[2])) }}
+                                                                {{ tgl_indo(date('d F Y', strtotime($timeline[2]))) }}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -148,9 +151,9 @@
                                                         <div class="">{{ $timeline[0] }}</div>
                                                         <div class="tl-date text-muted mt-1">
 
-                                                            {{ date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd F ' : 'd F Y', strtotime($timeline[1])) }}
+                                                            {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd-m ' : 'd-m-Y', strtotime($timeline[1]))) }}
                                                             -
-                                                            {{ date('d F Y', strtotime($timeline[2])) }}
+                                                            {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
                                                         </div>
                                                     </div>
                                                 </div>

@@ -10,3 +10,29 @@ if (!function_exists('api_response')) {
         ], $code);
     }
 }
+
+if (!function_exists('tgl_indo')) {
+    function tgl_indo($tanggal)
+    {
+        $bulan = [
+            1 => 'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember',
+        ];
+        $pecahkan = explode('-', $tanggal);
+        $year = isset($pecahkan[2]) ? $pecahkan[2] : '';
+        // variabel pecahkan 0 = tanggal
+        // variabel pecahkan 1 = bulan
+        // variabel pecahkan 2 = tahun
+        return $pecahkan[0] . " " . $bulan[(int) $pecahkan[1]] . " " .$year;
+    }
+}
