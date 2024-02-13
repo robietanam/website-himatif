@@ -148,6 +148,7 @@ class ProkerController extends Controller
         $proker = $this->prokerRepository->findById($id);
         $prokerDivisions = $this->prokerDivisionRepository->get();
         $users = $this->userRepository->get();
+        
         return view('dashboard.admin.prokers.edit', compact([
             'proker',
             'users',
@@ -164,12 +165,14 @@ class ProkerController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         \Validator::make($request->all(), [
             'logo' => 'image|mimes:jpeg,jpg,png|max:2048',
             'name' => 'required',
             'description' => 'required',
             'link_registration' => 'required_if:is_registration_open,1',
         ])->validate();
+        
 
         try {
             $this->prokerRepository->update($id, $request->all());

@@ -304,9 +304,9 @@ CREATE TABLE `prokers` (
   `link_registration` varchar(255) DEFAULT NULL,
   `link_instagram` varchar(255) DEFAULT NULL,
   `link_storage_document` varchar(255) DEFAULT NULL,
-  `link_storage_sertificate` varchar(255) DEFAULT NULL,
+  `link_storage_certificate` varchar(255) DEFAULT NULL,
   `link_storage_pdd_documentation` varchar(255) DEFAULT NULL,
-  `link_storage_design` varchar(255) DEFAULT NULL,
+  `link_contact_person` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -315,7 +315,7 @@ CREATE TABLE `prokers` (
 -- Dumping data for table `prokers`
 --
 
-INSERT INTO `prokers` (`id`, `name`, `logo`, `description`, `is_registration_open`, `status`, `link_registration`, `link_instagram`, `link_storage_document`, `link_storage_sertificate`, `link_storage_pdd_documentation`, `link_storage_design`, `created_at`, `updated_at`) VALUES
+INSERT INTO `prokers` (`id`, `name`, `logo`, `description`, `is_registration_open`, `status`, `link_registration`, `link_instagram`, `link_storage_document`, `link_storage_certificate`, `link_storage_pdd_documentation`, `link_contact_person`, `created_at`, `updated_at`) VALUES
 (1, 'Proker Himatif', NULL, 'Proker himatif adalah Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius necessitatibus quod qui, maiores eum nam repellendus quasi, soluta hic architecto fugiat illo? Dolor magni dolorem veritatis dicta minus tenetur delectus ratione magnam, rem eveniet eligendi illum enim libero animi eius hic at aliquam dolore ipsa harum fugiat quas! Expedita, aperiam?', '1', '1', 'https://www.google.com/', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (2, 'Proker Himatif 2', NULL, 'Proker himatif adalah Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius necessitatibus quod qui, maiores eum nam repellendus quasi, soluta hic architecto fugiat illo? Dolor magni dolorem veritatis dicta minus tenetur delectus ratione magnam, rem eveniet eligendi illum enim libero animi eius hic at aliquam dolore ipsa harum fugiat quas! Expedita, aperiam?', '0', '0', 'https://www.google.com/', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
@@ -415,7 +415,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `photo` varchar(255) DEFAULT NULL,
-  `position` enum('Ketua Umum','Sekretaris','Bendahara','Ketua Divisi','Ketua Subdivisi','Anggota','Demisioner') DEFAULT NULL,
+  `position` enum('Ketua Umum','Sekretaris','Bendahara','Kepala Divisi','Kepala Subdivisi','Anggota','Demisioner') DEFAULT NULL,
   `status` enum('0','1') NOT NULL COMMENT '0 Tidak Aktif, 1 Aktif',
   `year_entry` year(4) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -433,7 +433,7 @@ INSERT INTO `users` (`id`, `name`, `nim`, `email`, `password`, `phone`, `photo`,
 (1, 'Aditya Ari Fikri', '182410102002', 'adit@gmail.com', '$2y$10$4202ofT1G2.pWkRQY9GoBesE8o2qMXRdDNY1jMvQcEVhpdbLZKcFe', NULL, NULL, 'Ketua Umum', '1', 2018, NULL, NULL, NULL, 1, 2),
 (2, 'Aulia Nurul Ilma', '182410102020', 'aulia@gmail.com', '$2y$10$COTie9HFJuYyyGRExQ8I.OY21MwtWi7BSyz76GXUZra2sUFetRiba', NULL, NULL, 'Sekretaris', '1', 2018, NULL, NULL, NULL, 1, 2),
 (3, 'Linda Fitri Dwi W', '182410102040', 'linda@gmail.com', '$2y$10$AlsVTg2yyEQ/ExNQ//TvRuUbZd0AM1/B4BX1dwd97gaGHQIf73HFK', NULL, NULL, 'Bendahara', '1', 2018, NULL, NULL, NULL, 1, 2),
-(4, 'Edo Tri Wicaksono', '182410102047', 'edo@gmail.com', '$2y$10$mkOIlmUMv/hubCb.or3m3uRBiHy84V34V7m5VBSeOsUXVbaedjeLC', NULL, NULL, 'Ketua Divisi', '1', 2018, NULL, NULL, NULL, 2, 2),
+(4, 'Edo Tri Wicaksono', '182410102047', 'edo@gmail.com', '$2y$10$mkOIlmUMv/hubCb.or3m3uRBiHy84V34V7m5VBSeOsUXVbaedjeLC', NULL, NULL, 'Kepala Divisi', '1', 2018, NULL, NULL, NULL, 2, 2),
 (5, 'Arinda Vika Nur Hanifah', '182410102005', 'arinda@gmail.com', '$2y$10$qucha0TSSfvdV8XLzFPRru88h5CtQx3c3cmMcwLlFeS1hD96fFML.', NULL, NULL, 'Anggota', '1', 2018, NULL, NULL, NULL, 2, 2),
 (6, 'Alife Zinedine Riza', '192410102013', 'zinedine@gmail.com', '$2y$10$hClUT1bVyc4.Bm3h8nvW8u3M8ancvo0DqQ7rty5.KynbM7seoq906', NULL, NULL, 'Anggota', '1', 2019, NULL, NULL, NULL, 2, 2),
 (7, 'Mahesa Riski Pratama', '192410102054', 'mahesa@gmail.com', '$2y$10$4OJPf1754sdVkf2grd4S2.NqA8NTHU6crbirNLTR9gXoV9/oRqYWa', NULL, NULL, 'Anggota', '1', 2019, NULL, NULL, NULL, 2, 2),
@@ -441,7 +441,7 @@ INSERT INTO `users` (`id`, `name`, `nim`, `email`, `password`, `phone`, `photo`,
 (9, 'Laila Nur Fardah', '202410102018', 'fardah@gmail.com', '$2y$10$IgKBVBTy4ekveAN6cwQQI.3F8I1uakjmegGc/C288NmoTuSyXBKEW', NULL, NULL, 'Anggota', '1', 2020, NULL, NULL, NULL, 2, 2),
 (10, 'Laida Lavenia. H', '202410102041', 'lavenia@gmail.com', '$2y$10$LJHr0EepPyKgzQMD0u8ej.1LnI2xSImxk4mib/a7ucgRx0G4oIjh2', NULL, NULL, 'Anggota', '1', 2020, NULL, NULL, NULL, 2, 2),
 (11, 'Luthfi Aulia Akbar', '202410102085', 'luthfi@gmail.com', '$2y$10$UWFN5kErhb05sXD4AUSobeoqsem6yPVdHd40GYeT2ZMWpoHHyMbDG', NULL, NULL, 'Anggota', '1', 2020, NULL, NULL, NULL, 2, 2),
-(12, 'Saifur Rifqi Ali', '182410102033 ', 'ali@gmail.com', '$2y$10$zx5DTOxc2Q4DdXkksP8h6O0Du0s3NJPktE4cU/3QUcU97FfYNLaE6', NULL, NULL, 'Ketua Divisi', '1', 2018, NULL, NULL, NULL, 3, 2),
+(12, 'Saifur Rifqi Ali', '182410102033 ', 'ali@gmail.com', '$2y$10$zx5DTOxc2Q4DdXkksP8h6O0Du0s3NJPktE4cU/3QUcU97FfYNLaE6', NULL, NULL, 'Kepala Divisi', '1', 2018, NULL, NULL, NULL, 3, 2),
 (13, 'Dios Nur Firdaus', '182410102065', 'dios@gmail.com', '$2y$10$N0QTyJRDauT3b8QObsIoSuBjs9aZtH7X6yyuSdgybw3zaYDEzJUT.', NULL, NULL, 'Anggota', '1', 2018, NULL, NULL, NULL, 3, 2),
 (14, 'Sofyatul Masykuroh', '192410102001', 'sofyatul@gmail.com', '$2y$10$9yFvM0tRHIakDXguawpA7efd.K1D2e2Ov0.UVXUkjZKlUfXme3AL.', NULL, NULL, 'Anggota', '1', 2019, NULL, NULL, NULL, 3, 2),
 (15, 'Fahrian Ramaditiya', '192410102011', 'fahrian@gmail.com', '$2y$10$Qx2So6c5wZKpbUrZH6zVH.dvn9YKNN0yxYi8O6Osap0Kttnxzr092', NULL, NULL, 'Anggota', '1', 2019, NULL, NULL, NULL, 3, 2),
@@ -449,26 +449,26 @@ INSERT INTO `users` (`id`, `name`, `nim`, `email`, `password`, `phone`, `photo`,
 (17, 'Wahyu Agus Indrawati', '202410102064', 'wahyua@gmail.com', '$2y$10$dRlDHBSTt.8KeZk8Te37leXZhG0ALnCof41FPRRGVGNmY/4gBGpse', NULL, NULL, 'Anggota', '1', 2020, NULL, NULL, NULL, 3, 2),
 (18, 'Viqi Rafif Setya Putra', '202410102069', 'viqi@gmail.com', '$2y$10$c9/AYCXL.mqkfeVkf7zFA.BScCVXbEtmDTf1eI4lVx0IOugPqvJgq', NULL, NULL, 'Anggota', '1', 2020, NULL, NULL, NULL, 3, 2),
 (19, 'Hafizhah Wihdatul U', '202410102095', 'hafizhah@gmail.com', '$2y$10$PgPFdXlewpZVG1dkWcNG4eFqeQcoSqr03zoOyuttpYo.tCiYp9IUO', NULL, NULL, 'Anggota', '1', 2020, NULL, NULL, NULL, 3, 2),
-(20, 'Muhammad Arya R', '182410102035', 'arya@gmail.com', '$2y$10$ajY4lMnasfFCAVWjEQoUuuHYlgrEmqz/r0gMxhNLGbbjAJU3.x4uW', NULL, NULL, 'Ketua Divisi', '1', 2018, NULL, NULL, NULL, 4, 2),
-(21, 'Dinda Dikrima Adi', '182410102009', 'dinda@gmail.com', '$2y$10$0E6V25co1A/keQRy1JeSD.7nnm2smreaMNwhKU3KpiqeHuR5uomIS', NULL, NULL, 'Ketua Subdivisi', '1', 2018, NULL, NULL, NULL, 5, 2),
+(20, 'Muhammad Arya R', '182410102035', 'arya@gmail.com', '$2y$10$ajY4lMnasfFCAVWjEQoUuuHYlgrEmqz/r0gMxhNLGbbjAJU3.x4uW', NULL, NULL, 'Kepala Divisi', '1', 2018, NULL, NULL, NULL, 4, 2),
+(21, 'Dinda Dikrima Adi', '182410102009', 'dinda@gmail.com', '$2y$10$0E6V25co1A/keQRy1JeSD.7nnm2smreaMNwhKU3KpiqeHuR5uomIS', NULL, NULL, 'Kepala Subdivisi', '1', 2018, NULL, NULL, NULL, 5, 2),
 (22, 'I’zaz Dhiya ‘Ulhaq', '192410102033', 'izaz@gmail.com', '$2y$10$eZvoAkwuuvKqlrwTwCWjyeFS19fCSRgNc7KyH90/Kkz/nS3h8PFDm', NULL, NULL, 'Anggota', '1', 2019, NULL, NULL, NULL, 5, 2),
 (23, 'Dhia Hayyu Syahirah', '192410102008', 'dhiahayyu@gmail.com', '$2y$10$wFgcxIJPz9pVmZgMFaUN0uV9WYfwjSXAgllitvj7bw8dDBc3Q5iUG', NULL, NULL, 'Anggota', '1', 2019, NULL, NULL, NULL, 5, 2),
 (24, 'Nurun Nazmi Qomariah', '202410102031', 'nurun@gmail.com', '$2y$10$BASaqNBF94Nu7BbxC8v5W.WjBfoCTW9Lf5ZHme9QT0wbH5QL4xrie', NULL, NULL, 'Anggota', '1', 2020, NULL, NULL, NULL, 5, 2),
-(25, 'Widya Setya Ningrum', '192410102003', 'widya@gmail.com', '$2y$10$0QZNbfGiVKOkq0btCXlZW.LPm.7nS7YZ6CKUvGs1QiUEycuxEh5B.', NULL, NULL, 'Ketua Subdivisi', '1', 2019, NULL, NULL, NULL, 6, 2),
+(25, 'Widya Setya Ningrum', '192410102003', 'widya@gmail.com', '$2y$10$0QZNbfGiVKOkq0btCXlZW.LPm.7nS7YZ6CKUvGs1QiUEycuxEh5B.', NULL, NULL, 'Kepala Subdivisi', '1', 2019, NULL, NULL, NULL, 6, 2),
 (26, 'Alfi Nuriya Hizriatin', '192410102004', 'alfi@gmail.com', '$2y$10$.nJ5irt9MTq5rShZaKuNy.ivY1MEsQKY8wDz62UoresvctGYghUNi', NULL, NULL, 'Anggota', '1', 2019, NULL, NULL, NULL, 6, 2),
 (27, 'Dini Aulia Hidayati', '202410102072', 'dini@gmail.com', '$2y$10$gBgRN0k0uVIQ21e6A5Hy2..QzCBgFm8N.ZyBD4RD2aOfeRZUNRtfy', NULL, NULL, 'Anggota', '1', 2020, NULL, NULL, NULL, 6, 2),
-(28, 'Muhammad Fathony R', '182410102019', 'fathony@gmail.com', '$2y$10$MdZ9m6YQuBjxPRfmaIMcEeKTRQEU/9.5JW/r21moIBeiIQRAIYClm', NULL, NULL, 'Ketua Divisi', '1', 2018, NULL, NULL, NULL, 7, 2),
-(29, 'Arif Nurul Rahman H', '182410102015', 'arif@gmail.com', '$2y$10$l31N5vWiak.AeC1Br7vWze9pfpyPY6iqUD6NIQp4gQ03lhcOACThi', NULL, NULL, 'Ketua Subdivisi', '1', 2018, NULL, NULL, NULL, 8, 2),
+(28, 'Muhammad Fathony R', '182410102019', 'fathony@gmail.com', '$2y$10$MdZ9m6YQuBjxPRfmaIMcEeKTRQEU/9.5JW/r21moIBeiIQRAIYClm', NULL, NULL, 'Kepala Divisi', '1', 2018, NULL, NULL, NULL, 7, 2),
+(29, 'Arif Nurul Rahman H', '182410102015', 'arif@gmail.com', '$2y$10$l31N5vWiak.AeC1Br7vWze9pfpyPY6iqUD6NIQp4gQ03lhcOACThi', NULL, NULL, 'Kepala Subdivisi', '1', 2018, NULL, NULL, NULL, 8, 2),
 (30, 'Firratus Saadah', '182410102004', 'firratus@gmail.com', '$2y$10$R/L376SznfO1hABXZPlr0exMOAgcUNrykWgtN71MrGzixsbvvMOEK', NULL, NULL, 'Anggota', '1', 2018, NULL, NULL, NULL, 8, 2),
 (31, 'Achmad Nur Hidayat', '192410102063', 'hidayat@gmail.com', '$2y$10$SxKxY9GOLUOPXzSsGtDNvux/jQt4lNcEPbCoRYuPBLChJM3GZ4XFO', NULL, NULL, 'Anggota', '1', 2019, NULL, NULL, NULL, 8, 2),
 (32, 'Ardin Nugraha', '202410102012', 'ardin@gmail.com', '$2y$10$ImVvXfcGKEyssfCUycMyeu1du5dIOkdkLIc43Ew3IiCxE7lAUEse.', NULL, NULL, 'Anggota', '1', 2020, NULL, NULL, NULL, 8, 2),
 (33, 'Fadhli Nur Himawan', '202410102039', 'fadhli@gmail.com', '$2y$10$ypI5yru3dAtfHc.KY1kEmOg5Rpva2TD0WcBN6pkN/zniNB9J2o0ia', NULL, NULL, 'Anggota', '1', 2020, NULL, NULL, NULL, 8, 2),
-(34, 'Rahmad Firmansyah', '182410102024', 'fsyah7052@gmail.com', '$2y$10$ILL.iJmZr5tbCcKb3W9Gtu9qQhYlftLmSvuyyrFAl7sty93EuiZaS', NULL, NULL, 'Ketua Subdivisi', '1', 2018, NULL, NULL, NULL, 9, 1),
+(34, 'Rahmad Firmansyah', '182410102024', 'fsyah7052@gmail.com', '$2y$10$ILL.iJmZr5tbCcKb3W9Gtu9qQhYlftLmSvuyyrFAl7sty93EuiZaS', NULL, NULL, 'Kepala Subdivisi', '1', 2018, NULL, NULL, NULL, 9, 1),
 (35, 'Dingga Apris Rahmat K', '182410102006', 'dingga27@gmail.com', '$2y$10$4me4i.8UJXpUgNg66F8GqOIpC9SuI/ygX/Xeu1K88F/mKcj1F4ayS', NULL, NULL, 'Anggota', '1', 2018, NULL, NULL, NULL, 9, 1),
 (36, 'Alif Rachman Saputro', '182410102058', 'alifrachman@gmail.com', '$2y$10$evqo2sxLN5lcU5LhzM9mrOh7wxoF9M8ptFwqJ48vx40ZNUEgxK.TK', NULL, NULL, 'Anggota', '1', 2018, NULL, NULL, NULL, 9, 1),
 (37, 'Arman Maulana Saputra', '202410102026', 'armanmaulana@gmail.com', '$2y$10$X37Udbth1rVvVgI9CMcjk.C27lbVAUfuS1agnf.bUNz8RefzOotP.', NULL, NULL, 'Anggota', '1', 2020, NULL, NULL, NULL, 9, 1),
 (38, 'robit', '212410102067', '123@gmail.com', '$2a$12$DtfkH3ko9rdSgQaTAZpiWegVwvGLD9EvLPPhnK/NYlDmX.vNoqHA6', NULL, NULL, 'Anggota', '1', 2022, '2022-12-22 05:29:37', '2022-12-22 05:29:37', NULL, 9, 1),
-(41, '123', '123', 'abc@gmail.com', '$2y$10$PJvnDT6IXIow5Kw4GyQpi.3kX4X8tL2NaU0j/eMK7EjsRFG5X7FJ.', '123', 'himatif_1671694039.jpg', 'Ketua Subdivisi', '1', 2022, '2022-12-22 07:27:19', '2022-12-22 07:27:19', NULL, 1, 2);
+(41, '123', '123', 'abc@gmail.com', '$2y$10$PJvnDT6IXIow5Kw4GyQpi.3kX4X8tL2NaU0j/eMK7EjsRFG5X7FJ.', '123', 'himatif_1671694039.jpg', 'Kepala Subdivisi', '1', 2022, '2022-12-22 07:27:19', '2022-12-22 07:27:19', NULL, 1, 2);
 
 --
 -- Indexes for dumped tables

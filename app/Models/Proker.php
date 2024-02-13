@@ -12,7 +12,11 @@ class Proker extends Model
      * @var array
      */
     protected $fillable = [
-        'status'
+        'status', 'link_registration', 'link_instagram', 
+        'link_storage_document', 'link_storage_certificate', 
+        'link_storage_pdd_documentation', 'link_contact_person', 
+        'timeline', 'is_timeline_open', 
+        'dokumentasi', 'is_dokumentasi_open',
     ];
 
     /**
@@ -23,6 +27,10 @@ class Proker extends Model
     protected $casts = [
         'status' => 'string',
         'is_registration_open' => 'string',
+        'timeline' => 'array',
+        'dokumentasi' => 'array',
+        'is_timeline_open' => 'boolean',
+        'is_dokumentasi_open' => 'boolean',
     ];
 
 

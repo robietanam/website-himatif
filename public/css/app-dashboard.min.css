@@ -197,9 +197,6 @@ p, ul:not(.list-unstyled), ol {
 .form-control::-moz-placeholder, .input-group-text::-moz-placeholder, .custom-select::-moz-placeholder, .custom-file-label::-moz-placeholder {
   opacity: 0.4;
 }
-.form-control:-ms-input-placeholder, .input-group-text:-ms-input-placeholder, .custom-select:-ms-input-placeholder, .custom-file-label:-ms-input-placeholder {
-  opacity: 0.4;
-}
 .form-control::placeholder,
 .input-group-text::placeholder,
 .custom-select::placeholder,
@@ -380,7 +377,6 @@ select.form-control:not([size]):not([multiple]) {
   border-radius: 3px;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   font-size: 13px;
   min-width: 2.375rem;
@@ -417,7 +413,6 @@ select.form-control:not([size]):not([multiple]) {
 .custom-switch {
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   cursor: default;
   display: inline-flex;
@@ -522,7 +517,6 @@ select.form-control:not([size]):not([multiple]) {
   pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   background: #6777ef url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E") no-repeat center center/50% 50%;
   color: #fff;
@@ -777,7 +771,6 @@ select.form-control:not([size]):not([multiple]) {
 .card .card-header {
   border-bottom-color: #f9f9f9;
   line-height: 30px;
-  -ms-grid-row-align: center;
   align-self: center;
   width: 100%;
   min-height: 70px;
@@ -3010,10 +3003,8 @@ pre {
   height: 7px;
   background-color: #ffa426;
   border-radius: 50%;
-  -webkit-animation: pulsate 1s ease-out;
-          animation: pulsate 1s ease-out;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
   opacity: 1;
 }
 .beep.beep-sidebar:after {
@@ -3041,18 +3032,12 @@ pre {
 .background-walk-y {
   background-repeat: no-repeat;
   background-position: 0 0%;
-  -webkit-animation-name: backgroundWalkY;
-          animation-name: backgroundWalkY;
-  -webkit-animation-duration: 70s;
-          animation-duration: 70s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-direction: alternate;
-          animation-direction: alternate;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-name: backgroundWalkY;
+  animation-duration: 70s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
   background-size: 100%;
 }
 
@@ -3064,27 +3049,12 @@ pre {
 .background-walk-x {
   background-repeat: no-repeat;
   background-position: 0 0%;
-  -webkit-animation-name: backgroundWalkX;
-          animation-name: backgroundWalkX;
-  -webkit-animation-duration: 70s;
-          animation-duration: 70s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-direction: alternate;
-          animation-direction: alternate;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-}
-
-@-webkit-keyframes backgroundWalkY {
-  0% {
-    background-position: 0 0%;
-  }
-  100% {
-    background-position: 0 100%;
-  }
+  animation-name: backgroundWalkX;
+  animation-duration: 70s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
 }
 
 @keyframes backgroundWalkY {
@@ -3093,14 +3063,6 @@ pre {
   }
   100% {
     background-position: 0 100%;
-  }
-}
-@-webkit-keyframes backgroundWalkX {
-  0% {
-    background-position: 0 0%;
-  }
-  100% {
-    background-position: 100% 0;
   }
 }
 @keyframes backgroundWalkX {
@@ -3391,20 +3353,9 @@ body.sidebar-mini .main-sidebar:after {
   top: 0;
   z-index: -1;
   opacity: 0;
-  -webkit-animation-name: mini-sidebar;
-          animation-name: mini-sidebar;
-  -webkit-animation-duration: 1.5s;
-          animation-duration: 1.5s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-@-webkit-keyframes mini-sidebar {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  animation-name: mini-sidebar;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
 }
 @keyframes mini-sidebar {
   from {
@@ -3938,17 +3889,9 @@ body.layout-3 .main-wrapper {
     background-color: #000;
     opacity: 0;
     z-index: 891;
-    -webkit-animation-name: fadeinbackdrop;
     animation-name: fadeinbackdrop;
-    -webkit-animation-duration: 1s;
     animation-duration: 1s;
-    -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
-  }
-  @-webkit-keyframes fadeinbackdrop {
-    to {
-      opacity: 0.6;
-    }
   }
   @keyframes fadeinbackdrop {
     to {
@@ -3958,25 +3901,9 @@ body.layout-3 .main-wrapper {
 }
 /* 4.5 Animation */
 .pulsate {
-  -webkit-animation: pulsate 1s ease-out;
-          animation: pulsate 1s ease-out;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
   opacity: 1;
-}
-
-@-webkit-keyframes pulsate {
-  0% {
-    -webkit-transform: scale(0.1, 0.1);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scale(1.2, 1.2);
-    opacity: 0;
-  }
 }
 /* 5. Responsive */
 /* 6. Vendors */

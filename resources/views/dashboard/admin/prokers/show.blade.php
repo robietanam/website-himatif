@@ -15,24 +15,18 @@
         </div>
         <div class="col col-md-auto">
             @if (Request::get('tabs') === 'users')
-                <a
-                    href="{{ route('dashboard.admin.prokers.edit', $proker->id).'?tabs=users' }}"
-                    class="btn btn-warning">
-                        <i class="fas fa-pen mr-1"></i> Edit Data
+                <a href="{{ route('dashboard.admin.prokers.edit', $proker->id) . '?tabs=users' }}" class="btn btn-warning">
+                    <i class="fas fa-pen mr-1"></i> Edit Data
                 </a>
             @else
-                <a
-                    href="{{ route('dashboard.admin.prokers.edit', $proker->id) }}"
-                    class="btn btn-warning">
-                        <i class="fas fa-pen mr-1"></i> Edit Data
+                <a href="{{ route('dashboard.admin.prokers.edit', $proker->id) }}" class="btn btn-warning">
+                    <i class="fas fa-pen mr-1"></i> Edit Data
                 </a>
             @endif
         </div>
         <div class="col col-md-auto">
-            <a
-                href="{{ route('dashboard.admin.prokers.index') }}"
-                class="btn btn-outline-secondary">
-                    <i class="fas fa-arrow-left mr-1"></i> Semua Data
+            <a href="{{ route('dashboard.admin.prokers.index') }}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left mr-1"></i> Semua Data
             </a>
         </div>
     </div>
@@ -41,18 +35,14 @@
         <div class="card-body">
             <ul class="nav nav-pills nav-justified">
                 <li class="nav-item">
-                    <a
-                        class="nav-link {{ !Request::get('tabs') ? 'active' : '' }}"
-                        href="{{ route('dashboard.admin.prokers.show', $proker->id) }}"
-                    >
+                    <a class="nav-link {{ !Request::get('tabs') ? 'active' : '' }}"
+                        href="{{ route('dashboard.admin.prokers.show', $proker->id) }}">
                         Data Proker
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a
-                        class="nav-link {{ Request::get('tabs') === 'users' ? 'active' : '' }}"
-                        href="{{ route('dashboard.admin.prokers.show', $proker->id).'?tabs=users' }}"
-                    >
+                    <a class="nav-link {{ Request::get('tabs') === 'users' ? 'active' : '' }}"
+                        href="{{ route('dashboard.admin.prokers.show', $proker->id) . '?tabs=users' }}">
                         Anggota Proker
                     </a>
                 </li>
@@ -61,11 +51,7 @@
     </div>
 
     <div class="tab-content" id="nav-tabContent">
-        <div
-            class="tab-pane fade {{ !Request::get('tabs') ? 'show active' : '' }}"
-            id="nav-update-proker"
-            role="tabpanel"
-        >
+        <div class="tab-pane fade {{ !Request::get('tabs') ? 'show active' : '' }}" id="nav-update-proker" role="tabpanel">
             <div class="row gutters-xs">
                 {{-- col : image upload --}}
                 <div class="col-lg-4">
@@ -166,12 +152,12 @@
                                 @slot('inputIsDisabled', true)
                             @endcomponent
 
-                            {{-- input : link_storage_design --}}
+                            {{-- input : link_contact_person --}}
                             @component('dashboard._components._form-group.input')
-                                @slot('inputLabel', 'Link Penyimpanan File design')
-                                @slot('inputName', 'link_storage_design')
-                                @slot('inputId', 'input-link_storage_design')
-                                @slot('inputValue', $proker->link_storage_design)
+                                @slot('inputLabel', 'Nomor WA PJ Humas ')
+                                @slot('inputName', 'link_contact_person')
+                                @slot('inputId', 'input-link_contact_person')
+                                @slot('inputValue', $proker->link_contact_person)
                                 @slot('inputIsDisabled', true)
                             @endcomponent
                         </div>
@@ -179,11 +165,8 @@
                 </div>
             </div>
         </div>
-        <div
-            class="tab-pane fade {{ Request::get('tabs') === 'users' ? 'show active' : '' }}"
-            id="nav-update-proker-user"
-            role="tabpanel"
-        >
+        <div class="tab-pane fade {{ Request::get('tabs') === 'users' ? 'show active' : '' }}" id="nav-update-proker-user"
+            role="tabpanel">
             <div class="card">
                 <div class="card-body">
                     <div class="table-datatable-container">
@@ -210,11 +193,13 @@
     </div>
 @endsection {{-- end of content --}}
 
-@push('style') {{-- style --}}
+@push('style')
+    {{-- style --}}
     @include('dashboard._styles.datatable')
 @endpush {{-- end of style --}}
 
-@push('script') {{-- script --}}
+@push('script')
+    {{-- script --}}
     @include('dashboard._scripts.datatable')
     <script>
         $(document).ready(function() {
@@ -238,8 +223,7 @@
                     search: "Cari Data User:"
                 },
                 ajax: ajax_url,
-                columnDefs: [
-                    {
+                columnDefs: [{
                         targets: 'defined-default-width',
                         className: 'defined-default-width'
                     },
@@ -249,14 +233,36 @@
                     }
                 ],
                 order: [],
-                columns: [
-                    {data: 'name', name: 'name'},
-                    {data: 'nim', name: 'nim'},
-                    {data: 'phone', name: 'phone'},
-                    {data: 'position', name: 'position'},
-                    {data: 'note', name: 'note'},
-                    {data: 'created_at', name: 'created_at', searchable: false},
-                    {data: 'updated_at', name: 'updated_at', searchable: false},
+                columns: [{
+                        data: 'name',
+                        name: 'name'
+                    },
+                    {
+                        data: 'nim',
+                        name: 'nim'
+                    },
+                    {
+                        data: 'phone',
+                        name: 'phone'
+                    },
+                    {
+                        data: 'position',
+                        name: 'position'
+                    },
+                    {
+                        data: 'note',
+                        name: 'note'
+                    },
+                    {
+                        data: 'created_at',
+                        name: 'created_at',
+                        searchable: false
+                    },
+                    {
+                        data: 'updated_at',
+                        name: 'updated_at',
+                        searchable: false
+                    },
                 ],
             });
         })

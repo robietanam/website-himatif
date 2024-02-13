@@ -8,8 +8,8 @@ class GlobalConstant
         'ketua' => 'Ketua Umum',
         'sekretaris' => 'Sekretaris',
         'bendahara' => 'Bendahara',
-        'ketua-divisi' => 'Ketua Divisi',
-        'ketua-subdivisi' => 'Ketua Subdivisi',
+        'ketua-divisi' => 'Kepala Divisi',
+        'ketua-subdivisi' => 'Kepala Subdivisi',
         'anggota' => 'Anggota',
         'demis' => 'Demisioner',
     ];

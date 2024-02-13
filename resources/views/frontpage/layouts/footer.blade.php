@@ -19,7 +19,7 @@
                     <div class="col-auto"><img src="{{ asset('img/icons/instagram.svg') }}" alt=""></div>
                     <div class="col">
                         <h6 class="text-white font-weight-semibold">
-                            <a href="https://www.instagram.com/himatifunej/" target="_blank">@himatifilkomunej</a>
+                            <a href="https://www.instagram.com/himatifunej/" target="_blank">@himatifunej</a>
                         </h6>
                     </div>
                 </div>
@@ -28,7 +28,26 @@
                     <div class="col">
                         {{-- <h6 class="text-white font-weight-semibold">himatifilkom</h6> --}}
                         <h6 class="text-white font-weight-semibold">
-                            <a href="https://www.youtube.com/@himatifunej3573" target="_blank">@himatifilkom</a>
+                            <a href="https://www.youtube.com/@himatifunej3573" target="_blank">Himatif
+                                Unej</a>
+                        </h6>
+                    </div>
+                </div>
+                <div class="row gutters-xs mb-1">
+                    <div class="col-auto"><img src="{{ asset('img/icons/tiktok.svg') }}" alt=""></div>
+                    <div class="col">
+                        {{-- <h6 class="text-white font-weight-semibold">himatifilkom</h6> --}}
+                        <h6 class="text-white font-weight-semibold">
+                            <a href="https://www.tiktok.com/@himatifunej" target="_blank">@himatifunej</a>
+                        </h6>
+                    </div>
+                </div>
+                <div class="row gutters-xs mb-1">
+                    <div class="col-auto"><img src="{{ asset('img/icons/linkedin.svg') }}" alt=""></div>
+                    <div class="col">
+                        {{-- <h6 class="text-white font-weight-semibold">himatifilkom</h6> --}}
+                        <h6 class="text-white font-weight-semibold">
+                            <a href="https://www.linkedin.com/company/himatifunej" target="_blank">Himatif Unej</a>
                         </h6>
                     </div>
                 </div>

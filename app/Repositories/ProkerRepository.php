@@ -110,11 +110,13 @@ class ProkerRepository
     public function save($data)
     {
         try {
+            
             $proker = new Proker;
             $proker->name = $data['name'];
             $proker->description = $data['description'];
             $proker->is_registration_open = '0';
             $proker->status = '0';
+            
 
             // check if has photo request
             if (isset($data['logo'])) {
@@ -132,6 +134,15 @@ class ProkerRepository
     public function update($id, $data)
     {
         try {
+            $timeline = [];
+            
+            error_log(json_encode($data));
+            foreach ($data['timeline_name'] as $key => $value) {
+                $timeline[$key] = [$value, $data['timeline_time'][$key]];
+            }
+
+
+
             $proker = Proker::find($id);
             $proker->name = $data['name'] ?? $proker->name;
             $proker->description = $data['description'] ?? $proker->description;
@@ -140,10 +151,24 @@ class ProkerRepository
             $proker->link_registration = $data['link_registration'] ?? '';
             $proker->link_instagram = $data['link_instagram'] ?? '';
             $proker->link_storage_document = $data['link_storage_document'] ?? '';
-            $proker->link_storage_sertificate = $data['link_storage_sertificate'] ?? '';
+            $proker->link_storage_certificate = $data['link_storage_certificate'] ?? '';
             $proker->link_storage_pdd_documentation = $data['link_storage_pdd_documentation'] ?? '';
-            $proker->link_storage_design = $data['link_storage_design'] ?? '';
+            $proker->link_contact_person = $data['link_contact_person'] ?? '';
+            $proker->timeline = $timeline;
+            $proker->is_timeline_open = $data['is_timeline_open'] ?? false;
 
+            $proker->is_dokumentasi_open = $data['is_dokumentasi_open'] ?? false;
+
+            $dokumetasi = $proker->dokumentasi ?? [];
+            
+            if(isset($data['dokumentasi'])){
+                foreach ($data['dokumentasi'] as $key => $value) {
+                    if (file_exists(storage_path('app/public/' . $value))) {
+                        \Storage::delete('public/' . $value);
+                    }
+                    array_push($dokumetasi, $data['dokumentasi'][$key]->store('photo/proker', 'public'));
+                }
+            }
             // check if has photo request
             if (isset($data['logo'])) {
                 if ($proker->logo && file_exists(storage_path('app/public/' . $proker->logo))) {
@@ -151,6 +176,7 @@ class ProkerRepository
                 }
                 $proker->logo = $data['logo']->store('photo/proker', 'public');
             }
+            $proker->dokumentasi = $dokumetasi;
 
             $proker->save();
             return $proker;

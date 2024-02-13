@@ -23,9 +23,10 @@ class CreateProkersTable extends Migration
             $table->string('link_registration')->nullable();
             $table->string('link_instagram')->nullable();
             $table->string('link_storage_document')->nullable();
-            $table->string('link_storage_sertificate')->nullable();
+            $table->string('link_storage_certificate')->nullable();
             $table->string('link_storage_pdd_documentation')->nullable();
-            $table->string('link_storage_design')->nullable();
+            $table->string('link_contact_person')->nullable();
+            
             $table->timestamps();
         });
     }

@@ -832,7 +832,6 @@ tr:first-child > td > .fc-day-grid-event {
   display: block;
   min-height: 42px;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   -webkit-user-select: none;
   outline: none;
