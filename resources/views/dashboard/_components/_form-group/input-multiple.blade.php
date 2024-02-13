@@ -111,10 +111,9 @@
                             {{ $message }}
                         </div>
                     @enderror
+                </td>
                 <td>
-                <td>
-                    <input type="datetime-local" name="timeline_time_end[]"
-                        value="{{ isset($value) ? $value[2] ?? '' : old($value[2]) }}"
+                    <input type="datetime-local" name="timeline_time_end[]" value=""
                         placeholder="Input {{ $inputLabel }}"
                         class="form-control {{ isset($inputSize) ? $inputSize : '' }}  @error($value[2] ?? '') is-invalid @enderror"
                         required>
@@ -129,9 +128,11 @@
                         </div>
                     @enderror
                 </td>
-                <button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">Add
-                    Subject
-                </button>
+                <td>
+
+                    <button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">Add
+                        Subject
+                    </button>
                 </td>
                 </td>
         @endif
