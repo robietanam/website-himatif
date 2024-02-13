@@ -112,9 +112,26 @@
                         </div>
                     @enderror
                 <td>
-                    <button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">Add
-                        Subject
-                    </button>
+                <td>
+                    <input type="datetime-local" name="timeline_time_end[]"
+                        value="{{ isset($value) ? $value[2] ?? '' : old($value[2]) }}"
+                        placeholder="Input {{ $inputLabel }}"
+                        class="form-control {{ isset($inputSize) ? $inputSize : '' }}  @error($value[2] ?? '') is-invalid @enderror"
+                        required>
+
+                    @isset($inputHelp)
+                        <small class="form-text text-muted">{!! $inputHelp !!}</small>
+                    @endisset
+
+                    @error($inputName)
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </td>
+                <button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">Add
+                    Subject
+                </button>
                 </td>
                 </td>
         @endif
