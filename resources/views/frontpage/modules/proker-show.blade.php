@@ -124,9 +124,9 @@
                                                             <div class="">{{ $timeline[0] }}</div>
                                                             <div class="tl-date text-muted mt-1">
 
-                                                                {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd F ' : 'd F Y', strtotime($timeline[1]))) }}
+                                                                {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd-m ' : 'd-m-Y', strtotime($timeline[1]))) }}
                                                                 -
-                                                                {{ tgl_indo(date('d F Y', strtotime($timeline[2]))) }}
+                                                                {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -137,9 +137,9 @@
                                                             <div class="">{{ $timeline[0] }}</div>
                                                             <div class="tl-date text-muted mt-1">
 
-                                                                {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd F ' : 'd F Y', strtotime($timeline[1]))) }}
+                                                                {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd-m ' : 'd-m-Y', strtotime($timeline[1]))) }}
                                                                 -
-                                                                {{ tgl_indo(date('d F Y', strtotime($timeline[2]))) }}
+                                                                {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
                                                             </div>
                                                         </div>
                                                     </div>
