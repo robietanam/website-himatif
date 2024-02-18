@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::table('prokers', function (Blueprint $table) {
             //
             
-            $table->string('timeline')->nullable();
+            $table->json('timeline')->nullable();
             $table->boolean('is_timeline_open')->nullable();
 
-            $table->longText('dokumentasi')->nullable();
+            $table->json('dokumentasi')->nullable();
             $table->boolean('is_dokumentasi_open')->nullable();
         });
     }

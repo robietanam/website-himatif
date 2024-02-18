@@ -102,7 +102,7 @@
                                         data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                                         aria-controls="panelsStayOpen-collapseOne">
 
-                                        <h6 class="mt-1 p-1">Timeline</h6>
+                                        <h6 class="mt-1 p-1">Timeline {{ $proker->name === 'ITEC' ? 'UI/UX' : '' }}</h6>
                                     </button>
                                 </h2>
                                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
@@ -187,13 +187,110 @@
                                     </div>
                                 </div>
                             </div>
+                            @if ($proker->name === 'ITEC')
+                                <div class="accordion  mt-2" id="accordionPanelsStayOpenExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                                aria-controls="panelsStayOpen-collapseOne">
+
+                                                <h6 class="mt-1 p-1">Timeline Data Mining</h6>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                            aria-labelledby="panelsStayOpen-headingOne">
+                                            <div class="accordion-body">
+                                                @php
+                                                    $sementara = [['Pendaftaran dan Pengumpulan Proposal Full Paper', '2024-02-24T17:05', '2024-03-18T19:18'], ['Pengumuman lolos/Babak Final', '2024-03-25T19:30', '2024-03-25T19:30'], ['TM dan Pengundian Nomor Urut', '2024-03-29T09:31', '2024-03-29T09:31'], ['Final dan Presentasi', '2024-03-30T09:31', '2024-03-30T09:31']];
+                                                @endphp
+                                                @foreach ($sementara as $key => $timeline)
+                                                    @if (date('Y-m-d H:i:s') < date('Y-m-d H:i:s', strtotime($timeline[2])))
+                                                        @php
+                                                            if ($timeline_active == -1) {
+                                                                $timeline_active = $key;
+                                                            }
+                                                        @endphp
+
+                                                        @if ($key == $timeline_active)
+                                                            <div class="tl-item active">
+                                                                <div class="tl-dot b-primary"></div>
+                                                                <div class="tl-content">
+
+                                                                    <div class="">{{ $timeline[0] }}</div>
+                                                                    @if (date('d-m-Y', strtotime($timeline[2])) === date('d-m-Y', strtotime($timeline[1])))
+                                                                        <div class="tl-date text-muted mt-1">
+                                                                            {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
+                                                                        </div>
+                                                                    @else
+                                                                        <div class="tl-date text-muted mt-1">
+
+                                                                            {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd-m ' : 'd-m-Y', strtotime($timeline[1]))) }}
+                                                                            -
+                                                                            {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
+                                                                        </div>
+                                                                    @endif
+
+                                                                </div>
+                                                            </div>
+                                                        @else
+                                                            <div class="tl-item">
+                                                                <div class="tl-dot b-warning"></div>
+                                                                <div class="tl-content">
+
+                                                                    <div class="">{{ $timeline[0] }}</div>
+                                                                    @if (date('d-m-Y', strtotime($timeline[2])) === date('d-m-Y', strtotime($timeline[1])))
+                                                                        <div class="tl-date text-muted mt-1">
+                                                                            {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
+                                                                        </div>
+                                                                    @else
+                                                                        <div class="tl-date text-muted mt-1">
+
+                                                                            {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd-m ' : 'd-m-Y', strtotime($timeline[1]))) }}
+                                                                            -
+                                                                            {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
+                                                                        </div>
+                                                                    @endif
+
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                    @else
+                                                        <div class="tl-item">
+                                                            <div class="tl-dot b-danger"></div>
+
+                                                            <div class="tl-content">
+
+                                                                <div class="">{{ $timeline[0] }}</div>
+                                                                @if (date('d-m-Y', strtotime($timeline[2])) === date('d-m-Y', strtotime($timeline[1])))
+                                                                    <div class="tl-date text-muted mt-1">
+                                                                        {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
+                                                                    </div>
+                                                                @else
+                                                                    <div class="tl-date text-muted mt-1">
+
+                                                                        {{ tgl_indo(date(date('Y', strtotime($timeline[1])) == date('Y', strtotime($timeline[2])) ? 'd-m ' : 'd-m-Y', strtotime($timeline[1]))) }}
+                                                                        -
+                                                                        {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
+                                                                    </div>
+                                                                @endif
+
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                            @endif
                     @endif
 
                     @if ($proker->dokumentasi && $proker->is_dokumentasi_open)
                         <div class="accordion-item mt-2">
                             <h2 class="accordion-header" id="galeri">
                                 <button class="accordion-button " type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseGaleri" aria-expanded="false" aria-controls="collapseGaleri">
+                                    data-bs-target="#collapseGaleri" aria-expanded="false"
+                                    aria-controls="collapseGaleri">
                                     <h6 class="mt-1 p-1">Galeri</h6>
                                 </button>
                             </h2>
