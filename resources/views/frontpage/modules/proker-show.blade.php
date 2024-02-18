@@ -44,7 +44,7 @@
                                 <div class="d-flex">
                                     @if (isset($proker->link_instagram) && !empty($proker->link_instagram))
                                         <div class="col-auto mr-1">
-                                            <a target="_blank" href="//{{ $proker->link_instagram }} "
+                                            <a target="_blank" href="{{ $proker->link_instagram }} "
                                                 class="btn btn-outline-danger">
 
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15"
