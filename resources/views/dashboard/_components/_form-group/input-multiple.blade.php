@@ -56,7 +56,7 @@
                             required>
 
                         @isset($inputHelp)
-                            <small class="form-text text-muted">{!! $inputHelp !!}</small>
+                            <small class="form-text text-muted">Samakan jika cuma butuh 1 tanggal</small>
                         @endisset
 
                         @error($inputName)

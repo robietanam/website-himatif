@@ -57,7 +57,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <p>
-                                        Garis berwarna kuning melambangkan <b>sikap optimis dan selalu berfikiran positif</b>
+                                        Garis berwarna kuning melambangkan <b>sikap optimis dan selalu berfikiran
+                                            positif</b>
                                     </p>
                                 </div>
                             </div>
@@ -67,14 +68,16 @@
                                 <div class="col-md-6">
                                     <p>
                                         Orang mengelilingi lambang UNEJ melambangkan <b>HIMATIF berada
-                                        dalam naungan Universitas Jember
-                                        dan merupakan bagian dari
-                                        keluarga Universitas Jember</b>
+                                            dalam naungan Universitas Jember
+                                            dan merupakan bagian dari
+                                            keluarga Universitas Jember</b>
                                     </p>
                                 </div>
                                 <div class="col-md-6">
                                     <p>
-                                        Lambang Orang yang saling merangkul mengartikan <b>rasa kekeluargaan, solidaritas yang tinggi, dan kebersamaan</b>, berjumlah enam melambangkan <b>tanggal terbentuknya HIMATIF yaitu tanggal 06</b>
+                                        Lambang Orang yang saling merangkul mengartikan <b>rasa kekeluargaan, solidaritas
+                                            yang tinggi, dan kebersamaan</b>, berjumlah enam melambangkan <b>tanggal
+                                            terbentuknya HIMATIF yaitu tanggal 06</b>
                                     </p>
                                 </div>
                             </div>
@@ -83,12 +86,14 @@
                             <div class="row justify-content-around">
                                 <div class="col-md-6">
                                     <p>
-                                        Warna Abu-abu dan Putih melambangkan <b>Fakultas Ilmu Komputer yang menaungi HIMATIF</b>
+                                        Warna Abu-abu dan Putih melambangkan <b>Fakultas Ilmu Komputer yang menaungi
+                                            HIMATIF</b>
                                     </p>
                                 </div>
                                 <div class="col-md-6">
                                     <p>
-                                        Lambang Universitas Jember menandakan kebanggaan <b>HIMATIF sebagai bagian dari Program Studi Teknologi Informasi UNIVERSITAS JEMBER</b>
+                                        Lambang Universitas Jember menandakan kebanggaan <b>HIMATIF sebagai bagian dari
+                                            Program Studi Teknologi Informasi UNIVERSITAS JEMBER</b>
                                     </p>
                                 </div>
                             </div>
@@ -119,24 +124,27 @@
                             <div class="card-body">
                                 <div class="row no-gutters">
                                     <div class="col-lg-4">
-                                        @if (file_exists(storage_path('app/public/'.$visionMission[$key.'_photo']->content)))
+                                        @if (file_exists(storage_path('app/public/' . $visionMission[$key . '_photo']->content)))
                                             <div class="img-fit img-fit-cover h-20rem">
-                                                <img src="{{ asset('storage/'.$visionMission[$key.'_photo']->content) }}" alt="">
+                                                <img src="{{ asset('storage/' . $visionMission[$key . '_photo']->content) }}"
+                                                    alt="">
                                             </div>
                                         @else
                                             <div class="img-fit img-fit-cover h-20rem">
-                                                <img src="{{ asset('img/'.$visionMission[$key.'_photo']->content) }}" alt="">
+                                                <img src="{{ asset('img/' . $visionMission[$key . '_photo']->content) }}"
+                                                    alt="">
                                             </div>
                                         @endif
                                     </div>
                                     <div class="col-lg p-2 p-lg-3">
                                         <h5 class="text-midnight text-shadowed font-extrabold">
-                                            {{ $visionMission[$key.'_text']->content }}
-                                            <span class="text-shadowed-content">{{ $visionMission[$key.'_text']->content }}</span>
+                                            {{ $visionMission[$key . '_text']->content }}
+                                            <span
+                                                class="text-shadowed-content">{{ $visionMission[$key . '_text']->content }}</span>
                                         </h5>
                                         <div class="divider my-2"></div>
                                         <div class="text-gray">
-                                            {!! $visionMission[$key.'_text2']->content !!}
+                                            {!! $visionMission[$key . '_text2']->content !!}
                                         </div>
                                     </div>
                                 </div>
@@ -167,7 +175,10 @@
                     <div class="card rounded-sm" id="card-about-1">
                         <div class="card-body text-white">
                             <h5 class="font-extrabold">17 Proker</h5>
-                            <div class="font-light my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum labore consectetur facere aut sed cum mollitia quo! Nam libero unde deserunt ipsa. Nam, corporis.</div>
+                            <div class="font-light my-2">Program kerja HIMATIF merupakan sejumlah kegiatan dan inisiatif
+                                yang ditujukan untuk meningkatkan kualitas pendidikan, pengembangan soft skill dan hard
+                                skill mahasiswa, serta memperkuat hubungan antar-mahasiswa dan dengan pihak-pihak terkait.
+                            </div>
                             <a href="" class="text-white">Lihat Detail <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
@@ -176,7 +187,9 @@
                     <div class="card rounded-sm" id="card-about-2">
                         <div class="card-body text-midnight">
                             <h5 class="font-extrabold">5 Divisi</h5>
-                            <div class="text-gray font-light my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum labore consectetur facere aut sed cum mollitia quo! Nam libero unde deserunt ipsa. Nam, corporis.</div>
+                            <div class="text-gray font-light my-2">HIMATIF memiliki struktur kepengurusan yang bertanggung
+                                jawab atas berbagai aspek dan kegiatan organisasi. Setiap divisi memiliki tugas pokok dan
+                                fungsi masing-masing untuk mencapai tujuan organisasi secara keseluruhan.</div>
                             <a href="" class="text-gray">Lihat Detail <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
@@ -185,7 +198,9 @@
                     <div class="card rounded-sm" id="card-about-3">
                         <div class="card-body text-midnight">
                             <h5 class="font-extrabold">36 Pengurus</h5>
-                            <div class="text-gray font-light my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum labore consectetur facere aut sed cum mollitia quo! Nam libero unde deserunt ipsa. Nam, corporis.</div>
+                            <div class="text-gray font-light my-2">HIMATIF dikelola oleh individu-individu yang bertanggung
+                                jawab atas manajemen dan pengelolaan organisasi serta pelaksanaan program-program yang telah
+                                ditetapkan. </div>
                             <a href="" class="text-gray">Lihat Detail <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
@@ -216,7 +231,5 @@
 @endsection
 
 @section('script')
-    <script>
-
-    </script>
+    <script></script>
 @endsection
