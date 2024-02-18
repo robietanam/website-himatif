@@ -11,7 +11,7 @@
             <th>Subject</th>
             <th>Action</th>
         </tr>
-        @if (isset($inputValue))
+        @if (isset($inputValue) && $inputValue != null && $inputValue != [])
             @foreach ($inputValue as $key => $value)
                 <tr>
                     <td>
