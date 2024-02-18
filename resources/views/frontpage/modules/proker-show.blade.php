@@ -110,7 +110,7 @@
                                     <div class="accordion-body">
 
                                         @foreach ($proker->timeline as $key => $timeline)
-                                            @if ($timeline[1] > date('Y-m-d H:i:s'))
+                                            @if (date('Y-m-d H:i:s') < date('Y-m-d H:i:s', strtotime($timeline[2])))
                                                 @php
                                                     if ($timeline_active == -1) {
                                                         $timeline_active = $key;
