@@ -78,7 +78,7 @@
                                 <div class="d-flex">
                                     @if (isset($proker->link_storage_certificate) && !empty($proker->link_storage_certificate))
                                         <div class="col-auto mr-1">
-                                            <a target="_blank" href="//{{ $proker->link_storage_certificate }} "
+                                            <a target="_blank" href="{{ $proker->link_storage_certificate }} "
                                                 class="btn btn-gradient-primary"> Sertifikat </a>
                                         </div>
                                     @endif
