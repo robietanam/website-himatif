@@ -174,12 +174,13 @@
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="card rounded-sm" id="card-about-1">
                         <div class="card-body text-white">
-                            <h5 class="font-extrabold">17 Proker</h5>
+                            <h5 class="font-extrabold">20 Proker</h5>
                             <div class="font-light my-2">Program kerja HIMATIF merupakan sejumlah kegiatan dan inisiatif
                                 yang ditujukan untuk meningkatkan kualitas pendidikan, pengembangan soft skill dan hard
                                 skill mahasiswa, serta memperkuat hubungan antar-mahasiswa dan dengan pihak-pihak terkait.
                             </div>
-                            <a href="" class="text-white">Lihat Detail <i class="fas fa-arrow-right ml-1"></i></a>
+                            <a href="{{ url('/proker') }}" class="text-white">Lihat Detail <i
+                                    class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -190,18 +191,20 @@
                             <div class="text-gray font-light my-2">HIMATIF memiliki struktur kepengurusan yang bertanggung
                                 jawab atas berbagai aspek dan kegiatan organisasi. Setiap divisi memiliki tugas pokok dan
                                 fungsi masing-masing untuk mencapai tujuan organisasi secara keseluruhan.</div>
-                            <a href="" class="text-gray">Lihat Detail <i class="fas fa-arrow-right ml-1"></i></a>
+                            <a href="{{ url('/pengurus') }}" class="text-gray">Lihat Detail <i
+                                    class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="card rounded-sm" id="card-about-3">
                         <div class="card-body text-midnight">
-                            <h5 class="font-extrabold">36 Pengurus</h5>
+                            <h5 class="font-extrabold">50 Pengurus</h5>
                             <div class="text-gray font-light my-2">HIMATIF dikelola oleh individu-individu yang bertanggung
                                 jawab atas manajemen dan pengelolaan organisasi serta pelaksanaan program-program yang telah
                                 ditetapkan. </div>
-                            <a href="" class="text-gray">Lihat Detail <i class="fas fa-arrow-right ml-1"></i></a>
+                            <a href="{{ url('/pengurus') }}" class="text-gray">Lihat Detail <i
+                                    class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
                 </div>
