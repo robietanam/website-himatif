@@ -14,6 +14,7 @@
 // Route::view('dashboard/admin/keanggotaan', 'dashboard.admin.keanggotaan.index');
 
 
+
 Route::group(['middleware' => 'guest'], function () {
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login');
