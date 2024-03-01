@@ -353,6 +353,10 @@
             }
         }
 
+        li {
+            font-size: 1.6rem;
+        }
+
         .image-coursel {
             display: block;
             width: auto;
