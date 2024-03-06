@@ -125,12 +125,13 @@
         @push('style')
             {{-- style --}}
             <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+            {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
         @endpush {{-- end of style --}}
 
         @push('script')
             {{-- script --}}
-            <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-            {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script> --}}
+            {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
+            <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
             <script>
                 "use strict";
 
@@ -139,15 +140,15 @@
                     tabsize: 2,
                     height: 120,
                     dialogsInBody: true,
-                    toolbar: [
-                        ['style', ['style']],
-                        ['font', ['bold', 'underline', 'clear']],
-                        ['color', ['color']],
-                        ['para', ['ul', 'ol']],
-                        // ['table', ['table']],
-                        // ['insert', ['link', 'picture', 'video']],
-                        ['insert', ['link']],
-                    ],
+                    // toolbar: [
+                    //     ['style', ['style']],
+                    //     ['font', ['bold', 'underline', 'clear']],
+                    //     ['color', ['color']],
+                    //     ['para', ['ul', 'ol']],
+                    //     // ['table', ['table']],
+                    //     // ['insert', ['link', 'picture', 'video']],
+                    //     ['insert', ['link']],
+                    // ],
                 });
             </script>
         @endpush {{-- end of script --}}
