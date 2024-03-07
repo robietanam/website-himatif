@@ -15,7 +15,7 @@
                             <h2 class="text-midnight font-bold mb-3">{{ $post->title }}</h2>
                             <div class="img-fit img-fit-cover w-100 h-20rem h-md-30rem h-lg-40rem rounded-sm mb-3">
                                 @if ($post->photo)
-                                    <img src="{{ asset('storage/'.$post->photo) }}" alt="">
+                                    <img src="{{ asset('storage/' . $post->photo) }}" alt="">
                                 @else
                                     <img src="{{ asset('img/placeholder/product-image-default.svg') }}" alt="">
                                 @endif
@@ -50,9 +50,11 @@
                                             <div class="col-auto">
                                                 <div class="img-fit img-fit-cover w-4rem h-4rem rounded-sm">
                                                     @if ($otherPost->photo)
-                                                        <img src="{{ asset('storage/'.$otherPost->photo) }}" alt="">
+                                                        <img src="{{ asset('storage/' . $otherPost->photo) }}"
+                                                            alt="">
                                                     @else
-                                                        <img src="{{ asset('img/placeholder/product-image-default.svg') }}" alt="">
+                                                        <img src="{{ asset('img/placeholder/product-image-default.svg') }}"
+                                                            alt="">
                                                     @endif
                                                 </div>
                                             </div>
@@ -61,7 +63,7 @@
                                                     {{ $otherPost->title }}
                                                 </a>
                                                 <div class="text-sm text-gray">
-                                                    {{ substr(strip_tags($otherPost->body), 0, 18) . ((strlen(strip_tags($otherPost->body)) > 18) ? '...' : '') }}
+                                                    {{ substr(strip_tags($otherPost->body), 0, 18) . (strlen(strip_tags($otherPost->body)) > 18 ? '...' : '') }}
                                                 </div>
                                             </div>
                                         </div>
@@ -84,12 +86,17 @@
 @endsection
 
 @section('style')
-    <style>
 
+    <style>
+        p {
+            margin-bottom: 1rem;
+        }
     </style>
 @endsection
 
 @section('script')
+
+
     <script>
         /**
          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
