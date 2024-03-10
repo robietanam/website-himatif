@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\PostRepository;
 use App\Repositories\CategoryRepository;
 use Intervention\Image\Facades\Image;
+
 class PostController extends Controller
 {
     protected $postRepository;
@@ -123,52 +124,50 @@ class PostController extends Controller
         ])->validate();
 
         // try {
-            $content = $request->body;
-            $dom = new \DomDocument();
-            $dom->loadHtml($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-            $imageFile = $dom->getElementsByTagName('img');
-        
-            foreach($imageFile as $item => $image){
-                $imageSrc = $image->getAttribute('src');
-                $imageStyle = $image->getAttribute('style');
-                /** if image source is 'data-url' */
-                if (preg_match('/data:image/', $imageSrc)) {
-                    /** etch the current image mimetype and stores in $mime */
-                    preg_match('/data:image\/(?<mime>.*?)\;/', $imageSrc, $mime);
-                    $mimeType = $mime['mime'];
-                    /** Create new file name with random string */
-                    $filename = uniqid();
-    
-                    /** Public path. Make sure to create the folder
-                     * public/uploads
-                     */
-                    $filePath = "/uploads/$filename.$mimeType";
-                    if (!file_exists(public_path('storage' . '/uploads'))) {
-                        mkdir(public_path('storage' . '/uploads'), 0777, true);
-                    }
-                    /** Using Intervention package to create Image */
-                    Image::make($imageSrc)
-                        /** encode file to the specified mimeType */
-                        ->encode($mimeType, 100)
-                        
-                        /** public_path - points directly to public path */
-                        ->save(public_path('storage' . $filePath));
-    
-                    $newImageSrc = asset(asset('storage') . $filePath);
-                    $image->removeAttribute('src');
-                    $image->setAttribute('src', $newImageSrc);
-                    $image->setAttribute('style', $imageStyle);
-                }
-            }
-        
-            $content = $dom->saveHTML();
-            $request['body'] = $content;
-            $this->postRepository->update($id, $request->all());
+        $content = $request->body;
+        $dom = new \DomDocument();
+        $dom->loadHtml($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $imageFile = $dom->getElementsByTagName('img');
 
-            return redirect()->route('dashboard.admin.posts.edit', $id)->with([
-                'type' => 'success',
-                'message' => 'Ubah Data Post Berhasil'
-            ]);
+        foreach ($imageFile as $item => $image) {
+            $imageSrc = $image->getAttribute('src');
+            /** if image source is 'data-url' */
+            if (preg_match('/data:image/', $imageSrc)) {
+                /** etch the current image mimetype and stores in $mime */
+                preg_match('/data:image\/(?<mime>.*?)\;/', $imageSrc, $mime);
+                $mimeType = $mime['mime'];
+                /** Create new file name with random string */
+                $filename = uniqid();
+
+                /** Public path. Make sure to create the folder
+                 * public/uploads
+                 */
+                $filePath = "/uploads/$filename.$mimeType";
+                if (!file_exists(public_path('storage' . '/uploads'))) {
+                    mkdir(public_path('storage' . '/uploads'), 0777, true);
+                }
+                /** Using Intervention package to create Image */
+                Image::make($imageSrc)
+                    /** encode file to the specified mimeType */
+                    ->encode($mimeType, 100)
+
+                    /** public_path - points directly to public path */
+                    ->save(public_path('storage' . $filePath));
+
+                $newImageSrc = asset(asset('storage') . $filePath);
+                $image->removeAttribute('src');
+                $image->setAttribute('src', $newImageSrc);
+            }
+        }
+
+        $content = $dom->saveHTML();
+        $request['body'] = $content;
+        $this->postRepository->update($id, $request->all());
+
+        return redirect()->route('dashboard.admin.posts.edit', $id)->with([
+            'type' => 'success',
+            'message' => 'Ubah Data Post Berhasil'
+        ]);
         // } catch (\Exception $e) {
         //     return redirect()->route('dashboard.admin.posts.edit', $id)->with([
         //         'type' => 'danger',
