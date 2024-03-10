@@ -141,7 +141,8 @@ class PostRepository
 
             $post = Post::find($id);
             $post->title = $data['title'];
-            $post->body = \Purifier::clean($data['body']);
+            // $post->body = \Purifier::clean($data['body'], ['HTML.AllowedAttributes' => 'img.src,img.style,img.class', 'CSS.AllowedProperties', '*']);
+            $post->body = $data['body'];
             $post->category_id = $data['category_id'];
             $post->updated_at = now();
 

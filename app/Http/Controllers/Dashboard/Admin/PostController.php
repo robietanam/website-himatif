@@ -130,6 +130,7 @@ class PostController extends Controller
         
             foreach($imageFile as $item => $image){
                 $imageSrc = $image->getAttribute('src');
+                $imageStyle = $image->getAttribute('style');
                 /** if image source is 'data-url' */
                 if (preg_match('/data:image/', $imageSrc)) {
                     /** etch the current image mimetype and stores in $mime */
@@ -156,7 +157,7 @@ class PostController extends Controller
                     $newImageSrc = asset(asset('storage') . $filePath);
                     $image->removeAttribute('src');
                     $image->setAttribute('src', $newImageSrc);
-                
+                    $image->setAttribute('style', $imageStyle);
                 }
             }
         
@@ -164,7 +165,7 @@ class PostController extends Controller
             $request['body'] = $content;
             $this->postRepository->update($id, $request->all());
 
-            return redirect()->route('dashboard.admin.posts.index')->with([
+            return redirect()->route('dashboard.admin.posts.edit', $id)->with([
                 'type' => 'success',
                 'message' => 'Ubah Data Post Berhasil'
             ]);
