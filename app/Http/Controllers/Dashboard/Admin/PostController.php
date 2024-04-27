@@ -124,9 +124,11 @@ class PostController extends Controller
         ])->validate();
 
         // try {
-        $content = $request->body;
+        $content = '<div class="ck-content">' . $request->body . '</div>';
+        
         $dom = new \DomDocument();
-        $dom->loadHtml($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        @$dom->loadHtml($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+
         $imageFile = $dom->getElementsByTagName('img');
 
         foreach ($imageFile as $item => $image) {

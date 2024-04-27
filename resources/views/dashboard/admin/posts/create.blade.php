@@ -15,10 +15,8 @@
             <h4>Tambah Data Post</h4>
         </div>
         <div class="col col-md-auto">
-            <a
-                href="{{ route('dashboard.admin.posts.index') }}"
-                class="btn btn-outline-secondary">
-                    <i class="fas fa-arrow-left mr-1"></i> Semua Data
+            <a href="{{ route('dashboard.admin.posts.index') }}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left mr-1"></i> Semua Data
             </a>
         </div>
     </div>
@@ -60,11 +58,7 @@
                         {{-- richtext : body --}}
                         <div class="form-group">
                             <label for="">Konten Post</label>
-                            <textarea
-                                name="body"
-                                id="summernote-editor"
-                                cols="30"
-                                rows="8">{{ old('body') }}</textarea>
+                            <textarea name="body" id="summernote-editor" cols="30" rows="8">{{ old('body') }}</textarea>
                             @error('body')
                                 <div class="text-invalid">
                                     {{ $message }}
@@ -81,81 +75,89 @@
                             @slot('inputDatas', [
                                 '<i class="fas fa-share-square mr-1"></i> Publish' => 1,
                                 '<i class="fas fa-archive mr-1"></i> Taruh Draft' => 0,
-                            ])
-                        @endcomponent
+                                ])
+                            @endcomponent
 
-                        {{-- input : is_featured --}}
-                        @component('dashboard._components._form-group.input-radio')
-                            @slot('inputLabel', 'Jadikan Featured Post')
-                            @slot('inputName', 'is_featured')
-                            @slot('inputId', 'input-is_featured')
-                            @slot('inputValue', 0)
-                            @slot('inputDatas', [
-                                '<i class="fas fa-check mr-1"></i> Iya' => 1,
-                                '<i class="fas fa-minus-square mr-1"></i> Tidak' => 0,
-                            ])
-                        @endcomponent
+                            {{-- input : is_featured --}}
+                            @component('dashboard._components._form-group.input-radio')
+                                @slot('inputLabel', 'Jadikan Featured Post')
+                                @slot('inputName', 'is_featured')
+                                @slot('inputId', 'input-is_featured')
+                                @slot('inputValue', 0)
+                                @slot('inputDatas', [
+                                    '<i class="fas fa-check mr-1"></i> Iya' => 1,
+                                    '<i class="fas fa-minus-square mr-1"></i> Tidak' => 0,
+                                    ])
+                                @endcomponent
 
-                        {{-- input : category_id --}}
-                        @php
-                            $inputDatasCategory = [];
-                            foreach ($categories as $category) {
-                                $inputDatasCategory["$category->name"] = $category->id;
-                            }
-                        @endphp
-                        @component('dashboard._components._form-group.input-select')
-                            @slot('inputLabel', 'Kategori')
-                            @slot('inputName', 'category_id')
-                            @slot('inputId', 'input-category_id')
-                            @slot('inputIsSearchable', true)
-                            @slot('inputDatas', $inputDatasCategory)
-                        @endcomponent
+                                {{-- input : category_id --}}
+                                @php
+                                    $inputDatasCategory = [];
+                                    foreach ($categories as $category) {
+                                        $inputDatasCategory["$category->name"] = $category->id;
+                                    }
+                                @endphp
+                                @component('dashboard._components._form-group.input-select')
+                                    @slot('inputLabel', 'Kategori')
+                                    @slot('inputName', 'category_id')
+                                    @slot('inputId', 'input-category_id')
+                                    @slot('inputIsSearchable', true)
+                                    @slot('inputDatas', $inputDatasCategory)
+                                @endcomponent
 
-                        {{-- submit --}}
-                        <div class="row justify-content-end">
-                            <div class="col-auto">
-                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                {{-- submit --}}
+                                <div class="row justify-content-end">
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
-            </div>
-
-        </div>
-    </form>
-    {{-- end of row : form --}}
+            </form>
+            {{-- end of row : form --}}
 
 
-@endsection {{-- end of content --}}
+        @endsection {{-- end of content --}}
 
-@push('style') {{-- style --}}
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-@endpush {{-- end of style --}}
+        @push('style')
+            {{-- style --}}
+            {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet"> --}}
+        @endpush {{-- end of style --}}
 
-@push('script') {{-- script --}}
-    {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-    <script>
-        "use strict";
+        @push('script')
+            {{-- script --}}
+            {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
+            {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script> --}}
+            <script src="{{ asset('vendors/ckeditor5/build/ckeditor.js') }}"></script>
+            <script>
+                "use strict";
 
-        $('#summernote-editor').summernote({
-            placeholder: 'Masukan Konten',
-            tabsize: 2,
-            height: 120,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                // ['insert', ['link', 'picture', 'video']],
-                ['insert', ['link']],
-            ],
-        });
+                ClassicEditor
+                    .create(document.querySelector('#summernote-editor'))
+                    .catch(error => {
+                        console.error(error);
+                    });
+                // $('#summernote-editor').summernote({
+                //     placeholder: 'Masukan Konten',
+                //     tabsize: 2,
+                //     height: 120,
+                //     toolbar: [
+                //         ['style', ['style']],
+                //         ['font', ['bold', 'underline', 'clear']],
+                //         ['color', ['color']],
+                //         ['para', ['ul', 'ol', 'paragraph']],
+                //         ['table', ['table']],
+                //         // ['insert', ['link', 'picture', 'video']],
+                //         ['insert', ['link']],
+                //     ],
+                // });
 
-        // $('form').on('submit', function(e) {
-        //     console.log( $('[name="body"]').val() )
-        //     e.preventDefault();
-        // });
-    </script>
-@endpush {{-- end of script --}}
+                // $('form').on('submit', function(e) {
+                //     console.log( $('[name="body"]').val() )
+                //     e.preventDefault();
+                // });
+            </script>
+        @endpush {{-- end of script --}}

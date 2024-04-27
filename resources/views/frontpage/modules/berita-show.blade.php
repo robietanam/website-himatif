@@ -20,15 +20,15 @@
                                     <img src="{{ asset('img/placeholder/product-image-default.svg') }}" alt="">
                                 @endif
                             </div>
-                            <div class="">
+                            <div class="content-style">
                                 <div>
                                     <div class="badge badge-link bg-gray mb-1">{{ $post->category->name }}</div>
                                     <div class="text-sm text-gray mb-3">
                                         {{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}
                                     </div>
-                                    <p class="text-gray">
+                                    <div class="text-gray">
                                         {!! $post->body !!}
-                                    </p>
+                                    </div>
                                 </div>
                             </div>
 
@@ -87,6 +87,10 @@
 
 @section('style')
 
+
+    <link href="{{ asset('css/app-dashboard-berita.min.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('vendors/ckeditor5/ckeditor.css') }}" rel="stylesheet">
     <style>
         p {
             margin-bottom: 1rem;

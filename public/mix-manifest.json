@@ -1,5 +1,6 @@
 {
     "/css/app-dashboard.min.css": "/css/app-dashboard.min.css",
     "/css/app-frontpage.min.css": "/css/app-frontpage.min.css",
+    "/css/app-dashboard-berita.min.css": "/css/app-dashboard-berita.min.css",
     "/css/app-dashboard-components.min.css": "/css/app-dashboard-components.min.css"
 }

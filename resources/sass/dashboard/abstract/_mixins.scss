@@ -1,0 +1,79 @@
+// Mixin get Insets = return all inset according to breakpoint or value on args
+@mixin getInsets($breakpoint-name: false, $breakpoint-value: false, $value) {
+    @if $breakpoint-name == false {
+        @if ($value != 0) { 
+            .m-#{$value} { margin: ($value * $inset-multiply-size) * .5rem !important; }
+            .my-#{$value} { margin-bottom: ($value * $inset-multiply-size) * .5rem !important; margin-top: ($value * $inset-multiply-size) * .5rem !important; }
+            .mx-#{$value} { margin-left: ($value * $inset-multiply-size) * .5rem !important; margin-right: ($value * $inset-multiply-size) * .5rem !important; }
+            .mr-#{$value} { margin-right: ($value * $inset-multiply-size) * .5rem !important; }
+            .ml-#{$value} { margin-left: ($value * $inset-multiply-size) * .5rem !important; }
+            .mt-#{$value} { margin-top: ($value * $inset-multiply-size) * .5rem !important; }
+            .mb-#{$value} { margin-bottom: ($value * $inset-multiply-size) * .5rem !important; }
+
+            .p-#{$value} { padding: ($value * $inset-multiply-size) * .5rem !important; }
+            .py-#{$value} { padding-bottom: ($value * $inset-multiply-size) * .5rem !important; padding-top: ($value * $inset-multiply-size) * .5rem !important; }
+            .px-#{$value} { padding-left: ($value * $inset-multiply-size) * .5rem !important; padding-right: ($value * $inset-multiply-size) * .5rem !important; }
+            .pr-#{$value} { padding-right: ($value * $inset-multiply-size) * .5rem !important; }
+            .pl-#{$value} { padding-left: ($value * $inset-multiply-size) * .5rem !important; }
+            .pt-#{$value} { padding-top: ($value * $inset-multiply-size) * .5rem !important; }
+            .pb-#{$value} { padding-bottom: ($value * $inset-multiply-size) * .5rem !important; }
+        } @else {
+            .m-#{$value} { margin: $value !important; }
+            .my-#{$value} { margin-bottom: $value !important; margin-top: $value !important; }
+            .mx-#{$value} { margin-left: $value !important; margin-right: $value !important; }
+            .mr-#{$value} { margin-right: $value !important; }
+            .ml-#{$value} { margin-left: $value !important; }
+            .mt-#{$value} { margin-top: $value !important; }
+            .mb-#{$value} { margin-bottom: $value !important; }
+
+            .p-#{$value} { padding: $value !important; }
+            .py-#{$value} { padding-bottom: $value !important; padding-top: $value !important; }
+            .px-#{$value} { padding-left: $value !important; padding-right: $value !important; }
+            .pr-#{$value} { padding-right: $value !important; }
+            .pl-#{$value} { padding-left: $value !important; }
+            .pt-#{$value} { padding-top: $value !important; }
+            .pb-#{$value} { padding-bottom: $value !important; }
+        }
+    } @else {
+        @media (min-width: $breakpoint-value) {
+            // if $value == 0 dont append rem in last $value, so margin: 0; (not margin: 0rem;)
+            @if ($value != 0) {
+                // ex: m-sm-0
+                .m-#{$breakpoint-name}-#{$value} { margin: ($value * $inset-multiply-size) * .5rem !important; }
+                .my-#{$breakpoint-name}-#{$value} { margin-bottom: ($value * $inset-multiply-size) * .5rem !important; margin-top: ($value * $inset-multiply-size) * .5rem !important; }
+                .mx-#{$breakpoint-name}-#{$value} { margin-left: ($value * $inset-multiply-size) * .5rem !important; margin-right: ($value * $inset-multiply-size) * .5rem !important; }
+                .mr-#{$breakpoint-name}-#{$value} { margin-right: ($value * $inset-multiply-size) * .5rem !important; }
+                .ml-#{$breakpoint-name}-#{$value} { margin-left: ($value * $inset-multiply-size) * .5rem !important; }
+                .mt-#{$breakpoint-name}-#{$value} { margin-top: ($value * $inset-multiply-size) * .5rem !important; }
+                .mb-#{$breakpoint-name}-#{$value} { margin-bottom: ($value * $inset-multiply-size) * .5rem !important; }
+
+                .p-#{$breakpoint-name}-#{$value} { padding: ($value * $inset-multiply-size) * .5rem !important; }
+                .py-#{$breakpoint-name}-#{$value} { padding-bottom: ($value * $inset-multiply-size) * .5rem !important; padding-top: ($value * $inset-multiply-size) * .5rem !important; }
+                .px-#{$breakpoint-name}-#{$value} { padding-left: ($value * $inset-multiply-size) * .5rem !important; padding-right: ($value * $inset-multiply-size) * .5rem !important; }
+                .pr-#{$breakpoint-name}-#{$value} { padding-right: ($value * $inset-multiply-size) * .5rem !important; }
+                .pl-#{$breakpoint-name}-#{$value} { padding-left: ($value * $inset-multiply-size) * .5rem !important; }
+                .pt-#{$breakpoint-name}-#{$value} { padding-top: ($value * $inset-multiply-size) * .5rem !important; }
+                .pb-#{$breakpoint-name}-#{$value} { padding-bottom: ($value * $inset-multiply-size) * .5rem !important; }
+            } @else {
+                // ex: m-sm-5rem
+                .m-#{$breakpoint-name}-#{$value} { margin: $value !important; }
+                .my-#{$breakpoint-name}-#{$value} { margin-bottom: $value !important; margin-top: $value !important; }
+                .mx-#{$breakpoint-name}-#{$value} { margin-left: $value !important; margin-right: $value !important; }
+                .mr-#{$breakpoint-name}-#{$value} { margin-right: $value !important; }
+                .ml-#{$breakpoint-name}-#{$value} { margin-left: $value !important; }
+                .mt-#{$breakpoint-name}-#{$value} { margin-top: $value !important; }
+                .mb-#{$breakpoint-name}-#{$value} { margin-bottom: $value !important; }
+
+                .p-#{$breakpoint-name}-#{$value} { padding: $value !important; }
+                .py-#{$breakpoint-name}-#{$value} { padding-bottom: $value !important; padding-top: $value !important; }
+                .px-#{$breakpoint-name}-#{$value} { padding-left: $value !important; padding-right: $value !important; }
+                .pr-#{$breakpoint-name}-#{$value} { padding-right: $value !important; }
+                .pl-#{$breakpoint-name}-#{$value} { padding-left: $value !important; }
+                .pt-#{$breakpoint-name}-#{$value} { padding-top: $value !important; }
+                .pb-#{$breakpoint-name}-#{$value} { padding-bottom: $value !important; }
+            }
+        }
+        // if $value == 0 dont append rem in last $value, so margin: 0; (not margin: 0rem;)
+        
+    }
+}

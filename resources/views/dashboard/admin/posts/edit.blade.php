@@ -45,7 +45,7 @@
             </div>
 
             {{-- col : input --}}
-            <div class="col-lg">
+            <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
                         {{-- input : title --}}
@@ -124,31 +124,41 @@
 
         @push('style')
             {{-- style --}}
-            <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+            {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet"> --}}
             {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
         @endpush {{-- end of style --}}
 
         @push('script')
             {{-- script --}}
             {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
-            <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+            {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script> --}}
+            <script src="{{ asset('vendors/ckeditor5/build/ckeditor.js') }}"></script>
+            {{-- <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script> --}}
             <script>
                 "use strict";
 
-                $('#summernote-editor').summernote({
-                    placeholder: 'Masukan Konten',
-                    tabsize: 2,
-                    height: 120,
-                    dialogsInBody: true,
-                    // toolbar: [
-                    //     ['style', ['style']],
-                    //     ['font', ['bold', 'underline', 'clear']],
-                    //     ['color', ['color']],
-                    //     ['para', ['ul', 'ol']],
-                    //     // ['table', ['table']],
-                    //     // ['insert', ['link', 'picture', 'video']],
-                    //     ['insert', ['link']],
-                    // ],
-                });
+                ClassicEditor
+                    .create(document.querySelector('#summernote-editor'))
+                    .catch(error => {
+                        console.error(error);
+                    });
+
+
+
+                // $('#summernote-editor').summernote({
+                //     placeholder: 'Masukan Konten',
+                //     tabsize: 2,
+                //     height: 120,
+                //     dialogsInBody: true,
+                //     // toolbar: [
+                //     //     ['style', ['style']],
+                //     //     ['font', ['bold', 'underline', 'clear']],
+                //     //     ['color', ['color']],
+                //     //     ['para', ['ul', 'ol']],
+                //     //     // ['table', ['table']],
+                //     //     // ['insert', ['link', 'picture', 'video']],
+                //     //     ['insert', ['link']],
+                //     // ],
+                // });
             </script>
         @endpush {{-- end of script --}}

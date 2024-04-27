@@ -14,10 +14,8 @@
             <h4>Detail Post</h4>
         </div>
         <div class="col col-md-auto">
-            <a
-                href="{{ route('dashboard.admin.posts.index') }}"
-                class="btn btn-outline-secondary">
-                    <i class="fas fa-arrow-left mr-1"></i> Semua Data
+            <a href="{{ route('dashboard.admin.posts.index') }}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left mr-1"></i> Semua Data
             </a>
         </div>
     </div>
@@ -48,7 +46,8 @@
             </div>
         </div>
         <div class="col-lg">
-            <a href="{{ route('frontpage.berita.show', $post->slug) }}" target="_blank" class="btn btn-block btn-primary mb-3">Tampilkan Preview</a>
+            <a href="{{ route('frontpage.berita.show', $post->slug) }}" target="_blank"
+                class="btn btn-block btn-primary mb-3">Tampilkan Preview</a>
             <div class="card mb-2">
                 <div class="card-body">
                     {{-- user_id --}}
