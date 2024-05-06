@@ -93,7 +93,7 @@
 
 @section('style')
 
-    {{-- @vite('resources/css/frontpage/ckeditor.css') --}}
+    @vite('resources/css/frontpage/ckeditor.css')
 
     {{-- <link href="{{ asset('css/app-dashboard-berita.min.css') }}" rel="stylesheet">
 
