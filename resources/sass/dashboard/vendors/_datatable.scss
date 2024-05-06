@@ -1,0 +1,37 @@
+.dataTables_wrapper .dataTables_length .custom-select {
+    padding-right: 45px !important;
+}
+.dataTables_wrapper .select-info {
+    margin-left: 10px;
+    color: rgb(255, 115, 0);
+    font-weight: bold;
+}
+.dataTables_wrapper tr.selected {
+    background-color: rgba(63, 63, 63, 0.09);
+}
+.dataTables_wrapper thead th.defined-default-width {
+    width: 200px !important;
+    display: inline-block;
+}
+.dataTables_wrapper tbody td.defined-default-width {
+    white-space: normal;
+    width: 200px;
+    display: inline-block;
+}
+.dataTables_wrapper .dataTables_length .custom-select, .dataTables_wrapper .dataTables_filter .form-control {
+    margin-left: 20px;
+}
+.dataTables_wrapper .dataTables_length label, .dataTables_wrapper .dataTables_filter label {
+    display: flex;
+    align-items: center;
+}
+@media screen and (max-width: 768px) {
+    .dataTables_wrapper .dataTables_length .custom-select, .dataTables_wrapper .dataTables_filter .form-control {
+        margin-left: 0;
+    }
+    .dataTables_wrapper .dataTables_length label, .dataTables_wrapper .dataTables_filter label {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

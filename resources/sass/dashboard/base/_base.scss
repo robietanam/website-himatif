@@ -1,0 +1,71 @@
+// RESET
+
+// FONT FAMILY TYPE
+// .font-type-secondary { font-family: $font-type-secondary; }
+
+// SIZE
+
+.edi
+:root {
+    font-size: $root-font-size;
+}
+
+h1 {
+    font-size: $h1;
+    @media screen and (max-width: breakpoint('lg')) {
+        font-size: $h1 - 2rem;
+    }
+}
+
+h2 {
+    font-size: $h2;
+}
+
+h3 {
+    font-size: $h3;
+    @media screen and (max-width: breakpoint('lg')) {
+        font-size: $h3 - .8rem;
+    }
+    @media screen and (max-width: breakpoint('sm')) {
+        font-size: $h3 - 1rem;
+    }
+    @media screen and (max-width: (breakpoint('sm') - 176px)) {
+        font-size: $h3 - 1.4rem;
+    }
+}
+
+h4 {
+    font-size: $h4;
+    @media screen and (max-width: (breakpoint('sm') - 176px)) {
+        font-size: $h4 - .8rem;
+    }
+}
+h5 {
+    font-size: $h5;
+    @media screen and (max-width: breakpoint('lg')) {
+        font-size: $h5 - .6rem;
+    }
+}
+h6 {
+    font-size: $h6;
+    @media screen and (max-width: breakpoint('lg')) {
+        font-size: $h6 - .2rem;
+    }
+}
+
+p {
+    font-size: $p;
+    @media screen and (max-width: breakpoint('lg')) {
+        font-size: $p - .2rem;
+    }
+}
+
+a {
+    color: $href-color;
+}
+
+
+.text-md {font-size: $text-md;}
+.text-sm {font-size: $text-sm;}
+.text-xs {font-size: $text-xs;}
+

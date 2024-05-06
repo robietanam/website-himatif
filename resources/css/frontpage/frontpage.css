@@ -1,0 +1,437 @@
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+@import url(https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700&display=swap);
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+/* ======================>  README  <===================== */
+/*
+    Please consider to set all attribute in this file only,
+    IF HAS OVERRIDE NEW ATTRIBUTE SET WITH // OVERRIDE
+*/
+/* ======================> END OF README <===================== */
+
+.text-gray {
+  @apply text-gray-500
+}
+
+
+.divider {
+  background-color: #f4f4fa;
+  width: 100%;
+  height: 0.5px;
+}
+.divider-vertical {
+  height: 100%;
+  width: 0.5px;
+}
+
+.navbar {
+  @apply bg-white shadow-[0_10px_30px_rgba(66,70,95,0.1)] px-4 py-[1.6rem];
+}
+.navbar .navbar-brand {
+  @apply flex items-center;
+}
+.navbar .navbar-brand-image {
+  @apply w-12 md:w-20;
+}
+.navbar .navbar-brand-title {
+  @apply text-[1.8rem] font-bold text-[#42465f];
+}
+.navbar .navbar-nav {
+  @apply flex items-center before:content-[""] before:block before:w-[90%] before:h-px before:bg-[rgba(120,125,145,0.1)] before:mx-auto before:my-8;
+}
+@media screen and (min-width: 992px) {
+  .navbar .navbar-nav {
+    @apply items-center before:hidden;
+  }
+}
+.navbar .navbar-nav .nav-item {
+  @apply px-0 py-4;
+}
+@media screen and (min-width: 992px) {
+  .navbar .navbar-nav .nav-item:not(:last-child) {
+    @apply mr-[1.6rem];
+  }
+}
+.navbar .navbar-nav .nav-item.active .nav-link::after {
+  @apply w-full;
+}
+.navbar .navbar-nav .nav-item .nav-link {
+  @apply text-[#42465f] text-[1.4rem] flex justify-center relative p-0 after:content-[""] after:block after:absolute after:h-[1.2rem] after:w-[0%] after:bg-[rgba(255,163,61,0.3)] after:bottom-[-0.2rem] after:transition-[width] after:duration-[0.3s] after:ease-[ease] hover:after:w-full;
+}
+footer.footer {
+  @apply bg-[#42465f] bg-[url("../img/decoration/bg/3.svg"),url("../img/decoration/bg/3.svg")] bg-no-repeat bg-[calc(100%_+_15rem)_calc(100%_+_15rem),-20%_-80%] px-0 py-16 md:bg-[120%_120%,-20%_-80%] md:pt-32 md:pb-16 md:px-0;
+}
+footer.footer .nav .nav-item .nav-link {
+  @apply text-[1.4rem] hover:underline;
+}
+.text-link {
+  @apply text-white;
+}
+.text-md {
+  @apply text-[1.6rem];
+}
+.text-sm {
+  @apply text-[1.2rem];
+}
+.text-xs {
+  @apply text-base;
+}
+
+.img-fit {
+  @apply overflow-hidden;
+}
+.img-fit.img-fit-cover img {
+  @apply w-full h-full object-cover;
+}
+
+.card.card-vision {
+  @apply overflow-hidden border rounded-2xl border-solid border-[#f4f4fa];
+}
+.card.card-vision .card-body {
+  @apply p-0;
+}
+.card.card-vision .card-body .img-fit {
+  @apply relative rounded-br-[50%] before:content-[""] before:block before:absolute before:bg-[rgba(46,55,164,0.5)] before:inset-0;
+}
+@media screen and (max-width: 576px) {
+  .card.card-member {
+    @apply w-52;
+  }
+}
+@media screen and (max-width: 576px) {
+  .card.card-member .card-body {
+    @apply px-4 py-8;
+  }
+}
+.card.card-member .card-body .img-wrapper {
+  @apply w-24 h-24 overflow-hidden mb-4 mx-auto rounded-[50%] md:w-48 md:h-48 md:mb-8;
+}
+
+@media screen and (min-width: 576px) {
+  .card.card-member .card-body .img-wrapper {
+    @apply w-32 h-32;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .card.card-member .card-body .img-wrapper {
+    @apply w-40 h-40;
+  }
+}
+
+.card.card-member .card-body .img-wrapper img {
+  @apply w-full h-full object-cover;
+  -o-object-fit: cover;
+}
+
+.card.card-member .card-body div.text-title {
+  @apply text-[#42465f] font-[bold] text-[1.4rem];
+}
+
+@media screen and (min-width: 992px) {
+  .card.card-member .card-body div.text-title {
+    @apply text-[1.8rem];
+  }
+}
+.card.card-member .card-body div.text-subtitle {
+  @apply text-[#787d91] font-semibold text-[1.2rem];
+}
+@media screen and (min-width: 992px) {
+  .card.card-member .card-body div.text-subtitle {
+    @apply text-[1.6rem];
+  }
+}
+.card.card-proker .card-img {
+  @apply h-36 w-36 overflow-x-auto rounded-[5px];
+}
+
+@media screen and (min-width: 576px) {
+  .card.card-proker .card-img {
+    @apply h-40 w-40;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .card.card-proker .card-img {
+    @apply h-44 w-44;
+  }
+}
+.card.card-proker .card-img img {
+  @apply  h-auto w-fit object-cover ;
+  -o-object-fit: cover;
+}
+.card.card-post:hover {
+  @apply no-underline;
+}
+.card.card-post:hover h5 {
+  @apply underline;
+}
+.card.card-post .card-img {
+  @apply h-52 w-full overflow-hidden rounded-[5px];
+}
+
+@media screen and (min-width: 1200px) {
+  .card.card-post .card-img {
+    @apply h-[20rem] w-[20rem];
+  }
+}
+.card.card-post .card-img img {
+  @apply w-full h-auto object-cover;
+}
+.list-group.list-group-flush .list-group-item:first-child {
+  @apply border-t-0;
+}
+.text-dec {
+  @apply relative block before:content-[""] before:block before:absolute before:w-8 before:h-8 before:bg-cover before:bg-no-repeat md:before:w-[3.6rem] md:before:h-[3.6rem] after:content-[""] after:block;
+}
+@media screen and (min-width: 400px) {
+  .text-dec {
+    @apply inline-block;
+  }
+}
+.text-dec.text-dec-secondary-1::before {
+  @apply bg-[url("../img/decoration/title/secondary-2.svg")];
+}
+@media screen and (min-width: 768px) {
+  .text-dec.text-dec-secondary-1::before {
+    @apply bg-[url("../img/decoration/title/secondary-1.svg")];
+  }
+}
+.text-dec.text-dec-secondary-2::before {
+  @apply bg-[url("../img/decoration/title/secondary-2.svg")];
+}
+.text-dec.text-dec-secondary-3::before {
+  @apply bg-[url("../img/decoration/title/secondary-3.svg")];
+}
+.text-dec.text-dec-info-1::before {
+  @apply bg-[url("../img/decoration/title/info-1.svg")];
+}
+.text-dec.text-dec-info-2::before {
+  @apply bg-[url("../img/decoration/title/info-3.svg")];
+}
+@media screen and (min-width: 768px) {
+  .text-dec.text-dec-info-2::before {
+    @apply bg-[url("../img/decoration/title/info-2.svg")];
+  }
+}
+.text-dec.text-dec-warning-1::before {
+  @apply bg-[url("../img/decoration/title/warning-1.svg")];
+}
+.text-dec.text-dec-warning-2::before {
+  @apply bg-[url("../img/decoration/title/warning-2.svg")];
+}
+.text-dec.text-dec-tl::before {
+  @apply top-[-3rem] left-0;
+}
+@media screen and (min-width: 576px) {
+  .text-dec.text-dec-tl::before {
+    @apply left-[-5rem] top-[-2rem];
+  }
+}
+.text-dec.text-dec-tr::before {
+  @apply top-[-3rem] right-0;
+}
+@media screen and (min-width: 576px) {
+  .text-dec.text-dec-tr::before {
+    @apply right-[-5rem] top-[-2rem];
+  }
+}
+.text-shadowed {
+  @apply relative;
+}
+.text-shadowed .text-shadowed-content {
+  @apply absolute block text-[4.2rem] text-[rgba(66,70,95,0.05)] left-2 top-0;
+}
+body.homepage {
+  @apply bg-[#f4f4fa];
+}
+body.homepage .card.card-marquee {
+  @apply rounded-[2.5rem];
+}
+body.homepage .card.card-marquee .card-body {
+  @apply px-4 py-[0.8rem];
+}
+@media screen and (min-width: 576px) {
+  body.homepage .card.card-marquee .card-body {
+    @apply px-6 py-[0.8rem];
+  }
+}
+body.homepage .card.card-marquee .card-body marquee {
+  @apply text-[1.3rem] text-[#787d91] mt-2;
+}
+@media screen and (min-width: 576px) {
+  body.homepage .card.card-marquee .card-body marquee {
+    @apply text-[1.6rem];
+  }
+}
+body.homepage .img-wrapper-about {
+  @apply text-[7px] w-[40em] h-[32em] relative md:text-[10px] before:content-[""] before:absolute before:block before:left-[-6rem] before:bottom-[-5rem] before:w-[26em] before:h-[26em] before:bg-[url("../img/decoration/bg/2.svg")] before:bg-no-repeat before:bg-cover;
+}
+body.homepage .img-wrapper-about .img-about {
+  @apply absolute w-[30em] h-[18em] overflow-hidden rounded-2xl;
+}
+body.homepage .img-wrapper-about .img-about:nth-child(1) {
+  @apply left-0 top-0;
+}
+body.homepage .img-wrapper-about .img-about:nth-child(2) {
+  @apply left-[6em] top-[6em];
+}
+body.homepage .img-wrapper-about .img-about:nth-child(3) {
+  @apply right-0 bottom-0;
+}
+body.homepage .img-wrapper-about .img-about img {
+  @apply w-full h-full object-cover;
+  -o-object-fit: cover;
+}
+body.homepage header {
+  @apply relative z-[1] bg-[#f4f4fa] bg-[url("../img/decoration/bg/1.svg"),url("../img/decoration/memphis/2.svg"),url("../img/decoration/memphis/3.svg"),url("../img/decoration/memphis/4.svg")] bg-[position:-40rem_-40rem,80%_3rem,80%_15rem,95%_34rem] bg-[size:auto,30px,30px,20px] bg-no-repeat px-0 py-20 rounded-bl-[8rem];
+}
+@media screen and (min-width: 992px) {
+  body.homepage header {
+    @apply  bg-[position:-30rem_-30rem,60%_10rem,80%_15rem,45%_38rem] px-0 py-60 rounded-bl-[18rem];
+  }
+}
+body.homepage header .header-img {
+  @apply w-full h-auto relative overflow-visible before:content-[""] before:block before:absolute before:w-[90%] before:h-[90%] before:bg-[url("../img/decoration/bg/2.svg")] before:bg-no-repeat before:bg-center before:bg-contain before:top-[-30%] before:right-[-10%] md:before:w-[120%] md:before:h-[120%];
+}
+body.homepage section#section-1 {
+  @apply bg-white  pt-28 pb-32 px-0 md:bg-[url("../img/decoration/bg/2.svg")] md:bg-[size:30rem] md:bg-no-repeat md:bg-[position:95%_22rem] md:pt-32 md:pb-48 md:px-0;
+}
+body.homepage section#section-2 {
+  @apply bg-white bg-[url("../img/decoration/memphis/8.svg")] bg-no-repeat bg-[position:80%_0] bg-[size:8rem] px-0 py-40;
+}
+@media screen and (min-width: 992px) {
+  body.homepage section#section-2 {
+    @apply bg-[position:80%_0] bg-[unset] px-0 py-48;
+  }
+}
+body.homepage section#section-3 {
+  @apply bg-[#42465f] bg-[url("../img/decoration/bg/3.svg"),url("../img/decoration/bg/3.svg")] bg-[position:-20rem_-20rem,15rem_125%] bg-no-repeat px-0 py-32 md:bg-[position:-15rem_-15rem,115%_135%] md:px-0 md:py-48;
+}
+body.homepage section#section-4 {
+  @apply bg-white bg-[url("../img/decoration/bg/2.svg"),url("../img/decoration/memphis/8.svg")] bg-no-repeat bg-[position:-10rem_130%,10%_4rem] bg-[auto,80px] pt-40 pb-16 px-0 rounded-bl-[8rem] md:bg-[position:-10rem_130%,95%_20%] md:px-0 md:py-48 md:rounded-bl-[18rem];
+}
+body.homepage section#section-5 {
+  @apply bg-[url("../img/decoration/bg/2.svg"),url("../img/decoration/memphis/10.svg")] bg-no-repeat bg-[position:-15rem_calc(100%_+_15rem),8%_4rem] bg-[size:30rem,60px] pt-40 pb-20 px-0 md:bg-[position:115%_115%,8%_16%] md:bg-[unset] md:px-0 md:py-48;
+}
+body.homepage section#section-5 .img-gallery {
+  @apply w-full h-32 overflow-hidden md:h-[21rem];
+}
+@media screen and (min-width: 400px) {
+  body.homepage section#section-5 .img-gallery {
+    @apply h-64;
+  }
+}
+body.homepage section#section-5 .img-gallery.img-gallery-main {
+  @apply h-72 md:h-[43.2rem];
+}
+@media screen and (min-width: 400px) {
+  body.homepage section#section-5 .img-gallery.img-gallery-main {
+    @apply h-[32rem];
+  }
+}
+body.homepage section#section-5 .img-gallery img {
+  @apply w-full h-full object-cover;
+  -o-object-fit: cover;
+}
+body.about {
+  @apply bg-white;
+}
+body.about header {
+  @apply bg-[#f4f4fa] bg-[url("../img/decoration/bg/1.svg"),url("../img/decoration/bg/2.svg")] bg-[size:50rem,50rem] bg-no-repeat bg-[position:-30rem_-30rem,140%_-150%] px-0 py-40;
+}
+body.about section#section-1 {
+  @apply px-0 py-24;
+}
+@media screen and (min-width: 992px) {
+  body.about section#section-1 {
+    @apply px-0 py-40;
+  }
+}
+body.about section#section-1 ul.list-about {
+  @apply relative pl-32;
+  list-style: none;
+}
+body.about section#section-1 ul.list-about li.list-about-item {
+  @apply w-full relative mb-16 after:content-[""] after:block after:absolute after:left-[-7.5rem] after:w-8 after:h-8 after:bg-white after:rounded-[50%] after:border-[double]  after:border-4 after:border-solid after:border-[#36b4ff] after:top-4;
+}
+body.about
+  section#section-1
+  ul.list-about
+  li.list-about-item:not(:last-child)::before {
+  @apply content-[""] block absolute left-[-6.8rem] w-[0.4rem] h-[calc(100%_+_4rem)] bg-[#f4f4fa] top-12;
+}
+body.about section#section-3 {
+  @apply px-0 py-40;
+}
+body.about section#section-3 .card {
+  @apply bg-no-repeat bg-[95%_bottom] shadow-[0_10px_30px_rgba(66,70,95,0.1)];
+}
+body.about section#section-3 #card-about-1 {
+  @apply bg-[#42465f] bg-[url("../img/decoration/bg/work-bg-primary.svg")];
+}
+body.about section#section-3 #card-about-2 {
+  @apply bg-white bg-[url("../img/decoration/bg/sitemap-bg-white.svg")];
+}
+body.about section#section-3 #card-about-3 {
+  @apply bg-white bg-[url("../img/decoration/bg/man-bg-white.svg")];
+}
+body.about section#section-3 ul.list-about {
+  @apply relative pl-32;
+  list-style: none;
+}
+body.about section#section-3 ul.list-about li.list-about-item {
+  @apply w-full relative mb-40 after:content-[""] after:block after:absolute after:left-[-8rem] after:w-12 after:h-12 after:bg-[linear-gradient(white,white),linear-gradient(90deg,#515ce2_0%,#7882f4_100%)] after:bg-origin-border after:rounded-[50%] after:border-[double] after:border-transparent after:top-4;
+}
+body.about
+  section#section-3
+  ul.list-about
+  li.list-about-item:not(:last-child)::before {
+  @apply content-[""] block absolute left-[-6.8rem] w-[0.4rem] h-[calc(100%_+_12rem)] bg-[#f4f4fa] top-12;
+}
+body.about section#section-3 ul.list-about li.list-about-item::after {
+  background-clip: content-box, border-box;
+}
+body.blog {
+  @apply bg-white;
+}
+body.pengurus {
+  @apply bg-white;
+}
+body.pengurus header {
+  @apply bg-[#f4f4fa] bg-[url("../img/decoration/bg/1.svg"),url("../img/decoration/bg/2.svg")] bg-[50rem,50rem] bg-no-repeat bg-[-30rem_-30rem,140%_-150%] px-0 py-40;
+}
+body.pengurus section#section-1 {
+  @apply px-0 py-16;
+}
+@media screen and (min-width: 992px) {
+  body.pengurus section#section-1 {
+    @apply px-0 py-24;
+  }
+}
+body.proker {
+  @apply bg-white;
+}
+body.proker header {
+  @apply bg-[#f4f4fa] bg-[url("../img/decoration/bg/1.svg"),url("../img/decoration/bg/2.svg")] bg-[50rem,50rem] bg-no-repeat bg-[-30rem_-30rem,140%_-150%] px-0 py-40;
+}
+body.proker section#section-1 {
+  @apply px-0 py-12;
+}
+@media screen and (min-width: 992px) {
+  body.proker section#section-1 {
+    @apply px-0 py-24;
+  }
+}
+body.notfound {
+  @apply bg-[#f4f4fa];
+}
+body.notfound main {
+  @apply bg-[url("../img/decoration/bg/1.svg"),url("../img/decoration/bg/1.svg")] bg-[calc(0%_-_35rem)_calc(0%_-_35rem),calc(100%_+_35rem)_calc(100%_+_35rem)] bg-[60rem] bg-no-repeat;
+}

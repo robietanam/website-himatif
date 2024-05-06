@@ -1,0 +1,120 @@
+$sizing-max: 80;
+$sizing-increment: 1;
+
+// SIZING
+// loop to max size in base.scss
+$sizing-props: (
+    width: w,
+    height: h,
+    max-width: max-w,
+    min-width: min-w,
+);
+// UNIT SIZE (0, REM)
+@for $i from 0 to ($sizing-max + 1) {
+    @each $prop-name, $prop-abb in $sizing-props {
+        // IF 0 : w-0 (no w-0rem)
+        @if ($i == 0) {
+            .#{$prop-abb}-#{$i} {
+                #{$prop-name}: $i !important;
+            }
+        } @else {
+            .#{$prop-abb}-#{$i}rem {
+                #{$prop-name}: $i * 1rem !important;
+            }
+        }
+    }
+}
+// UNIT SIZE (0, REM) RESPONSIVE
+@for $i from 0 to ($sizing-max + 1) {
+    @each $prop-name, $prop-abb in $sizing-props {
+        @each $breakpoint-name, $breakpoint-value in $grid-breakpoints {
+            // IF 0 : w-lg-0 (not w-lg-0rem)
+            @if ($i == 0) {
+                .#{$prop-abb}-#{$breakpoint-name}-#{$i} {
+                    @media screen and (min-width: $breakpoint-value) {
+                        #{$prop-name}: $i !important;
+                    }
+                }
+            } @else {
+                .#{$prop-abb}-#{$breakpoint-name}-#{$i}rem {
+                    @media screen and (min-width: $breakpoint-value) {
+                        #{$prop-name}: $i * 1rem !important;
+                    }
+                }
+            }
+        }
+    }
+}
+// PERCENTAGE SIZE
+@for $i from 25 to 101 {
+    @if ($i % 25 == 0) {
+        @each $prop-name, $prop-abb in $sizing-props {
+            .#{$prop-abb}-#{$i} {
+                #{$prop-name}: $i * 1%;
+            }
+            @each $breakpoint-name, $breakpoint-value in $grid-breakpoints {
+                @media screen and (min-width: $breakpoint-value) {
+                    .#{$prop-abb}-#{$breakpoint-name}-#{$i} {
+                        #{$prop-name}: $i * 1% !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// TEXT
+.text-invalid {
+    font-size: 80%;
+    color: #dc3545;
+    margin-top: 0.25rem;
+}
+@for $i from 8 to (65) {
+    @if ($i % 2 == 0) and ($i <= 33) {
+        .text-#{$i} {
+            font-size: $i * 1px;
+        }
+        @each $breakpoint-name, $breakpoint-value in $grid-breakpoints {
+            @media screen and (min-width: $breakpoint-value) {
+                .text-#{$breakpoint-name}-#{$i} {
+                    font-size: $i * 1px;
+                }
+            }
+        }
+    }
+    @if ($i == 48) or ($i == 64) {
+        .text-#{$i} {
+            font-size: $i * 1px;
+        }
+        @each $breakpoint-name, $breakpoint-value in $grid-breakpoints {
+            @media screen and (min-width: $breakpoint-value) {
+                .text-#{$breakpoint-name}-#{$i} {
+                    font-size: $i * 1px;
+                }
+            }
+        }
+    }
+}
+
+// IMAGE
+.img-fit {
+    overflow: hidden;
+    &.img-fit-cover {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &.img-fit-contain {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+.bg-softlight {
+    background-color: #dcdcdc !important;
+}

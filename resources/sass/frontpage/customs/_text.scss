@@ -1,0 +1,95 @@
+.text-dec {
+    position: relative;
+    display: block;
+    @media screen and (min-width: breakpoint('sm') - 176px) {
+        display: inline-block;
+    }
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        background-size: cover;
+        background-repeat: no-repeat;
+        @media screen and (min-width: breakpoint('md')) {
+            width: 3.6rem;
+            height: 3.6rem;
+        }
+    }
+    &::after {
+        content: '';
+        display: block;
+    }
+
+    &.text-dec-secondary-1 {
+        &::before {
+            background-image: url('../img/decoration/title/secondary-2.svg');
+            @media screen and (min-width: breakpoint('md')) {
+                background-image: url('../img/decoration/title/secondary-1.svg');
+            }
+        }
+    }
+    &.text-dec-secondary-2 {
+        &::before {
+            background-image: url('../img/decoration/title/secondary-2.svg');
+        }
+    }
+    &.text-dec-secondary-3 {
+        &::before {
+            background-image: url('../img/decoration/title/secondary-3.svg');
+        }
+    }
+    &.text-dec-info-1 {
+        &::before {
+            background-image: url('../img/decoration/title/info-1.svg');
+        }
+    }
+    &.text-dec-info-2 {
+        &::before {
+            background-image: url('../img/decoration/title/info-3.svg');
+            @media screen and (min-width: breakpoint('md')) {
+                background-image: url('../img/decoration/title/info-2.svg');
+            }
+        }
+    }
+    &.text-dec-warning-1 {
+        &::before {
+            background-image: url('../img/decoration/title/warning-1.svg');
+        }
+    }
+    &.text-dec-warning-2 {
+        &::before {
+            background-image: url('../img/decoration/title/warning-2.svg');
+        }
+    }
+
+    &.text-dec-tl {
+        &::before {
+            left: 0; top: -3rem;
+            @media screen and (min-width: breakpoint('sm')) {
+                left: -5rem; top: -2rem !important;
+            }
+        }
+    }
+    &.text-dec-tr {
+        &::before {
+            right: 0; top: -3rem;
+            @media screen and (min-width: breakpoint('sm')) {
+                right: -5rem; top: -2rem !important;
+            }
+        }
+    }
+    
+}
+
+.text-shadowed {
+    position: relative;
+    .text-shadowed-content {
+        position: absolute;
+        display: block;
+        font-size: 4.2rem;
+        color: rgba(color('midnight'), .05);
+        top: 0; left: .5rem;
+    }
+}

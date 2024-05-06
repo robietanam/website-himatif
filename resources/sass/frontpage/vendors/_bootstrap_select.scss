@@ -1,0 +1,33 @@
+.dropdown.bootstrap-select {
+    .dropdown-toggle {
+        display: block !important;
+        border: $input-border !important;
+        font-size: $input-font-size;
+        padding: $input-padding;
+        height: unset;
+        background-color: $input-bg-color;
+        transition: all .3s ease-in-out;
+        border-radius: .3px;
+        border-radius: .25rem;
+        &:focus {
+            border: $input-focus-border;
+            box-shadow: $input-focus-box-shadow;
+        }
+        &::after {
+            margin-left: -1rem !important;
+        }
+    }
+    .dropdown-menu {
+        padding: 0;
+        border: .5px solid rgba(color('secondary'), .2) !important;
+        box-shadow: 0 5px 15px rgba(79, 79, 79, 0.152);
+        font-size: 1.6rem;
+        input.form-control {
+            padding: .6rem 1rem;
+            font-size: 1.4rem;
+        }
+        .dropdown-item.active {
+            background-color: rgba(color('primary'), .3);
+        }
+    }
+}

@@ -1,0 +1,570 @@
+@extends('frontpage.layouts.app-frontpage')
+
+@section('title', 'BERANDA')
+
+@section('pageClass', 'homepage')
+@section('content')
+
+    {{-- Header --}}
+    <header>
+        <div class="container mx-auto sm:px-4 mx-auto sm:px-4">
+            <div class="flex flex-wrap mb-5 mb-lg-10 justify-center text-center ">
+                <div class="lg:w-1/2 pr-4 pl-4 order-2 lg:order-1 ">
+                    <h3 class="text-dec text-dec-secondary-1 text-dec-tl text-midnight font-extrabold mb-2 hidden lg:block">
+                        {{ $header['1-text']->content }}
+                    </h3>
+                    <p class="text-gray font-semibold mb-3">
+                        {{ $header['2-text2']->content }}
+                    </p>
+
+                    <div
+                        class="flex flex-row py-5 px-6 max-md:p-6 items-center justify-center bg-white border border-gray-200 rounded-full shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <div class="">
+                            <span
+                                class="bg-blue-400 text-white text-lg font-medium me-2 px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                                {{ $header['4-marquee_tag']->content }}
+                            </span>
+                            <div class="">
+
+                            </div>
+                        </div>
+                        <marquee direction="left"
+                            class="text-lg w-full [&_a]:font-medium [&_a]:text-blue-600 [&_a]:dark:text-blue-500 [&_a]:hover:underline">
+
+                            {!! $header['5-marquee_info']->content !!}
+                        </marquee>
+                    </div>
+
+                </div>
+                <div class="md:w-2/3 lg:w-1/2 pr-4 pl-4 order-1 lg:order-2 mb-3 lg:mb-0 pt-3">
+                    <h3 class="text-dec text-dec-secondary-1 text-dec-tl text-midnight font-extrabold mb-2 lg:hidden">
+                        HIMPUNAN MAHASISWA TEKNOLOGI INFORMASI
+                    </h3>
+                    @if (file_exists(storage_path('app/public/' . $header['3-photo']->content)))
+                        <div class="header-img">
+                            <img src="{{ asset('storage/' . $header['3-photo']->content) }}" alt=""
+                                class="max-w-full h-auto">
+                        </div>
+                    @else
+                        <div class="header-img">
+                            <img src="{{ asset('img/' . $header['3-photo']->content) }}" alt=""
+                                class="max-w-full h-auto">
+                        </div>
+                    @endif
+                </div>
+            </div>
+
+            <div class="flex flex-wrap pt-32">
+                <div class="w-full text-center mb-24">
+                    <h3 class="text-dec text-dec-secondary-2 text-dec-tl text-midnight font-extrabold mb-2">
+                        {{ $section2['text']->content }}
+                    </h3>
+                    <h6 class="text-gray font-semibold">
+                        {{ $section2['text2']->content }}
+                    </h6>
+                </div>
+
+                <div class="lg:w-1/3 pr-4 pl-4 mb-3 lg:mb-0">
+                    <div
+                        class="relative flex flex-col min-w-0 rounded-md break-words border bg-white border-1 border-gray-300 shadow-md shadow-yellow-100">
+                        <div class="flex-auto p-6">
+                            <div class="flex flex-wrap  items-center">
+                                <div class="col-auto">
+                                    <img src="{{ asset('img/icons/pencil-warning.svg') }}" alt=""
+                                        class="w-3rem w-lg-5rem">
+                                </div>
+                                <div class="relative flex-grow max-w-full flex-1 px-4">
+                                    <h6 class="text-midnight font-bold">
+                                        {{ $section2['card1_text']->content }}
+                                    </h6>
+                                    <div class="text-gray">
+                                        {{ $section2['card1_text2']->content }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/3 pr-4 pl-4 mb-3 lg:mb-0 lg:mt-4">
+                    <div
+                        class="relative flex flex-col min-w-0 rounded-md break-words border bg-white border-1 border-gray-300 shadow-md shadow-blue-200">
+                        <div class="flex-auto p-6">
+                            <div class="flex flex-wrap  items-center">
+                                <div class="col-auto">
+                                    <img src="{{ asset('img/icons/list-info.svg') }}" alt=""
+                                        class="w-3rem w-lg-5rem">
+                                </div>
+                                <div class="relative flex-grow max-w-full flex-1 px-4">
+                                    <h6 class="text-midnight font-bold">
+                                        {{ $section2['card2_text']->content }}
+                                    </h6>
+                                    <div class="text-gray">
+                                        {{ $section2['card2_text2']->content }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/3 pr-4 pl-4 mb-3 lg:mb-0 lg:mt-12">
+                    <div
+                        class="relative flex flex-col min-w-0 rounded-md break-words border bg-white border-1 border-gray-300 shadow-md shadow-green-200">
+                        <div class="flex-auto p-6">
+                            <div class="flex flex-wrap  items-center">
+                                <div class="col-auto">
+                                    <img src="{{ asset('img/icons/graduate-secondary.svg') }}" alt=""
+                                        class="w-3rem w-lg-5rem">
+                                </div>
+                                <div class="relative flex-grow max-w-full flex-1 px-4">
+                                    <h6 class="text-midnight font-bold">
+                                        {{ $section2['card3_text']->content }}
+                                    </h6>
+                                    <div class="text-gray">
+                                        {{ $section2['card3_text2']->content }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {{-- End of Header --}}
+
+    {{-- Section 1 : Tentang --}}
+    <section id="section-1">
+        <div class="container mx-auto sm:px-4 mx-auto sm:px-4">
+            <div class="flex flex-wrap items-center justify-center lg:justify-around text-center ">
+                <div class="col-auto lg:w-2/5 pr-4 pl-4 mb-3 lg:mb-0">
+                    <h3 class="text-dec text-dec-info-2 text-dec-tl text-midnight font-extrabold mb-2 lg:hidden">
+                        TENTANG HIMATIF
+                    </h3>
+                    <div class="img-wrapper-about">
+                        @for ($i = 1; $i <= 3; $i++)
+                            @if (file_exists(storage_path('app/public/' . $section3["image$i"]->content)))
+                                <div class="img-about">
+                                    <img src="{{ asset('storage/' . $section3["image$i"]->content) }}" alt="">
+                                </div>
+                            @else
+                                <div class="img-about">
+                                    <img src="{{ asset('img/' . $section3["image$i"]->content) }}" alt="">
+                                </div>
+                            @endif
+                        @endfor
+                    </div>
+                </div>
+                <div class="lg:w-2/5 pr-4 pl-4">
+                    <h3
+                        class="text-dec text-dec-info-2 text-dec-tl text-midnight font-extrabold mb-2 hidden lg:inline-block">
+                        TENTANG HIMATIF
+                    </h3>
+                    <p class="text-gray mb-2">
+                        HIMATIF (Himpunan Mahasiswa Teknologi Informasi) adalah Salah satu Organisasi Mahasiswa di Fakultas
+                        Ilmu Komputer Universitas Jember. Terbentuknya HIMATIF dirintis oleh 7 Orang Mahasiswa Teknologi
+                        Informasi pada tanggal 6 Agustus 2017.
+                    </p>
+                    <a href="{{ route('frontpage.about') }}"
+                        class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded-md py-1 px-3 leading-normal no-underline btn-gradient-primary">Lihat
+                        Lebih Lengkap</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- End of Section 1 : Tentang --}}
+
+    {{-- Section 2 : Visi & Misi --}}
+    <section id="section-2">
+        <div class="container mx-auto sm:px-4 ">
+            <div class="flex flex-wrap ">
+                <div class="w-full text-center mb-5">
+                    <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
+                        {{ $visionMission['1-text']->content }}
+                    </h3>
+                    <p class="text-gray">
+                        {{ $visionMission['2-text2']->content }}
+                    </p>
+                </div>
+                @php
+                    $dataKeysVisionMission = ['3-vision', '4-mission'];
+                @endphp
+                @foreach ($dataKeysVisionMission as $key)
+                    <div class="lg:w-1/2 pr-4 pl-4 mb-3 lg:mb-0 ">
+                        <div
+                            class="relative flex flex-col min-w-0 shadow-sm  rounded-xl break-words border bg-white border-1 border-gray-300 ">
+                            <div class="flex-auto p-6">
+                                <div class="flex flex-wrap  no-gutters">
+                                    <div class="lg:w-1/3 pr-4 pl-4">
+                                        @if (file_exists(storage_path('app/public/' . $visionMission[$key . '_photo']->content)))
+                                            <div class="img-fit img-fit-cover h-20rem">
+                                                <img src="{{ asset('storage/' . $visionMission[$key . '_photo']->content) }}"
+                                                    alt="">
+                                            </div>
+                                        @else
+                                            <div class="img-fit img-fit-cover h-20rem">
+                                                <img src="{{ asset('img/' . $visionMission[$key . '_photo']->content) }}"
+                                                    alt="">
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="relative lg:flex-grow lg:flex-1 p-2 lg:p-6">
+                                        <h5 class="text-midnight text-shadowed font-extrabold">
+                                            {{ $visionMission[$key . '_text']->content }}
+                                            <span
+                                                class="text-shadowed-content">{{ $visionMission[$key . '_text']->content }}</span>
+                                        </h5>
+                                        <div class="divider my-2"></div>
+                                        <div class="text-gray">
+                                            {!! $visionMission[$key . '_text2']->content !!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    {{-- End of Section 2 : Visi & Misi --}}
+
+    {{-- Section 3 : Divisi --}}
+    <section id="section-3">
+        <div class="container mx-auto sm:px-4 mx-auto sm:px-4">
+            <div class="flex flex-wrap  justify-center">
+                <div class="w-full text-center mb-5">
+                    <h3 class="text-dec text-dec-warning-1 text-dec-tl text-white font-extrabold mb-8">
+                        PENGURUS HIMATIF
+                    </h3>
+                    <h6 class="text-gray-100">
+                        Pengurus HIMATIF terbagi atas beberapa divisi dengan
+                        tugas pokok dan tanggung jawab masing-masing
+                    </h6>
+                </div>
+
+                @php
+                    $divisions = [
+                        [
+                            'shortname' => 'bph',
+                            'name' => 'Badan Pengurus Harian',
+                            'content' => 'BPH Terdisi atas Ketua Umum, Sekretaris Umum dan Bendahara Umum',
+                        ],
+                        [
+                            'shortname' => 'psdm',
+                            'name' => 'Pengembangan Sumber Daya Mahasiswa',
+                            'content' => 'Pengembangan dan pemberdayaan akademik dan softskill mahasiswa serta untuk menciptakan mahasiswa berkompeten dan unggul',
+                        ],
+                        [
+                            'shortname' => 'litbang',
+                            'name' => 'Penelitian dan Pengembangan',
+                            'content' => 'Melakukan penelitian untuk mendapatkan hasil optimal dalam pengembangan mahasiswa teknologi informasi',
+                        ],
+                        [
+                            'shortname' => 'humas',
+                            'name' => 'Hubungan Masyarakat',
+                            'content' => 'Media komunikasi antara HIMATIF birokrasi, organisasi lain, instansi, maupun masyarakat umum dan menjadi penghubung antara himatif dengan mahasiswa teknologi informasi secara langsung',
+                        ],
+                        [
+                            'shortname' => 'mediatek',
+                            'name' => 'Media Teknologi',
+                            'content' => 'Media informasi dan komunikasi seputar teknologi informasi serta media pengembang teknologi HIMATIF',
+                        ],
+                    ];
+                @endphp
+
+                @foreach ($divisions as $i => $division)
+                    <div class="md:w-1/2 xl:w-1/3 pr-4 pl-4 mb-8 md:mb-12 ">
+                        <div class="flex flex-wrap  gutters-xs justify-center text-center lg:text-left">
+                            <div class="col-auto mb-3 mr-2 lg:mb-0">
+                                <img src="{{ asset('img/icons/' . $division['shortname'] . '-secondary.svg') }}"
+                                    alt="" class="max-w-full h-auto">
+                            </div>
+                            <div class="relative lg:flex-grow lg:flex-1 lg:pl-1">
+                                <h5 class="text-white font-bold mb-1">{{ $division['name'] }}</h5>
+                                <p class="text-gray-100">
+                                    {{-- {{ strlen($division['content']) > 85 ? substr($division['content'], 0, 85) . '...' : $division['content'] }} --}}
+                                    {{ $division['content'] }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
+        </div>
+    </section>
+    {{-- End of Section 3 : Divisi --}}
+
+
+    {{-- Section 4 : Proker --}}
+    <section id="section-4">
+
+        <div class="container mx-auto sm:px-4  mx-auto sm:px-4">
+            <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
+                PROGRAM KERJA
+            </h3>
+            <h6 class="text-gray mb-2">Program Kerja Himatif tahun 2023/2024</h6>
+
+            <div id="default-carousel" class="max-lg:h-[30rem] overflow-hidden relative lg:hidden w-full"
+                data-carousel="slide">
+                <!-- Carousel wrapper -->
+                <div class="relative rounded-lg ">
+                    @foreach ($prokers as $proker)
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <div class="relative lg:flex-grow lg:flex-1 my-3 md:my-6">
+                                <div
+                                    class="relative flex flex-col min-w-0 rounded-md break-words bg-white border-1 border-gray-300 card-proker border shadow-sm h-full">
+                                    <div class="flex-auto p-6 w-full h-full">
+                                        <div class="flex flex-wrap  justify-center h-full">
+                                            <div class="col-auto mb-2 lg:mb-0">
+                                                <div class="w-52 h-52 pr-5 rounded-md flex items-center">
+                                                    @if ($proker->logo)
+                                                        <img src="{{ asset('storage/' . $proker->logo) }}"
+                                                            alt="">
+                                                    @else
+                                                        <img src="{{ asset('img/placeholder/product-image-default.svg') }}"
+                                                            alt="">
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="relative md:flex-grow md:flex-1 flex flex-col justify-between">
+                                                <div class="flex-grow">
+                                                    <a href="{{ route('frontpage.proker.show', $proker->id) }}"
+                                                        class="text-midnight">
+                                                        <h5 class="font-semibold mb-1">{{ $proker->name }}</h5>
+                                                    </a>
+
+                                                    @if ($proker->is_registration_open === '1')
+                                                        <div
+                                                            class="inline-block p-1 text-center font-semibold text-sm align-baseline leading-none rounded-md badge-lg bg-green-500 text-white hover:green-600 mb-2">
+                                                            Pendaftaran Dibuka</div>
+                                                    @endif
+
+                                                    <p class="text-12 text-md-14 text-gray mb-3">
+                                                        {{ substr(strip_tags($proker->description), 0, 80) . (strlen(strip_tags($proker->description)) > 80 ? '...' : '') }}
+                                                    </p>
+                                                </div>
+
+                                                <a href="{{ route('frontpage.proker.show', $proker->id) }}"
+                                                    class="text-gray">Lihat
+                                                    Detail <i class="fas fa-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+                <!-- Slider controls -->
+                <button type="button"
+                    class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    data-carousel-prev>
+                    <span
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight dark:bg-white/30 group-hover:bg-black dark:group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white dark:text-gray-800 rtl:rotate-180"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 1 1 5l4 4" />
+                        </svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button"
+                    class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    data-carousel-next>
+                    <span
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight dark:bg-white/30 group-hover:bg-black dark:group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white dark:text-gray-800 rtl:rotate-180"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 9 4-4-4-4" />
+                        </svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
+            </div>
+            <div id="default-carousel" class="relative max-lg:hidden w-full" data-carousel="slide">
+                <!-- Carousel wrapper -->
+                <div class="relative min-h-72 overflow-hidden rounded-lg ">
+
+                    <!-- Item 1 -->
+                    @php
+                        $counter = 1;
+                        $tmp_prokers = [];
+                    @endphp
+                    @foreach ($prokers as $proker)
+                        @php
+                            array_push($tmp_prokers, $proker);
+                        @endphp
+                        @if (count($tmp_prokers) == 2 || count($prokers) == 1)
+                            <div class="flex flex-row hidden duration-700 ease-in-out" data-carousel-item>
+                                @foreach ($tmp_prokers as $proker)
+                                    <div class="relative lg:flex-grow lg:flex-1 my-3 md:my-6 px-2 ">
+                                        <div
+                                            class="relative flex flex-col min-w-0 rounded-md break-words bg-white border-1 border-gray-300 card-proker border shadow-sm h-full">
+                                            <div class="flex-auto p-6 w-full h-full">
+                                                <div class="flex flex-wrap  justify-center  h-full">
+                                                    <div class="col-auto mb-2 lg:mb-0">
+                                                        <div class="w-52 h-52 pr-5 rounded-md flex items-center">
+                                                            @if ($proker->logo)
+                                                                <img src="{{ asset('storage/' . $proker->logo) }}"
+                                                                    alt="">
+                                                            @else
+                                                                <img src="{{ asset('img/placeholder/product-image-default.svg') }}"
+                                                                    alt="">
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="relative md:flex-grow md:flex-1 flex flex-col justify-between">
+                                                        <div class="flex-grow">
+                                                            <a href="{{ route('frontpage.proker.show', $proker->id) }}"
+                                                                class="text-midnight">
+                                                                <h5 class="font-semibold mb-1">{{ $proker->name }}</h5>
+                                                            </a>
+
+                                                            @if ($proker->is_registration_open === '1')
+                                                                <div
+                                                                    class="inline-block p-1 text-center font-semibold text-sm align-baseline leading-none rounded-md badge-lg bg-green-500 text-white hover:green-600 mb-2">
+                                                                    Pendaftaran Dibuka</div>
+                                                            @endif
+
+                                                            <p class="text-12 text-md-14 text-gray mb-3">
+                                                                {{ substr(strip_tags($proker->description), 0, 80) . (strlen(strip_tags($proker->description)) > 80 ? '...' : '') }}
+                                                            </p>
+                                                        </div>
+
+                                                        <a href="{{ route('frontpage.proker.show', $proker->id) }}"
+                                                            class="text-gray pb-3">Lihat
+                                                            Detail <i class="fas fa-arrow-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+                        @php
+                            if ($counter % 2 == 0) {
+                                $tmp_prokers = [];
+                            }
+                            $counter += 1;
+                        @endphp
+                    @endforeach
+                </div>
+                <!-- Slider indicators -->
+                <div class="absolute z-30 flex -translate-x-1/2 bottom-1 left-1/2 space-x-3 rtl:space-x-reverse">
+                    @foreach (range(1, count($prokers), 2) as $item)
+                        <button type="button"
+                            class="w-3 mb-2 font-medium leading-tight text-2xl rounded-full bg-midnight"
+                            aria-current="true" aria-label="Slide {{ $item / 2 }}"
+                            data-carousel-slide-to="{{ $item / 2 }}"></button>
+                    @endforeach
+
+
+                </div>
+                <!-- Slider controls -->
+                <button type="button"
+                    class="absolute top-0 start-0 z-30 flex items-center justify-center  h-full px-4 cursor-pointer group focus:outline-none"
+                    data-carousel-prev>
+                    <span
+                        class=" inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight dark:bg-white/30 group-hover:bg-black dark:group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white dark:text-gray-800 rtl:rotate-180"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 1 1 5l4 4" />
+                        </svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button"
+                    class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    data-carousel-next>
+                    <span
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight dark:bg-white/30 group-hover:bg-black dark:group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white dark:text-gray-800 rtl:rotate-180"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 9 4-4-4-4" />
+                        </svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
+            </div>
+
+
+        </div>
+
+        </div>
+    </section>
+
+    {{-- Section 5 : Galerry --}}
+    <section id="section-5">
+        <div class="container mx-auto sm:px-4 mx-auto sm:px-4">
+            <div id="row-gallery" class="flex flex-wrap justify-start gutters-xs">
+                <div class="w-full text-left mb-3 md:mb-12">
+                    <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
+                        GALERI KEGIATAN
+                    </h3>
+                    <h6 class="text-gray mb-2">Dokumentasi kegiatan HIMATIF terbaru</h6>
+                </div>
+
+                <div class="lg:w-1/2 pr-4 pl-4 mb-1 lg:mb-0">
+                    @if (file_exists(storage_path('app/public/' . $gallery['1-image1']->content)))
+                        <div data-src="{{ asset('storage/' . $gallery['1-image1']->content) }}"
+                            class="img-gallery img-gallery-main">
+                            <img src="{{ asset('storage/' . $gallery['1-image1']->content) }}" class="max-w-full h-auto"
+                                alt="">
+                        </div>
+                    @else
+                        <div data-src="{{ asset('img/' . $gallery['1-image1']->content) }}"
+                            class="img-gallery img-gallery-main">
+                            <img src="{{ asset('img/' . $gallery['1-image1']->content) }}" class="max-w-full h-auto"
+                                alt="">
+                        </div>
+                    @endif
+                </div>
+                <div class="lg:w-1/2 pr-4 pl-4">
+                    <div class="flex flex-wrap  gutters-xs">
+                        @for ($i = 2; $i <= 5; $i++)
+                            <div class="w-1/2 mb-1">
+                                @if (file_exists(storage_path('app/public/' . $gallery["$i-image$i"]->content)))
+                                    <div data-src="{{ asset('storage/' . $gallery["$i-image$i"]->content) }}"
+                                        class="img-gallery">
+                                        <img src="{{ asset('storage/' . $gallery["$i-image$i"]->content) }}"
+                                            alt="" class="max-w-full h-auto">
+                                    </div>
+                                @else
+                                    <div data-src="{{ asset('img/' . $gallery["$i-image$i"]->content) }}"
+                                        class="img-gallery">
+                                        <img src="{{ asset('img/' . $gallery["$i-image$i"]->content) }}" alt=""
+                                            class="max-w-full h-auto">
+                                    </div>
+                                @endif
+                            </div>
+                        @endfor
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- End of Section 5 : Galerry --}}
+
+@endsection
+
+@section('style')
+
+    <!-- Lightgallery -->
+
+
+@endsection
+
+@section('script')
+    {{-- Slick --}}
+
+    {{-- Light Gallery --}}
+
+@endsection
