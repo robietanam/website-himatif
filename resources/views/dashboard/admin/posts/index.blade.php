@@ -125,8 +125,8 @@
     @include('dashboard._scripts.datatable')
     <script>
         $(document).ready(function() {
-
             const ajax_url = '{{ route('ajax.getPosts') }}';
+
             const table = $('#datatable').DataTable({
                 processing: true,
                 serverSide: true,
@@ -162,7 +162,10 @@
                     infoFiltered: "(filtered from _MAX_ total records)",
                     search: "Cari Data Post:"
                 },
-                ajax: ajax_url,
+                ajax: {
+                    url: ajax_url,
+
+                },
                 columnDefs: [{
                         targets: 0,
                         checkboxes: {

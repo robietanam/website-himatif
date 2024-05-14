@@ -8,6 +8,8 @@ use App\Repositories\DivisionRepository;
 use App\Repositories\PostRepository;
 use App\Repositories\ProkerRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class HomepageController extends Controller
 {
@@ -113,5 +115,15 @@ class HomepageController extends Controller
         } else {
             abort(404);
         }
+    }
+
+    public function showCakap(Request $request){
+        $cookie = $request->cookie('id_form');
+
+        if (empty($cookie)){
+            $cookie = Str::uuid();
+        }
+        
+        return response(view('frontpage.modules.cakap-himatif', compact(['cookie'])))->cookie('id_form', $cookie);
     }
 }

@@ -37,10 +37,10 @@
 
 <body style="overflow-x: hidden; overflow-y: auto;">
     <section class="section">
-        <div class="container mx-auto sm:px-4 mt-3 pt-4">
+        <div class="container mt-3 pt-4">
             <h4 class="text-center my-3">HIMATIF</h4>
-            <div class="flex flex-wrap  justify-center">
-                <div class="w-full sm:w-2/3 pr-4 pl-4 lg:w-2/5 pr-4 pl-4">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-8 col-lg-5">
 
                     @yield('content')
 

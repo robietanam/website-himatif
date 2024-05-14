@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Ajax;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\PostRepository;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -14,7 +15,7 @@ class PostController extends Controller
         $this->postRepository = new PostRepository;
     }
 
-    public function getPosts()
+    public function getPosts(Request $request)
     {
         try {
             return $this->postRepository->getDatatable();

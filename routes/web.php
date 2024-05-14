@@ -13,12 +13,13 @@
 
 // Route::view('dashboard/admin/keanggotaan', 'dashboard.admin.keanggotaan.index');
 
-
+use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login');
 });
+
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Admin Routes
@@ -53,6 +54,21 @@ Route::group(['middleware' => ['auth', 'role:admin'], 'prefix' => 'dashboard/adm
     Route::get('page-contents', 'PageController@index')->name('page-contents.index');
     Route::get('page-contents/{id}/edit', 'PageController@edit')->name('page-contents.edit');
     Route::put('page-contents/{id}', 'PageController@update')->name('page-contents.update');
+
+    //nim
+    Route::get('nim-checker', 'NIMCheckerController@index')->name('nim-checker.index');
+    Route::post('nim-checker/update', 'NIMCheckerController@store')->name('nim-checker.update');
+
+    // Himatif x Cakap
+    Route::get('cakap','CakapHimatif@index')->name('cakap.index');
+    Route::delete('cakap/destroys', 'CakapHimatif@destroys')->name('cakap.destroys');
+    Route::get('cakap/update-kode', 'CakapHimatif@updateKode')->name('cakap.kode.index');
+    Route::post('cakap/update-kode', 'CakapHimatif@updateKode')->name('cakap.kode.update');
+    Route::post('cakap/email', 'CakapHimatif@showEmail')->name('cakap.email.index');
+    Route::delete('cakap/destroys-kode', 'CakapHimatif@destroyskode')->name('cakap.kode.destroys');
+    
+    Route::get('cakap/email-send', 'EmailController@emailCakaps')->name('cakap.email.sends');
+    Route::get('cakap/email-preview', 'EmailController@previewCakap')->name('cakap.email.preview');
 });
 
 // Pengurus Routes
@@ -65,7 +81,7 @@ Route::group(['middleware' => ['auth', 'role:pengurus'], 'prefix' => 'dashboard/
 });
 
 // Ajax Routes
-Route::group(['prefix' => 'dashboard/ajax', 'namespace' => 'Ajax', 'as' => 'ajax.'], function () {
+Route::group(['middleware' => ['auth', 'role:admin'],'prefix' => 'dashboard/ajax', 'namespace' => 'Ajax', 'as' => 'ajax.'], function () {
     // Posts
     Route::get('posts', 'PostController@getPosts')->name('getPosts');
     // Prokers
@@ -74,6 +90,10 @@ Route::group(['prefix' => 'dashboard/ajax', 'namespace' => 'Ajax', 'as' => 'ajax
     // Users
     Route::get('users', 'UserController@getUsers')->name('getUsers');
     Route::get('users/{id?}', 'UserController@findUserById')->name('findUserById');
+    // Cakaps
+    Route::get('cakaps', 'FormCakapController@getCakaps')->name('getCakaps');
+    Route::get('cakaps-kode', 'FormCakapController@getCakapKode')->name('getCakapKode');
+    Route::get('cakaps-email', 'FormCakapController@getCakapsEmail')->name('getCakapsEmail');
 });
 
 Route::group(['namespace' => 'Frontpage', 'as' => 'frontpage.'], function () {
@@ -85,4 +105,6 @@ Route::group(['namespace' => 'Frontpage', 'as' => 'frontpage.'], function () {
     Route::get('proker/{id}', 'HomepageController@showProker')->name('proker.show');
     Route::get('berita', 'HomepageController@getBerita')->name('berita');
     Route::get('berita/{slug}', 'HomepageController@showBerita')->name('berita.show');
+    Route::get('CakapxHimatif', 'HomepageController@showCakap')->name('cakap.show');
+    Route::post('cakap/simpan','CakapHimatifFrontpage@store')->name('cakap.store');
 });

@@ -61,7 +61,7 @@ class PostController extends Controller
             'photo' => 'image|mimes:jpeg,jpg,png|max:2048',
             'category_id' => 'required',
         ])->validate();
-
+        
         try {
             $this->postRepository->save($request->all());
             // $this->postRepository->save($content);

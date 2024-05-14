@@ -8,7 +8,6 @@
         </div>
         <div class="col-auto">
             <ul class="navbar-nav navbar-right">
-
                 <li class="dropdown"><a href="#" data-bs-toggle="dropdown"
                         class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                         <div class="d-sm-none d-lg-inline-block">Hi, {{ \Auth::user()->name }}</div>

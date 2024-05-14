@@ -1,0 +1,7 @@
+File from: [storageapppublic/**/*.{jpg,JPG,jpeg,JPEG,png,svg}]
+
+File to: [-]
+
+Compression algorithm: [-]
+
+Description:  Directory is empty!: 

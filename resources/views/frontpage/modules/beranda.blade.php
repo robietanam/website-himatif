@@ -305,171 +305,10 @@
             </h3>
             <h6 class="text-gray mb-2">Program Kerja Himatif tahun 2023/2024</h6>
 
-            <div id="default-carousel" class="max-lg:h-[30rem] overflow-hidden relative lg:hidden w-full"
-                data-carousel="slide">
-                <!-- Carousel wrapper -->
-                <div class="relative rounded-lg ">
-                    @foreach ($prokers as $proker)
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <div class="relative lg:flex-grow lg:flex-1 my-3 md:my-6">
-                                <div
-                                    class="relative flex flex-col min-w-0 rounded-md break-words bg-white border-1 border-gray-300 card-proker border shadow-sm h-full">
-                                    <div class="flex-auto p-6 w-full h-full">
-                                        <div class="flex flex-wrap  justify-center h-full">
-                                            <div class="col-auto mb-2 lg:mb-0">
-                                                <div class="w-52 h-52 pr-5 rounded-md flex items-center">
-                                                    @if ($proker->logo)
-                                                        <img src="{{ asset('storage/' . $proker->logo) }}"
-                                                            alt="">
-                                                    @else
-                                                        <img src="{{ asset('img/placeholder/product-image-default.svg') }}"
-                                                            alt="">
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="relative md:flex-grow md:flex-1 flex flex-col justify-between">
-                                                <div class="flex-grow">
-                                                    <a href="{{ route('frontpage.proker.show', $proker->id) }}"
-                                                        class="text-midnight">
-                                                        <h5 class="font-semibold mb-1">{{ $proker->name }}</h5>
-                                                    </a>
-
-                                                    @if ($proker->is_registration_open === '1')
-                                                        <div
-                                                            class="inline-block p-1 text-center font-semibold text-sm align-baseline leading-none rounded-md badge-lg bg-green-500 text-white hover:green-600 mb-2">
-                                                            Pendaftaran Dibuka</div>
-                                                    @endif
-
-                                                    <p class="text-12 text-md-14 text-gray mb-3">
-                                                        {{ substr(strip_tags($proker->description), 0, 80) . (strlen(strip_tags($proker->description)) > 80 ? '...' : '') }}
-                                                    </p>
-                                                </div>
-
-                                                <a href="{{ route('frontpage.proker.show', $proker->id) }}"
-                                                    class="text-gray">Lihat
-                                                    Detail <i class="fas fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-
-                <!-- Slider controls -->
+            <div class="flex flex-wrap w-full justify-between op-5">
                 <button type="button"
-                    class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                    data-carousel-prev>
-                    <span
-                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight dark:bg-white/30 group-hover:bg-black dark:group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white dark:text-gray-800 rtl:rotate-180"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M5 1 1 5l4 4" />
-                        </svg>
-                        <span class="sr-only">Previous</span>
-                    </span>
-                </button>
-                <button type="button"
-                    class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                    data-carousel-next>
-                    <span
-                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight dark:bg-white/30 group-hover:bg-black dark:group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white dark:text-gray-800 rtl:rotate-180"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 9 4-4-4-4" />
-                        </svg>
-                        <span class="sr-only">Next</span>
-                    </span>
-                </button>
-            </div>
-            <div id="default-carousel" class="relative max-lg:hidden w-full" data-carousel="slide">
-                <!-- Carousel wrapper -->
-                <div class="relative min-h-72 overflow-hidden rounded-lg ">
-
-                    <!-- Item 1 -->
-                    @php
-                        $counter = 1;
-                        $tmp_prokers = [];
-                    @endphp
-                    @foreach ($prokers as $proker)
-                        @php
-                            array_push($tmp_prokers, $proker);
-                        @endphp
-                        @if (count($tmp_prokers) == 2 || count($prokers) == 1)
-                            <div class="flex flex-row hidden duration-700 ease-in-out" data-carousel-item>
-                                @foreach ($tmp_prokers as $proker)
-                                    <div class="relative lg:flex-grow lg:flex-1 my-3 md:my-6 px-2 ">
-                                        <div
-                                            class="relative flex flex-col min-w-0 rounded-md break-words bg-white border-1 border-gray-300 card-proker border shadow-sm h-full">
-                                            <div class="flex-auto p-6 w-full h-full">
-                                                <div class="flex flex-wrap  justify-center  h-full">
-                                                    <div class="col-auto mb-2 lg:mb-0">
-                                                        <div class="w-52 h-52 pr-5 rounded-md flex items-center">
-                                                            @if ($proker->logo)
-                                                                <img src="{{ asset('storage/' . $proker->logo) }}"
-                                                                    alt="">
-                                                            @else
-                                                                <img src="{{ asset('img/placeholder/product-image-default.svg') }}"
-                                                                    alt="">
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        class="relative md:flex-grow md:flex-1 flex flex-col justify-between">
-                                                        <div class="flex-grow">
-                                                            <a href="{{ route('frontpage.proker.show', $proker->id) }}"
-                                                                class="text-midnight">
-                                                                <h5 class="font-semibold mb-1">{{ $proker->name }}</h5>
-                                                            </a>
-
-                                                            @if ($proker->is_registration_open === '1')
-                                                                <div
-                                                                    class="inline-block p-1 text-center font-semibold text-sm align-baseline leading-none rounded-md badge-lg bg-green-500 text-white hover:green-600 mb-2">
-                                                                    Pendaftaran Dibuka</div>
-                                                            @endif
-
-                                                            <p class="text-12 text-md-14 text-gray mb-3">
-                                                                {{ substr(strip_tags($proker->description), 0, 80) . (strlen(strip_tags($proker->description)) > 80 ? '...' : '') }}
-                                                            </p>
-                                                        </div>
-
-                                                        <a href="{{ route('frontpage.proker.show', $proker->id) }}"
-                                                            class="text-gray pb-3">Lihat
-                                                            Detail <i class="fas fa-arrow-right"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        @endif
-                        @php
-                            if ($counter % 2 == 0) {
-                                $tmp_prokers = [];
-                            }
-                            $counter += 1;
-                        @endphp
-                    @endforeach
-                </div>
-                <!-- Slider indicators -->
-                <div class="absolute z-30 flex -translate-x-1/2 bottom-1 left-1/2 space-x-3 rtl:space-x-reverse">
-                    @foreach (range(1, count($prokers), 2) as $item)
-                        <button type="button"
-                            class="w-3 mb-2 font-medium leading-tight text-2xl rounded-full bg-midnight"
-                            aria-current="true" aria-label="Slide {{ $item / 2 }}"
-                            data-carousel-slide-to="{{ $item / 2 }}"></button>
-                    @endforeach
-
-
-                </div>
-                <!-- Slider controls -->
-                <button type="button"
-                    class="absolute top-0 start-0 z-30 flex items-center justify-center  h-full px-4 cursor-pointer group focus:outline-none"
-                    data-carousel-prev>
+                    class="relative top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    id="slick-proker-prev">
                     <span
                         class=" inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight dark:bg-white/30 group-hover:bg-black dark:group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                         <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white dark:text-gray-800 rtl:rotate-180"
@@ -481,8 +320,8 @@
                     </span>
                 </button>
                 <button type="button"
-                    class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                    data-carousel-next>
+                    class="relative top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    id="slick-proker-next">
                     <span
                         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight dark:bg-white/30 group-hover:bg-black dark:group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                         <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white dark:text-gray-800 rtl:rotate-180"
@@ -493,8 +332,55 @@
                         <span class="sr-only">Next</span>
                     </span>
                 </button>
+
             </div>
 
+            <div class="flex flex-wrap " id="slick-proker-row">
+                @foreach ($prokers as $proker)
+                    <div class="relative lg:flex-grow lg:flex-1 my-3 md:my-6 px-2 ">
+                        <div
+                            class="relative flex flex-col min-w-0 rounded-md break-words bg-white border-1 border-gray-300 card-proker border shadow-sm h-full">
+                            <div class="flex-auto p-6 w-full h-full">
+                                <div class="flex flex-wrap  justify-center  h-full">
+                                    <div class="col-auto mb-2 lg:mb-0">
+                                        <div class="w-52 h-52 pr-5 rounded-md flex items-center">
+                                            @if ($proker->logo)
+                                                <img src="{{ asset('storage/' . $proker->logo) }}" alt="">
+                                            @else
+                                                <img src="{{ asset('img/placeholder/product-image-default.svg') }}"
+                                                    alt="">
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="relative md:flex-grow md:flex-1 flex flex-col justify-between">
+                                        <div class="flex-grow">
+                                            <a href="{{ route('frontpage.proker.show', $proker->id) }}"
+                                                class="text-midnight">
+                                                <h5 class="font-semibold mb-1">{{ $proker->name }}</h5>
+                                            </a>
+
+                                            @if ($proker->is_registration_open === '1')
+                                                <div
+                                                    class="inline-block p-1 text-center font-semibold text-sm align-baseline leading-none rounded-md badge-lg bg-green-500 text-white hover:green-600 mb-2">
+                                                    Pendaftaran Dibuka</div>
+                                            @endif
+
+                                            <p class="text-12 text-md-14 text-gray mb-3">
+                                                {{ substr(strip_tags($proker->description), 0, 80) . (strlen(strip_tags($proker->description)) > 80 ? '...' : '') }}
+                                            </p>
+                                        </div>
+
+                                        <a href="{{ route('frontpage.proker.show', $proker->id) }}"
+                                            class="text-gray pb-3">Lihat
+                                            Detail <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
 
         </div>
 
@@ -556,15 +442,75 @@
 @endsection
 
 @section('style')
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css"
+        integrity="sha512-kwJUhJJaTDzGp6VTPBbMQWBFUof6+pv0SM3s8fo+E6XnPmVmtfwENK0vHYup3tsYnqHgRDoBDTJWoq7rnQw2+g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Lightgallery -->
+    <style>
+        #slick-proker-prev,
+        #slick-proker-next {
+            transition: all .3s ease;
+            font-size: 2.4rem;
+            cursor: pointer;
+        }
 
+        #slick-proker-prev:hover,
+        #slick-proker-next:hover {
+            font-size: 2.6rem;
+        }
+
+        .slick-track {
+            margin-left: unset;
+            margin-right: unset;
+        }
+    </style>
 
 @endsection
 
 @section('script')
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     {{-- Slick --}}
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    {{-- Light Gallery --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"
+        integrity="sha512-b4rL1m5b76KrUhDkj2Vf14Y0l1NtbiNXwV+SzOzLGv6Tz1roJHa70yr8RmTUswrauu2Wgb/xBJPR8v80pQYKtQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function() {
+            lightGallery(document.getElementById('row-gallery'), {
+                mode: 'lg-fade',
+                cssEasing: 'ease-in',
+                speed: 1000,
+                startClass: 'lg-fade',
+                backdropDuration: 500,
+                hideBarsDelay: 500,
+                selector: '[data-src]',
+                download: false,
+            });
+            $('#slick-proker-row').slick({
+                infinite: true,
+                autoplay: true,
+                pauseOnDotsHover: true,
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                autoplay: true,
+                dots: false,
+                prevArrow: $('#slick-proker-prev'),
+                nextArrow: $('#slick-proker-next'),
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }]
+            });
+        })
+    </script>
     {{-- Light Gallery --}}
 
 @endsection

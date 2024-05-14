@@ -98,7 +98,7 @@ class PostRepository
     {
         return Post::where('slug', $slug)->first();
     }
-
+    
     /**
      * @param Post $data
      * @return Post

@@ -28,6 +28,7 @@ class ProkerRepository
     {
         $prokers = null;
         if (!is_null($status)) {
+            dd($status);
             $prokers = Proker::where('status', '=', $status)->get();
         } else {
             $prokers = Proker::all();
