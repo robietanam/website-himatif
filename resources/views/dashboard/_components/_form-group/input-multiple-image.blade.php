@@ -6,72 +6,136 @@
         @endif
     </label>
 
-    <table class="table table-bordered" id="dynamicAddRemoveImage">
+    <table class="table table-bordered" id="dynamicAddRemove">
         <tr>
-            <th>Subject</th>
+            <th colspan="3">Subject</th>
             <th>Action</th>
         </tr>
-        @if (isset($inputValue) && $inputValue != null && $inputValue != [])
-            <tr>
-                <td>
-                    <div class="custom-file">
+        @if (isset($inputValue))
+            @foreach ($inputValue as $key => $value)
+                <tr>
+                    <td>
+                        <input type="{{ isset($inputType) ? $inputType : 'text' }}" name="timeline_name[]"
+                            value="{{ isset($value) ? $value[0] : old($value[0]) }}"
+                            placeholder="Input {{ $inputLabel }}"
+                            class="form-control {{ isset($inputSize) ? $inputSize : '' }}  @error($value[0]) is-invalid @enderror"
+                            required>
 
-                        <input type="file" name="{{ $inputName }}" id="{{ $inputId }}"
-                            onchange="openFile(event, '#{{ $inputPreviewIdentity }}')"
-                            @if (isset($inputIsRequired) && $inputIsRequired === true) required @endif
-                            @if (isset($inputIsDisabled) && $inputIsDisabled === true) disabled @endif
-                            class="custom-file-input @error($inputName) is-invalid @enderror">
-                        <label class="custom-file-label" for="{{ $inputName }}">{{ $value }}
-                        </label>
-
-
+                        @isset($inputHelp)
+                            <small class="form-text text-muted">{!! $inputHelp !!}</small>
+                        @endisset
 
                         @error($inputName)
-                            <div class="text-invalid pt-2">
+                            <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
-                    </div>
-                </td>
+                    </td>
+                    <td>
+                        <input type="datetime-local" name="timeline_time[]"
+                            value="{{ isset($value) ? $value[1] : old($value[1]) }}"
+                            placeholder="Input {{ $inputLabel }}"
+                            class="form-control {{ isset($inputSize) ? $inputSize : '' }}  @error($value[1]) is-invalid @enderror"
+                            required>
 
-                @if ($key == 0)
-                    <td>
-                        <button type="button" name="add" id="dynamic-ar-image" class="btn btn-outline-primary">Add
-                            Subject
-                        </button>
+                        @isset($inputHelp)
+                            <small class="form-text text-muted">{!! $inputHelp !!}</small>
+                        @endisset
+
+                        @error($inputName)
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </td>
-                @else
                     <td>
-                        <button type="button" class="btn btn-outline-danger remove-input-field">Delete</button>
+                        <input type="datetime-local" name="timeline_time_end[]"
+                            value="{{ isset($value) ? $value[2] ?? '' : old($value[2]) }}"
+                            placeholder="Input {{ $inputLabel }}"
+                            class="form-control {{ isset($inputSize) ? $inputSize : '' }}  @error($value[2] ?? '') is-invalid @enderror"
+                            required>
+
+                        @isset($inputHelp)
+                            <small class="form-text text-muted">Samakan jika cuma butuh 1 tanggal</small>
+                        @endisset
+
+                        @error($inputName)
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </td>
-                @endif
-            </tr>
-        @endforeach
-    @else
-        <tr>
-            <td>
-                <div class="custom-file">
-                    <input type="file" name="{{ $inputName }}" id="{{ $inputId }}"
-                        onchange="openFile(event, '#{{ $inputPreviewIdentity }}')"
-                        @if (isset($inputIsRequired) && $inputIsRequired === true) required @endif
-                        @if (isset($inputIsDisabled) && $inputIsDisabled === true) disabled @endif
-                        class="custom-file-input @error($inputName) is-invalid @enderror">
-                    <label class="custom-file-label" for="{{ $inputName }}">Choose file</label>
+                    @if ($key == 0)
+                        <td>
+                            <button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">Add
+                                Subject
+                            </button>
+                        </td>
+                    @else
+                        <td>
+                            <button type="button" class="btn btn-outline-danger remove-input-field">Delete</button>
+                        </td>
+                    @endif
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td>
+                    <input type="{{ isset($inputType) ? $inputType : 'text' }}" name="timeline_name[]" value=""
+                        placeholder="Input {{ $inputLabel }}"
+                        class="form-control {{ isset($inputSize) ? $inputSize : '' }}  @error($inputName) is-invalid @enderror"
+                        required>
+
+                    @isset($inputHelp)
+                        <small class="form-text text-muted">{!! $inputHelp !!}</small>
+                    @endisset
 
                     @error($inputName)
-                        <div class="text-invalid pt-2">
+                        <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                     @enderror
-                </div>
-            </td>
-            <td>
-                <button type="button" name="add" id="dynamic-ar-image" class="btn btn-outline-primary">Add
-                    Subject
-                </button>
-            </td>
-            </td>
-            @endif
+                </td>
+                <td>
+                    <input type="datetime-local" name="timeline_time[]" value=""
+                        placeholder="Input {{ $inputLabel }}"
+                        class="form-control {{ isset($inputSize) ? $inputSize : '' }}  @error($inputName) is-invalid @enderror"
+                        required>
+
+                    @isset($inputHelp)
+                        <small class="form-text text-muted">{!! $inputHelp !!}</small>
+                    @endisset
+
+                    @error($inputName)
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </td>
+                <td>
+                    <input type="datetime-local" name="timeline_time_end[]" value=""
+                        placeholder="Input {{ $inputLabel }}"
+                        class="form-control {{ isset($inputSize) ? $inputSize : '' }}  @error($value[2] ?? '') is-invalid @enderror"
+                        required>
+
+                    @isset($inputHelp)
+                        <small class="form-text text-muted">{!! $inputHelp !!}</small>
+                    @endisset
+
+                    @error($inputName)
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </td>
+                <td>
+
+                    <button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">Add
+                        Subject
+                    </button>
+                </td>
+                </td>
+        @endif
 
 
         </tr>
