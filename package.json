@@ -10,7 +10,7 @@
         "autoprefixer": "^10.4.19",
         "axios": "^1.6.4",
         "compress-images": "^2.0.5",
-        "daisyui": "^4.10.2",
+        "daisyui": "^4.11.1",
         "flowbite": "^2.3.0",
         "laravel-vite-plugin": "^1.0.0",
         "mailwind": "^2.2.0",

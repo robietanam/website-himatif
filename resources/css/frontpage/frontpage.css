@@ -17,7 +17,7 @@
 /* ======================> END OF README <===================== */
 
 .text-gray {
-  @apply text-gray-500
+  @apply text-midnight
 }
 
 
@@ -31,40 +31,6 @@
   width: 0.5px;
 }
 
-.navbar {
-  @apply bg-white shadow-[0_10px_30px_rgba(66,70,95,0.1)] px-4 py-[1.6rem];
-}
-.navbar .navbar-brand {
-  @apply flex items-center;
-}
-.navbar .navbar-brand-image {
-  @apply w-12 md:w-20;
-}
-.navbar .navbar-brand-title {
-  @apply text-[1.8rem] font-bold text-[#42465f];
-}
-.navbar .navbar-nav {
-  @apply flex items-center before:content-[""] before:block before:w-[90%] before:h-px before:bg-[rgba(120,125,145,0.1)] before:mx-auto before:my-8;
-}
-@media screen and (min-width: 992px) {
-  .navbar .navbar-nav {
-    @apply items-center before:hidden;
-  }
-}
-.navbar .navbar-nav .nav-item {
-  @apply px-0 py-4;
-}
-@media screen and (min-width: 992px) {
-  .navbar .navbar-nav .nav-item:not(:last-child) {
-    @apply mr-[1.6rem];
-  }
-}
-.navbar .navbar-nav .nav-item.active .nav-link::after {
-  @apply w-full;
-}
-.navbar .navbar-nav .nav-item .nav-link {
-  @apply text-[#42465f] text-[1.4rem] flex justify-center relative p-0 after:content-[""] after:block after:absolute after:h-[1.2rem] after:w-[0%] after:bg-[rgba(255,163,61,0.3)] after:bottom-[-0.2rem] after:transition-[width] after:duration-[0.3s] after:ease-[ease] hover:after:w-full;
-}
 footer.footer {
   @apply bg-[#42465f] bg-[url("../img/decoration/bg/3.svg"),url("../img/decoration/bg/3.svg")] bg-no-repeat bg-[calc(100%_+_15rem)_calc(100%_+_15rem),-20%_-80%] px-0 py-16 md:bg-[120%_120%,-20%_-80%] md:pt-32 md:pb-16 md:px-0;
 }

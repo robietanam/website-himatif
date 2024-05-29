@@ -6,7 +6,7 @@ export default {
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
-    "./node_modules/flowbite/**/*.js"
+    // "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     colors: {
@@ -39,6 +39,7 @@ export default {
   },
   plugins: [
     require('flowbite/plugin'),
+    require('daisyui'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/line-clamp'),
     // require('daisyui')

@@ -5,13 +5,12 @@
 @section('pageClass', 'blog')
 @section('content')
 
-    <main class="py-5">
-        <div class="container mx-auto max-sm:px-5">
+    <main class="py-5 bg-gray-100">
+        <div class="container mx-auto max-sm:px-5 ">
             <div class="flex flex-wrap ">
                 <div class="lg:w-2/3 ">
-
                     <div
-                        class="relative flex flex-col min-w-0 rounded-md break-words border bg-white border-1 border-gray-300 bg-white mb-3">
+                        class="relative flex flex-col min-w-0 rounded-md break-words border bg-white border-1 border-gray-300 p-4 mb-3">
                         <div class="flex-auto p-6">
                             <h2 class="text-midnight font-bold mb-3 max-sm:text-4xl">{{ $post->title }}</h2>
                             <div
@@ -30,7 +29,7 @@
                                     <div class="text-sm text-gray mb-3">
                                         {{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}
                                     </div>
-                                    <div class="text-gray">
+                                    <div class="text-gray ck-content">
                                         {!! $post->body !!}
                                     </div>
                                 </div>
@@ -98,11 +97,7 @@
     {{-- <link href="{{ asset('css/app-dashboard-berita.min.css') }}" rel="stylesheet">
 
     <link href="{{ asset('vendors/ckeditor5/ckeditor.css') }}" rel="stylesheet"> --}}
-    <style>
-        p {
-            margin-bottom: 1rem;
-        }
-    </style>
+
 @endsection
 
 @section('script')

@@ -1,2 +1,2 @@
 // import './bootstrap';
-import {Carousel} from 'flowbite';
+// import {Carousel} from 'flowbite';
