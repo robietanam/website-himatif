@@ -1,5 +1,5 @@
-<nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 p-6">
-    <div class="navbar bg-base-100">
+<nav class="bg-white border-gray-200  p-6">
+    <div class="navbar bg-white">
         <div class="navbar-start">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -9,9 +9,9 @@
                             d="M4 6h16M4 12h8m-8 6h16" />
                     </svg>
                 </div>
-                <ul tabindex="0" class=" dropdown-content mt-3 z-[5] p-2 shadow bg-base-100 rounded-box w-52 px-5">
+                <ul tabindex="0" class=" dropdown-content mt-3 z-[5] p-2  shadow bg-white rounded-box w-52 px-5">
                     <li class="text-sm max-md:py-3">
-                        <a class="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
+                        <a class="relative w-fit block  after:block after:content-[''] after:absolute after:h-[3px] 
                             after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
                             {{ Request::is('/') ? 'after:scale-x-100' : '' }}"
                             href="{{ url('/') }}">BERANDA</a>
@@ -41,17 +41,37 @@
                         {{ Request::is('berita*') ? 'after:scale-x-100' : '' }}"
                             href="{{ url('/berita') }}">BERITA</a>
                     </li>
+                    <li class="text-sm max-md:py-3 group ">
+                        <a
+                            class="z-30 text-black cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
+                            after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
+                            {{ Request::is('nim-checker') ? 'after:scale-x-100' : '' }}">
+                            LAINNYA
+                        </a>
+                        <ul class="p-2">
+                            <li><a class="py-2 mx-2 text-black cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
+                                    after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
+                                    {{ Request::is('nim-checker') ? 'after:scale-x-100' : '' }}"
+                                    href="{{ url('/nim-checker') }}">
+                                    NIM
+                                    CHECKER
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </li>
 
                 </ul>
             </div>
             <a class="flex items-center space-x-2 rtl:space-x-reverse" href="{{ route('frontpage.homepage') }}">
                 <img src="{{ asset('img/logo.png') }}" class="navbar-brand-image h-8" alt="Logo Himatif">
-                <div class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">HIMATIF</div>
+                <div class="self-center text-xl font-semibold whitespace-nowrap ">HIMATIF</div>
             </a>
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul
-                class="flex flex-col font-medium p-6 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                class="flex flex-col font-medium p-6 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white ">
                 <li class="text-sm max-md:py-3">
                     <a class="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
                             after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
@@ -82,6 +102,26 @@
                         after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
                         {{ Request::is('berita*') ? 'after:scale-x-100' : '' }}"
                         href="{{ url('/berita') }}">BERITA</a>
+                </li>
+                <li class="text-sm max-md:py-3 group ">
+                    <a
+                        class="z-30 text-black cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
+                        after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
+                        {{ Request::is('nim-checker') ? 'after:scale-x-100' : '' }}">
+                        LAINNYA
+                    </a>
+                    <ul class="hidden group-hover:block absolute py-2 px-4 -ml-7  shadow-md bg-gray-50 rounded-lg z-20">
+                        <li><a class="py-2 mx-2 text-black cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
+                                after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
+                                {{ Request::is('nim-checker') ? 'after:scale-x-100' : '' }}"
+                                href="{{ url('/nim-checker') }}">
+                                NIM
+                                CHECKER
+                            </a>
+                        </li>
+
+                    </ul>
+
                 </li>
             </ul>
         </div>

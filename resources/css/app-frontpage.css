@@ -39,6 +39,10 @@ p {
   @apply text-xl leading-7;
 }
 
+a {
+  @apply text-neutral
+}
+
 @tailwind components;
 
 @tailwind utilities;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontpage;
 
 use App\Http\Controllers\Controller;
+use App\Models\NIMChecker;
 use App\Repositories\PageContentRepository;
 use App\Repositories\DivisionRepository;
 use App\Repositories\PostRepository;
@@ -125,5 +126,30 @@ class HomepageController extends Controller
         }
         
         return response(view('frontpage.modules.cakap-himatif', compact(['cookie'])))->cookie('id_form', $cookie);
+    }
+
+    public function getNIM(Request $request)
+    {
+        $nims = [];
+        
+        $search_param = $request->query('q');
+        if ($search_param){
+            $nim_query = NIMChecker::query();
+        
+            $limit = $request->limit ?? 8;
+            $nim_query->where(function ($query) use ($search_param) {
+                $query
+                    ->orWhere('nim', 'like', "%$search_param%")
+                    ->orWhere('name', 'like', "%$search_param%");
+            })->limit($limit)->orderBy('nim', "ASC");
+            
+            $nims = $nim_query->get();
+            /* 
+            ::search($search_param)->limit($limit);
+            */
+        }
+        // dd($nims);
+
+        return view('frontpage.modules.nim-checker', compact('nims'));
     }
 }

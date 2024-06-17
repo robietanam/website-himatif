@@ -105,6 +105,7 @@ Route::group(['namespace' => 'Frontpage', 'as' => 'frontpage.'], function () {
     Route::get('proker/{id}', 'HomepageController@showProker')->name('proker.show');
     Route::get('berita', 'HomepageController@getBerita')->name('berita');
     Route::get('berita/{slug}', 'HomepageController@showBerita')->name('berita.show');
+    Route::get('nim-checker', 'HomepageController@getNIM')->name('nim-checker');
     Route::get('CakapxHimatif', 'HomepageController@showCakap')->name('cakap.show');
     Route::post('cakap/simpan','CakapHimatifFrontpage@store')->name('cakap.store');
 });
