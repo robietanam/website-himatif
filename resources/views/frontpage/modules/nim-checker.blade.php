@@ -35,22 +35,22 @@
                         <div class="collapse-title text-xl text-midnight font-medium">
                             {{ $nim->nim }}
                         </div>
-                        <div class="collapse-content grid grid-rows-4">
-                            <div class="grid grid-cols-10 ">
+                        <div class="collapse-content grid grid-rows-4 ">
+                            <div class="grid grid-cols-4 lg:grid-cols-8">
                                 <p class="col-span-1">Nama</p>
-                                <p class="col-span-9">{{ $nim->name }}</p>
+                                <p class="col-span-3 lg:col-span-7">{{ $nim->name }}</p>
                             </div>
-                            <div class="grid grid-cols-10 ">
+                            <div class="grid grid-cols-4 lg:grid-cols-8">
                                 <p class="col-span-1">NIM</p>
-                                <p class="col-span-9">{{ $nim->nim }}</p>
+                                <p class="col-span-3 lg:col-span-7">{{ $nim->nim }}</p>
                             </div>
-                            <div class="grid grid-cols-10 ">
+                            <div class="grid grid-cols-4 lg:grid-cols-8">
                                 <p class="col-span-1">Angkatan</p>
-                                <p class="col-span-9">{{ $nim->angkatan }}</p>
+                                <p class="col-span-3 lg:col-span-7">{{ $nim->angkatan }}</p>
                             </div>
-                            <div class="grid grid-cols-10 ">
+                            <div class="grid grid-cols-4 lg:grid-cols-8">
                                 <p class="col-span-1">Status</p>
-                                <p class="col-span-9">{{ $nim->status }}</p>
+                                <p class="col-span-3 lg:col-span-7">{{ $nim->status }}</p>
                             </div>
                         </div>
                     </div>
