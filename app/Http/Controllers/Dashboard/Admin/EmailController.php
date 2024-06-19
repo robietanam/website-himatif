@@ -16,6 +16,7 @@ class EmailController extends Controller
             'nama' => 'Test Nama',
             'email' => 'testmail123@mail.com',
             'kode' => '232324',
+            'label' => 'Kode1'
         ];
         return view('mail.CakapMail', compact('details'));
     }
@@ -23,9 +24,21 @@ class EmailController extends Controller
     {
         
         //define validation rules
-        $validator = Validator::make($request->all(), [
-            'data'     => 'required',
+        $validatedData = $request->validate([
+            'nama' => 'required|array',
+            'nama.*' => 'required|string|max:255',
+            'email' => 'required|array',
+            'email.*' => 'required|string|email|max:255',
+            'id_form' => 'required|array',
+            'id_form.*' => 'required|string|max:255',
+            'kode' => 'required|array',
+            'kode.*' => 'required|string|max:255',
+            'label' => 'required|array',
+            'label.*' => 'required|string|max:255',
+            'status' => 'required|array',
+            'status.*' => 'required|string|in:0,1,2',
         ]);
+        dd($validatedData);
 
         //check if validation fails
         if ($validator->fails()) {
@@ -38,7 +51,8 @@ class EmailController extends Controller
         $details = [
             'nama' => $data['nama'],
             'email' =>  $data['email'],
-            'kode' => $data['kode']
+            'kode' => $data['kode'],
+            'label' => $data['label'],
             ];
            
         Mail::to($data['email'])->send(new \App\Mail\CakapMail($details));

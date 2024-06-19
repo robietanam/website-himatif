@@ -36,6 +36,12 @@ class UserRepository
             ->addColumn('nim', function ($user) {
                 return $user->nim;
             })
+            ->addColumn('linkedin', function ($user) {
+                return $user->linkedin;
+            })
+            ->addColumn('instagram', function ($user) {
+                return $user->instagram;
+            })
             ->addColumn('position', function ($user) {
                 return $user->position;
             })
@@ -96,6 +102,8 @@ class UserRepository
             $user = new User;
             $user->name = $data['name'];
             $user->nim = $data['nim'];
+            $user->linkedin = $data['linkedin'];
+            $user->instagram = $data['instagram'];
             $user->position = $data['position'];
             $user->division_id = $data['division_id'];
             $user->status = $data['status'] ?? '1';
@@ -130,6 +138,8 @@ class UserRepository
             $user = User::find($id);
             $user->name = $data['name'] ?? $user->name;
             $user->nim = $data['nim'] ?? $user->nim;
+            $user->linkedin = $data['linkedin'] ?? $user->linkedin;
+            $user->instagram = $data['instagram'] ?? $user->instagram;
             $user->position = $data['position'] ?? $user->position;
             $user->division_id = $data['division_id'] ?? $user->division_id;
             $user->status = $data['status'] ?? $user->status;

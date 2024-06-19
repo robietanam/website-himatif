@@ -9,39 +9,39 @@
                             d="M4 6h16M4 12h8m-8 6h16" />
                     </svg>
                 </div>
-                <ul tabindex="0" class=" dropdown-content mt-3 z-[5] p-2  shadow bg-white rounded-box w-52 px-5">
-                    <li class="text-sm max-md:py-3">
+                <ul tabindex="0" class=" dropdown-content mt-3 z-[5] p-2 shadow bg-white rounded-box w-52 px-5">
+                    <li class="text-sm max-lg:py-3">
                         <a class="relative w-fit block  after:block after:content-[''] after:absolute after:h-[3px] 
                             after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
                             {{ Request::is('/') ? 'after:scale-x-100' : '' }}"
                             href="{{ url('/') }}">BERANDA</a>
 
                     </li>
-                    <li class="text-sm max-md:py-3">
+                    <li class="text-sm max-lg:py-3">
                         <a class="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
                             after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
                             {{ Request::is('tentang') ? 'after:scale-x-100' : '' }}"
                             href="{{ url('/tentang') }}">TENTANG</a>
                     </li>
-                    <li class="text-sm max-md:py-3 ">
+                    <li class="text-sm max-lg:py-3 ">
                         <a class="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
                         after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
                         {{ Request::is('pengurus') ? 'after:scale-x-100' : '' }}"
                             href="{{ url('/pengurus') }}">DIVISI & PENGURUS</a>
                     </li>
-                    <li class="text-sm max-md:py-3">
+                    <li class="text-sm max-lg:py-3">
                         <a class="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
                         after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
                         {{ Request::is('proker*') ? 'after:scale-x-100' : '' }}"
                             href="{{ url('/proker') }}">PROKER</a>
                     </li>
-                    <li class="text-sm max-md:py-3">
+                    <li class="text-sm max-lg:py-3">
                         <a class="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
                         after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
                         {{ Request::is('berita*') ? 'after:scale-x-100' : '' }}"
                             href="{{ url('/berita') }}">BERITA</a>
                     </li>
-                    <li class="text-sm max-md:py-3 group ">
+                    <li class="text-sm max-lg:py-3 group ">
                         <a
                             class="z-30 text-black cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
                             after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 

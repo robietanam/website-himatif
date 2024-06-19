@@ -88,6 +88,8 @@
                             <th>Jabatan</th>
                             <th>Status</th>
                             <th>Nomor Hp</th>
+                            <th>Instagram</th>
+                            <th>Linkedin</th>
                             <th>Email</th>
                             <th>Angkatan</th>
                             <th>Akses</th>
@@ -230,6 +232,14 @@
                     {
                         data: 'phone',
                         name: 'phone',
+                        "searchable": false
+                    }, {
+                        data: 'instagram',
+                        name: 'instagram',
+                        "searchable": false
+                    }, {
+                        data: 'linkedin',
+                        name: 'linkedin',
                         "searchable": false
                     },
                     {

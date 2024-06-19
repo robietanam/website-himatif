@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Dashboard\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\FormCakap;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\CakapKodeMail;
 
 use App\Repositories\CakapRepository;
+use Illuminate\Support\Facades\Mail;
 
 class CakapHimatif extends Controller
 {
@@ -18,13 +21,74 @@ class CakapHimatif extends Controller
     }
     
     public function index(){
-
         return response(view('dashboard.admin.cakap.index'));
     }
     public function showEmail(Request $request){
-        $dataForm = $request->only('id','nama', 'id_form', 'email', 'status');
+        $dataForm = $request->only('id','nama', 'id_form', 'email', 'status', 'label');
         // dd($dataForm);
         return response(view('dashboard.admin.cakap.email', compact('dataForm')) );
+    }
+    public function previewCakap(){
+        $details = [
+            'nama' => 'Test Nama',
+            'email' => 'testmail123@mail.com',
+            'kode' => '232324',
+            'label' => 'Kode1'
+        ];
+        return new CakapKodeMail($details);
+    }
+    public function sendEmail(Request $request){
+        $validatedData = $request->validate([
+            'id' => 'required|array',
+            'id.*' => 'required|string|max:255',
+            'nama' => 'required|array',
+            'nama.*' => 'required|string|max:255',
+            'email' => 'required|array',
+            'email.*' => 'required|string|email|max:255',
+            'id_form' => 'required|array',
+            'id_form.*' => 'required|string|max:255',
+            'kode' => 'required|array',
+            'kode.*' => 'required|string|max:255',
+            'label' => 'required|array',
+            'label.*' => 'required|string|max:255',
+            'status' => 'required|array',
+            'status.*' => 'required|string|in:0,1,2',
+        ]);
+        
+        foreach ($validatedData['id'] as $id) {
+            $formCakap = FormCakap::find($id);
+
+            if ($formCakap) {
+                try {
+                    $details = [
+                        'nama' => $formCakap->nama,
+                        'email' =>  $formCakap->email,
+                        'kode' => $formCakap->kode,
+                        'label' => $formCakap->label->name,
+                        ];
+                    // Send email to the user
+                    Mail::to($formCakap->email)->queue(new CakapKodeMail($details));
+
+                    // Update the form status to 1 after email is successfully sent
+                    $formCakap->update(['status' => 1]);
+                    return redirect()->route('dashboard.admin.cakap.index')->with([
+                        'type' => 'success',
+                        'message' => 'Email Berhasil Dikirim'
+                    ]);
+                } catch (\Exception $e) {
+                    throw $e;
+                    // Log the error or handle it as necessary
+                    // Optionally update the form status to indicate failure
+                    $formCakap->update(['status' => 2]);
+                    
+                }
+            }
+        }
+
+        return redirect()->route('dashboard.admin.cakap.index')->with([
+            'type' => 'success',
+            'message' => 'Unknown'
+        ]);
     }
     
     //

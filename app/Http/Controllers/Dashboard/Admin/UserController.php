@@ -132,6 +132,8 @@ class UserController extends Controller
         \Validator::make($request->all(), [
             'name' => 'required',
             'nim' => 'required',
+            'instagram' => 'string|url',
+            'linkedin' => 'string|url',
             'email' => 'required|string|email|unique:users,email,' . $id,
             'position' => 'required',
             'division_id' => 'required',

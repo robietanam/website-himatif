@@ -16,14 +16,14 @@ return new class extends Migration
             $table->string('nama');
             $table->string('email');
             $table->string('id_form');
+            $table->string('label_id');
             $table->enum('status', [0, 1, 2])->default(2)->comment = "0 Belum Dikirim, 1 Sudah Dikirim, 2 Tidak dapat kode / Error";
             $table->timestamps();
-            $table->string('id_kode')->nullable();
-            $table  ->foreign('id_kode')
+            $table->string('kode')->nullable();
+            $table  ->foreign('kode')
                     ->references('kode')->on('cakap_kodes')
                     ->nullable()
-                    ->unique()
-                    ->constrained();
+                    ->unique();
         });
     }
 

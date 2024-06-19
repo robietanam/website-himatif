@@ -87,6 +87,21 @@
                             @slot('inputName', 'phone')
                             @slot('inputId', 'input-phone')
                         @endcomponent
+                        {{-- input : instagram --}}
+                        @component('dashboard._components._form-group.input')
+                            @slot('inputLabel', 'Instagram')
+                            @slot('inputName', 'instagram')
+                            @slot('inputId', 'input-instagram')
+                            @slot('inputIsRequired', false)
+                        @endcomponent
+
+                        {{-- input : linkedin --}}
+                        @component('dashboard._components._form-group.input')
+                            @slot('inputLabel', 'Linkedin')
+                            @slot('inputName', 'linkedin')
+                            @slot('inputId', 'input-linkedin')
+                            @slot('inputIsRequired', false)
+                        @endcomponent
 
                         {{-- input : status --}}
                         @component('dashboard._components._form-group.input-radio')

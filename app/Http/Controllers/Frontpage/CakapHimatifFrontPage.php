@@ -29,12 +29,14 @@ class CakapHimatifFrontpage extends Controller
         $request->request->add(['id_form'=> $request->cookie('id_form')]);
         
         $request->validate([
-            'nama' => 'required',
-            'email' => 'required|unique:form_cakaps',
-            'id_form' => 'required|unique:form_cakaps'
+            'nama' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:form_cakaps',
+                'id_form' => 'required|string|max:255|unique:form_cakaps',
+                'label_id' => 'required|exists:label_cakaps,id',
         ], [
             'nama' => "Mohon masukkan nama anda",
             "email" => "Email sudah terdaftar, mohon tunggu info selanjutnya",
+            "label_id" => "Mohon pilih Paket",
             "id_form" => "Anda hanya bisa mendaftar 1 kali di 1 device"
          ]
     );

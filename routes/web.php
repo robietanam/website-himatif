@@ -62,13 +62,13 @@ Route::group(['middleware' => ['auth', 'role:admin'], 'prefix' => 'dashboard/adm
     // Himatif x Cakap
     Route::get('cakap','CakapHimatif@index')->name('cakap.index');
     Route::delete('cakap/destroys', 'CakapHimatif@destroys')->name('cakap.destroys');
-    Route::get('cakap/update-kode', 'CakapHimatif@updateKode')->name('cakap.kode.index');
     Route::post('cakap/update-kode', 'CakapHimatif@updateKode')->name('cakap.kode.update');
     Route::post('cakap/email', 'CakapHimatif@showEmail')->name('cakap.email.index');
+    Route::post('cakap/sendEmail', 'CakapHimatif@sendEmail')->name('cakap.email.send');
+    Route::get('cakap/email-preview', 'CakapHimatif@previewCakap')->name('cakap.email.preview');
     Route::delete('cakap/destroys-kode', 'CakapHimatif@destroyskode')->name('cakap.kode.destroys');
     
     Route::get('cakap/email-send', 'EmailController@emailCakaps')->name('cakap.email.sends');
-    Route::get('cakap/email-preview', 'EmailController@previewCakap')->name('cakap.email.preview');
 });
 
 // Pengurus Routes

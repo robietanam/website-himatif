@@ -12,7 +12,8 @@ use Illuminate\Queue\SerializesModels;
 class CakapMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    
+    public $theme = 'cakap';
     public $details;
   
     /**

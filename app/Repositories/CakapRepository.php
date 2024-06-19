@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\CakapKode;
 use Yajra\DataTables\DataTables;
 use App\Models\FormCakap;
+use App\Models\LabelCakap;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -24,6 +25,9 @@ class CakapRepository
             $formCakap = FormCakap::orderBy('created_at', 'desc')->get();
         }
         return DataTables::of($formCakap)
+            ->addColumn('id', function ($formCakap) {
+                return $formCakap->id;
+            })
             ->addColumn('nama', function ($formCakap) {
                 return $formCakap->nama;
             })
@@ -32,6 +36,12 @@ class CakapRepository
             })
             ->addColumn('id_form', function ($formCakap) {
                 return $formCakap->id_form;
+            })
+            ->addColumn('kode', function ($formCakap) {
+                return $formCakap->kode;
+            })
+            ->addColumn('label', function ($formCakap) {
+                return $formCakap->label->name;
             })
             ->addColumn('status', function ($formCakap) {
                 return $formCakap->status;
@@ -89,6 +99,9 @@ class CakapRepository
             ->addColumn('kode', function ($formCakap) {
                 return $formCakap->kode;
             })
+            ->addColumn('label', function ($formCakap) {
+                return $formCakap->label->name;
+            })
             ->addColumn('created_at', function ($formCakap) {
                 return \Carbon\Carbon::parse($formCakap->created_at)->translatedFormat('d F Y');
             })
@@ -132,9 +145,6 @@ class CakapRepository
     {
         return FormCakap::find($id);
     }
-
-
-    
     
     /**
      * @param Request $data
@@ -143,13 +153,29 @@ class CakapRepository
     public function save($data)
     {
         try {
-            $FormCakap = new FormCakap;
-            $FormCakap->nama = $data->input('nama');
-            $FormCakap->email = $data->input('email');
-            $FormCakap->id_form = $data->cookie('id_form');
-            $FormCakap->status = '0';
-            $FormCakap->created_at = now();
-            $FormCakap->save();
+            $validatedData = $data->validate([
+                'nama' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255',
+                'id_form' => 'required|string|max:255',
+                'label_id' => 'required|exists:label_cakaps,id',
+            ]);
+            $FormCakap = FormCakap::create($validatedData);
+
+            $cakapKode = CakapKode::where('label_id', $FormCakap->label_id)
+                              ->whereNull('form_cakap_id')
+                              ->first();
+
+            if ($cakapKode) {
+                // Assign the code to the form
+                $FormCakap->update(['kode' => $cakapKode->kode, 'status' => '0']);
+
+                // Update the cakap_kode to reference the form_cakap
+                $cakapKode->update(['form_cakap_id' => $FormCakap->id]);
+            } else {
+                // Update the form status to indicate that no code is available
+                $FormCakap->update(['status' => 2]);
+            }
+
             return true;
         } catch (\Throwable $t) {
             dd($t);
@@ -162,7 +188,10 @@ class CakapRepository
     {
         // dd($data);
         try {
-            $KodeCakap = CakapKode::updateOrCreate(array('kode' => $data['kode']));
+            $label = LabelCakap::firstOrCreate(
+                ['name' => $data['label']]
+            );
+            $KodeCakap = CakapKode::updateOrCreate(array('kode' => $data['kode'], 'label_id' => $label->id));
             return $KodeCakap;
         } catch (\Throwable $t) {
             dd($t);

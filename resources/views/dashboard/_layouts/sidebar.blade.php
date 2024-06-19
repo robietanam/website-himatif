@@ -62,6 +62,18 @@
                         <i class="fas fa-pager"></i> <span>Atur Konten</span>
                     </a>
                 </li>
+
+                <li class="menu-header">Lainnya</li>
+                <li class="nav-item {{ Request::is('dashboard/admin/nim-checker') ? 'active' : '' }}">
+                    <a href="{{ url('/dashboard/admin/nim-checker') }}" class="nav-link">
+                        <i class="fas fa-pager"></i> <span>NIM Checker</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ Request::is('dashboard/admin/cakap') ? 'active' : '' }}">
+                    <a href="{{ url('/dashboard/admin/cakap?status=0') }}" class="nav-link">
+                        <i class="fas fa-pager"></i> <span>CakapXHimatif</span>
+                    </a>
+                </li>
             @else
                 <li class="nav-item {{ Request::is('dashboard/pengurus') ? 'active' : '' }}">
                     <a href="{{ route('dashboard.pengurus.index') }}" class="nav-link">

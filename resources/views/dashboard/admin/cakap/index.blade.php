@@ -62,14 +62,22 @@
                     </form>
                 </div>
                 <div class="col-md-auto">
-                    <form id="form-email" action="{{ route('dashboard.admin.cakap.email.index') }}" method="POST">
+
+                    <form id="form-email" action="{{ route('dashboard.admin.cakap.email.send') }}" method="POST">
                         @csrf
                         <button id='btn-email' class="btn btn-block btn-sm btn-primary">
                             <i class="fas fa-plus mr-2"></i> Kirim Email
                         </button>
                     </form>
 
+
                 </div>
+
+                <div class="col-md-auto">
+                    <a target="_blank" href="{{ route('dashboard.admin.cakap.email.preview') }}"><button type="button"
+                            class="btn btn-primary">Preview</button></a>
+                </div>
+
 
             </div>
         </div>
@@ -86,6 +94,8 @@
                             <th class="w-25">Nama</th>
                             <th class="w-25">Email</th>
                             <th class="">Form Id</th>
+                            <th class="">Kode</th>
+                            <th class="">Label</th>
                             <th class="">Status</th>
                             <th>Dibuat pada</th>
                             <th>Diupdate pada</th>
@@ -154,6 +164,7 @@
                         <tr>
                             <th class="no-export"></th>
                             <th class="">Kode</th>
+                            <th class="">Label</th>
                             <th>Dibuat pada</th>
                             <th>Diupdate pada</th>
                         </tr>
@@ -285,6 +296,16 @@
                         searchable: false
                     },
                     {
+                        data: 'kode',
+                        name: 'kode',
+                        searchable: false
+                    },
+                    {
+                        data: 'label',
+                        name: 'label',
+                        searchable: false
+                    },
+                    {
                         data: 'status',
                         name: 'status',
                         searchable: false
@@ -389,6 +410,10 @@
                         name: 'kode',
                     },
                     {
+                        data: 'label',
+                        name: 'label',
+                    },
+                    {
                         data: 'created_at',
                         name: 'created_at',
                         searchable: false
@@ -401,13 +426,7 @@
                 ],
             });
 
-            $('#form-edit').on('submit', function(e) {
-                e.preventDefault();
-                let form = this;
-                let row_selected_id = table.column(0).checkboxes.selected()[0];
-                $(form).attr('action', `{{ url('dashboard/admin/posts/${row_selected_id}/edit') }}`);
-                form.submit()
-            });
+
 
             $('#form-delete-kode').on('submit', function(e) {
                 e.preventDefault();
@@ -517,6 +536,18 @@
                                 .attr('type', 'hidden')
                                 .attr('name', 'id_form[]')
                                 .val(data.id_form)
+                            );
+                            $(form).append(
+                                $('<input>')
+                                .attr('type', 'hidden')
+                                .attr('name', 'kode[]')
+                                .val(data.kode)
+                            );
+                            $(form).append(
+                                $('<input>')
+                                .attr('type', 'hidden')
+                                .attr('name', 'label[]')
+                                .val(data.label)
                             );
                             $(form).append(
                                 $('<input>')

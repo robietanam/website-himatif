@@ -36,21 +36,21 @@
                             {{ $nim->nim }}
                         </div>
                         <div class="collapse-content grid grid-rows-4 ">
-                            <div class="grid grid-cols-4 lg:grid-cols-8">
-                                <p class="col-span-1">Nama</p>
-                                <p class="col-span-3 lg:col-span-7">{{ $nim->name }}</p>
+                            <div class="grid grid-cols-4 lg:grid-cols-8 ">
+                                <p class="col-span-1 max-lg:text-lg">Nama</p>
+                                <p class="col-span-3 lg:col-span-7 max-lg:text-lg">{{ $nim->name }}</p>
                             </div>
                             <div class="grid grid-cols-4 lg:grid-cols-8">
-                                <p class="col-span-1">NIM</p>
-                                <p class="col-span-3 lg:col-span-7">{{ $nim->nim }}</p>
+                                <p class="col-span-1 max-lg:text-lg">NIM</p>
+                                <p class="col-span-3 lg:col-span-7 max-lg:text-lg">{{ $nim->nim }}</p>
                             </div>
                             <div class="grid grid-cols-4 lg:grid-cols-8">
-                                <p class="col-span-1">Angkatan</p>
-                                <p class="col-span-3 lg:col-span-7">{{ $nim->angkatan }}</p>
+                                <p class="col-span-1 max-lg:text-lg">Angkatan</p>
+                                <p class="col-span-3 lg:col-span-7 max-lg:text-lg">{{ $nim->angkatan }}</p>
                             </div>
                             <div class="grid grid-cols-4 lg:grid-cols-8">
-                                <p class="col-span-1">Status</p>
-                                <p class="col-span-3 lg:col-span-7">{{ $nim->status }}</p>
+                                <p class="col-span-1 max-lg:text-lg">Status</p>
+                                <p class="col-span-3 lg:col-span-7 max-lg:text-lg">{{ $nim->status }}</p>
                             </div>
                         </div>
                     </div>

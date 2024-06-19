@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontpage;
 
 use App\Http\Controllers\Controller;
+use App\Models\LabelCakap;
 use App\Models\NIMChecker;
 use App\Repositories\PageContentRepository;
 use App\Repositories\DivisionRepository;
@@ -124,8 +125,12 @@ class HomepageController extends Controller
         if (empty($cookie)){
             $cookie = Str::uuid();
         }
+        $labelCount = LabelCakap::withCount(['cakapKodes' => function ($query) {
+            $query->whereNull('form_cakap_id');
+        }])->get();
+
         
-        return response(view('frontpage.modules.cakap-himatif', compact(['cookie'])))->cookie('id_form', $cookie);
+        return response(view('frontpage.modules.cakap-himatif', compact(['cookie', 'labelCount'])))->cookie('id_form', $cookie);
     }
 
     public function getNIM(Request $request)
