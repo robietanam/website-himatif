@@ -66,11 +66,13 @@ class CakapHimatif extends Controller
                         'kode' => $formCakap->kode,
                         'label' => $formCakap->label->name,
                         ];
+                        
+                    // Update the form status to 1 after email is successfully sent
+                    $formCakap->update(['status' => '1']);
+
                     // Send email to the user
                     Mail::to($formCakap->email)->queue(new CakapKodeMail($details));
 
-                    // Update the form status to 1 after email is successfully sent
-                    $formCakap->update(['status' => 1]);
                     return redirect()->route('dashboard.admin.cakap.index')->with([
                         'type' => 'success',
                         'message' => 'Email Berhasil Dikirim'
@@ -79,7 +81,7 @@ class CakapHimatif extends Controller
                     throw $e;
                     // Log the error or handle it as necessary
                     // Optionally update the form status to indicate failure
-                    $formCakap->update(['status' => 2]);
+                    $formCakap->update(['status' => '2']);
                     
                 }
             }
@@ -87,7 +89,7 @@ class CakapHimatif extends Controller
 
         return redirect()->route('dashboard.admin.cakap.index')->with([
             'type' => 'success',
-            'message' => 'Unknown'
+            'message' => 'Terdapat Error'
         ]);
     }
     

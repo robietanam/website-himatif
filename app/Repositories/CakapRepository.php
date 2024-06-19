@@ -173,7 +173,7 @@ class CakapRepository
                 $cakapKode->update(['form_cakap_id' => $FormCakap->id]);
             } else {
                 // Update the form status to indicate that no code is available
-                $FormCakap->update(['status' => 2]);
+                $FormCakap->update(['status' => '2']);
             }
 
             return true;
