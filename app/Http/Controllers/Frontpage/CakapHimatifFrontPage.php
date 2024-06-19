@@ -10,7 +10,7 @@ use App\Repositories\CakapRepository;
 
 class CakapHimatifFrontpage extends Controller
 {
-    protected $cakapRepository;
+    protected $cakapRepository; 
 
     public function __construct()
     {
