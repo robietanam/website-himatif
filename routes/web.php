@@ -13,7 +13,7 @@
 
 // Route::view('dashboard/admin/keanggotaan', 'dashboard.admin.keanggotaan.index');
 
-use App\Http\Controllers\Frontpage\CakapHimatifFrontpage;
+use App\Http\Controllers\Frontpage\CakapHimatifFrontpageController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'guest'], function () {
@@ -108,5 +108,5 @@ Route::group(['namespace' => 'Frontpage', 'as' => 'frontpage.'], function () {
     Route::get('berita/{slug}', 'HomepageController@showBerita')->name('berita.show');
     Route::get('nim-checker', 'HomepageController@getNIM')->name('nim-checker');
     Route::get('CakapxHimatif', 'HomepageController@showCakap')->name('cakap.show');
-    Route::post('cakap/simpan',[CakapHimatifFrontpage::class, 'store'])->name('cakap.store');
+    Route::post('cakap/simpan',[CakapHimatifFrontpageController::class, 'store'])->name('cakap.store');
 });

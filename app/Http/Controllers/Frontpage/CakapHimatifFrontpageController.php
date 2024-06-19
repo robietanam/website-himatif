@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Frontpage;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 use App\Repositories\CakapRepository;
 
-class CakapHimatifFrontpage extends Controller
+class CakapHimatifFrontpageController extends Controller
 {
     protected $cakapRepository; 
 
@@ -16,7 +15,7 @@ class CakapHimatifFrontpage extends Controller
     {
         $this->cakapRepository = new CakapRepository;
     }
-    //
+
     /**
      * Store a newly created resource in storage.
      *
