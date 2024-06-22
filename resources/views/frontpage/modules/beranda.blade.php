@@ -8,6 +8,7 @@
     {{-- Header --}}
     <header>
         <div class="container mx-auto sm:px-4 mx-auto sm:px-4">
+
             <div class="flex flex-wrap mb-5 mb-lg-10 justify-center text-center ">
                 <div class="lg:w-1/2 pr-4 pl-4 order-2 lg:order-1 ">
                     <h3 class="text-dec text-dec-secondary-1 text-dec-tl text-midnight font-extrabold mb-2 hidden lg:block">
@@ -383,9 +384,121 @@
             </div>
 
         </div>
-
-        </div>
     </section>
+
+    @if (false)
+        <section id="section-alumni">
+            <div class="container mx-auto px-4  ">
+                <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
+                    Apa Kata Alumni
+                </h3>
+                <h6 class="text-gray mb-2">Pesan dan Kesan dari Alumni</h6>
+
+                <div class="flex flex-wrap  py-5 [&>div]:overflow-visible px-20 md:px-48" id="slick-alumni-row">
+                    <div
+                        class=" relative flex flex-wrap gap-6 p-6 justify-center w-full h-full rounded-md break-words bg-white border-1 border-gray-300 card-proker border shadow-sm ">
+                        <div class="avatar -mt-10">
+                            <div class="w-24 h-24 rounded-xl">
+                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            </div>
+                        </div>
+
+                        <div class="relative gap-2 md:flex-grow md:flex-1 flex flex-col justify-between h-full w-full">
+                            <p class="text-sm font-bold">" My RISTEK experience has been the most impactful for
+                                my technology
+                                career. Here you
+                                are interacting & learning together with the brightest minds in CS UI. After
+                                graduation you will find your RISTEK buddies be Silicon Valley engineers, startup
+                                founders, and other high flying professionals. "</p>
+                            <p class="text-sm ">Adam Jordan, Security Lead @ Sea</p>
+                        </div>
+                    </div>
+                    <div
+                        class=" relative flex flex-wrap gap-6 p-6 justify-center w-full h-full rounded-md break-words bg-white border-1 border-gray-300 card-proker border shadow-sm ">
+                        <div class="avatar -mt-10">
+                            <div class="w-24 h-24 rounded-xl">
+                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            </div>
+                        </div>
+
+                        <div class="relative gap-2 md:flex-grow md:flex-1 flex flex-col justify-between h-full w-full">
+                            <p class="text-sm font-bold">" My RISTEK experience has been the most impactful for
+                                my technology
+                                career. Here you
+                                are interacting & learning together with the brightest minds in CS UI. After
+                                graduation you will find your RISTEK buddies be Silicon Valley engineers, startup
+                                founders, and other high flying professionals. "</p>
+                            <p class="text-sm ">Adam Jordan, Security Lead @ Sea</p>
+                        </div>
+                    </div>
+                    <div
+                        class=" relative flex flex-wrap gap-6 p-6 justify-center w-full h-full rounded-md break-words bg-white border-1 border-gray-300 card-proker border shadow-sm ">
+                        <div class="avatar -mt-10">
+                            <div class="w-24 h-24 rounded-xl">
+                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            </div>
+                        </div>
+
+                        <div class="relative gap-2 md:flex-grow md:flex-1 flex flex-col justify-between h-full w-full">
+                            <p class="text-sm font-bold">" My RISTEK experience has been the most impactful for
+                                my technology
+                                career. Here you
+                                are interacting & learning together with the brightest minds in CS UI. After
+                                graduation you will find your RISTEK buddies be Silicon Valley engineers, startup
+                                founders, and other high flying professionals. "</p>
+                            <p class="text-sm ">Adam Jordan, Security Lead @ Sea</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap px-20 md:px-48" id="slider-nav">
+                    <div
+                        class=" relative flex flex-wrap  items-center justify-center p-4 mx-4 max-lg:mx-1 rounded-md break-words bg-white border-1 border-gray-300 border shadow-sm ">
+                        <div class="avatar mx-auto flex items-center justify-center">
+                            <div class="max-w-20 max-h-20 rounded-xl">
+                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            </div>
+                        </div>
+
+                        <div
+                            class="relative pt-2 gap-1 md:flex-grow md:flex-1 flex flex-col items-center justify-center h-full w-full">
+                            <p class="text-sm font-bold text-center">Adam Jordan</p>
+                            <p class="text-sm ">Sea</p>
+                        </div>
+                    </div>
+                    <div
+                        class=" relative flex flex-wrap  items-center justify-center p-4 mx-4 max-lg:mx-1 rounded-md break-words bg-white border-1 border-gray-300 border shadow-sm ">
+                        <div class="avatar mx-auto flex items-center justify-center">
+                            <div class="max-w-20 max-h-20 rounded-xl">
+                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            </div>
+                        </div>
+
+                        <div
+                            class="relative pt-2 gap-1 md:flex-grow md:flex-1 flex flex-col items-center justify-center h-full w-full">
+                            <p class="text-sm font-bold text-center">Adam Jordan</p>
+                            <p class="text-sm ">Sea</p>
+                        </div>
+                    </div>
+                    <div
+                        class=" relative flex flex-wrap  items-center justify-center p-4 mx-4 max-lg:mx-1 rounded-md break-words bg-white border-1 border-gray-300 border shadow-sm ">
+                        <div class="avatar mx-auto flex items-center justify-center">
+                            <div class="max-w-20 max-h-20 rounded-xl">
+                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            </div>
+                        </div>
+
+                        <div
+                            class="relative pt-2 gap-1 md:flex-grow md:flex-1 flex flex-col items-center justify-center h-full w-full">
+                            <p class="text-sm font-bold text-center">Adam Jordan</p>
+                            <p class="text-sm ">Sea</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    @endif
 
     {{-- Section 5 : Galerry --}}
     <section id="section-5">
@@ -509,6 +622,37 @@
                     }
                 }]
             });
+
+            $('#slick-alumni-row').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+
+                asNavFor: '#slider-nav'
+            });
+            $('#slider-nav').slick({
+                slidesToShow: 4,
+                responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                }, {
+                    breakpoint: 640,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }],
+                slidesToScroll: 1,
+                asNavFor: '#slick-alumni-row',
+                dots: false,
+                centerMode: true,
+                focusOnSelect: true
+            });
+
         })
     </script>
     {{-- Light Gallery --}}
