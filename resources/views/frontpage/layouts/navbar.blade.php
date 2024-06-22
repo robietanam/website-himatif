@@ -1,4 +1,4 @@
-<nav class="bg-[#f3f2eb] border-[#ffc107] border-b-2  px-8 py-4">
+<nav class="bg-[#f3f2eb] border-[#ffc107] border-b-2 relative z-40 px-8 py-4">
     <div class="navbar ">
         <div class="navbar-start">
             <div class="dropdown">
@@ -9,7 +9,7 @@
                             d="M4 6h16M4 12h8m-8 6h16" />
                     </svg>
                 </div>
-                <ul tabindex="0" class=" dropdown-content mt-3 z-[5] p-2 shadow bg-white rounded-box w-52 px-5">
+                <ul tabindex="0" class=" dropdown-content mt-3  p-2 shadow bg-white rounded-box w-52 px-5">
                     <li class="text-sm max-lg:py-3">
                         <a class="relative w-fit block  after:block after:content-[''] after:absolute after:h-[3px] 
                             after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
