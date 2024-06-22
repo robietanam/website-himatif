@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('cakap_kodes');
         Schema::dropIfExists('form_cakaps');
         Schema::create('cakap_kodes', function (Blueprint $table) {

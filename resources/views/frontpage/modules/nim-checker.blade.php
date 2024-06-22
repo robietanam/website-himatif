@@ -4,13 +4,12 @@
 
 @section('pageClass', 'blog')
 @section('content')
-    <main class="py-5 py-md-6 ">
+    <main class="py-5 py-md-6 mx-4  ">
         <div class="container mx-auto sm:px-32 ">
             <p class="text-4xl  text-midnight text-center"> NIM Checker Mahasiswa Teknologi Informasi </p>
             <form action="{{ route('frontpage.nim-checker') }}">
-                <div class="flex flex-wrap mb-5  mt-5">
-                    <label for="default-search"
-                        class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                <div class="flex flex-wrap mb-5 mt-5">
+                    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
                     <div class="relative flex-grow max-w-full flex-1 ">
                         <div class="absolute inset-y-0 flex items-center ps-3 pointer-events-none">
                             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
@@ -20,19 +19,20 @@
                             </svg>
                         </div>
                         <input type="search" id="default-search" value="{{ Request::get('q') }}" name="q"
-                            class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-gray-500 focus:border-gray-500 "
                             placeholder="Masukan NIM atau Nama Mahasiswa" required />
                         <input type="hidden" name="limit" value="{{ Request::get('limit') ?? 8 }}">
                         <button type="submit"
-                            class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+                            class="text-white absolute end-2.5 bottom-2.5 bg-yellow-600 hover:bg-[#f3eecb] hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 ">Search</button>
                     </div>
 
                 </div>
             </form>
             <div class="flex flex-wrap w-full ">
                 @foreach ($nims as $nim)
-                    <div tabindex="0" class="collapse collapse-arrow border mb-3 shadow-md bg-gray-50">
-                        <div class="collapse-title text-xl text-midnight font-medium">
+                    <div tabindex="0"
+                        class="collapse collapse-arrow border mb-3 shadow-md bg-gray-50 hover:border-yellow-400 focus:border-yellow-400">
+                        <div class="collapse-title text-xl text-midnight font-medium ">
                             {{ $nim->nim }}
                         </div>
                         <div class="collapse-content grid grid-rows-4 ">
@@ -56,21 +56,30 @@
                     </div>
                 @endforeach
 
-                <div class="flex flex-wrap items-center justify-center mt-4 w-full py-4">
-                    <div class="col-auto">
-                        <form action="{{ route('frontpage.nim-checker') }}">
-                            <input type="hidden" name="q" value="{{ Request::get('q') }}">
-                            <input type="hidden" name="limit" value="{{ Request::get('limit') + 8 }}">
-                            <button
-                                class="inline-block align-middle text-center select-none font-normal
-                                whitespace-no-wrap text-white bg-gradient-to-r from-purple-800 to-purple-600 hover:bg-none
-                                hover:text-purple-800 hover:border hover:border-purple-700 rounded-md py-3 px-4
+                @if (isset($nims) && $nims !== [])
+                    <div class="flex flex-wrap items-center justify-center mt-4 w-full py-4">
+                        <div class="col-auto">
+                            <form action="{{ route('frontpage.nim-checker') }}">
+                                <input type="hidden" name="q" value="{{ Request::get('q') }}">
+                                <input type="hidden" name="limit" value="{{ Request::get('limit') + 8 }}">
+                                <button
+                                    class="inline-block align-middle text-center select-none font-normal
+                                whitespace-no-wrap text-white bg-gradient-to-r from-yellow-800 to-yellow-600 hover:bg-none
+                                hover:text-yellow-800 hover:border hover:border-yellow-700 rounded-md py-3 px-4
                                 leading-normal no-underline transition ease-in-out hover:scale-110 duration-300">
-                                Tampilkan Lebih Banyak
-                            </button>
-                        </form>
+                                    Tampilkan Lebih Banyak
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                @else
+                    <div class="flex flex-wrap items-center justify-center mt-4 w-full py-32">
+                        <div class="col-auto">
+                            <p class="text-center"> Gunakan Pencarian Untuk Menampilkan List Detail Mahasiswa </p>
+                        </div>
+                    </div>
+                @endif
+
             </div>
         </div>
         </div>

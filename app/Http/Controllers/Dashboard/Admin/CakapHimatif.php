@@ -78,10 +78,11 @@ class CakapHimatif extends Controller
                         'message' => 'Email Berhasil Dikirim'
                     ]);
                 } catch (\Exception $e) {
+                    
+                    $formCakap->update(['status' => '2']);
                     throw $e;
                     // Log the error or handle it as necessary
                     // Optionally update the form status to indicate failure
-                    $formCakap->update(['status' => '2']);
                     
                 }
             }
@@ -150,6 +151,7 @@ class CakapHimatif extends Controller
                 'message' => "Hapus Data Cakap Berhasil, $result data Cakap terhapus"
             ]);
         } catch (\Exception $e) {
+            throw $e;
             return redirect()->route('dashboard.admin.cakap.index')->with([
                 'type' => 'danger',
                 'message' => 'Ubah Data Cakap Gagal, Terjadi kesalahan pada sistem.'

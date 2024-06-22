@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role_id', 'instagram', 'linkedin'
+        'name', 'email', 'password', 'role_id', 'instagram', 'linkedin', 'periode'
     ];
 
     /**
@@ -36,16 +36,15 @@ class User extends Authenticatable
         'status' => 'string',
         'password' => 'hashed',
         'email_verified_at' => 'datetime',
+        'periode' => 'json', // Cast periode attribute to array
+
     ];
 
     public function role()
     {
         return $this->belongsTo(Role::class);
     }
-    public function division()
-    {
-        return $this->belongsTo(Division::class);
-    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);

@@ -12,7 +12,7 @@ class FormCakap extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama', 'email',  'id_form', 'kode' , 'status', 'label_id'
+        'nama', 'email',  'id_form', 'kode' , 'bukti_pendaftaran', 'status', 'label_id'
     ];
 
     public function cakapKode(): HasOne

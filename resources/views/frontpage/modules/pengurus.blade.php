@@ -28,10 +28,9 @@
                             {{ $division->name }}
                         </h4>
                     </div>
-
-                    @foreach ($division->users as $user)
-                        @if ($user->status === '1')
-                            @if ($user->position === 'Kepala Divisi')
+                    @foreach ($pengurus as $user)
+                        @if ($user->status === '1' && $user->periode[0]['division_id'] === strval($division->id))
+                            @if ($user->periode[0]['position'] === 'Kepala Divisi')
                                 <div
                                     class="group card card-member col-auto md:w-1/3 lg:w-1/4 mx-4 mb-6  bg-white shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] rounded-md overflow-hidden">
                                     <div
@@ -51,7 +50,7 @@
                                             <div class="text-lg font-extrabold text-midnight truncate">
                                                 {{ $user->name }}
                                             </div>
-                                            <div class="text-lg text-gray-500">{{ $user->position }}</div>
+                                            <div class="text-lg text-gray-500">{{ $user->periode[0]['position'] }}</div>
                                         </div>
                                     </div>
                                     @if (isset($user->instagram) || isset($user->linkedin))
@@ -82,11 +81,10 @@
                                             @endif
                                         </div>
                                     @endif
-
                                 </div>
 
                                 <div class="w-full"></div>
-                            @elseif($user->position === 'Kepala Subdivisi')
+                            @elseif($user->periode[0]['position'] === 'Kepala Subdivisi')
                                 <div class="w-full"></div>
                                 <div
                                     class="group card card-member col-auto md:w-1/3 lg:w-1/4 mx-4 mb-6  bg-white shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] rounded-md overflow-hidden">
@@ -107,7 +105,7 @@
                                             <div class="text-lg font-extrabold text-midnight truncate">
                                                 {{ $user->name }}
                                             </div>
-                                            <div class="text-lg text-gray-500">{{ $user->position }}</div>
+                                            <div class="text-lg text-gray-500">{{ $user->periode[0]['position'] }}</div>
                                         </div>
                                     </div>
                                     @if (isset($user->instagram) || isset($user->linkedin))
@@ -160,7 +158,7 @@
                                             <div class="text-lg font-extrabold text-midnight truncate">
                                                 {{ $user->name }}
                                             </div>
-                                            <div class="text-lg text-gray-500">{{ $user->position }}</div>
+                                            <div class="text-lg text-gray-500">{{ $user->periode[0]['position'] }}</div>
                                         </div>
                                     </div>
                                     @if (isset($user->instagram) || isset($user->linkedin))
@@ -199,9 +197,9 @@
                         @endif
                     @endforeach
                     @foreach ($division->subDivisions as $subdivsion)
-                        @foreach ($subdivsion->users as $user)
-                            @if ($user->status === '1')
-                                @if ($user->position === 'Kepala Divisi')
+                        @foreach ($pengurus as $user)
+                            @if ($user->status === '1' && $user->periode[0]['division_id'] === strval($subdivsion->id))
+                                @if ($user->periode[0]['position'] === 'Kepala Divisi')
                                     <div
                                         class="group card card-member col-auto md:w-1/3 lg:w-1/4 mx-4 mb-6  bg-white shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] rounded-md overflow-hidden">
                                         <div
@@ -221,7 +219,8 @@
                                                 <div class="text-lg font-extrabold text-midnight truncate">
                                                     {{ $user->name }}
                                                 </div>
-                                                <div class="text-lg text-gray-500">{{ $user->position }}</div>
+                                                <div class="text-lg text-gray-500">{{ $user->periode[0]['position'] }}
+                                                </div>
                                             </div>
                                         </div>
                                         @if (isset($user->instagram) || isset($user->linkedin))
@@ -257,7 +256,7 @@
 
                                     </div>
                                     <div class="w-full"></div>
-                                @elseif($user->position === 'Kepala Subdivisi')
+                                @elseif($user->periode[0]['position'] === 'Kepala Subdivisi')
                                     <div class="w-full"></div>
                                     <div
                                         class="group card card-member col-auto md:w-1/3 lg:w-1/4 mx-4 mb-6  bg-white shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] rounded-md overflow-hidden">
@@ -278,7 +277,8 @@
                                                 <div class="text-lg font-extrabold text-midnight truncate">
                                                     {{ $user->name }}
                                                 </div>
-                                                <div class="text-lg text-gray-500">{{ $user->position }}</div>
+                                                <div class="text-lg text-gray-500">{{ $user->periode[0]['position'] }}
+                                                </div>
                                             </div>
                                         </div>
                                         @if (isset($user->instagram) || isset($user->linkedin))
@@ -333,7 +333,8 @@
                                                 <div class="text-lg font-extrabold text-midnight truncate">
                                                     {{ $user->name }}
                                                 </div>
-                                                <div class="text-lg text-gray-500">{{ $user->position }}</div>
+                                                <div class="text-lg text-gray-500">{{ $user->periode[0]['position'] }}
+                                                </div>
                                             </div>
                                         </div>
                                         @if (isset($user->instagram) || isset($user->linkedin))

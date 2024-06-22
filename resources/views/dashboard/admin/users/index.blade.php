@@ -84,14 +84,12 @@
                             <th class="no-sort no-export">Foto</th>
                             <th>Nama</th>
                             <th>Nim</th>
-                            <th>Divisi</th>
-                            <th>Jabatan</th>
+                            <th>Division</th>
                             <th>Status</th>
                             <th>Nomor Hp</th>
                             <th>Instagram</th>
                             <th>Linkedin</th>
                             <th>Email</th>
-                            <th>Angkatan</th>
                             <th>Akses</th>
                         </tr>
                     </thead>
@@ -216,13 +214,7 @@
                     },
                     {
                         data: 'division',
-                        name: 'division',
-                        "searchable": false
-                    },
-                    {
-                        data: 'position',
-                        name: 'division',
-                        "searchable": false
+                        name: 'division'
                     },
                     {
                         data: 'status',
@@ -245,11 +237,6 @@
                     {
                         data: 'email',
                         name: 'email',
-                        "searchable": false
-                    },
-                    {
-                        data: 'year_entry',
-                        name: 'year_entry',
                         "searchable": false
                     },
                     {

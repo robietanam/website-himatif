@@ -1,5 +1,5 @@
-<nav class="bg-white border-gray-200  p-6">
-    <div class="navbar bg-white">
+<nav class="bg-[#f3f2eb] border-[#ffc107] border-b-2  px-8 py-4">
+    <div class="navbar ">
         <div class="navbar-start">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -45,19 +45,24 @@
                         <a
                             class="z-30 text-black cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
                             after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
-                            {{ Request::is('nim-checker') ? 'after:scale-x-100' : '' }}">
+                            {{ Request::is('nim-checker') || Request::is('CakapxHimatif') ? 'after:scale-x-100' : '' }}">
                             LAINNYA
                         </a>
-                        <ul class="p-2">
-                            <li><a class="py-2 mx-2 text-black cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
+                        <ul class="p-2 ">
+                            <li><a class="py-3 mx-2 text-black cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
                                     after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
                                     {{ Request::is('nim-checker') ? 'after:scale-x-100' : '' }}"
                                     href="{{ url('/nim-checker') }}">
-                                    NIM
-                                    CHECKER
+                                    NIM CHECKER
                                 </a>
                             </li>
-
+                            <li><a class="py-3 mx-2 text-black cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
+                                after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
+                                {{ Request::is('CakapxHimatif') ? 'after:scale-x-100' : '' }}"
+                                    href="{{ url('/CakapxHimatif') }}">
+                                    CAKAPxHIMATIF
+                                </a>
+                            </li>
                         </ul>
 
                     </li>
@@ -69,9 +74,9 @@
                 <div class="self-center text-xl font-semibold whitespace-nowrap ">HIMATIF</div>
             </a>
         </div>
-        <div class="navbar-center hidden lg:flex">
+        <div class="navbar-center hidden bg-transparent lg:flex">
             <ul
-                class="flex flex-col font-medium p-6 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white ">
+                class="flex flex-col font-medium p-6 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  ">
                 <li class="text-sm max-md:py-3">
                     <a class="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
                             after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
@@ -107,18 +112,31 @@
                     <a
                         class="z-30 text-black cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
                         after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
-                        {{ Request::is('nim-checker') ? 'after:scale-x-100' : '' }}">
+                        {{ Request::is('nim-checker') || Request::is('CakapxHimatif') ? 'after:scale-x-100' : '' }}">
                         LAINNYA
                     </a>
-                    <ul class="hidden group-hover:block absolute py-2 px-4 -ml-7  shadow-md bg-gray-50 rounded-lg z-20">
-                        <li><a class="py-2 mx-2 text-black cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
+
+                    <ul class="hidden group-hover:block absolute  -ml-24 ">
+                        <div class="h-2"></div>
+                        <div class="bg-white rounded-lg z-20 shadow-md py-2 px-4 flex flex-col gap-2">
+                            <li>
+                                <a class="pt-2 w-32 text-center text-black cursor-pointer relative  block after:block after:content-[''] after:absolute after:h-[3px] 
+                                    after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
+                                    {{ Request::is('nim-checker') ? 'after:scale-x-100' : '' }}"
+                                    href="{{ url('/nim-checker') }}">
+                                    NIM CHECKER
+                                </a>
+                            </li>
+                            <li>
+                                <a class="py-2 w-32 text-center text-black cursor-pointer relative block after:block after:content-[''] after:absolute after:h-[3px] 
                                 after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
-                                {{ Request::is('nim-checker') ? 'after:scale-x-100' : '' }}"
-                                href="{{ url('/nim-checker') }}">
-                                NIM
-                                CHECKER
-                            </a>
-                        </li>
+                                {{ Request::is('CakapxHimatif') ? 'after:scale-x-100' : '' }}"
+                                    href="{{ url('/CakapxHimatif') }}">
+                                    CAKAPxHIMATIF
+                                </a>
+                            </li>
+                        </div>
+
 
                     </ul>
 

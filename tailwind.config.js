@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 export default {
-  darkMode: 'class',
   purge: [
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
@@ -11,6 +11,7 @@ export default {
   ],
   theme: {
     colors: {
+      ...colors,
       'midnight': '#42465f',
     },
     extend: {
@@ -39,7 +40,7 @@ export default {
     },
   },
   plugins: [
-    require('flowbite/plugin'),
+    // require('flowbite/plugin'),
     require('daisyui'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/line-clamp'),

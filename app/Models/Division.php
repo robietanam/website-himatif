@@ -16,10 +16,6 @@ class Division extends Model
     ];
 
 
-    public function users()
-    {
-        return $this->hasMany(User::class);
-    }
     public function mainDivision()
     {
         return $this->belongsTo(Self::class, 'parent_id');

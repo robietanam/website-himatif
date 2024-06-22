@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        
         Schema::create('label_cakaps', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -22,6 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('form_cakaps');
         Schema::dropIfExists('label_cakaps');
+        Schema::dropIfExists('cakap_kodes');
+        Schema::enableForeignKeyConstraints();
     }
 };

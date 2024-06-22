@@ -7,6 +7,7 @@ use Yajra\DataTables\DataTables;
 use App\Models\FormCakap;
 use App\Models\LabelCakap;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class CakapRepository
@@ -37,6 +38,9 @@ class CakapRepository
             ->addColumn('id_form', function ($formCakap) {
                 return $formCakap->id_form;
             })
+            ->addColumn('bukti', function ($formCakap) {
+                return "<a href='" . asset('storage/' . $formCakap->bukti_pendaftaran ) . "' target='_blank'>Link</a>";
+            })
             ->addColumn('kode', function ($formCakap) {
                 return $formCakap->kode;
             })
@@ -52,6 +56,7 @@ class CakapRepository
             ->addColumn('updated_at', function ($formCakap) {
                 return \Carbon\Carbon::parse($formCakap->updated_at)->translatedFormat('d F Y');
             })
+            ->rawColumns(['bukti'])
             ->make(true);
     }
 
@@ -156,6 +161,7 @@ class CakapRepository
             $validatedData = $data->validate([
                 'nama' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255',
+                'bukti_pendaftaran' => 'required|image|mimes:jpeg,jpg,png|max:2048',
                 'id_form' => 'required|string|max:255',
                 'label_id' => 'required|exists:label_cakaps,id',
             ]);
@@ -164,10 +170,17 @@ class CakapRepository
             $cakapKode = CakapKode::where('label_id', $FormCakap->label_id)
                               ->whereNull('form_cakap_id')
                               ->first();
+                              
+            // Generate a unique filename
+            $originalExtension = $validatedData['bukti_pendaftaran']->getClientOriginalExtension();
+            $uniqueFilename = Str::uuid() . '.' . $originalExtension;
+
+            // Store the file with the unique filename
+            $bukti = $validatedData['bukti_pendaftaran']->storeAs('photo/cakap', $uniqueFilename, 'public');
 
             if ($cakapKode) {
                 // Assign the code to the form
-                $FormCakap->update(['kode' => $cakapKode->kode, 'status' => '0']);
+                $FormCakap->update(['bukti_pendaftaran' => $bukti, 'kode' => $cakapKode->kode, 'status' => '0']);
 
                 // Update the cakap_kode to reference the form_cakap
                 $cakapKode->update(['form_cakap_id' => $FormCakap->id]);
@@ -204,15 +217,17 @@ class CakapRepository
      */
     public function destroys(array $ids)
     {
-        $query = "id = $ids[0]";
-        if (count($ids) > 1) {
-            foreach ($ids as $i => $id) {
-                // skip index 0, already appened on '$query'
-                if ($i !== 0) $query .= " or id = $id";
-            }
+        // Fetch the records with the given ids
+        $records = \DB::table('form_cakaps')->whereIn('id', $ids)->get();
+        
+        // Delete the images from storage
+        foreach ($records as $record) {
+            Storage::delete('public/' . $record->bukti_pendaftaran);
         }
 
-        $result = \DB::table('form_cakaps')->whereRaw($query)->delete();
+        // Delete the records from the database
+        $result = \DB::table('form_cakaps')->whereIn('id', $ids)->delete();
+
         return $result;
     }
 

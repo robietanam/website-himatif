@@ -25,9 +25,9 @@
     <form action="{{ route('dashboard.admin.users.update', $user->id) }}" enctype="multipart/form-data" method="POST">
         @csrf
         @method('PUT')
-        <div class="row">
+        <div class="col">
 
-            <div class="col-lg-5">
+            <div class="col-lg">
                 <div class="card">
                     <div class="card-body d-flex flex-column align-items-center">
                         <div class="img-wrapper img-wrapper-upload rounded-circle bg-secondary w-10rem h-10rem my-3">
@@ -114,13 +114,6 @@
                                 ])
                             @endcomponent
 
-                            {{-- input : year_entry --}}
-                            @component('dashboard._components._form-group.input-year')
-                                @slot('inputLabel', 'Tahun Masuk')
-                                @slot('inputName', 'year_entry')
-                                @slot('inputId', 'input-year_entry')
-                                @slot('inputValue', $user->year_entry)
-                            @endcomponent
 
                             {{-- input : division_id --}}
                             @php
@@ -129,15 +122,6 @@
                                     $inputDatasDivision[$division->name] = $division->id;
                                 }
                             @endphp
-                            @component('dashboard._components._form-group.input-select')
-                                @slot('inputLabel', 'Divisi')
-                                @slot('inputName', 'division_id')
-                                @slot('inputId', 'input-division_id')
-                                @slot('inputIsRequired', true)
-                                @slot('inputIsSearchable', true)
-                                @slot('inputValue', $user->division_id)
-                                @slot('inputDatas', $inputDatasDivision)
-                            @endcomponent
 
                             {{-- input : position --}}
                             @php
@@ -146,14 +130,16 @@
                                     $inputDatasPosition[$position] = $position;
                                 }
                             @endphp
-                            @component('dashboard._components._form-group.input-select')
-                                @slot('inputLabel', 'Jabatan')
-                                @slot('inputName', 'position')
+
+                            @component('dashboard._components._form-group.input-multiple-periode')
+                                @slot('inputLabel', 'Periode')
+                                @slot('inputName', 'periode')
                                 @slot('inputId', 'input-position')
                                 @slot('inputIsRequired', true)
                                 @slot('inputIsSearchable', true)
-                                @slot('inputValue', $user->position)
-                                @slot('inputDatas', $inputDatasPosition)
+                                @slot('divisionOption', $inputDatasDivision)
+                                @slot('positionOption', $inputDatasPosition)
+                                @slot('inputValue', $user->periode)
                             @endcomponent
 
                             {{-- input : role_id --}}
@@ -221,5 +207,103 @@
         {{-- script --}}
         <script>
             "use strict";
+            var i = 0;
+            $("#dynamic-ar").click(function() {
+                ++i;
+                $("#dynamicAddRemove").append(
+                    `<tr>
+                <td style="width:70%">
+                    <div class="form-group mb-3">
+    <label for="">
+        Tahun Masuk
+            </label>
+
+    <div class="input-group">
+        <input type="text" name="periode_year[]" id="input-periode-year_entry" value="" class="form-control form-control-year   ">
+        <div class="input-group-append" disabled="">
+            <span class="input-group-text" id="basic-addon2"><i class="fas fa-calendar-alt"></i></span>
+        </div>
+    </div>
+
+    </div>
+                    <div class="form-group">
+    <label for="">
+        Divisi
+                    <span class="text-muted text-secondary">(harus diisi)</span>
+            </label> <br>
+    <select name="periode_division[]" id="input-periode-division_id" data-width="100%" data-size="5" data-live-search="true" data-live-search-placeholder="Cari..." title="Pilih Divisi" required="" class=" " style="width: 100%;">
+        
+                    <option value="1">
+                Badan Pengurus Harian
+            </option>
+                    <option value="2">
+                Pengembangan Sumber Daya Mahasiswa
+            </option>
+                    <option value="3">
+                Penelitian dan Pengembangan
+            </option>
+                    <option value="4">
+                Hubungan Masyarakat
+            </option>
+                    <option value="5">
+                Hubungan Luar
+            </option>
+                    <option value="6">
+                Media Sosial
+            </option>
+                    <option value="7">
+                Media Teknologi
+            </option>
+                    <option value="8">
+                Media Informasi
+            </option>
+                    <option value="9">
+                Pengembangan Teknologi
+            </option>
+            </select>
+    
+    </div>
+                    <div class="form-group">
+    <label for="">
+        Jabatan
+                    <span class="text-muted text-secondary">(harus diisi)</span>
+            </label> <br>
+    <select name="periode_position[]" id="input-periode-position" data-width="100%" data-size="5" data-live-search="true" data-live-search-placeholder="Cari..." title="Pilih Jabatan" required="" class=" " style="width: 100%;">
+        
+                    <option value="Ketua Umum">
+                Ketua Umum
+            </option>
+                    <option value="Sekretaris">
+                Sekretaris
+            </option>
+                    <option value="Bendahara">
+                Bendahara
+            </option>
+                    <option value="Kepala Divisi">
+                Kepala Divisi
+            </option>
+                    <option value="Kepala Subdivisi">
+                Kepala Subdivisi
+            </option>
+                    <option value="Anggota">
+                Anggota
+            </option>
+                    <option value="Demisioner">
+                Demisioner
+            </option>
+            </select>
+    
+    </div>
+                </td>
+                <td>
+
+                    <button type="button" class="btn btn-outline-danger remove-input-field">Delete</button>
+                </td>
+            </tr>`
+                );
+            });
+            $(document).on('click', '.remove-input-field', function() {
+                $(this).parents('tr').remove();
+            });
         </script>
     @endpush {{-- end of script --}}

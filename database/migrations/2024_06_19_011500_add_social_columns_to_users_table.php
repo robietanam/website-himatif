@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('instagram')->nullable()->after('phone');
             $table->string('linkedin')->nullable()->after('instagram');
+            $table->json('periode')->after('photo');
         });
     }
 
@@ -23,7 +24,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['instagram', 'linkedin']);
+            $table->dropForeign(['division_id']);
+            $table->dropColumn(['instagram', 'linkedin', 'division_id','year_entry', 'position']);
         });
     }
 };

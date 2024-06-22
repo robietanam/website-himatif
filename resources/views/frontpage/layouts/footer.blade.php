@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="pt-0 footer ">
     <div class="container mx-auto sm:px-4">
         <div class="flex flex-wrap justify-between py-5">
             <div class="lg:w-1/3 pr-4 pl-4">
@@ -19,7 +19,8 @@
                     <div class="col-auto"><img src="{{ asset('img/icons/instagram.svg') }}" alt=""></div>
                     <div class="relative flex-grow max-w-full flex-1 px-4">
                         <h6 class="text-white font-weight-semibold">
-                            <a href="https://www.instagram.com/himatifunej/" target="_blank">@himatifunej</a>
+                            <a class="text-white" href="https://www.instagram.com/himatifunej/"
+                                target="_blank">@himatifunej</a>
                         </h6>
                     </div>
                 </div>
@@ -28,7 +29,8 @@
                     <div class="relative flex-grow max-w-full flex-1 px-4">
                         {{-- <h6 class="text-white font-weight-semibold">himatifilkom</h6> --}}
                         <h6 class="text-white font-weight-semibold">
-                            <a href="https://www.youtube.com/@himatifunej3573" target="_blank">Himatif
+                            <a class="text-white" href="https://www.youtube.com/@himatifunej3573"
+                                target="_blank">Himatif
                                 Unej</a>
                         </h6>
                     </div>
@@ -38,7 +40,8 @@
                     <div class="relative flex-grow max-w-full flex-1 px-4">
                         {{-- <h6 class="text-white font-weight-semibold">himatifilkom</h6> --}}
                         <h6 class="text-white font-weight-semibold">
-                            <a href="https://www.tiktok.com/@himatifunej" target="_blank">@himatifunej</a>
+                            <a class="text-white" href="https://www.tiktok.com/@himatifunej"
+                                target="_blank">@himatifunej</a>
                         </h6>
                     </div>
                 </div>
@@ -47,15 +50,15 @@
                     <div class="relative flex-grow max-w-full flex-1 px-4">
                         {{-- <h6 class="text-white font-weight-semibold">himatifilkom</h6> --}}
                         <h6 class="text-white font-weight-semibold">
-                            <a href="https://www.linkedin.com/company/himatifunej" target="_blank">Himatif Unej</a>
+                            <a class="text-white" href="https://www.linkedin.com/company/himatifunej"
+                                target="_blank">Himatif Unej</a>
                         </h6>
                     </div>
                 </div>
             </div>
             {{-- divider --}}
-            <div class="w-full lg:hidden py-5 px-3">
-                <div class="divider bg-white opacity-50 my-1"></div>
-            </div>
+
+            <div class="divider lg:hidden before:bg-white after:bg-white bg-transparent"></div>
 
             <div class="md:w-1/2 lg:w-1/4 pr-4 pl-4 lg:mx-1/6 py-4">
                 <h5 class="text-white font-extrabold mb-2">NAVIGASI</h5>
@@ -83,9 +86,8 @@
                 </ul>
             </div>
             {{-- divider --}}
-            <div class="w-full lg:hidden py-5 px-3">
-                <div class="divider bg-white opacity-50 my-1"></div>
-            </div>
+
+            <div class="divider lg:hidden before:bg-white after:bg-white bg-transparent"></div>
 
             <div class="md:w-1/2 pr-4 pl-4 lg:w-1/3 pr-4 pl-4 pt-2">
                 <h5 class="text-white font-weight-extrabold mb-2">BERITA TERBARU</h5>
@@ -131,9 +133,7 @@
             </div>
         </div>
 
-        <div class="w-full lg:hidden py-5 px-3">
-            <div class="divider bg-white opacity-50 my-1"></div>
-        </div>
+        <div class="divider  before:bg-white after:bg-white bg-transparent"></div>
         <div class="text-link text-center font-bold">Copyright &copy; {{ date('Y') }}. Himatif, All rights
             reserved </div>
     </div>

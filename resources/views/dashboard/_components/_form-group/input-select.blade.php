@@ -26,7 +26,7 @@
         @if (isset($inputIsSearchable) && $inputIsSearchable === true) data-live-search="true"
             data-live-search-placeholder="Cari..." @endif
         title="Pilih {{ $inputLabel }}" @if (isset($inputIsRequired) && $inputIsRequired === true) required @endif
-        @if (isset($inputIsDisabled) && $inputIsDisabled === true) disabled @endif class="selectpicker @error($inputName) is-invalid @enderror">
+        @if (isset($inputIsDisabled) && $inputIsDisabled === true) disabled @endif class=" @error($inputName) is-invalid @enderror">
         {{-- {!! $inputDatas !!} --}}
         @foreach ($inputDatas as $datakey => $datavalue)
             <option

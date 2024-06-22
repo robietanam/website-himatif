@@ -132,13 +132,13 @@ class UserController extends Controller
         \Validator::make($request->all(), [
             'name' => 'required',
             'nim' => 'required',
-            'instagram' => 'string|url',
-            'linkedin' => 'string|url',
+            'instagram' => 'nullable|url',
+            'linkedin' => 'nullable|url',
             'email' => 'required|string|email|unique:users,email,' . $id,
-            'position' => 'required',
-            'division_id' => 'required',
+            'periode_year' => 'required|array',
+            'periode_division' => 'required|array',
+            'periode_position' => 'required|array',
         ])->validate();
-
         try {
             $this->userRepository->update($id, $request->all());
             return redirect()->route('dashboard.admin.users.index')->with([

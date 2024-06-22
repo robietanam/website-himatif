@@ -21,6 +21,7 @@
 }
 
 
+
 .divider {
   background-color: #f4f4fa;
   width: 100%;
@@ -32,7 +33,7 @@
 }
 
 footer.footer {
-  @apply bg-[#42465f] bg-[url("../img/decoration/bg/3.svg"),url("../img/decoration/bg/3.svg")] bg-no-repeat bg-[calc(100%_+_15rem)_calc(100%_+_15rem),-20%_-80%] px-0 py-16 md:bg-[120%_120%,-20%_-80%] md:pt-32 md:pb-16 md:px-0;
+  @apply bg-[#42465f] bg-[url("../img/decoration/bg/3.svg"),url("../img/decoration/bg/3.svg")] bg-no-repeat bg-[calc(100%_+_15rem)_calc(100%_+_15rem),-20%_-80%] px-0 py-16 md:bg-[120%_120%,-20%_-80%] md:pb-16 md:px-0;
 }
 footer.footer .nav .nav-item .nav-link {
   @apply text-[1.4rem] hover:underline;

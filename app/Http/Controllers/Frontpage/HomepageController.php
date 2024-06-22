@@ -9,6 +9,7 @@ use App\Repositories\PageContentRepository;
 use App\Repositories\DivisionRepository;
 use App\Repositories\PostRepository;
 use App\Repositories\ProkerRepository;
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -17,6 +18,7 @@ class HomepageController extends Controller
 {
     protected $pageContentRepository;
     protected $divisionRepository;
+    protected $userRepository;
     protected $postRepository;
     protected $prokerRepository;
 
@@ -24,6 +26,7 @@ class HomepageController extends Controller
     {
         $this->pageContentRepository = new PageContentRepository;
         $this->divisionRepository = new DivisionRepository;
+        $this->userRepository = new UserRepository;
         $this->postRepository = new PostRepository;
         $this->prokerRepository = new ProkerRepository;
     }
@@ -70,9 +73,11 @@ class HomepageController extends Controller
     {
         $header = (array) json_decode($this->pageContentRepository->findBySlug('header-pengurus')->data);
         $divisions = $this->divisionRepository->getParent();
+        $pengurus = $this->userRepository->getPengurus();
         return view('frontpage.modules.pengurus', compact([
             'header',
             'divisions',
+            'pengurus',
         ]));
     }
 

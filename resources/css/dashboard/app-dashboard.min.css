@@ -3946,10 +3946,9 @@ select.selectpicker {
   bottom: 0;
   left: 50%;
   display: block !important;
-  width: 0.5px !important;
+  width: 100px !important;
   height: 100% !important;
   padding: 0 !important;
-  opacity: 0 !important;
   border: none;
   z-index: 0 !important;
 }

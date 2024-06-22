@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('email');
+            $table->mediumText('bukti_pendaftaran');
             $table->string('id_form');
             $table->string('label_id');
             $table->enum('status', [0, 1, 2])->default(2)->comment = "0 Belum Dikirim, 1 Sudah Dikirim, 2 Tidak dapat kode / Error";

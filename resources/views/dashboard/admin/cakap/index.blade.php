@@ -95,6 +95,7 @@
                             <th class="w-25">Email</th>
                             <th class="">Form Id</th>
                             <th class="">Kode</th>
+                            <th class="">Bukti</th>
                             <th class="">Label</th>
                             <th class="">Status</th>
                             <th>Dibuat pada</th>
@@ -301,6 +302,11 @@
                         searchable: false
                     },
                     {
+                        data: 'bukti',
+                        name: 'bukti',
+                        searchable: false
+                    },
+                    {
                         data: 'label',
                         name: 'label',
                         searchable: false
@@ -497,13 +503,13 @@
                 var form = this;
                 var rows_selected = table.column(0).checkboxes.selected();
                 Swal.fire({
-                    title: `Hapus ${rows_selected.length} Data ?`,
-                    text: "Dengan Menghapus data ini, anda tidak dapat mengembalikannya",
+                    title: `Kirim ${rows_selected.length} Email ?`,
+                    text: "Cek lagi, sudah bener nih ye? Tunggu ngirimnya kalau banyak lama",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Iya, Hapus!',
+                    confirmButtonText: 'Iya, GASS!',
                     cancelButtonText: 'Batal'
                 }).then((result) => {
                     if (result.isConfirmed) {
@@ -554,67 +560,6 @@
                                 .attr('type', 'hidden')
                                 .attr('name', 'status[]')
                                 .val(data.status)
-                            );
-                        });
-                        form.submit();
-                    }
-                })
-            });
-
-            $('#form-draft').on('submit', function(e) {
-                e.preventDefault();
-                var form = this;
-                var rows_selected = table.column(0).checkboxes.selected();
-                Swal.fire({
-                    title: "Pindah ke Draft Post Terpilih ?",
-                    text: "Data akan disembunyikan, anda yakin ?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Iya, pindah ke Draft!',
-                    cancelButtonText: 'Batal'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        // Iterate over all selected checkboxes
-                        $(form).find('input[name="id[]"]').remove();
-                        $.each(rows_selected, function(index, rowId) {
-                            // Create a hidden element
-                            $(form).append(
-                                $('<input>')
-                                .attr('type', 'hidden')
-                                .attr('name', 'id[]')
-                                .val(rowId)
-                            );
-                        });
-                        form.submit();
-                    }
-                })
-            });
-            $('#form-publish').on('submit', function(e) {
-                e.preventDefault();
-                var form = this;
-                var rows_selected = table.column(0).checkboxes.selected();
-                Swal.fire({
-                    title: "Publish Post Terpilih ?",
-                    text: "Data ini akan ditampilkan pada website, anda yakin ?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Iya, publish!',
-                    cancelButtonText: 'Batal'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        // Iterate over all selected checkboxes
-                        $(form).find('input[name="id[]"]').remove();
-                        $.each(rows_selected, function(index, rowId) {
-                            // Create a hidden element
-                            $(form).append(
-                                $('<input>')
-                                .attr('type', 'hidden')
-                                .attr('name', 'id[]')
-                                .val(rowId)
                             );
                         });
                         form.submit();

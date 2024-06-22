@@ -68,7 +68,7 @@ class PostController extends Controller
             return redirect()->route('dashboard.admin.posts.index')->with([
                 'type' => 'success',
                 'message' => 'Tambah Data Post Berhasil'
-            ]);
+            ]) ;
         } catch (\Exception $e) {
             return redirect()->route('dashboard.admin.posts.create')->with([
                 'type' => 'danger',

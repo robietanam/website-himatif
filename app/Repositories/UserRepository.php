@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Division;
 use Yajra\DataTables\DataTables;
 use App\Models\User;
 
@@ -36,17 +37,14 @@ class UserRepository
             ->addColumn('nim', function ($user) {
                 return $user->nim;
             })
+            ->addColumn('division', function ($user) {
+                return Division::find($user->periode[0]['division_id'])->name . " ({$user->periode[0]['position']})" ;
+            })
             ->addColumn('linkedin', function ($user) {
                 return $user->linkedin;
             })
             ->addColumn('instagram', function ($user) {
                 return $user->instagram;
-            })
-            ->addColumn('position', function ($user) {
-                return $user->position;
-            })
-            ->addColumn('division', function ($user) {
-                return $user->division->name;
             })
             ->addColumn('status', function ($user) {
                 return $user->status === '1' ?
@@ -59,9 +57,6 @@ class UserRepository
             ->addColumn('email', function ($user) {
                 return $user->email;
             })
-            ->addColumn('year_entry', function ($user) {
-                return $user->year_entry;
-            })
             ->addColumn('role', function ($user) {
                 return $user->role->name;
             })
@@ -72,6 +67,11 @@ class UserRepository
     public function get()
     {
         return User::all();
+    }
+    
+    public function getPengurus()
+    {
+        return User::where('status', "1")->get();
     }
 
     public function count(array $condition = [])
@@ -135,17 +135,34 @@ class UserRepository
     public function update($id, $data)
     {
         try {
+            $periode_year = $data['periode_year'] ;
+            $periode_division = $data['periode_division'] ;
+            $periode_position = $data['periode_position'] ;
+            
+            // Combine periode arrays into an associative array
+            $periodes = [];
+            $count = count($periode_year);
+            for ($i = 0; $i < $count; $i++) {
+                $periodes[] = [
+                    'year' => $periode_year[$i],
+                    'division_id' => $periode_division[$i],
+                    'position' => $periode_position[$i],
+                ];
+            }
+
+            // Convert to JSON
+            $periodesJson = json_encode($periodes);
+
             $user = User::find($id);
             $user->name = $data['name'] ?? $user->name;
             $user->nim = $data['nim'] ?? $user->nim;
+            $user->periode = $periodes;
             $user->linkedin = $data['linkedin'] ?? $user->linkedin;
             $user->instagram = $data['instagram'] ?? $user->instagram;
-            $user->position = $data['position'] ?? $user->position;
-            $user->division_id = $data['division_id'] ?? $user->division_id;
             $user->status = $data['status'] ?? $user->status;
             $user->phone = $data['phone'] ?? $user->phone;
             $user->email = $data['email'] ?? $user->email;
-            $user->year_entry = $data['year_entry'] ?? $user->year_entry;
+            
             $user->updated_at = now();
 
             // check if has password update request
