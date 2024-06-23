@@ -45,7 +45,7 @@
                             <div class="flex justify-between mt-3">
                                 <div class="flex">
                                     @if (isset($proker->link_instagram) && !empty($proker->link_instagram))
-                                        <div class="col-auto mr-1">
+                                        <div class="col-auto mr-1 ">
                                             <a target="_blank" href="{{ $proker->link_instagram }} "
                                                 class="flex flex-row justify-center items-center space-x-3 text-center select-none border font-normal whitespace-no-wrap rounded-md py-2 px-3 max-md:p-2 leading-normal no-underline text-[#e4405f] border-[#e4405f] bg-gradient-to-r  hover:from-pink-500 hover:to-yellow-500  hover:text-white bg-white hover:bg-red-700">
 
@@ -96,26 +96,44 @@
                                     @endif
 
                                     @if ($proker->is_registration_open === '1')
-                                        <div class="col-auto">
-                                            <a href="{{ $proker->link_registration }}" target="_blank"
-                                                class="inline-block align-middle text-center select-none font-normal whitespace-no-wrap text-white 
+                                        @if ($proker->id !== 3)
+                                            <div class="col-auto">
+                                                <a href="{{ $proker->link_registration }}" target="_blank"
+                                                    class="inline-block align-middle text-center select-none font-normal whitespace-no-wrap text-white 
                                                 bg-gradient-to-r from-purple-800 to-purple-600 hover:bg-none hover:text-purple-800 hover:border hover:border-purple-700 rounded-md py-3 px-4 leading-normal no-underline 
                                                 transition ease-in-out  hover:scale-110 duration-300">Daftar
-                                                Sekarang</a>
-                                        </div>
+                                                    Sekarang</a>
+                                            </div>
+                                        @else
+                                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfRNSQsVUxeGHhCY-bpuXDBddUsuh9Q6GOrt4BWepngBrIihw/viewform?usp=sf_link"
+                                                target="_blank"
+                                                class="inline-block align-middle text-center select-none font-normal whitespace-no-wrap text-white 
+                                            bg-gradient-to-r from-purple-800 to-purple-600 hover:bg-none hover:text-purple-800 hover:border hover:border-purple-700 rounded-md py-3 px-4 leading-normal no-underline 
+                                            transition ease-in-out  hover:scale-110 duration-300">Series
+                                                1
+                                            </a>
+                                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf1skE0H14lAbR0nKBqEghjwmpr-XDXTJTRaJi-_ry5yECMQg/viewform?usp=sf_link "
+                                                target="_blank"
+                                                class="inline-block align-middle text-center select-none font-normal whitespace-no-wrap text-white 
+                                        bg-gradient-to-r from-purple-800 to-purple-600 hover:bg-none hover:text-purple-800 hover:border hover:border-purple-700 rounded-md py-3 px-4 leading-normal no-underline 
+                                        transition ease-in-out  hover:scale-110 duration-300">Series
+                                                2
+                                            </a>
+                                        @endif
                                     @endif
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    <div id="accordion-flush" data-accordion="open"
+
+                    <div id="accordion-flush" data-accordion="open" class="px-2"
                         data-active-classes="bg-none dark:bg-gray-900 text-gray-900 dark:text-white"
                         data-inactive-classes="text-gray-500 dark:text-gray-400">
                         @if ($proker->is_timeline_open)
 
 
-                            <h5 id="accordion-flush-heading-1">
+                            <h6 id="accordion-flush-heading-1">
                                 <button type="button"
                                     class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
                                     data-accordion-target="#accordion-flush-body-1" aria-expanded="true"
@@ -127,7 +145,7 @@
                                             stroke-width="2" d="M9 5 5 1 1 5" />
                                     </svg>
                                 </button>
-                            </h5>
+                            </h6>
                             <div id="accordion-flush-body-1" class="hidden px-4"
                                 aria-labelledby="accordion-flush-heading-1">
                                 <div class="py-5 border-b border-gray-200 dark:border-gray-700">
@@ -459,5 +477,13 @@
         </div>
     </main>
 
+
+@endsection
+@section('style')
+
+@endsection
+
+@section('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
 @endsection

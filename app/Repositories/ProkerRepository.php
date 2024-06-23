@@ -11,8 +11,9 @@ class ProkerRepository
 {
     public function get(int $limit = null, array $condition = [], array $orCondition = [])
     {
-        return Proker::orderBy('is_timeline_open', 'desc')
-            ->orderBy('updated_at', 'asc')
+        return Proker::orderBy('is_registration_open', 'desc')
+            ->orderBy('is_timeline_open', 'desc')
+            ->orderBy('updated_at', 'desc')
             ->when(count($condition) > 0, function ($q) use ($condition) {
                 $q->where($condition);
             })
