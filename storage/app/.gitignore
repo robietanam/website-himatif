@@ -1,4 +1,2 @@
-*
-!public/
-!termsCakap/
-!.gitignore
+public/
+purifier/
