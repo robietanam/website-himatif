@@ -9,7 +9,8 @@
                             <tr>
                                 <td>
                                     <p class="button button-{{ $color }}" target="_blank" rel="noopener">
-                                        {{ $slot }}</a>
+                                        {{ $slot }}
+                                    </p>
                                 </td>
                             </tr>
                         </table>

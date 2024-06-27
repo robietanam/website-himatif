@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         
-        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('cakap_kodes');
         Schema::dropIfExists('form_cakaps');
+    
         Schema::create('cakap_kodes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('form_cakap_id')->nullable();
-            $table->string('kode')->unique();
+            $table->string('kode');
             $table->timestamps();
-
+            $table->unsignedBigInteger('form_cakap_id')->nullable();
             $table->unsignedBigInteger('label_id')->nullable();
+
             $table->foreign('label_id')->references('id')->on('label_cakaps')->onDelete('set null');
         });
     }

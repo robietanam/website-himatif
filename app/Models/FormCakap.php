@@ -12,12 +12,12 @@ class FormCakap extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama', 'email',  'id_form', 'kode' , 'bukti_pendaftaran', 'status', 'label_id'
+        'nama', 'email',  'id_form' , 'bukti_pendaftaran','cakap_kode_id', 'status', 'label_id'
     ];
 
-    public function cakapKode(): HasOne
+    public function cakapKode(): BelongsTo
     {
-        return $this->hasOne(CakapKode::class, 'kode');
+        return $this->belongsTo(CakapKode::class, 'cakap_kode_id');
     }
 
     public function label()

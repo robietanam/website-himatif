@@ -24,7 +24,6 @@ class CakapHimatif extends Controller
         return response(view('dashboard.admin.cakap.index'));
     }
     public function showEmail(Request $request){
-        $dataForm = $request->only('id','nama', 'id_form', 'email', 'status', 'label');
         // dd($dataForm);
         return response(view('dashboard.admin.cakap.email', compact('dataForm')) );
     }
@@ -35,8 +34,9 @@ class CakapHimatif extends Controller
             'kode' => '232324',
             'label' => 'Kode1'
         ];
-        return new CakapKodeMail($details);
+        return new CakapKodeMail($details, storage_path("app/termsCakap/TnC English Club 3 Months - Cakap x Himatif Unej.pdf"));
     }
+
     public function sendEmail(Request $request){
         $validatedData = $request->validate([
             'id' => 'required|array',
@@ -54,7 +54,12 @@ class CakapHimatif extends Controller
             'status' => 'required|array',
             'status.*' => 'required|string|in:0,1,2',
         ]);
-        
+        $pathTerms = [
+            "Cakap English Club 3 Bulan" => storage_path("app/termsCakap/TnC English Club 3 Months - Cakap x Himatif Unej.pdf"),
+            "Cakap Japanese Club 3 Bulan" => storage_path("app/termsCakap/TnC Japanese Club 3 Months - Cakap x Himatif Unej.pdf"),
+            "Belajar Mengolah Data untuk Calon Data Engineer" => storage_path("app/termsCakap/TnC Self Paced Learning Belajar Memproduksi Sebuah Karya Animasi 2D untuk Calon Animator - Cakap x Himatif Unej.pdf"),
+            "Belajar Memproduksi Sebuah Karya Animasi 2D untuk Calon Animator" => storage_path("app/termsCakap/TnC Self Paced Learning Belajar Mengolah Data untuk Calon Data Engineer - Cakap x Himatif Unej.pdf"),
+        ];
         foreach ($validatedData['id'] as $id) {
             $formCakap = FormCakap::find($id);
 
@@ -63,15 +68,16 @@ class CakapHimatif extends Controller
                     $details = [
                         'nama' => $formCakap->nama,
                         'email' =>  $formCakap->email,
-                        'kode' => $formCakap->kode,
+                        'kode' => $formCakap->cakapKode->kode,
                         'label' => $formCakap->label->name,
                         ];
-                        
                     // Update the form status to 1 after email is successfully sent
                     $formCakap->update(['status' => '1']);
-
+                    
+                    
+                    $termsFilePath = $pathTerms[$formCakap->label->name];
                     // Send email to the user
-                    Mail::to($formCakap->email)->queue(new CakapKodeMail($details));
+                    Mail::to($formCakap->email)->queue(new CakapKodeMail($details, $termsFilePath));
 
                     return redirect()->route('dashboard.admin.cakap.index')->with([
                         'type' => 'success',

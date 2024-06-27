@@ -10,6 +10,8 @@ class CakapKodeMail extends Mailable
     use Queueable, SerializesModels;
 
     public $details;
+    public $termsFilePath;
+
 
     /**
      * Create a new message instance.
@@ -17,9 +19,10 @@ class CakapKodeMail extends Mailable
      * @param  array  $details
      * @return void
      */
-    public function __construct(array $details)
+    public function __construct(array $details, $termsFilePath)
     {
         $this->details = $details;
+        $this->termsFilePath = $termsFilePath;
     }
 
     /**
@@ -30,6 +33,10 @@ class CakapKodeMail extends Mailable
     public function build()
     {
         return $this->subject('Kode Reedem CakapxHimatif')
-                    ->markdown('emails.cakapkode');
+                    ->markdown('emails.cakapkode')
+                    ->attach($this->termsFilePath, [
+                        'as' => 'TermsAndConditions.pdf',
+                        'mime' => 'application/pdf',
+                    ]);
     }
 }

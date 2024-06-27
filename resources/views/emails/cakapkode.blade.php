@@ -11,20 +11,21 @@
 
     <p>Selamat anda berhasil mendapatkan voucher cakap.com</p>
 
-    Silahkan gunakan kode berikut
+    <p>Silahkan gunakan kode berikut</p>
     @component('vendor.mail.html.kode', ['url' => 'https://example.com'])
         {{ $details['kode'] }}
     @endcomponent
 
+    <p style="margin-bottom: 0;">Untuk mendaftar course <strong>{{ $details['label'] }} </strong></p>
 
-    <p>Untuk mendaftar pada course <strong>{{ $details['label'] }} </strong> pada cakap.com</p>
+    <p style="line-height: none; font-size:12px">Syarat dan ketentuan terlampir</p>
 
     @slot('subcopy')
         @component('mail::subcopy')
             HIMATIF, 2024
         @endcomponent
     @endslot
-    <p>Terima kasih telah mendaftar pada,<br>
+    <p>Terima kasih telah mengikuti <br>
         HIMATIF x CAKAP 2024</p>
 
     {{-- Footer --}}

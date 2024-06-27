@@ -11,6 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
+        
+        Schema::dropIfExists('form_cakaps');
         Schema::create('form_cakaps', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
@@ -20,11 +22,10 @@ return new class extends Migration
             $table->string('label_id');
             $table->enum('status', [0, 1, 2])->default(2)->comment = "0 Belum Dikirim, 1 Sudah Dikirim, 2 Tidak dapat kode / Error";
             $table->timestamps();
-            $table->string('kode')->nullable();
-            $table  ->foreign('kode')
-                    ->references('kode')->on('cakap_kodes')
-                    ->nullable()
-                    ->unique();
+            $table->unsignedBigInteger('cakap_kode_id')->nullable();
+            $table  ->foreign('cakap_kode_id')
+                    ->references('id')->on('cakap_kodes')
+                    ->nullable();
         });
     }
 

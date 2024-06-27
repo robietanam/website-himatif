@@ -25,6 +25,7 @@ class CakapRepository
         } else {
             $formCakap = FormCakap::orderBy('created_at', 'desc')->get();
         }
+        
         return DataTables::of($formCakap)
             ->addColumn('id', function ($formCakap) {
                 return $formCakap->id;
@@ -42,7 +43,7 @@ class CakapRepository
                 return "<a href='" . asset('storage/' . $formCakap->bukti_pendaftaran ) . "' target='_blank'>Link</a>";
             })
             ->addColumn('kode', function ($formCakap) {
-                return $formCakap->kode;
+                return $formCakap->cakapKode->kode;
             })
             ->addColumn('label', function ($formCakap) {
                 return $formCakap->label->name;
@@ -180,7 +181,7 @@ class CakapRepository
 
             if ($cakapKode) {
                 // Assign the code to the form
-                $FormCakap->update(['bukti_pendaftaran' => $bukti, 'kode' => $cakapKode->kode, 'status' => '0']);
+                $FormCakap->update(['bukti_pendaftaran' => $bukti, 'cakap_kode_id' => $cakapKode->id, 'status' => '0']);
 
                 // Update the cakap_kode to reference the form_cakap
                 $cakapKode->update(['form_cakap_id' => $FormCakap->id]);
@@ -204,7 +205,7 @@ class CakapRepository
             $label = LabelCakap::firstOrCreate(
                 ['name' => $data['label']]
             );
-            $KodeCakap = CakapKode::updateOrCreate(array('kode' => $data['kode'], 'label_id' => $label->id));
+            $KodeCakap = CakapKode::create(array('kode' => $data['kode'], 'label_id' => $label->id));
             return $KodeCakap;
         } catch (\Throwable $t) {
             dd($t);
