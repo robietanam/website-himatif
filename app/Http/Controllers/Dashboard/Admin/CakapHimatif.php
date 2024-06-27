@@ -57,8 +57,8 @@ class CakapHimatif extends Controller
         $pathTerms = [
             "Cakap English Club 3 Bulan" => storage_path("app/termsCakap/TnC English Club 3 Months - Cakap x Himatif Unej.pdf"),
             "Cakap Japanese Club 3 Bulan" => storage_path("app/termsCakap/TnC Japanese Club 3 Months - Cakap x Himatif Unej.pdf"),
-            "Belajar Mengolah Data untuk Calon Data Engineer" => storage_path("app/termsCakap/TnC Self Paced Learning Belajar Memproduksi Sebuah Karya Animasi 2D untuk Calon Animator - Cakap x Himatif Unej.pdf"),
-            "Belajar Memproduksi Sebuah Karya Animasi 2D untuk Calon Animator" => storage_path("app/termsCakap/TnC Self Paced Learning Belajar Mengolah Data untuk Calon Data Engineer - Cakap x Himatif Unej.pdf"),
+            "Belajar Mengolah Data untuk Calon Data Engineer" => storage_path("app/termsCakap/TnC Self Paced Learning Belajar Mengolah Data untuk Calon Data Engineer - Cakap x Himatif Unej.pdf"),
+            "Belajar Memproduksi Sebuah Karya Animasi 2D untuk Calon Animator" => storage_path("app/termsCakap/TnC Self Paced Learning Belajar Memproduksi Sebuah Karya Animasi 2D untuk Calon Animator - Cakap x Himatif Unej.pdf"),
         ];
         foreach ($validatedData['id'] as $id) {
             $formCakap = FormCakap::find($id);
