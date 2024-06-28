@@ -77,7 +77,7 @@ class CakapHimatif extends Controller
                     
                     $termsFilePath = $pathTerms[$formCakap->label->name];
                     // Send email to the user
-                    Mail::to($formCakap->email)->queue(new CakapKodeMail($details, $termsFilePath));
+                    Mail::to($formCakap->email)->send(new CakapKodeMail($details, $termsFilePath));
 
                     return redirect()->route('dashboard.admin.cakap.index')->with([
                         'type' => 'success',
