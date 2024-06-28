@@ -79,14 +79,16 @@ class CakapHimatif extends Controller
                     // Send email to the user
                     Mail::to($formCakap->email)->send(new CakapKodeMail($details, $termsFilePath));
 
-                    return redirect()->route('dashboard.admin.cakap.index')->with([
-                        'type' => 'success',
-                        'message' => 'Email Berhasil Dikirim'
-                    ]);
+                    
                 } catch (\Exception $e) {
                     
                     $formCakap->update(['status' => '2']);
+                    
                     throw $e;
+                    return redirect()->route('dashboard.admin.cakap.index')->with([
+                        'type' => 'error',
+                        'message' => 'Terdapat email yang error mohon coba lagi'
+                    ]);
                     // Log the error or handle it as necessary
                     // Optionally update the form status to indicate failure
                     
@@ -96,7 +98,7 @@ class CakapHimatif extends Controller
 
         return redirect()->route('dashboard.admin.cakap.index')->with([
             'type' => 'success',
-            'message' => 'Terdapat Error'
+            'message' => 'Email Berhasil Dikirim'
         ]);
     }
     
