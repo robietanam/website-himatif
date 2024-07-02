@@ -243,7 +243,7 @@
                                         <div class="row gutters-xs align-items-center border-bottom pb-3 mb-3">
                                             <div class="col-md">Operasi Data</div>
                                             <div class="col-md-auto">
-                                                <a data-toggle="modal" href="#m-create-proker-user" class="btn btn-primary">
+                                                <a data-bs-toggle="modal" href="#m-create-proker-user" class="btn btn-primary">
                                                     Tambah Anggota
                                                 </a>
                                             </div>

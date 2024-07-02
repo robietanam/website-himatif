@@ -42,7 +42,7 @@
                     <form id="form-active" action="{{ route('dashboard.admin.prokers.update-status') }}" method="POST">
                         @csrf
                         <input type="hidden" name="status" value="1">
-                        <button id="btn-active" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top"
+                        <button id="btn-active" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-placement="top"
                             title="Sek Aktif Proker" disabled>
                             <i class="fas fa-check-square"></i>
                         </button>
@@ -52,14 +52,14 @@
                     <form id="form-inactive" action="{{ route('dashboard.admin.prokers.update-status') }}" method="POST">
                         @csrf
                         <input type="hidden" name="status" value="0">
-                        <button id="btn-inactive" class="btn btn-sm btn-secondary" data-toggle="tooltip"
+                        <button id="btn-inactive" class="btn btn-sm btn-secondary" data-bs-toggle="tooltip"
                             data-placement="top" title="Sek Tidak Aktif Proker" disabled>
                             <i class="fas fa-minus-square"></i>
                         </button>
                     </form>
                 </div>
                 <div class="col-md-auto">
-                    <a data-toggle="modal" href="#m-create" class="btn btn-block btn-sm btn-primary">
+                    <a data-bs-toggle="modal" href="#m-create" class="btn btn-block btn-sm btn-primary">
                         <i class="fas fa-plus mr-2"></i> Tambah Data
                     </a>
                 </div>

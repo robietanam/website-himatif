@@ -42,7 +42,7 @@
                     <form id="form-active" action="{{ route('dashboard.admin.users.update-status') }}" method="POST">
                         @csrf
                         <input type="hidden" name="status" value="1">
-                        <button id="btn-active" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top"
+                        <button id="btn-active" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-placement="top"
                             title="Sek Aktif Pengurus" disabled>
                             <i class="fas fa-check-square"></i>
                         </button>
@@ -52,7 +52,7 @@
                     <form id="form-inactive" action="{{ route('dashboard.admin.users.update-status') }}" method="POST">
                         @csrf
                         <input type="hidden" name="status" value="0">
-                        <button id="btn-inactive" class="btn btn-sm btn-secondary" data-toggle="tooltip"
+                        <button id="btn-inactive" class="btn btn-sm btn-secondary" data-bs-toggle="tooltip"
                             data-placement="top" title="Sek Tidak Aktif Pengurus" disabled>
                             <i class="fas fa-minus-square"></i>
                         </button>

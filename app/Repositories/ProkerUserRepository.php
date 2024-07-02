@@ -41,7 +41,7 @@ class ProkerUserRepository
                                 <button
                                     type="submit"
                                     class="btn btn-sm btn-danger"
-                                    data-toggle="tooltip" data-placement="top" title="Sek Tidak Aktif Proker"
+                                    data-bs-toggle="tooltip" data-placement="top" title="Sek Tidak Aktif Proker"
                                 >
                                     <i class="fas fa-trash"></i>
                                 </button>
@@ -122,7 +122,7 @@ class ProkerUserRepository
                                     <button
                                         type="submit"
                                         class="btn btn-sm btn-danger"
-                                        data-toggle="tooltip" data-placement="top" title="Sek Tidak Aktif Proker"
+                                        data-bs-toggle="tooltip" data-placement="top" title="Sek Tidak Aktif Proker"
                                     >
                                         <i class="fas fa-trash"></i>
                                     </button>

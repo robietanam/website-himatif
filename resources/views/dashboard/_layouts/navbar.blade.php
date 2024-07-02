@@ -2,7 +2,7 @@
     <div class="row no-gutters w-100">
         <div class="col">
             <ul class="navbar-nav mr-3">
-                <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a>
+                <li><a href="#" data-bs-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a>
                 </li>
             </ul>
         </div>

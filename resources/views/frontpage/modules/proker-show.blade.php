@@ -39,7 +39,7 @@
 
                             </div>
 
-                            <div class="[&>p]:text-lg max-md:[&>p]:text-sm text-gray-500">
+                            <div class="proker-desc [&>p]:text-lg max-md:[&>p]:text-sm text-gray-500">
                                 {!! $proker->description !!}
                             </div>
                             <div class="flex justify-between mt-3">
@@ -128,14 +128,13 @@
                     </div>
 
                     <div id="accordion-flush" data-accordion="open" class="px-2"
-                        data-active-classes="bg-none dark:bg-gray-900 text-gray-900 dark:text-white"
-                        data-inactive-classes="text-gray-500 dark:text-gray-400">
+                        data-active-classes="bg-none text-gray-900" data-inactive-classes="text-gray-500">
                         @if ($proker->is_timeline_open)
 
 
                             <h6 id="accordion-flush-heading-1">
                                 <button type="button"
-                                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
+                                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 gap-3"
                                     data-accordion-target="#accordion-flush-body-1" aria-expanded="true"
                                     aria-controls="accordion-flush-body-1">
                                     <span>Timeline {{ $proker->name === 'ITEC' ? 'UI/UX' : '' }}</span>
@@ -148,8 +147,8 @@
                             </h6>
                             <div id="accordion-flush-body-1" class="hidden px-4"
                                 aria-labelledby="accordion-flush-heading-1">
-                                <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                                    <ol class="relative border-s border-gray-200 dark:border-gray-700">
+                                <div class="py-5 border-b border-gray-200">
+                                    <ol class="relative border-s border-gray-200">
                                         @foreach ($proker->timeline as $key => $timeline)
                                             @if (date('Y-m-d H:i:s') < date('Y-m-d H:i:s', strtotime($timeline[2])))
                                                 @php
@@ -161,10 +160,9 @@
                                                 @if ($key == $timeline_active)
                                                     <li class="mb-10 ms-4">
                                                         <div
-                                                            class="absolute w-3 h-3 bg-green-600 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
+                                                            class="absolute w-3 h-3 bg-green-600 rounded-full mt-1.5 -start-1.5 border border-white">
                                                         </div>
-                                                        <time
-                                                            class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                                        <time class="mb-1 text-sm font-normal leading-none text-gray-400">
                                                             @if (date('d-m-Y', strtotime($timeline[2])) === date('d-m-Y', strtotime($timeline[1])))
                                                                 {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
                                                             @else
@@ -173,15 +171,15 @@
                                                                 {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
                                                             @endif
                                                         </time>
-                                                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                                                        <h3 class="text-lg font-semibold text-gray-900">
                                                             {{ $timeline[0] }}</h3>
-                                                        {{-- <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+                                                        {{-- <p class="mb-4 text-base font-normal text-gray-500">
                                                         Get
                                                         access to over 20+ pages including a dashboard layout, charts,
                                                         kanban board,
                                                         calendar, and pre-order E-commerce & Marketing pages.</p>
                                                     <a href="#"
-                                                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Learn
+                                                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700">Learn
                                                         more <svg class="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true"
                                                             xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 14 10">
@@ -193,10 +191,9 @@
                                                 @else
                                                     <li class="mb-10 ms-4">
                                                         <div
-                                                            class="absolute w-3 h-3 bg-yellow-400 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
+                                                            class="absolute w-3 h-3 bg-yellow-400 rounded-full mt-1.5 -start-1.5 border border-white">
                                                         </div>
-                                                        <time
-                                                            class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                                        <time class="mb-1 text-sm font-normal leading-none text-gray-400">
                                                             @if (date('d-m-Y', strtotime($timeline[2])) === date('d-m-Y', strtotime($timeline[1])))
                                                                 {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
                                                             @else
@@ -205,15 +202,15 @@
                                                                 {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
                                                             @endif
                                                         </time>
-                                                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                                                        <h3 class="text-lg font-semibold text-gray-900">
                                                             {{ $timeline[0] }}</h3>
-                                                        {{-- <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+                                                        {{-- <p class="mb-4 text-base font-normal text-gray-500">
                                                         Get
                                                         access to over 20+ pages including a dashboard layout, charts,
                                                         kanban board,
                                                         calendar, and pre-order E-commerce & Marketing pages.</p>
                                                     <a href="#"
-                                                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Learn
+                                                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700">Learn
                                                         more <svg class="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true"
                                                             xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 14 10">
@@ -226,10 +223,9 @@
                                             @else
                                                 <li class="mb-10 ms-4">
                                                     <div
-                                                        class="absolute w-3 h-3 bg-red-400 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
+                                                        class="absolute w-3 h-3 bg-red-400 rounded-full mt-1.5 -start-1.5 border border-white">
                                                     </div>
-                                                    <time
-                                                        class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                                    <time class="mb-1 text-sm font-normal leading-none text-gray-400">
                                                         @if (date('d-m-Y', strtotime($timeline[2])) === date('d-m-Y', strtotime($timeline[1])))
                                                             {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
                                                         @else
@@ -238,15 +234,15 @@
                                                             {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
                                                         @endif
                                                     </time>
-                                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                                                    <h3 class="text-lg font-semibold text-gray-900">
                                                         {{ $timeline[0] }}</h3>
-                                                    {{-- <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+                                                    {{-- <p class="mb-4 text-base font-normal text-gray-500">
                                                         Get
                                                         access to over 20+ pages including a dashboard layout, charts,
                                                         kanban board,
                                                         calendar, and pre-order E-commerce & Marketing pages.</p>
                                                     <a href="#"
-                                                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Learn
+                                                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700">Learn
                                                         more <svg class="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true"
                                                             xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 14 10">
@@ -263,9 +259,9 @@
                                 </div>
                             </div>
                             @if ($proker->name === 'ITEC')
-                                <h5 id="accordion-flush-heading-99">
+                                <h6 id="accordion-flush-heading-99">
                                     <button type="button"
-                                        class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
+                                        class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 gap-3"
                                         data-accordion-target="#accordion-flush-body-99" aria-expanded="true"
                                         aria-controls="accordion-flush-body-2">
                                         <span>Timeline Data Mining</span>
@@ -275,11 +271,11 @@
                                                 stroke-width="2" d="M9 5 5 1 1 5" />
                                         </svg>
                                     </button>
-                                </h5>
+                                </h6>
                                 <div id="accordion-flush-body-99" class="hidden px-4"
                                     aria-labelledby="accordion-flush-heading-99">
-                                    <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                                        <ol class="relative border-s border-gray-200 dark:border-gray-700">
+                                    <div class="py-5 border-b border-gray-200">
+                                        <ol class="relative border-s border-gray-200">
                                             @php
                                                 $sementara = [['Pendaftaran dan Pengumpulan Proposal Full Paper', '2024-02-24T17:05', '2024-03-18T19:18'], ['Pengumuman lolos/Babak Final', '2024-03-25T19:30', '2024-03-25T19:30'], ['TM dan Pengundian Nomor Urut', '2024-03-29T09:31', '2024-03-29T09:31'], ['Final dan Presentasi', '2024-03-30T09:31', '2024-03-30T09:31']];
                                             @endphp
@@ -294,10 +290,10 @@
                                                     @if ($key == $timeline_active)
                                                         <li class="mb-10 ms-4">
                                                             <div
-                                                                class="absolute w-3 h-3 bg-green-600 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
+                                                                class="absolute w-3 h-3 bg-green-600 rounded-full mt-1.5 -start-1.5 border border-white">
                                                             </div>
                                                             <time
-                                                                class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                                                class="mb-1 text-sm font-normal leading-none text-gray-400">
                                                                 @if (date('d-m-Y', strtotime($timeline[2])) === date('d-m-Y', strtotime($timeline[1])))
                                                                     {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
                                                                 @else
@@ -306,16 +302,15 @@
                                                                     {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
                                                                 @endif
                                                             </time>
-                                                            <h3
-                                                                class="text-lg font-semibold text-gray-900 dark:text-white">
+                                                            <h3 class="text-lg font-semibold text-gray-900">
                                                                 {{ $timeline[0] }}</h3>
-                                                            {{-- <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+                                                            {{-- <p class="mb-4 text-base font-normal text-gray-500">
                                                         Get
                                                         access to over 20+ pages including a dashboard layout, charts,
                                                         kanban board,
                                                         calendar, and pre-order E-commerce & Marketing pages.</p>
                                                     <a href="#"
-                                                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Learn
+                                                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700">Learn
                                                         more <svg class="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true"
                                                             xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 14 10">
@@ -327,10 +322,10 @@
                                                     @else
                                                         <li class="mb-10 ms-4">
                                                             <div
-                                                                class="absolute w-3 h-3 bg-yellow-400 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
+                                                                class="absolute w-3 h-3 bg-yellow-400 rounded-full mt-1.5 -start-1.5 border border-white">
                                                             </div>
                                                             <time
-                                                                class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                                                class="mb-1 text-sm font-normal leading-none text-gray-400">
                                                                 @if (date('d-m-Y', strtotime($timeline[2])) === date('d-m-Y', strtotime($timeline[1])))
                                                                     {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
                                                                 @else
@@ -339,16 +334,15 @@
                                                                     {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
                                                                 @endif
                                                             </time>
-                                                            <h3
-                                                                class="text-lg font-semibold text-gray-900 dark:text-white">
+                                                            <h3 class="text-lg font-semibold text-gray-900">
                                                                 {{ $timeline[0] }}</h3>
-                                                            {{-- <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+                                                            {{-- <p class="mb-4 text-base font-normal text-gray-500">
                                                         Get
                                                         access to over 20+ pages including a dashboard layout, charts,
                                                         kanban board,
                                                         calendar, and pre-order E-commerce & Marketing pages.</p>
                                                     <a href="#"
-                                                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Learn
+                                                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700">Learn
                                                         more <svg class="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true"
                                                             xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 14 10">
@@ -361,10 +355,9 @@
                                                 @else
                                                     <li class="mb-10 ms-4">
                                                         <div
-                                                            class="absolute w-3 h-3 bg-red-400 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
+                                                            class="absolute w-3 h-3 bg-red-400 rounded-full mt-1.5 -start-1.5 border border-white">
                                                         </div>
-                                                        <time
-                                                            class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                                        <time class="mb-1 text-sm font-normal leading-none text-gray-400">
                                                             @if (date('d-m-Y', strtotime($timeline[2])) === date('d-m-Y', strtotime($timeline[1])))
                                                                 {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
                                                             @else
@@ -373,15 +366,15 @@
                                                                 {{ tgl_indo(date('d-m-Y', strtotime($timeline[2]))) }}
                                                             @endif
                                                         </time>
-                                                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                                                        <h3 class="text-lg font-semibold text-gray-900">
                                                             {{ $timeline[0] }}</h3>
-                                                        {{-- <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+                                                        {{-- <p class="mb-4 text-base font-normal text-gray-500">
                                                         Get
                                                         access to over 20+ pages including a dashboard layout, charts,
                                                         kanban board,
                                                         calendar, and pre-order E-commerce & Marketing pages.</p>
                                                     <a href="#"
-                                                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Learn
+                                                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700">Learn
                                                         more <svg class="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true"
                                                             xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 14 10">
@@ -403,9 +396,9 @@
                         @endif
 
                         @if ($proker->dokumentasi && $proker->is_dokumentasi_open)
-                            <h5 id="accordion-flush-heading-2">
+                            <h6 id="accordion-flush-heading-2">
                                 <button type="button"
-                                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
+                                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 gap-3"
                                     data-accordion-target="#accordion-flush-body-2" aria-expanded="true"
                                     aria-controls="accordion-flush-body-2">
                                     <span>Galeri</span>
@@ -415,10 +408,10 @@
                                             stroke-width="2" d="M9 5 5 1 1 5" />
                                     </svg>
                                 </button>
-                            </h5>
+                            </h6>
                             <div id="accordion-flush-body-2" class="hidden px-4"
                                 aria-labelledby="accordion-flush-heading-2">
-                                <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                                <div class="py-5 border-b border-gray-200">
                                     <div id="gallery" class="relative w-full" data-carousel="slide">
                                         <!-- Carousel wrapper -->
                                         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
@@ -436,10 +429,9 @@
                                             class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                                             data-carousel-prev>
                                             <span
-                                                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 6 10">
+                                                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30/30 group-hover:bg-white/50/60 group-focus:ring-4 group-focus:ring-white/70 group-focus:outline-none">
+                                                <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                                     <path stroke="currentColor" stroke-linecap="round"
                                                         stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
                                                 </svg>
@@ -450,10 +442,9 @@
                                             class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                                             data-carousel-next>
                                             <span
-                                                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 6 10">
+                                                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30/30 group-hover:bg-white/50/60 group-focus:ring-4 group-focus:ring-white/70 group-focus:outline-none">
+                                                <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                                     <path stroke="currentColor" stroke-linecap="round"
                                                         stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                                                 </svg>
@@ -480,7 +471,26 @@
 
 @endsection
 @section('style')
+    <style>
+        .proker-desc ul {
+            padding-left: 2rem;
+        }
 
+        .proker-desc ul li {
+            list-style: disc;
+
+        }
+
+        .proker-desc ol {
+            padding-left: 2rem;
+
+        }
+
+        .proker-desc ol li {
+            list-style: decimal;
+
+        }
+    </style>
 @endsection
 
 @section('script')

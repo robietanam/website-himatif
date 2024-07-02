@@ -71,20 +71,18 @@
                         class="max-w-md mx-auto px-4">
                         @csrf
                         <div class="mb-5">
-                            <label for="email"
-                                class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Masukkan
+                            <label for="email" class="block mb-2 text-sm font-bold text-gray-900">Masukkan
                                 Email Kamu</label>
                             <input type="email" id="email" name="email"
-                                class="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                class="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="" required />
                         </div>
                         <div class="mb-5">
-                            <label for="nama"
-                                class="block font-bold mb-2 text-sm  text-gray-900 dark:text-white">Masukkan
+                            <label for="nama" class="block font-bold mb-2 text-sm  text-gray-900">Masukkan
                                 Nama
                                 Kamu</label>
                             <input type="text" id="nama" name="nama"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 required />
                         </div>
 
@@ -108,7 +106,7 @@
                         </div>
 
                         <button type="submit"
-                            class="text-white font-bold bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300  rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Daftar</button>
+                            class="text-white font-bold bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300  rounded-lg text-sm w-full  px-5 py-2.5 text-center">Daftar</button>
                     </form>
 
                 </div>
