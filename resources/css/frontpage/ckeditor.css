@@ -2,6 +2,9 @@ body {
   font-size: 14px;
 }
 
+.ck-content > h1 {
+  visibility: hidden;
+}
 .ck-content > blockquote,
 .ck-content > dl,
 .ck-content > dd,
