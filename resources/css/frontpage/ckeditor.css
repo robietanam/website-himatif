@@ -4,6 +4,7 @@ body {
 
 .ck-content > h1 {
   visibility: hidden;
+  display: none;
 }
 .ck-content > blockquote,
 .ck-content > dl,
