@@ -27,13 +27,13 @@ body {
 .ck-content > ol > li {
   margin-bottom: 10px;
 }
-.ck-content > ol,
-.ck-content > ul {
+.ck-content ol,
+.ck-content ul{
   list-style: revert;
   margin: revert;
   padding: revert;
 }
-
+ 
 .ck-content > table {
   border-collapse: revert;
 }
