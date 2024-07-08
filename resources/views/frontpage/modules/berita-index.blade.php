@@ -63,7 +63,7 @@
                                     {{ $post->category->name }}
                                 </div>
                                 <p class="line-clamp-4 text-sm ">
-                                    {{ strip_tags(str_replace('<br>', ' ', $post->body)) }}
+                                    {{ strip_tags(str_replace(['<br>', '&nbsp;'], ' ', $post->body)) }}
                                     {{-- {{ substr(strip_tags(), 0, 320) . (strlen(strip_tags($post->body)) > 320 ? '...' : '') }} --}}
                                 </p>
                             </div>

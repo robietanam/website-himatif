@@ -43,7 +43,7 @@ class PostRepository
                     '<span class="badge badge-secondary"><i class="fas fa-minus-square"></i></span>';
             })
             ->addColumn('body', function ($post) {
-                return substr(strip_tags($post->body), 0, 40) . ((strlen(strip_tags($post->body)) > 40) ? '...' : '');
+                return substr(html_entity_decode(strip_tags($post->body)), 0, 40) . ((strlen(html_entity_decode(strip_tags($post->body))) > 40) ? '...' : '');
             })
             ->addColumn('created_at', function ($post) {
                 return \Carbon\Carbon::parse($post->created_at)->translatedFormat('d F Y');

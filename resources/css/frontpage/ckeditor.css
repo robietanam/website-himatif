@@ -1,10 +1,10 @@
 body {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .ck-content > h1 {
-  visibility: hidden;
-  display: none;
+    visibility: hidden;
+    display: none;
 }
 .ck-content > blockquote,
 .ck-content > dl,
@@ -20,26 +20,27 @@ body {
 .ck-content > p,
 .ck-content > ol,
 .ck-content > pre {
-  margin: revert;
-  line-height: 28px;
+    margin: revert;
+    line-height: 28px;
 }
 
-.ck-content > p ,
-.ck-content > ol {
-  font-size: 1.1rem;
+.ck-content > p,
+.ck-content ol {
+    font-size: 1.1rem;
 }
 .ck-content > ol > li {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 .ck-content ol,
-.ck-content ul{
-  list-style: revert;
-  margin: revert;
-  padding: revert;
+.ck-content ul {
+    font-size: 1.1rem;
+    list-style: revert;
+    margin: revert;
+    padding: revert;
 }
- 
+
 .ck-content > table {
-  border-collapse: revert;
+    border-collapse: revert;
 }
 
 .ck-content > h1,
@@ -48,5 +49,5 @@ body {
 .ck-content > h4,
 .ck-content > h5,
 .ck-content > h6 {
-  font-weight: 700;
+    font-weight: 700;
 }
