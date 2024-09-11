@@ -56,6 +56,12 @@
                     </a>
                 </li>
 
+                <li class="nav-item {{ Request::is('dashboard/admin/review-alumni*') ? 'active' : '' }}">
+                    <a href="{{ route('dashboard.admin.review-alumni.index') }}" class="nav-link">
+                        <i class="fas fa-user"></i> <span>Review Alumni</span>
+                    </a>
+                </li>
+
                 <li class="menu-header">Pages</li>
                 <li class="nav-item {{ Request::is('dashboard/admin/page-contents*') ? 'active' : '' }}">
                     <a href="{{ url('/dashboard/admin/page-contents') }}" class="nav-link">

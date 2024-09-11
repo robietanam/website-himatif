@@ -70,6 +70,14 @@ Route::group(['middleware' => ['auth', 'role:admin'], 'prefix' => 'dashboard/adm
     Route::delete('cakap/destroys-kode', 'CakapHimatif@destroyskode')->name('cakap.kode.destroys');
     
     Route::get('cakap/email-send', 'EmailController@emailCakaps')->name('cakap.email.sends');
+
+    //review alumni
+    Route::get('review-alumni', 'ReviewAlumniController@index')->name('review-alumni.index');
+    Route::get('review-alumni/create', 'ReviewAlumniController@create')->name('review-alumni.create');
+    Route::post('review-alumni/store', 'ReviewAlumniController@store')->name('review-alumni.store');
+    Route::get('review-alumni/edit/{id}', 'ReviewAlumniController@edit')->name('review-alumni.edit');
+    Route::put('review-alumni/update/{id}', 'ReviewAlumniController@update')->name('review-alumni.update');
+    Route::delete('review-alumni/delete/{id}', 'ReviewAlumniController@destroy')->name('review-alumni.destroy');
 });
 
 // Pengurus Routes
