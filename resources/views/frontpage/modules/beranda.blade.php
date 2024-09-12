@@ -252,22 +252,26 @@
                         [
                             'shortname' => 'psdm',
                             'name' => 'Pengembangan Sumber Daya Mahasiswa',
-                            'content' => 'Pengembangan dan pemberdayaan akademik dan softskill mahasiswa serta untuk menciptakan mahasiswa berkompeten dan unggul',
+                            'content' =>
+                                'Pengembangan dan pemberdayaan akademik dan softskill mahasiswa serta untuk menciptakan mahasiswa berkompeten dan unggul',
                         ],
                         [
                             'shortname' => 'litbang',
                             'name' => 'Penelitian dan Pengembangan',
-                            'content' => 'Melakukan penelitian untuk mendapatkan hasil optimal dalam pengembangan mahasiswa teknologi informasi',
+                            'content' =>
+                                'Melakukan penelitian untuk mendapatkan hasil optimal dalam pengembangan mahasiswa teknologi informasi',
                         ],
                         [
                             'shortname' => 'humas',
                             'name' => 'Hubungan Masyarakat',
-                            'content' => 'Media komunikasi antara HIMATIF birokrasi, organisasi lain, instansi, maupun masyarakat umum dan menjadi penghubung antara himatif dengan mahasiswa teknologi informasi secara langsung',
+                            'content' =>
+                                'Media komunikasi antara HIMATIF birokrasi, organisasi lain, instansi, maupun masyarakat umum dan menjadi penghubung antara himatif dengan mahasiswa teknologi informasi secara langsung',
                         ],
                         [
                             'shortname' => 'mediatek',
                             'name' => 'Media Teknologi',
-                            'content' => 'Media informasi dan komunikasi seputar teknologi informasi serta media pengembang teknologi HIMATIF',
+                            'content' =>
+                                'Media informasi dan komunikasi seputar teknologi informasi serta media pengembang teknologi HIMATIF',
                         ],
                     ];
                 @endphp
@@ -385,6 +389,51 @@
         </div>
     </section>
 
+    <section id="section-alumni" class="review" style="width: 100%">
+        <div class="slide-container swiper">
+            <br><br><br>
+            <div class="w-full text-left mb-3 md:mb-12">
+                <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
+                    APA KATA ALUMNI KITA?
+                </h3>
+                <h6 class="text-gray mb-2">Tentang Alumni Teknologi Informasi</h6>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="slide-content swiper-wrapper">
+                @foreach ($reviews as $review)
+                    <div class="swiper-slide">
+                        <div class="r-card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <div class="image-content">
+                                        <span class="overlay"></span>
+                                        <div class="card-image">
+                                            <img src="{{ asset('storage/' . $review->photo) }}"
+                                                alt="Photo of {{ $review->name }}" class="card-img">
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="name">{{ $review->name }}</h2>
+                                        <p class="description">{{ $review->motivation }}</p>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <p class="card-back-text">{{ $review->experience }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <!-- Navigasi Swiper -->
+            <div class="swiper-button-next">></div>
+            <div class="swiper-button-prev">
+                < </div>
+            </div>
+            <div class="swiper-pagination"></div>
+    </section>
     @if (false)
         <section id="section-alumni">
             <div class="container mx-auto px-4  ">
@@ -554,6 +603,8 @@
 @endsection
 
 @section('style')
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
@@ -580,9 +631,352 @@
         }
     </style>
 
+    <style>
+        .slide-container {
+            max-width: 1000px;
+            width: 100%;
+            padding: 20px 0;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .swiper-wrapper {
+            display: flex;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            width: calc(33.33% - 20px);
+            margin-right: 20px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .r-card {
+            width: 100%;
+            height: 300px;
+            perspective: 1000px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .card-front {
+            background-color: #ebd2b1;
+            border-radius: 20px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-back {
+            background-color: #ebd2b1;
+            color: #fff;
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .r-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .image-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #fff;
+            padding: 5px;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .card-content {
+            width: 313px;
+            height: 150px;
+            padding: 10px;
+            background-color: #FFFFFF;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .name {
+            font-size: 14px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 10px;
+            text-align: center;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .description {
+            font-size: 14px;
+            color: #555;
+            text-align: justify;
+            margin-top: 5px;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+        }
+
+        .card-back-text {
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: justify;
+            word-wrap: break-word;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 12;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            margin-top: 0;
+            margin-bottom: auto;
+            max-height: 100%;
+            white-space: normal;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #000 !important;
+            background-color: rgba(255, 255, 255, 0.8) !important;
+            border-radius: 50% !important;
+            width: 40px !important;
+            height: 40px !important;
+            font-size: 23px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            cursor: pointer;
+            z-index: 10 !important;
+            position: absolute !important;
+            top: 40% !important;
+            transform: translateY(-50%) !important;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            box-sizing: border-box;
+            border: 1px solid #ddd !important;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background-color: rgba(255, 255, 255, 1) !important;
+            color: #000 !important;
+        }
+
+        .swiper-button-next {
+            right: 10px !important;
+        }
+
+        .swiper-button-prev {
+            left: 10px !important;
+        }
+
+        .swiper-pagination {
+            bottom: 10px !important;
+            text-align: center !important;
+        }
+
+        .swiper-pagination-bullet {
+            background: #ebd2b1 !important;
+            opacity: 0.7 !important;
+            width: 10px !important;
+            height: 10px !important;
+            border-radius: 50% !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #c56d33 !important;
+            opacity: 1 !important;
+        }
+
+        .swiper-button-next::before,
+        .swiper-button-prev::before {
+            content: none !important;
+            /* Menghapus pseudo-element */
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            content: none !important;
+        }
+
+        .swiper-pagination {
+            position: relative !important;
+            bottom: 11px !important;
+            text-align: center !important;
+        }
+
+
+        @media (max-width: 768px) {
+
+            .swiper-slide {
+                width: 100%;
+                margin-right: 0;
+            }
+
+            .r-card {
+                height: 300px;
+                width: 80%;
+            }
+
+            .card-inner {
+                width: 100%;
+                height: 100%;
+            }
+
+            .card-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .name {
+                font-size: 18px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .card-back-text {
+                font-size: 16px;
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+                top: 20px;
+                background-color: rgba(255, 255, 255, 0.9);
+                border-radius: 50%;
+                border: 1px solid #ddd;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .swiper-button-next {
+                right: 40px;
+            }
+
+            .swiper-button-prev {
+                left: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .swiper-slide {
+                width: 100%;
+                margin-right: 0;
+            }
+
+            .r-card {
+                height: 300px;
+                width: 80%;
+            }
+
+            .card-inner {
+                width: 100%;
+                height: 100%;
+            }
+
+            .card-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .name {
+                font-size: 18px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .card-back-text {
+                font-size: 16px;
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+                top: 39%;
+                background-color: rgba(255, 255, 255, 0.9);
+                border-radius: 50%;
+                border: 1px solid #ddd;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .swiper-button-next {
+                right: 40px;
+            }
+
+            .swiper-button-prev {
+                left: 40px;
+            }
+        }
+    </style>
+
 @endsection
 
 @section('script')
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     {{-- Slick --}}
@@ -655,5 +1049,42 @@
         })
     </script>
     {{-- Light Gallery --}}
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            spaceBetween: 30,
+            centeredSlides: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            loop: true,
+            speed: 600,
+            effect: 'slide',
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+            },
+        });
+    </script>
+    {{-- Review-Alumni --}}
 
 @endsection
