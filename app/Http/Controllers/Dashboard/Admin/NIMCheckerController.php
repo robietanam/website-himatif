@@ -53,8 +53,18 @@ class NIMCheckerController extends Controller
             $nimChecker->angkatan = $angkatan;
             $nimChecker->status = $status_akhir;
 
-    
-            $nimChecker->save();
+            // // Ada data yg duplikat dan isinya berbeda, harus check manual terutama angkatan 22
+            // try {
+                $nimChecker->save();
+            // } catch (\Illuminate\Database\QueryException $e) {
+            //     // Handle unique constraint violation
+            //     if ($e->errorInfo[1] == 1062) { // MySQL error code for duplicate entry
+            //         // Log the duplicate or just skip the record
+            //         continue;
+            //     }
+            //     // If it's another type of error, rethrow it
+            //     throw $e;
+            // }
         }
          
         return redirect()->route('dashboard.admin.nim-checker.index')->with([
