@@ -390,17 +390,41 @@
     </section>
 
     <section id="section-alumni" class="review" style="width: 100%">
-        <div class="slide-container swiper">
-            <br><br><br>
+        <div class="relative container overflow-hidden mx-auto sm:px-4 swiper">
             <div class="w-full text-left mb-3 md:mb-12">
                 <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
                     APA KATA ALUMNI KITA?
                 </h3>
-                <h6 class="text-gray mb-2">Tentang Alumni Teknologi Informasi</h6>
+                <h6 class="text-gray ">Tentang Alumni Teknologi Informasi</h6>
             </div>
-            <br>
-            <br>
-            <br>
+            <div class="flex flex-wrap w-full justify-between op-5 py-5">
+                <button type="button"
+                    class="relative top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    id="swiper-button-prev">
+                    <span
+                        class=" inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight/30 group-hover:bg-black/50 group-focus:ring-4 group-focus:ring-white/70 group-focus:outline-none">
+                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white rtl:rotate-180"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 1 1 5l4 4" />
+                        </svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button"
+                    class="relative top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    id="swiper-button-next">
+                    <span
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-midnight/30 group-hover:bg-black/50 group-focus:ring-4 group-focus:ring-white/70 group-focus:outline-none">
+                        <svg class="my-auto mx-auto w-1/5 font-medium leading-tight text-xl text-white rtl:rotate-180"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 9 4-4-4-4" />
+                        </svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
+            </div>
             <div class="slide-content swiper-wrapper">
                 @foreach ($reviews as $review)
                     <div class="swiper-slide">
@@ -416,7 +440,7 @@
                                     </div>
                                     <div class="card-content">
                                         <h2 class="name">{{ $review->name }}</h2>
-                                        <p class="description">{{ $review->motivation }}</p>
+                                        <p class="description text-center">{{ $review->motivation }}</p>
                                     </div>
                                 </div>
                                 <div class="card-back">
@@ -427,126 +451,12 @@
                     </div>
                 @endforeach
             </div>
-            <!-- Navigasi Swiper -->
-            <div class="swiper-button-next">></div>
-            <div class="swiper-button-prev">
-                < </div>
+            
+            
             </div>
             <div class="swiper-pagination"></div>
     </section>
-    @if (false)
-        <section id="section-alumni">
-            <div class="container mx-auto px-4  ">
-                <h3 class="text-dec text-dec-info-1 text-dec-tr text-midnight font-extrabold mb-2">
-                    Apa Kata Alumni
-                </h3>
-                <h6 class="text-gray mb-2">Pesan dan Kesan dari Alumni</h6>
-
-                <div class="flex flex-wrap  py-5 [&>div]:overflow-visible px-20 md:px-48" id="slick-alumni-row">
-                    <div
-                        class=" relative flex flex-wrap gap-6 p-6 justify-center w-full h-full rounded-md break-words bg-white border-1 border-gray-300 card-proker border shadow-sm ">
-                        <div class="avatar -mt-10">
-                            <div class="w-24 h-24 rounded-xl">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                            </div>
-                        </div>
-
-                        <div class="relative gap-2 md:flex-grow md:flex-1 flex flex-col justify-between h-full w-full">
-                            <p class="text-sm font-bold">" My RISTEK experience has been the most impactful for
-                                my technology
-                                career. Here you
-                                are interacting & learning together with the brightest minds in CS UI. After
-                                graduation you will find your RISTEK buddies be Silicon Valley engineers, startup
-                                founders, and other high flying professionals. "</p>
-                            <p class="text-sm ">Adam Jordan, Security Lead @ Sea</p>
-                        </div>
-                    </div>
-                    <div
-                        class=" relative flex flex-wrap gap-6 p-6 justify-center w-full h-full rounded-md break-words bg-white border-1 border-gray-300 card-proker border shadow-sm ">
-                        <div class="avatar -mt-10">
-                            <div class="w-24 h-24 rounded-xl">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                            </div>
-                        </div>
-
-                        <div class="relative gap-2 md:flex-grow md:flex-1 flex flex-col justify-between h-full w-full">
-                            <p class="text-sm font-bold">" My RISTEK experience has been the most impactful for
-                                my technology
-                                career. Here you
-                                are interacting & learning together with the brightest minds in CS UI. After
-                                graduation you will find your RISTEK buddies be Silicon Valley engineers, startup
-                                founders, and other high flying professionals. "</p>
-                            <p class="text-sm ">Adam Jordan, Security Lead @ Sea</p>
-                        </div>
-                    </div>
-                    <div
-                        class=" relative flex flex-wrap gap-6 p-6 justify-center w-full h-full rounded-md break-words bg-white border-1 border-gray-300 card-proker border shadow-sm ">
-                        <div class="avatar -mt-10">
-                            <div class="w-24 h-24 rounded-xl">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                            </div>
-                        </div>
-
-                        <div class="relative gap-2 md:flex-grow md:flex-1 flex flex-col justify-between h-full w-full">
-                            <p class="text-sm font-bold">" My RISTEK experience has been the most impactful for
-                                my technology
-                                career. Here you
-                                are interacting & learning together with the brightest minds in CS UI. After
-                                graduation you will find your RISTEK buddies be Silicon Valley engineers, startup
-                                founders, and other high flying professionals. "</p>
-                            <p class="text-sm ">Adam Jordan, Security Lead @ Sea</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-wrap px-20 md:px-48" id="slider-nav">
-                    <div
-                        class=" relative flex flex-wrap  items-center justify-center p-4 mx-4 max-lg:mx-1 rounded-md break-words bg-white border-1 border-gray-300 border shadow-sm ">
-                        <div class="avatar mx-auto flex items-center justify-center">
-                            <div class="max-w-20 max-h-20 rounded-xl">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                            </div>
-                        </div>
-
-                        <div
-                            class="relative pt-2 gap-1 md:flex-grow md:flex-1 flex flex-col items-center justify-center h-full w-full">
-                            <p class="text-sm font-bold text-center">Adam Jordan</p>
-                            <p class="text-sm ">Sea</p>
-                        </div>
-                    </div>
-                    <div
-                        class=" relative flex flex-wrap  items-center justify-center p-4 mx-4 max-lg:mx-1 rounded-md break-words bg-white border-1 border-gray-300 border shadow-sm ">
-                        <div class="avatar mx-auto flex items-center justify-center">
-                            <div class="max-w-20 max-h-20 rounded-xl">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                            </div>
-                        </div>
-
-                        <div
-                            class="relative pt-2 gap-1 md:flex-grow md:flex-1 flex flex-col items-center justify-center h-full w-full">
-                            <p class="text-sm font-bold text-center">Adam Jordan</p>
-                            <p class="text-sm ">Sea</p>
-                        </div>
-                    </div>
-                    <div
-                        class=" relative flex flex-wrap  items-center justify-center p-4 mx-4 max-lg:mx-1 rounded-md break-words bg-white border-1 border-gray-300 border shadow-sm ">
-                        <div class="avatar mx-auto flex items-center justify-center">
-                            <div class="max-w-20 max-h-20 rounded-xl">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                            </div>
-                        </div>
-
-                        <div
-                            class="relative pt-2 gap-1 md:flex-grow md:flex-1 flex flex-col items-center justify-center h-full w-full">
-                            <p class="text-sm font-bold text-center">Adam Jordan</p>
-                            <p class="text-sm ">Sea</p>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </section>
-    @endif
+    
 
     {{-- Section 5 : Galerry --}}
     <section id="section-5">
@@ -632,17 +542,10 @@
     </style>
 
     <style>
-        .slide-container {
-            max-width: 1000px;
-            width: 100%;
-            padding: 20px 0;
-            position: relative;
-            margin: 0 auto;
-            overflow: hidden;
-        }
 
         .swiper-wrapper {
             display: flex;
+            width: 100%
         }
 
         .swiper-slide {
@@ -651,7 +554,6 @@
             align-items: center;
             flex-shrink: 0;
             width: calc(33.33% - 20px);
-            margin-right: 20px;
             transition: transform 0.5s ease-in-out;
         }
 
@@ -682,8 +584,8 @@
         }
 
         .card-front {
-            background-color: #ebd2b1;
-            border-radius: 20px;
+            background-color: #ffc107;
+            border-radius: 10px;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             display: flex;
@@ -692,14 +594,14 @@
         }
 
         .card-back {
-            background-color: #ebd2b1;
-            color: #fff;
+            background-color: #ffc107;
+            color: #f3f2eb;
             transform: rotateY(180deg);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            border-radius: 20px;
+            border-radius: 10px;
             padding: 20px;
         }
 
@@ -716,7 +618,7 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background-color: #fff;
+            background-color: #f3f2eb;
             padding: 5px;
             border: 5px solid #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -743,7 +645,7 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            border-radius: 10px;
+            border-radius:  10px 10px 0 0;
         }
 
         .name {
@@ -761,7 +663,6 @@
         .description {
             font-size: 14px;
             color: #555;
-            text-align: justify;
             margin-top: 5px;
             display: block;
             overflow: hidden;
@@ -786,7 +687,7 @@
             max-height: 100%;
             white-space: normal;
         }
-
+/*  
         .swiper-button-next,
         .swiper-button-prev {
             color: #000 !important;
@@ -821,11 +722,7 @@
         .swiper-button-prev {
             left: 10px !important;
         }
-
-        .swiper-pagination {
-            bottom: 10px !important;
-            text-align: center !important;
-        }
+*/
 
         .swiper-pagination-bullet {
             background: #ebd2b1 !important;
@@ -853,7 +750,7 @@
 
         .swiper-pagination {
             position: relative !important;
-            bottom: 11px !important;
+            bottom: -20px !important;
             text-align: center !important;
         }
 
@@ -862,7 +759,6 @@
 
             .swiper-slide {
                 width: 100%;
-                margin-right: 0;
             }
 
             .r-card {
@@ -919,7 +815,6 @@
 
             .swiper-slide {
                 width: 100%;
-                margin-right: 0;
             }
 
             .r-card {
@@ -1052,15 +947,15 @@
 
     <script>
         const swiper = new Swiper('.swiper', {
-            spaceBetween: 30,
+            
             centeredSlides: true,
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
             },
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: '#swiper-button-next',
+                prevEl: '#swiper-button-prev',
             },
             loop: true,
             speed: 600,
@@ -1080,7 +975,7 @@
                 },
                 1024: {
                     slidesPerView: 3,
-                    spaceBetween: 30,
+                    spaceBetween: 25,
                 },
             },
         });
