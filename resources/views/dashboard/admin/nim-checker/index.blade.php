@@ -32,7 +32,7 @@
                             <img id="img-post" src="" alt="">
                         </div>
                         @component('dashboard._components._form-group.input-img')
-                            @slot('inputLabel', 'Banner Post')
+                            @slot('inputLabel', 'NIM FILE CSV')
                             @slot('inputPreviewIdentity', 'img-post')
                             @slot('inputName', 'data')
                             @slot('inputId', 'input-data')

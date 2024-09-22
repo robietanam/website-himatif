@@ -497,7 +497,6 @@
                 })
             });
 
-            var rows_selected = table.column(0).checkboxes.selected();
             $('#form-email').on('submit', function(e) {
                 e.preventDefault();
                 var form = this;

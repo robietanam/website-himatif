@@ -69,6 +69,20 @@
                     </a>
                 </li>
 
+                <li class="menu-header">Pemilu</li>
+
+                <li class="nav-item {{ Request::is('dashboard/admin/pemilu-vote*') ? 'active' : '' }}">
+                    <a href="{{ url('/dashboard/admin/pemilu-vote?status=0') }}" class="nav-link">
+                        <i class="fas fa-pager"></i> <span>Vote</span>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ Request::is('dashboard/admin/pemilu-candidate*') ? 'active' : '' }}">
+                    <a href="{{ url('/dashboard/admin/pemilu-candidate') }}" class="nav-link">
+                        <i class="fas fa-pager"></i> <span>Kandidate</span>
+                    </a>
+                </li>
+
                 <li class="menu-header">Lainnya</li>
                 <li class="nav-item {{ Request::is('dashboard/admin/nim-checker') ? 'active' : '' }}">
                     <a href="{{ url('/dashboard/admin/nim-checker') }}" class="nav-link">

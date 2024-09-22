@@ -193,7 +193,7 @@
                         <div
                             class="relative flex flex-col min-w-0 shadow-sm  rounded-xl break-words border bg-white border-1 border-gray-300 ">
                             <div class="flex-auto p-6">
-                                <div class="flex flex-wrap  no-gutters">
+                                <div class="flex flex-wrap no-gutters">
                                     <div class="lg:w-1/3 pr-4 pl-4">
                                         @if (file_exists(storage_path('app/public/' . $visionMission[$key . '_photo']->content)))
                                             <div class="img-fit img-fit-cover h-20rem">
@@ -252,26 +252,22 @@
                         [
                             'shortname' => 'psdm',
                             'name' => 'Pengembangan Sumber Daya Mahasiswa',
-                            'content' =>
-                                'Pengembangan dan pemberdayaan akademik dan softskill mahasiswa serta untuk menciptakan mahasiswa berkompeten dan unggul',
+                            'content' => 'Pengembangan dan pemberdayaan akademik dan softskill mahasiswa serta untuk menciptakan mahasiswa berkompeten dan unggul',
                         ],
                         [
                             'shortname' => 'litbang',
                             'name' => 'Penelitian dan Pengembangan',
-                            'content' =>
-                                'Melakukan penelitian untuk mendapatkan hasil optimal dalam pengembangan mahasiswa teknologi informasi',
+                            'content' => 'Melakukan penelitian untuk mendapatkan hasil optimal dalam pengembangan mahasiswa teknologi informasi',
                         ],
                         [
                             'shortname' => 'humas',
                             'name' => 'Hubungan Masyarakat',
-                            'content' =>
-                                'Media komunikasi antara HIMATIF birokrasi, organisasi lain, instansi, maupun masyarakat umum dan menjadi penghubung antara himatif dengan mahasiswa teknologi informasi secara langsung',
+                            'content' => 'Media komunikasi antara HIMATIF birokrasi, organisasi lain, instansi, maupun masyarakat umum dan menjadi penghubung antara himatif dengan mahasiswa teknologi informasi secara langsung',
                         ],
                         [
                             'shortname' => 'mediatek',
                             'name' => 'Media Teknologi',
-                            'content' =>
-                                'Media informasi dan komunikasi seputar teknologi informasi serta media pengembang teknologi HIMATIF',
+                            'content' => 'Media informasi dan komunikasi seputar teknologi informasi serta media pengembang teknologi HIMATIF',
                         ],
                     ];
                 @endphp
@@ -451,12 +447,12 @@
                     </div>
                 @endforeach
             </div>
-            
-            
-            </div>
-            <div class="swiper-pagination"></div>
+
+
+        </div>
+        <div class="swiper-pagination"></div>
     </section>
-    
+
 
     {{-- Section 5 : Galerry --}}
     <section id="section-5">
@@ -542,7 +538,6 @@
     </style>
 
     <style>
-
         .swiper-wrapper {
             display: flex;
             width: 100%
@@ -645,7 +640,7 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            border-radius:  10px 10px 0 0;
+            border-radius: 10px 10px 0 0;
         }
 
         .name {
@@ -687,42 +682,43 @@
             max-height: 100%;
             white-space: normal;
         }
-/*  
-        .swiper-button-next,
-        .swiper-button-prev {
-            color: #000 !important;
-            background-color: rgba(255, 255, 255, 0.8) !important;
-            border-radius: 50% !important;
-            width: 40px !important;
-            height: 40px !important;
-            font-size: 23px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            cursor: pointer;
-            z-index: 10 !important;
-            position: absolute !important;
-            top: 40% !important;
-            transform: translateY(-50%) !important;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            box-sizing: border-box;
-            border: 1px solid #ddd !important;
-        }
 
-        .swiper-button-next:hover,
-        .swiper-button-prev:hover {
-            background-color: rgba(255, 255, 255, 1) !important;
-            color: #000 !important;
-        }
+        /*
+            .swiper-button-next,
+            .swiper-button-prev {
+                color: #000 !important;
+                background-color: rgba(255, 255, 255, 0.8) !important;
+                border-radius: 50% !important;
+                width: 40px !important;
+                height: 40px !important;
+                font-size: 23px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                cursor: pointer;
+                z-index: 10 !important;
+                position: absolute !important;
+                top: 40% !important;
+                transform: translateY(-50%) !important;
+                transition: background-color 0.3s ease, color 0.3s ease;
+                box-sizing: border-box;
+                border: 1px solid #ddd !important;
+            }
 
-        .swiper-button-next {
-            right: 10px !important;
-        }
+            .swiper-button-next:hover,
+            .swiper-button-prev:hover {
+                background-color: rgba(255, 255, 255, 1) !important;
+                color: #000 !important;
+            }
 
-        .swiper-button-prev {
-            left: 10px !important;
-        }
-*/
+            .swiper-button-next {
+                right: 10px !important;
+            }
+
+            .swiper-button-prev {
+                left: 10px !important;
+            }
+    */
 
         .swiper-pagination-bullet {
             background: #ebd2b1 !important;
@@ -947,7 +943,7 @@
 
     <script>
         const swiper = new Swiper('.swiper', {
-            
+
             centeredSlides: true,
             pagination: {
                 el: '.swiper-pagination',

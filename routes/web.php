@@ -78,6 +78,19 @@ Route::group(['middleware' => ['auth', 'role:admin'], 'prefix' => 'dashboard/adm
     Route::get('review-alumni/edit/{id}', 'ReviewAlumniController@edit')->name('review-alumni.edit');
     Route::put('review-alumni/update/{id}', 'ReviewAlumniController@update')->name('review-alumni.update');
     Route::delete('review-alumni/delete/{id}', 'ReviewAlumniController@destroy')->name('review-alumni.destroy');
+
+    //pemilu kandidat
+    Route::resource('pemilu-candidate', 'PemiluCandidateController')->except(['destroy']);
+    Route::delete('pemilu-candidate/destroys', 'PemiluCandidateController@destroys')->name('pemilu-candidate.destroys');
+    
+    //pemilu vote
+    Route::post('pemilu-vote/refresh', 'PemiluVoteController@refreshToken')->name('pemilu-vote.refresh');
+    Route::post('pemilu-vote/createVoter', 'PemiluVoteController@createVoter')->name('pemilu-vote.addVoter');
+    Route::post('pemilu-vote/sendEmail', 'PemiluVoteController@sendEmail')->name('pemilu-vote.email.send');
+    Route::get('pemilu-vote/email-preview', 'PemiluVoteController@previewEmail')->name('pemilu-vote.email.preview');
+    Route::delete('pemilu-vote/destroys', 'PemiluVoteController@destroys')->name('pemilu-vote.destroys');
+    Route::resource('pemilu-vote', 'PemiluVoteController')->except(['destroy']);
+    
 });
 
 // Pengurus Routes
@@ -102,7 +115,11 @@ Route::group(['middleware' => ['auth', 'role:admin'],'prefix' => 'dashboard/ajax
     // Cakaps
     Route::get('cakaps', 'FormCakapController@getCakaps')->name('getCakaps');
     Route::get('cakaps-kode', 'FormCakapController@getCakapKode')->name('getCakapKode');
-    Route::get('cakaps-email', 'FormCakapController@getCakapsEmail')->name('getCakapsEmail');
+    Route::get('cakaps-email', 'FormCakapController@getCakapsEmail')->name('getCakapsEmail'); 
+    // Pemilu Kandidat
+    Route::get('pemilu-candidate', 'PemiluCandidateController@getCandidate')->name('getCandidate');
+    Route::get('pemilu-vote', 'PemiluVoteController@getVoter')->name('getVoter');
+    
 });
 
 Route::group(['namespace' => 'Frontpage', 'as' => 'frontpage.'], function () {
@@ -116,5 +133,12 @@ Route::group(['namespace' => 'Frontpage', 'as' => 'frontpage.'], function () {
     Route::get('berita/{slug}', 'HomepageController@showBerita')->name('berita.show');
     Route::get('nim-checker', 'HomepageController@getNIM')->name('nim-checker');
     Route::get('CakapxHimatif', 'HomepageController@showCakap')->name('cakap.show');
+    Route::get('pemilu/info', 'PemiluController@infoPemilu')->name('pemilu.info');
     Route::post('cakap/simpan',[CakapHimatifFrontpageController::class, 'store'])->name('cakap.store');
+});
+
+Route::group(['namespace' => 'Frontpage', 'as' => 'frontpage.', 'middleware' => 'checkVotingPeriod'], function () {
+    Route::get('pemilu', 'PemiluController@showPemilu')->name('pemilu');
+    Route::get('pemilu/vote', 'PemiluController@votePemilu')->name('pemilu.vote');
+    Route::post('pemilu/vote/submit', 'PemiluController@vote')->name('pemilu.submitVote');
 });

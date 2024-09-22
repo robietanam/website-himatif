@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontpage;
 use App\Http\Controllers\Controller;
 use App\Models\LabelCakap;
 use App\Models\NIMChecker;
+use App\Models\PemiluCandidate;
 use App\Repositories\PageContentRepository;
 use App\Repositories\DivisionRepository;
 use App\Repositories\PostRepository;
@@ -140,4 +141,6 @@ class HomepageController extends Controller
 
         return view('frontpage.modules.nim-checker', compact('nims'));
     }
+
+    
 }
