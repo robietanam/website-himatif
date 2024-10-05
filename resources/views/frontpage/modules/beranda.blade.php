@@ -429,6 +429,7 @@
                                 <div class="card-front">
                                     <div class="image-content">
                                         <span class="overlay"></span>
+                                        
                                         <div class="card-image">
                                             <img src="{{ asset('storage/' . $review->photo) }}"
                                                 alt="Photo of {{ $review->name }}" class="card-img">

@@ -44,12 +44,11 @@
             <div class="flex flex-wrap justify-center gap-8 my-5">
                 @foreach ($candidates as $candidate)
                     <div
-                        class="relative w-64 border border-gray-300 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition">
+                        class="relative w-64 border border-gray-300 rounded-lg shadow-md hover:cursor-pointer hover:shadow-2xl transition">
                         <input type="radio" name="candidate_id" value="{{ $candidate->id }}"
                             id="candidate-{{ $candidate->id }}" class="absolute opacity-0" />
                         <label for="candidate-{{ $candidate->id }}"
-                            class="flex flex-col items-center justify-center h-full p-4 rounded-lg transition-colors duration-300 ease-in-out">
-
+                            class="hover:cursor-pointer flex flex-col items-center justify-center h-full p-4 rounded-lg transition-colors duration-300 ease-in-out">
                             <span class="font-bold"> Paslon No. {{ $candidate->id }}</span>
                             <img src="{{ asset('storage/' . $candidate->photo) }}" alt="{{ $candidate->nama }}"
                                 class="h-56 mb-2 rounded-md">
