@@ -20,7 +20,7 @@ class CheckVotingPeriod
         $votingStart = config('election.start');
         $votingEnd = config('election.end');
         if ($currentDate < $votingStart) {
-            if (($currentDate > $campaignStart)) {
+            if ($currentDate > $campaignStart) {
                 if (strcmp($request->path(), 'pemilu') === 0) {
                     return $next($request);
                 } 
