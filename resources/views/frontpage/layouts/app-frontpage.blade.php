@@ -18,7 +18,7 @@
     @yield('style')
 </head>
 
-<body class="@yield('pageClass')">
+<body class="@yield('pageClass') text-black">
 
     @include('frontpage.layouts.navbar')
 
