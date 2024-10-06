@@ -5,8 +5,7 @@
 @section('pageClass', 'pemilu')
 @section('content')
 
-    <div class="container p-10 max-sm:px-4 max-sm:py-10 mx-auto">
-
+    <div class="container p-10 max-sm:px-4 max-sm:py-10 mx-auto bg-white">
         @if (request()->query('status') === 'campaign')
             <div class="text-center w-full px-20 max-sm:px-4 flex flex-col justify-center items-center ">
                 <h2 class="font-bold max-sm:text-3xl">

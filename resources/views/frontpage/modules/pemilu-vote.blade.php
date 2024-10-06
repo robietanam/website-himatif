@@ -4,7 +4,7 @@
 
 @section('pageClass', 'pemilu')
 @section('content')
-    <div>
+    <div class="bg-white">
 
 
         @if (session('type') && session('message'))
