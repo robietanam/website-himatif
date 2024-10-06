@@ -5,4 +5,4 @@ Pemilu
 2. Foto Pemilu
    Usahakan semuanya sama format, ukuran , dan besar. Gambar contoh_pemilu
 3. Tanggal Pelaksanaan
-   rubah tanggal sesuai dengan format contoh, pada file config/election.php
+   rubah tanggal sesuai dengan format contoh, pada file config/election.php . Jangan lupa di php artisan optimize:clear, lalu optimize lagi

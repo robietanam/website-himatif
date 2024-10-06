@@ -24,24 +24,25 @@
         </div>
         <div class="flex flex-col justify-center items-center gap-4 py-10">
             <div class="flex flex-col items-center ">
-                <p class="text-[4rem] py-4 font-bold max-md:text-[3rem]">PEMILU HIMATIF 6.0</p>
+                <p class="text-[4rem] py-4 font-bold max-md:text-[3rem] max-sm:text-[2rem]">PEMILU HIMATIF 6.0</p>
             </div>
             <p class="text-xl">Dengan tema :</p>
             <div
                 class="group relative flex items-center justify-center hover:cursor-pointer  transition-all duration-150 ease-in-out">
                 <div
                     class="rounded-tr-3xl rounded-bl-3xl rounded-tl-lg rounded-br-lg border border-black w-[90%] bg-white group-hover:bg-black">
-                    <p class="py-3 px-4 text-center font-semibold group-hover:text-white">Mewujudkan Kepemimpinan Inovatif
+                    <p class="py-3 px-4 text-center font-semibold group-hover:text-white max-sm:text-sm">Mewujudkan
+                        Kepemimpinan Inovatif
                         yang Kolaboratif, Responsif, Proaktif, dan Berintegritas bagi HIMATIF 2024/2025</p>
                 </div>
                 <div
-                    class="absolute -bottom-2 right-11 -z-10 rounded-tr-xl rounded-bl-3xl rounded-tl-lg rounded-br-lg  w-[90%] bg-red-400 group-hover:bg-white border border-transparent group-hover:border-black h-20">
+                    class="absolute -bottom-2 max-sm:right-8 right-11 -z-10 rounded-tr-xl rounded-bl-3xl rounded-tl-lg rounded-br-lg  w-[90%] bg-red-400 group-hover:bg-white border border-transparent group-hover:border-black h-20">
                 </div>
             </div>
         </div>
 
-        <div class="flex flex-col justify-center items-center my-16 gap-4">
-            <p>Scoll Kebawah untuk melihat Visi dan Misi mereka</p>
+        <div class="flex flex-col justify-center items-center my-16 gap-4 text-center ">
+            <p class="max-sm:text-base">Scoll Kebawah untuk melihat Visi dan Misi mereka</p>
             <div class="w-5 h-5 animate-bounce"><svg xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 256 256" xml:space="preserve">
                     <defs>
@@ -58,7 +59,7 @@
         </div>
 
         <div class="flex flex-col justify-center items-center w-full gap-8 mt-5">
-            <p class="text-2xl font-extrabold">3 Alasan Kenapa Jangan Sampai Golput</p>
+            <p class="text-2xl font-extrabold text-center max-sm:text-lg">3 Alasan Kenapa Jangan Sampai Golput</p>
             <div class="grid lg:grid-cols-3 justify-center items-center w-[90%] gap-8 min-h-80 max-xl:min-h-56">
                 <div
                     class="rounded-xl overflow-hidden border-black border-2 w-96 max-xl:w-80  h-full hover:scale-110 hover:cursor-pointer transition-all duration-150 ease-in-out">
@@ -120,7 +121,8 @@
                 @if ($key === 0)
                     <div class="relative w-full my-8">
                         <div class="grid md:grid-cols-6 grid-cols-1 gap-4">
-                            <div class=" relative col-span-2 flex flex-col justify-end items-center h-[24rem] ">
+                            <div
+                                class=" relative col-span-2 max-sm:col-span-4 flex flex-col justify-end items-center h-[24rem] ">
                                 <div
                                     class="absolute z-10 -top-4 h-fit px-4 py-1 w-fit -bottom-8 rounded-lg bg-white border-red-500 border-2">
                                     <p class="text-black font-bold"> Paslon {{ $candidate->id }}</p>
@@ -150,8 +152,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="py-5 px-8 bg-white">
-                                        <p class="text-center align-middle text-lg">
+                                    <div class="py-5 px-8 bg-white max-sm:px-5">
+                                        <p class="text-justify align-middle text-lg max-sm:text-sm ">
                                             {{ $candidate->visi }}
                                         </p>
                                     </div>
@@ -171,10 +173,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="py-5 px-8 bg-white">
-                                        <ol class="list-decimal px-10">
+                                    <div class="py-5 px-8 max-sm:px-5 bg-white">
+                                        <ol class="list-decimal px-10 max-sm:px-5">
                                             @foreach ($candidate->misi as $item)
-                                                <li class="text-lg text-justify"> {{ $item }} </li>
+                                                <li class="text-lg text-justify align-middle max-sm:text-sm">
+                                                    {{ $item }} </li>
                                             @endforeach
                                         </ol>
                                     </div>
@@ -186,7 +189,7 @@
                     <div class="relative w-full my-8">
                         <div class="grid md:grid-cols-6 grid-cols-1 ">
                             <div
-                                class="md:order-last relative col-span-2 flex flex-col justify-end items-center h-[24rem] ">
+                                class="md:order-last relative col-span-2 max-sm:col-span-4 flex flex-col justify-end items-center h-[24rem] ">
                                 <div
                                     class="absolute z-10 -top-4 h-fit px-4 py-1 w-fit -bottom-8 rounded-lg bg-white border-red-500 border-2">
                                     <p class="text-black font-bold"> Paslon {{ $candidate->id }}</p>
@@ -216,8 +219,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="py-5 px-8 bg-white">
-                                        <p class="text-center align-middle text-lg">
+                                    <div class="py-5 px-8 bg-white  max-sm:px-5">
+                                        <p class="text-justify align-middle text-lg max-sm:text-sm">
                                             {{ $candidate->visi }}
                                         </p>
                                     </div>
@@ -237,10 +240,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="py-5 px-8 bg-white">
-                                        <ol class="list-decimal px-10 ">
+                                    <div class="py-5 px-8  max-sm:px-5 bg-white">
+                                        <ol class="list-decimal px-10  max-sm:px-5">
                                             @foreach ($candidate->misi as $item)
-                                                <li class="text-lg text-justify"> {{ $item }} </li>
+                                                <li class="text-lg text-justify max-sm:text-sm"> {{ $item }} </li>
                                             @endforeach
                                         </ol>
                                     </div>
@@ -252,7 +255,8 @@
                 @elseif ($key === 2)
                     <div class="relative w-full my-8">
                         <div class="grid md:grid-cols-6 grid-cols-1 gap-4">
-                            <div class="relative col-span-2 flex flex-col justify-end items-center h-[24rem] ">
+                            <div
+                                class="relative col-span-2 max-sm:col-span-4 flex flex-col justify-end items-center h-[24rem] ">
                                 <div
                                     class="absolute z-10 -top-4 h-fit px-4 py-1 w-fit -bottom-8 rounded-lg bg-white border-red-500 border-2">
                                     <p class="text-black font-bold"> Paslon {{ $candidate->id }}</p>
@@ -283,8 +287,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="py-5 px-8 bg-white">
-                                        <p class="text-center align-middle text-lg">
+                                    <div class="py-5 px-8 bg-white  max-sm:px-5">
+                                        <p class="text-justify align-middle text-lg  max-sm:text-sm">
                                             {{ $candidate->visi }}
                                         </p>
                                     </div>
@@ -304,10 +308,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="py-5 px-8 bg-white">
-                                        <ol class="list-decimal px-10 ">
+                                    <div class="py-5 px-8 bg-white  max-sm:px-5">
+                                        <ol class="list-decimal px-10  max-sm:px-5">
                                             @foreach ($candidate->misi as $item)
-                                                <li class="text-lg text-justify"> {{ $item }} </li>
+                                                <li class="text-lg text-justify  max-sm:text-sm"> {{ $item }}
+                                                </li>
                                             @endforeach
                                         </ol>
                                     </div>
@@ -319,7 +324,7 @@
             @endforeach
         </div>
         <div class="w-full flex flex-col gap-3 justify-center items-center py-14">
-            <p> Klik tombol, jika sudah siap memberikan suara</p>
+            <p class="text-center"> Klik tombol, jika sudah siap memberikan suara</p>
             <div onclick="location.href='{{ route('frontpage.pemilu.vote') }}'"
                 class="bg-slate-600 py-2 px-5 rounded-full w-fit text-white hover:cursor-pointer hover:bg-slate-200 hover:text-slate-600 
                 transition-all ease-out duration-200 scale-100 hover:scale-110 
