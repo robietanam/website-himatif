@@ -37,7 +37,7 @@
             <div class="mb-4">
                 <label for="token" class="block text-gray-700 font-bold mb-2">Token</label>
                 <input type="text" id="token" name="token"
-                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
+                    class="w-full px-3 py-2  border rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
                     placeholder="Masukkan Token Anda" required>
             </div>
 
@@ -81,6 +81,10 @@
             /* Change to your desired color */
             color: black;
             /* Change text color if needed */
+        }
+
+        .input.input-bordered {
+            background-color: white !important;
         }
     </style>
 @endsection

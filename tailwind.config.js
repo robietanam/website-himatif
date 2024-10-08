@@ -9,6 +9,9 @@ export default {
     "./resources/**/*.vue",
     // "./node_modules/flowbite/**/*.js"
   ],
+  daisyui: {
+    themes: [],
+  },
   theme: {
     colors: {
       ...colors,
