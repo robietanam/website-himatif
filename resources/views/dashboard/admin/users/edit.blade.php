@@ -243,7 +243,7 @@
                 Penelitian dan Pengembangan
             </option>
                     <option value="4">
-                Hubungan Masyarakat
+                Hubungan Mahasiswa
             </option>
                     <option value="5">
                 Hubungan Luar
