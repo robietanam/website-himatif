@@ -24,7 +24,7 @@
         </div>
         <div class="flex flex-col justify-center items-center gap-4 py-10">
             <div class="flex flex-col items-center ">
-                <p class="text-[4rem] py-4 font-bold max-md:text-[3rem] max-sm:text-[2rem]">PEMILU HIMATIF 6.0</p>
+                <p class="text-[4rem] py-4 font-bold max-md:text-[3rem] max-sm:text-[2rem]">PEMILU HIMATIF 2024</p>
             </div>
             <p class="text-xl">Dengan tema :</p>
             <div
