@@ -261,7 +261,7 @@
                         ],
                         [
                             'shortname' => 'humas',
-                            'name' => 'Hubungan Masyarakat',
+                            'name' => 'Hubungan Mahasiswa',
                             'content' => 'Media komunikasi antara HIMATIF birokrasi, organisasi lain, instansi, maupun masyarakat umum dan menjadi penghubung antara himatif dengan mahasiswa teknologi informasi secara langsung',
                         ],
                         [

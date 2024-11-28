@@ -71,14 +71,12 @@ class CakapHimatif extends Controller
                         'kode' => $formCakap->cakapKode->kode,
                         'label' => $formCakap->label->name,
                         ];
-                    // Update the form status to 1 after email is successfully sent
-                    $formCakap->update(['status' => '1']);
-                    
                     
                     $termsFilePath = $pathTerms[$formCakap->label->name];
                     // Send email to the user
                     Mail::to($formCakap->email)->send(new CakapKodeMail($details, $termsFilePath));
-
+                    
+                    $formCakap->update(['status' => '1']);
                     
                 } catch (\Exception $e) {
                     

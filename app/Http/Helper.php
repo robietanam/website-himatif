@@ -36,3 +36,21 @@ if (!function_exists('tgl_indo')) {
         return $pecahkan[0] . " " . $bulan[(int) $pecahkan[1]] . " " .$year;
     }
 }
+
+if (!function_exists('formatTimeRange')) {
+    function formatTimeRange($start, $end)
+    {
+        // Create DateTime objects for start and end
+        $startDateTime = new DateTime($start);
+        $endDateTime = new DateTime($end);
+    
+        // Check if the start and end dates are the same
+        if ($startDateTime->format('Y-m-d') === $endDateTime->format('Y-m-d')) {
+            // Format: 08:00 - 17:00, 22 November 2024
+            return $startDateTime->format('H:i') . ' - ' . $endDateTime->format('H:i') . ', ' . $startDateTime->format('d F Y');
+        } else {
+            // Format: 08:00, 22 November 2024 sampai dengan 12:00, 23 November 2024
+            return $startDateTime->format('H:i, d F Y') . ' sampai dengan ' . $endDateTime->format('H:i, d F Y');
+        }
+    }
+}

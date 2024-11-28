@@ -6,7 +6,7 @@
 @section('content')
 
     <main class="text-center py-5 py-md-10">
-        <div class="container mx-auto sm:px-4 mx-auto sm:px-4">
+        <div class="container mx-auto sm:px-4 ">
             <h1 class="text-midnight font-boldest">
                 Not Found
             </h1>

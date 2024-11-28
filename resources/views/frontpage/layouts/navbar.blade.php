@@ -63,6 +63,13 @@
                                     CAKAPxHIMATIF
                                 </a>
                             </li>
+                            <li><a class="py-3 mx-2 text-black cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] 
+                                after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
+                                {{ Request::is('pemilu*') ? 'after:scale-x-100' : '' }}"
+                                    href="{{ url('/pemilu') }}">
+                                    PEMILU
+                                </a>
+                            </li>
                         </ul>
 
                     </li>
@@ -157,6 +164,14 @@
                                 {{ Request::is('CakapxHimatif') ? 'after:scale-x-100' : '' }}"
                                     href="{{ url('/CakapxHimatif') }}">
                                     CAKAPxHIMATIF
+                                </a>
+                            </li>
+                            <li>
+                                <a class="py-2 w-32 text-center text-black cursor-pointer relative block after:block after:content-[''] after:absolute after:h-[3px] 
+                                after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
+                                {{ Request::is('pemilu*') ? 'after:scale-x-100' : '' }}"
+                                    href="{{ url('/pemilu') }}">
+                                    PEMILU
                                 </a>
                             </li>
                         </div>

@@ -193,7 +193,7 @@
                         <div
                             class="relative flex flex-col min-w-0 shadow-sm  rounded-xl break-words border bg-white border-1 border-gray-300 ">
                             <div class="flex-auto p-6">
-                                <div class="flex flex-wrap  no-gutters">
+                                <div class="flex flex-wrap no-gutters">
                                     <div class="lg:w-1/3 pr-4 pl-4">
                                         @if (file_exists(storage_path('app/public/' . $visionMission[$key . '_photo']->content)))
                                             <div class="img-fit img-fit-cover h-20rem">
@@ -252,26 +252,22 @@
                         [
                             'shortname' => 'psdm',
                             'name' => 'Pengembangan Sumber Daya Mahasiswa',
-                            'content' =>
-                                'Pengembangan dan pemberdayaan akademik dan softskill mahasiswa serta untuk menciptakan mahasiswa berkompeten dan unggul',
+                            'content' => 'Pengembangan dan pemberdayaan akademik dan softskill mahasiswa serta untuk menciptakan mahasiswa berkompeten dan unggul',
                         ],
                         [
                             'shortname' => 'litbang',
                             'name' => 'Penelitian dan Pengembangan',
-                            'content' =>
-                                'Melakukan penelitian untuk mendapatkan hasil optimal dalam pengembangan mahasiswa teknologi informasi',
+                            'content' => 'Melakukan penelitian untuk mendapatkan hasil optimal dalam pengembangan mahasiswa teknologi informasi',
                         ],
                         [
                             'shortname' => 'humas',
-                            'name' => 'Hubungan Masyarakat',
-                            'content' =>
-                                'Media komunikasi antara HIMATIF birokrasi, organisasi lain, instansi, maupun masyarakat umum dan menjadi penghubung antara himatif dengan mahasiswa teknologi informasi secara langsung',
+                            'name' => 'Hubungan Mahasiswa',
+                            'content' => 'Media komunikasi antara HIMATIF birokrasi, organisasi lain, instansi, maupun masyarakat umum dan menjadi penghubung antara himatif dengan mahasiswa teknologi informasi secara langsung',
                         ],
                         [
                             'shortname' => 'mediatek',
                             'name' => 'Media Teknologi',
-                            'content' =>
-                                'Media informasi dan komunikasi seputar teknologi informasi serta media pengembang teknologi HIMATIF',
+                            'content' => 'Media informasi dan komunikasi seputar teknologi informasi serta media pengembang teknologi HIMATIF',
                         ],
                     ];
                 @endphp
@@ -425,38 +421,64 @@
                     </span>
                 </button>
             </div>
-            <div class="slide-content swiper-wrapper">
+            <div class="slide-content swiper-wrapper py-5">
                 @foreach ($reviews as $review)
                     <div class="swiper-slide">
                         <div class="r-card">
-                            <div class="card-inner">
-                                <div class="card-front">
+                            <div class="card-inner h-full">
+                                <div
+                                    class="card-front border border-solid border-black border-opacity-20 h-full shadow-lg">
                                     <div class="image-content">
                                         <span class="overlay"></span>
                                         <div class="card-image">
-                                            <img src="{{ asset('storage/' . $review->photo) }}"
-                                                alt="Photo of {{ $review->name }}" class="card-img">
+                                            @if (file_exists(storage_path('app/public/' . $review->photo)))
+                                                <img src="{{ asset('storage/' . $review->photo) }}" alt=" "
+                                                    class="card-img">
+                                            @else
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                    width="256" height="256" viewBox="0 0 256 256"
+                                                    xml:space="preserve">
+
+                                                    <defs>
+                                                    </defs>
+                                                    <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+                                                        transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                                                        <path
+                                                            d="M 45 53.718 c -10.022 0 -18.175 -8.153 -18.175 -18.175 S 34.978 17.368 45 17.368 c 10.021 0 18.175 8.153 18.175 18.175 S 55.021 53.718 45 53.718 z"
+                                                            style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+                                                            transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                                        <path
+                                                            d="M 45 0 C 20.187 0 0 20.187 0 45 c 0 24.813 20.187 45 45 45 c 24.813 0 45 -20.187 45 -45 C 90 20.187 69.813 0 45 0 z M 74.821 70.096 c -3.543 -5.253 -8.457 -9.568 -14.159 -12.333 c -2.261 -1.096 -4.901 -1.08 -7.247 0.047 c -2.638 1.268 -5.47 1.91 -8.415 1.91 c -2.945 0 -5.776 -0.643 -8.415 -1.91 c -2.343 -1.125 -4.984 -1.143 -7.247 -0.047 c -5.702 2.765 -10.616 7.08 -14.16 12.333 C 9.457 63.308 6 54.552 6 45 C 6 23.495 23.495 6 45 6 s 39 17.495 39 39 C 84 54.552 80.543 63.308 74.821 70.096 z"
+                                                            style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+                                                            transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                                    </g>
+                                                </svg>
+                                            @endif
+
                                         </div>
                                     </div>
-                                    <div class="card-content">
-                                        <h2 class="name">{{ $review->name }}</h2>
-                                        <p class="description text-center">{{ $review->motivation }}</p>
+                                    <div class="card-content h-1/2 w-4/5 xl:w-3/5 px-5 overflow-hidden py-2 ">
+                                        <h2 class="name text-white font-extrabold">{{ $review->name }}</h2>
+                                        <p class="description text-center text-white text-sm">{{ $review->motivation }}
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="card-back">
-                                    <p class="card-back-text">{{ $review->experience }}</p>
+                                <div class="card-back flex flex-col p-8 gap-4 h-full">
+                                    <p>Pengalaman Kerja ( {{ $review->tempat_kerja }})</p>
+                                    <p class="card-back-text h-4/5">{{ $review->experience }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
-            
-            
-            </div>
-            <div class="swiper-pagination"></div>
+
+
+        </div>
+        <div class="swiper-pagination"></div>
     </section>
-    
+
 
     {{-- Section 5 : Galerry --}}
     <section id="section-5">
@@ -542,7 +564,6 @@
     </style>
 
     <style>
-
         .swiper-wrapper {
             display: flex;
             width: 100%
@@ -584,25 +605,19 @@
         }
 
         .card-front {
-            background-color: #ffc107;
+            background-color: transparent;
             border-radius: 10px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            stroke-opacity: 50% overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .card-back {
-            background-color: #ffc107;
+            background-color: #42465f;
             color: #f3f2eb;
             transform: rotateY(180deg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
             border-radius: 10px;
-            padding: 20px;
         }
 
         .r-card:hover .card-inner {
@@ -636,22 +651,18 @@
         }
 
         .card-content {
-            width: 313px;
-            height: 150px;
-            padding: 10px;
-            background-color: #FFFFFF;
+            background-color: #42465f;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            border-radius:  10px 10px 0 0;
+            border-radius: 10px 10px 0 0;
         }
 
         .name {
             font-size: 14px;
             font-weight: bold;
-            color: black;
             margin-bottom: 10px;
             text-align: center;
             white-space: normal;
@@ -661,9 +672,6 @@
         }
 
         .description {
-            font-size: 14px;
-            color: #555;
-            margin-top: 5px;
             display: block;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -687,42 +695,43 @@
             max-height: 100%;
             white-space: normal;
         }
-/*  
-        .swiper-button-next,
-        .swiper-button-prev {
-            color: #000 !important;
-            background-color: rgba(255, 255, 255, 0.8) !important;
-            border-radius: 50% !important;
-            width: 40px !important;
-            height: 40px !important;
-            font-size: 23px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            cursor: pointer;
-            z-index: 10 !important;
-            position: absolute !important;
-            top: 40% !important;
-            transform: translateY(-50%) !important;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            box-sizing: border-box;
-            border: 1px solid #ddd !important;
-        }
 
-        .swiper-button-next:hover,
-        .swiper-button-prev:hover {
-            background-color: rgba(255, 255, 255, 1) !important;
-            color: #000 !important;
-        }
+        /*
+                                                                                                                                                                                                                                                    .swiper-button-next,
+                                                                                                                                                                                                                                                    .swiper-button-prev {
+                                                                                                                                                                                                                                                        color: #000 !important;
+                                                                                                                                                                                                                                                        background-color: rgba(255, 255, 255, 0.8) !important;
+                                                                                                                                                                                                                                                        border-radius: 50% !important;
+                                                                                                                                                                                                                                                        width: 40px !important;
+                                                                                                                                                                                                                                                        height: 40px !important;
+                                                                                                                                                                                                                                                        font-size: 23px !important;
+                                                                                                                                                                                                                                                        display: flex !important;
+                                                                                                                                                                                                                                                        align-items: center !important;
+                                                                                                                                                                                                                                                        justify-content: center !important;
+                                                                                                                                                                                                                                                        cursor: pointer;
+                                                                                                                                                                                                                                                        z-index: 10 !important;
+                                                                                                                                                                                                                                                        position: absolute !important;
+                                                                                                                                                                                                                                                        top: 40% !important;
+                                                                                                                                                                                                                                                        transform: translateY(-50%) !important;
+                                                                                                                                                                                                                                                        transition: background-color 0.3s ease, color 0.3s ease;
+                                                                                                                                                                                                                                                        box-sizing: border-box;
+                                                                                                                                                                                                                                                        border: 1px solid #ddd !important;
+                                                                                                                                                                                                                                                    }
 
-        .swiper-button-next {
-            right: 10px !important;
-        }
+                                                                                                                                                                                                                                                    .swiper-button-next:hover,
+                                                                                                                                                                                                                                                    .swiper-button-prev:hover {
+                                                                                                                                                                                                                                                        background-color: rgba(255, 255, 255, 1) !important;
+                                                                                                                                                                                                                                                        color: #000 !important;
+                                                                                                                                                                                                                                                    }
 
-        .swiper-button-prev {
-            left: 10px !important;
-        }
-*/
+                                                                                                                                                                                                                                                    .swiper-button-next {
+                                                                                                                                                                                                                                                        right: 10px !important;
+                                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                                    .swiper-button-prev {
+                                                                                                                                                                                                                                                        left: 10px !important;
+                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                            */
 
         .swiper-pagination-bullet {
             background: #ebd2b1 !important;
@@ -947,7 +956,7 @@
 
     <script>
         const swiper = new Swiper('.swiper', {
-            
+
             centeredSlides: true,
             pagination: {
                 el: '.swiper-pagination',
