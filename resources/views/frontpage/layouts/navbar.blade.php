@@ -2,14 +2,14 @@
     <div class="navbar ">
         <div class="navbar-start">
             <div class="dropdown">
-                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <div id="dropdownToggle" tabindex="0" role="button" class="btn btn-ghost lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h8m-8 6h16" />
                     </svg>
                 </div>
-                <ul tabindex="0" class=" dropdown-content mt-3  p-2 shadow bg-white rounded-box w-52 px-5">
+                <ul id="dropdownMenu" class="dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52 px-5">
                     <li class="text-sm max-lg:py-3">
                         <a class="relative w-fit block  after:block after:content-[''] after:absolute after:h-[3px] 
                             after:bg-[#ffc107] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center 
@@ -68,6 +68,30 @@
                     </li>
 
                 </ul>
+                <script>
+                    const dropdownToggle = document.getElementById("dropdownToggle");
+                    const dropdownMenu = document.getElementById("dropdownMenu");
+
+                    dropdownToggle.addEventListener("click", function(event) {
+                        event.stopPropagation();
+                        dropdownMenu.classList.toggle("show");
+                    });
+
+                    document.addEventListener("click", function(event) {
+                        if (!dropdownMenu.contains(event.target) && !dropdownToggle.contains(event.target)) {
+                            dropdownMenu.classList.remove("show");
+                        }
+                    });
+                </script>
+                <style>
+                    .dropdown-content {
+                        display: none;
+                    }
+
+                    .dropdown-content.show {
+                        display: block;
+                    }
+                </style>
             </div>
             <a class="flex items-center space-x-2 rtl:space-x-reverse" href="{{ route('frontpage.homepage') }}">
                 <img src="{{ asset('img/logo.png') }}" class="navbar-brand-image h-8" alt="Logo Himatif">
