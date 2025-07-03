@@ -105,14 +105,14 @@
                                                     Sekarang</a>
                                             </div>
                                         @else
-                                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfRNSQsVUxeGHhCY-bpuXDBddUsuh9Q6GOrt4BWepngBrIihw/viewform?usp=sf_link"
+                                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeo4ac_T7jZlIbINJ8Vdz0Cm0K0Lkd2RHor-ZdOs7XYw6fXXQ/viewform?usp=header"
                                                 target="_blank"
                                                 class="inline-block align-middle text-center select-none font-normal whitespace-no-wrap text-white 
                                             bg-gradient-to-r from-purple-800 to-purple-600 hover:bg-none hover:text-purple-800 hover:border hover:border-purple-700 rounded-md py-3 px-4 leading-normal no-underline 
                                             transition ease-in-out  hover:scale-110 duration-300">Series
                                                 1
                                             </a>
-                                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf1skE0H14lAbR0nKBqEghjwmpr-XDXTJTRaJi-_ry5yECMQg/viewform?usp=sf_link "
+                                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdgaJNu4xDigpBpgKXheyyOYdu3ThtySEKqK5ZwxCPVQKwOvw/viewform?usp=sharing&ouid=112477555319119038945"
                                                 target="_blank"
                                                 class="inline-block align-middle text-center select-none font-normal whitespace-no-wrap text-white 
                                         bg-gradient-to-r from-purple-800 to-purple-600 hover:bg-none hover:text-purple-800 hover:border hover:border-purple-700 rounded-md py-3 px-4 leading-normal no-underline 
@@ -277,7 +277,24 @@
                                     <div class="py-5 border-b border-gray-200">
                                         <ol class="relative border-s border-gray-200">
                                             @php
-                                                $sementara = [['Pendaftaran dan Pengumpulan Proposal Full Paper', '2024-02-24T17:05', '2024-03-18T19:18'], ['Pengumuman lolos/Babak Final', '2024-03-25T19:30', '2024-03-25T19:30'], ['TM dan Pengundian Nomor Urut', '2024-03-29T09:31', '2024-03-29T09:31'], ['Final dan Presentasi', '2024-03-30T09:31', '2024-03-30T09:31']];
+                                                $sementara = [
+                                                    [
+                                                        'Pendaftaran dan Pengumpulan Proposal Full Paper',
+                                                        '2024-02-24T17:05',
+                                                        '2024-03-18T19:18',
+                                                    ],
+                                                    [
+                                                        'Pengumuman lolos/Babak Final',
+                                                        '2024-03-25T19:30',
+                                                        '2024-03-25T19:30',
+                                                    ],
+                                                    [
+                                                        'TM dan Pengundian Nomor Urut',
+                                                        '2024-03-29T09:31',
+                                                        '2024-03-29T09:31',
+                                                    ],
+                                                    ['Final dan Presentasi', '2024-03-30T09:31', '2024-03-30T09:31'],
+                                                ];
                                             @endphp
                                             @foreach ($sementara as $key => $timeline)
                                                 @if (date('Y-m-d H:i:s') < date('Y-m-d H:i:s', strtotime($timeline[2])))
